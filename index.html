@@ -60,8 +60,9 @@ canvas{width:100%}
 <div class="notice" id="closeNotice">🔕 今日周日休市 · 数据基于7月17日（周五）收盘 · 下周一（7/20）09:00前更新早盘预判</div>
 
 <div class="voicebar">
-<span class="vlabel">🔊 语音日报 <span id="voiceStatus" style="color:#64748b;font-weight:400;font-size:0.66rem">约1分钟 · 本地朗读</span></span>
-<button class="updatebtn" id="voiceBtn" onclick="toggleVoice()">▶ 播放</button>
+<span class="vlabel">🔊 语音日报 <span id="voiceStatus" style="color:#64748b;font-weight:400;font-size:0.66rem">加载中…</span></span>
+<audio id="voiceAudio" controls preload="metadata" src="briefing.mp3" style="flex:1;min-width:140px;height:32px"></audio>
+<button class="updatebtn" id="voiceBtn" onclick="toggleVoice()" style="display:none">▶ 播放</button>
 <button class="updatebtn" onclick="checkUpdate()">🔄 一键更新</button>
 </div>
 
@@ -369,7 +370,22 @@ loadSettings();
 </script>
 
 <script>
-// ---------- 语音日报（浏览器本地朗读，零音频文件） ----------
+// ---------- 语音日报（音频文件优先，本地朗读兜底，全浏览器可用） ----------
+(function(){
+  var au = document.getElementById("voiceAudio");
+  var st = document.getElementById("voiceStatus");
+  var btn = document.getElementById("voiceBtn");
+  au.addEventListener("loadedmetadata", function(){
+    var s = Math.round(au.duration);
+    st.textContent = (Math.floor(s/60)) + "分" + (s%60) + "秒 · 点击播放";
+  });
+  au.addEventListener("error", function(){
+    // 音频文件缺失时，自动切换为本地朗读模式
+    au.style.display = "none";
+    btn.style.display = "";
+    st.textContent = "约1分钟 · 本地朗读";
+  });
+})();
 var BRIEFING = "早上好，这里是PeterLuo财经日报，2026年7月19日，基于7月17日周五收盘。黄金敏感指标，黄灯，加1分。美元指数100.75，国际金价4012.7美元，周涨0.4%。持仓观望，盯紧美元指数100.15和101.50两个关键位。半导体科技因子，红灯，减3分。VIX大涨12%，韩国综指暴跌6.4%，SK海力士跌11.5%，恐慌已从韩国传导至A股，短期回避高估值芯片股。原油地缘因子，红灯。布伦特原油周涨17.4%，不追涨。政策面适度宽松，预计年内降息两次，部分对冲外部冲击。操作结论：黄金持有观望，半导体短期回避，原油不追涨。以上仅供参考，不构成投资建议。";
 var speaking = false;
 function toggleVoice(){
