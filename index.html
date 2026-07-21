@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PeterLuo财经日报 2026-07-19</title>
+<title>PeterLuo财经日报 2026-07-21</title>
 <style>
 *{box-sizing:border-box}
 body{font-family:Arial,sans-serif;background:#0a0e1a;color:#e0e6ed;padding:12px 12px 76px;line-height:1.6;max-width:600px;margin:0 auto}
@@ -55,9 +55,9 @@ canvas{width:100%}
 <body>
 <h1>📊 PeterLuo财经日报</h1>
 <div class="subtitle">黄金 · 科技 · 原油 · A股</div>
-<div class="sub">2026年7月19日 · 基于7月17日周五收盘</div>
+<div class="sub">2026年7月21日 · 基于7月20日周一收盘</div>
 
-<div class="notice" id="closeNotice">🔕 今日周日休市 · 数据基于7月17日（周五）收盘 · 下周一（7/20）09:00前更新早盘预判</div>
+<div class="notice" id="closeNotice">📈 今日交易日 · 数据基于7月20日（周一）收盘 · 韩股早盘续跌1% · 关注分化是否收敛</div>
 
 <div class="voicebar">
 <span class="vlabel">🔊 语音日报 <span id="voiceStatus" style="color:#64748b;font-weight:400;font-size:0.66rem">加载中…</span></span>
@@ -66,114 +66,116 @@ canvas{width:100%}
 <button class="updatebtn" onclick="checkUpdate()">🔄 一键更新</button>
 </div>
 
-<div class="banner"><b>⚡ 较昨日（7/16→7/17）：</b>美元指数 +0.02%｜国际金价 <span class="up">+0.68%</span>｜VIX <span class="up">+12.19%</span>｜费城半导体 <span class="down">-1.63%</span>｜韩国综指 <span class="down">-6.37%</span>｜SK海力士 <span class="down">-11.53%</span></div>
+<div class="banner"><b>⚡ 较前一交易日（7/17→7/20）：</b>上证指数 <span class="up">+0.85%</span>｜红利ETF <span class="up">+3.41%</span>｜英伟达 <span class="up">+0.23%</span>｜布伦特原油 <span class="up">+1.27%</span>｜国际金价 <span class="down">-0.67%</span>｜中韩半导体ETF <span class="down">-2.18%</span></div>
 
 <!-- ================= 页面1：日报 ================= -->
 <div class="page active" id="page-daily">
 
 <div class="section">
-<div class="title">📰 政策要闻·公告雷达 <span class="signal green">国家队出手</span><span class="date-badge">7/19晚</span></div>
+<div class="title">📰 政策要闻·公告雷达 <span class="signal green">护盘首日见效</span><span class="date-badge">7/20</span></div>
 <div class="tip">
 <strong>🇨🇳 官媒重磅（政策市信号）</strong><br>
-<span class="signal green" style="float:none">利好</span> <strong>中国国新：</strong>已使用超500亿元（回购增持专项再贷款+配套资金）增持央企股票维护市场稳定，未来继续用足政策工具并以自有资金增持 <span style="color:#64748b">· 中国证券报 7/19晚</span><br>
-<span class="signal green" style="float:none">利好</span> <strong>中国诚通：</strong>累计买入近百亿元中国股票资产，后续继续大额增持国资央企、科技企业股票及ETF <span style="color:#64748b">· 央视新闻 7/19</span><br>
-<strong>📌 解读：</strong>两大国有资本运营公司同日官宣增持 = 明确的国家队护盘信号，利好央企/红利/中字头，周一情绪面偏暖，对冲韩股崩盘的外围利空
+<span class="signal green" style="float:none">利好落地</span> <strong>增持首日市场反应：</strong>国新超500亿+诚通近百亿增持官宣后首个交易日，国家队托举宽基与高股息——上证50大涨3.01%，沪深300涨1.53%，红利ETF大涨3.41%，港股通央企红利ETF涨2.77% <span style="color:#64748b">· 财新/同花顺 7/20</span><br>
+<span class="signal green" style="float:none">利好</span> <strong>资金动向：</strong>7/13-17宽基ETF合计净流入552.37亿元，集中涌入沪深300、中证500；证监会召开机构座谈会，"国家队"高调进场 <span style="color:#64748b">· 财新 7/20</span><br>
+<span class="signal yellow" style="float:none">中性</span> <strong>长鑫科技(688825.SH)：</strong>7/20新股缴款截止，分流科技板块资金，加剧大小盘分化 <span style="color:#64748b">· 财新 7/20</span><br>
+<strong>📌 解读：</strong>政策底已明牌——指数有国家队托底（沪指盘中3741点被托起收3796），但3710只个股下跌，护盘只护指数不护个股，结构上必须抱紧红利/央企/大盘蓝筹
 </div>
 <div class="tip">
 <strong>📋 个股公告雷达</strong>（监控：有研新材·彤程新材·TCL科技·三安光电·平高电气·许继电气·中国西电·甘肃能源·赤峰黄金）<br>
-周末休市，暂无重大个股公告；交易日每日扫描业绩/回购/增减持/股东会决议/监管处罚类公告
+过去24小时监控个股无重大公告；下个关注窗口为8月中报披露期
 </div>
 </div>
 
 <div class="section">
-<div class="title">🌅 早盘预判（09:00开盘前）<span class="date-badge">7/20 周一·待更新</span></div>
+<div class="title">🌅 早盘预判（09:00开盘前）<span class="date-badge">7/21 周二</span></div>
 <div class="tip">
-<strong>🇰🇷 韩股崩盘传导：</strong>综指-6.37%、海力士-11.53% → 周一A股半导体大概率低开承压<br>
-<strong>🇺🇸 美股芯片走弱：</strong>费半-1.63%、英伟达-2.21% → AI硬件端情绪偏空<br>
-<strong>🟡 黄金：</strong>弱美元+避险需求，偏强震荡，盯100.15/101.50<br>
-<strong>🛢️ 原油：</strong>地缘溢价已高，不追涨<br>
-<strong>🛡️ 国家队护盘：</strong>国新超500亿+诚通近百亿增持官宣 → 对冲外围恐慌，周一关注低开后的政策底承接力度<br>
-<strong>📌 策略：</strong>半导体不抄底、等缩量止跌；防御关注电力电网、红利方向<br>
-<span style="color:#64748b;font-size:0.68rem">下次更新：7/20（周一）09:00前</span>
+<strong>🇰🇷 韩股早盘：</strong>综指续跌1%报6441.59，SK海力士跌超1% → 半导体情绪仍偏弱，但跌幅已从-6%收敛至-1%，恐慌进入尾声<br>
+<strong>🇺🇸 美股芯片企稳：</strong>英伟达+0.23%收$203.28，止跌迹象初现，观察今晚能否确认<br>
+<strong>🛡️ 国家队托底：</strong>增持资金主攻宽基+央企红利，沪指有底（3741政策承接位），但中小盘仍释放尾部风险<br>
+<strong>🛢️ 原油：</strong>霍尔木兹海峡通航量降至零，布油收$89.22，地缘溢价继续，不追涨<br>
+<strong>📌 策略：</strong>抱红利/央企/电力电网（国家队主场）；医药结构最健康可低吸；半导体不抄底，等韩股止跌+缩量确认；今日观察中证1000能否在6800上方企稳<br>
+<span style="color:#64748b;font-size:0.68rem">下次更新：7/22（周三）08:00</span>
 </div>
 </div>
 
 <div class="section">
-<div class="title">🌇 收盘复盘（15:00收盘后）<span class="date-badge">7/17 周五</span></div>
+<div class="title">🌇 收盘复盘（15:00收盘后）<span class="date-badge">7/20 周一</span></div>
 <div class="tip">
-<strong>📉 科技全线重挫：</strong>中韩半导体ETF -10.00%跌停，中芯国际 -9.97%，恐慌自韩股传导<br>
-<strong>🛡️ 黄金相对抗跌：</strong>沪金仅-0.55%，避险属性显现<br>
-<strong>✅ 信号回顾：</strong>本报半导体红灯「短期回避高估值芯片股」与盘面一致<br>
-<strong>👀 下周一关注：</strong>韩股是否止跌、美伊局势、美股大模型风格是否延续
+<strong>📊 极致分化：</strong>上证50 +3.01% vs 中证1000 -2.83%，大小盘剪刀差近6个百分点，年内罕见<br>
+<strong>🛡️ 护盘动线：</strong>沪指盘中最低3741后被强力托起，收3796.28（+0.85%），红利ETF +3.41%、央企红利领涨<br>
+<strong>📉 科技延续调整：</strong>半导体ETF -2.80%，中韩半导体ETF -2.18%；中芯国际A逆势+2.94%收144元<br>
+<strong>✅ 预判验证（准确率 2/3 = 67%）：</strong>「半导体低开承压」✅ 命中 ·「防御关注电力电网/红利」✅ 命中 ·「黄金偏强震荡」❌ 未中（金价-0.67%回落）<br>
+<strong>👀 次日关注：</strong>韩股能否止跌、中证1000能否守住6800、美股AI财报季资本开支验证
 </div>
 </div>
 
 <div class="section">
-<div class="title">🟡 黄金敏感指标 <span class="signal yellow">黄灯 +1分</span><span class="date-badge">7/17收盘</span></div>
+<div class="title">🟡 黄金敏感指标 <span class="signal yellow">黄灯 0分</span><span class="date-badge">金价7/20·其余7/17</span></div>
 <table>
 <tr><th>指标</th><th>收盘</th><th>日变动</th><th>周变动</th></tr>
 <tr><td>🇺🇸 美元指数</td><td>100.75</td><td class="up">+0.02%</td><td class="down">-0.53%</td></tr>
 <tr><td>🇺🇸 美债10年</td><td>4.541%</td><td class="down">-2.8bp</td><td class="down">-6.8bp</td></tr>
-<tr><td>🇺🇸 国际金价</td><td class="highlight">$4,012.7</td><td class="up">+0.68%</td><td class="up">+0.4%</td></tr>
+<tr><td>🇺🇸 国际金价</td><td class="highlight">$3,985</td><td class="down">-0.67%</td><td class="down">-0.3%</td></tr>
 <tr><td>🇨🇳 沪金AU9999</td><td>¥872.48</td><td class="down">-0.55%</td><td class="down">-1.6%</td></tr>
 <tr><td>🇺🇸 金银比</td><td>71.61</td><td class="up">+0.31</td><td>—</td></tr>
 </table>
-<div class="tip"><strong>💡 持仓:</strong> 观望。盯 <strong>100.15</strong>（跌破加仓）<strong>101.50</strong>（升破减仓）</div>
+<div class="tip"><strong>💡 持仓:</strong> 观望。金价小幅回调但未破趋势，盯美元指数 <strong>100.15</strong>（跌破加仓）<strong>101.50</strong>（升破减仓）</div>
 </div>
 
 <div class="section">
-<div class="title">🔴 半导体·科技因子 <span class="signal red">红灯 -3分</span><span class="date-badge">7/17收盘</span></div>
+<div class="title">🔴 半导体·科技因子 <span class="signal red">红灯 -2分</span><span class="date-badge">7/20收盘·韩股7/21早盘</span></div>
 <table>
 <tr><th>标的</th><th>价格</th><th>日涨跌</th></tr>
-<tr><td>🇺🇸 VIX波动率</td><td>18.77</td><td class="up">+12.19%</td></tr>
-<tr><td>🇺🇸 费城半导体</td><td>11,673.89</td><td class="down">-1.63%</td></tr>
-<tr><td>🇺🇸 英伟达</td><td>$202.81</td><td class="down">-2.21%</td></tr>
-<tr><td>🇰🇷 韩国综指</td><td>6,820.60</td><td class="down">-6.37%</td></tr>
-<tr><td>🇰🇷 SK海力士</td><td>1,842,000</td><td class="down">-11.53%</td></tr>
-<tr><td>🇰🇷 三星电子</td><td>255,000</td><td class="down">-8.77%</td></tr>
-<tr><td>🇨🇳 中韩半导体ETF</td><td>4.636</td><td class="down">-10.00%</td></tr>
-<tr><td>🇨🇳 中芯国际</td><td>67.70</td><td class="down">-9.97%</td></tr>
+<tr><td>🇺🇸 英伟达</td><td>$203.28</td><td class="up">+0.23%</td></tr>
+<tr><td>🇺🇸 费城半导体</td><td>11,673.89</td><td class="down">-1.63%(7/17)</td></tr>
+<tr><td>🇺🇸 VIX波动率</td><td>18.77</td><td class="up">+12.19%(7/17)</td></tr>
+<tr><td>🇰🇷 韩国综指</td><td>6,441.59</td><td class="down">-1.0%(7/21早盘)</td></tr>
+<tr><td>🇰🇷 SK海力士</td><td>—</td><td class="down">跌超1%(7/21早盘)</td></tr>
+<tr><td>🇰🇷 三星电子</td><td>255,000</td><td class="down">-8.77%(7/17)</td></tr>
+<tr><td>🇨🇳 中韩半导体ETF</td><td>4.535</td><td class="down">-2.18%(7/20)</td></tr>
+<tr><td>🇨🇳 中芯国际A</td><td>144.00</td><td class="up">+2.94%(7/20)</td></tr>
 </table>
-<div class="tip"><strong>💡 科技:</strong> 恐慌已从韩国传导至A股。短期回避高估值芯片股。</div>
+<div class="tip"><strong>💡 科技:</strong> 恐慌边际收敛（韩股跌幅-6%→-1%，英伟达企稳），但方向未反转。继续回避，等韩股止跌+A股半导体缩量确认。</div>
 </div>
 
 <div class="section">
-<div class="title">🔴 原油·地缘因子 <span class="signal red">红灯 -2分</span><span class="date-badge">7/17收盘</span></div>
+<div class="title">🔴 原油·地缘因子 <span class="signal red">红灯 -3分</span><span class="date-badge">7/20收盘</span></div>
 <table>
-<tr><th>指标</th><th>收盘</th><th>周变动</th></tr>
-<tr><td>🇺🇸 布伦特原油</td><td class="highlight">$88.35</td><td class="up">+17.41%</td></tr>
-<tr><td>🇺🇸 WTI原油</td><td>$81.77</td><td class="up">+3.65%</td></tr>
-<tr><td>🇺🇸 EIA预测</td><td>$82.0</td><td>下调</td></tr>
+<tr><th>指标</th><th>收盘</th><th>日变动</th></tr>
+<tr><td>🇺🇸 布伦特原油</td><td class="highlight">$89.22</td><td class="up">+1.27%</td></tr>
+<tr><td>🇺🇸 WTI原油</td><td>$83.23</td><td class="up">+0.90%</td></tr>
+<tr><td>🇺🇸 盘中高点</td><td>$91.42</td><td>6/11来首破91</td></tr>
 </table>
-<div class="tip"><strong>📰 地缘:</strong> 7/7取消豁免→7/8恢复封锁→7/13油轮遇袭→海峡流量降至50%</div>
+<div class="tip"><strong>📰 地缘升级:</strong> 霍尔木兹海峡通航量降至零（法尔斯社7/19）· 美军连续第九夜打击伊朗 · 溢价继续但不追涨，防高位获利回吐</div>
 </div>
 
 <div class="section">
-<div class="title">🇨🇳 A股核心指标（8大板块）<span class="date-badge">7/17·策略视角</span></div>
+<div class="title">🇨🇳 A股核心指标（8大板块）<span class="date-badge">7/20收盘·策略视角</span></div>
 <div class="sector-grid">
-<div class="sector"><div class="sname">半导体 <span class="signal red" style="float:none">🔴 红灯</span></div>恐慌传导，短期回避高估值，等缩量止跌</div>
-<div class="sector"><div class="sname">AI基础设施 <span class="signal yellow" style="float:none">🟡 黄灯</span></div>美股风格转向大模型，硬件端观望</div>
-<div class="sector"><div class="sname">具身智能 <span class="signal yellow" style="float:none">🟡 黄灯</span></div>人形机器人量产元年，趋势明确，短期受科技情绪拖累，等右侧信号</div>
-<div class="sector"><div class="sname">商业航天 <span class="signal yellow" style="float:none">🟡 黄灯</span></div>星座组网+发射放量，订单能见度至2028，回调关注低吸</div>
-<div class="sector"><div class="sname">电力电网 <span class="signal green" style="float:none">🟢 绿灯</span></div>逆势抗跌，防御+主线属性，资金避风港</div>
-<div class="sector"><div class="sname">创新药 <span class="signal yellow" style="float:none">🟡 黄灯</span></div>政策催化持续，回调关注低吸机会</div>
-<div class="sector"><div class="sname">消费 <span class="signal yellow" style="float:none">🟡 黄灯</span></div>内需数据待验证，暂作观察</div>
-<div class="sector"><div class="sname">红利 <span class="signal green" style="float:none">🟢 绿灯</span></div>弱市之盾，底仓防御配置</div>
+<div class="sector"><div class="sname">半导体 <span class="signal red" style="float:none">🔴 红灯</span></div>ETF -2.80%，恐慌尾声但未反转，等缩量止跌</div>
+<div class="sector"><div class="sname">AI基础设施 <span class="signal yellow" style="float:none">🟡 黄灯</span></div>英伟达企稳+0.23%，AI财报季验证前观望</div>
+<div class="sector"><div class="sname">具身智能 <span class="signal yellow" style="float:none">🟡 黄灯</span></div>中小盘承压，等右侧信号</div>
+<div class="sector"><div class="sname">商业航天 <span class="signal yellow" style="float:none">🟡 黄灯</span></div>跟随成长调整，回调关注低吸</div>
+<div class="sector"><div class="sname">电力电网 <span class="signal green" style="float:none">🟢 绿灯</span></div>公用事业托举收红，防御+国家队主场</div>
+<div class="sector"><div class="sname">创新药 <span class="signal green" style="float:none">🟢 绿灯</span></div>医药扛旗，结构全市场最健康，可低吸</div>
+<div class="sector"><div class="sname">消费 <span class="signal yellow" style="float:none">🟡 黄灯</span></div>防御板块托举，观察持续性</div>
+<div class="sector"><div class="sname">红利 <span class="signal green" style="float:none">🟢 绿灯</span></div>ETF +3.41%，国家队增持主场，底仓配置</div>
 </div>
-<div class="tip" style="font-size:0.68rem;color:#64748b">板块信号灯为策略视角定性判断（基于7/17收盘与资金行为），非实时行情数据</div>
+<div class="tip" style="font-size:0.68rem;color:#64748b">板块信号灯为策略视角定性判断（基于7/20收盘与资金行为），非实时行情数据</div>
 </div>
 
 <div class="section">
-<div class="title">🟡 政策·宏观 <span class="signal yellow">黄灯 0分</span><span class="date-badge">7/17</span></div>
+<div class="title">🟡 政策·宏观 <span class="signal yellow">黄灯 0分</span><span class="date-badge">7/20</span></div>
 <div class="tip">
 <strong>货币:</strong> 2026适度宽松，预计降息2次20-30BP<br>
+<strong>资金:</strong> 宽基ETF上周净流入552.37亿，国家队真金白银托底<br>
 <strong>关系:</strong> 美对华半导体管制持续，H20供应链反复<br>
 <strong>地缘:</strong> 霍尔木兹通行不畅，全球供应链不确定性↑
 </div>
 </div>
 
 <div class="section">
-<div class="title">🔬 半导体供应链深度<span class="date-badge">7/17</span></div>
+<div class="title">🔬 半导体供应链深度<span class="date-badge">7/20</span></div>
 <div class="tip">
 <strong>HBM:</strong> 涨价15-30%，DDR4收缩15%，封测满载涨价<br>
 <strong>AI芯片:</strong> Vera Rubin投产，H200对华200万颗，全链缺货<br>
@@ -182,11 +184,11 @@ canvas{width:100%}
 </div>
 
 <div class="section">
-<div class="title">🎯 投资逻辑链条<span class="date-badge">7/17</span></div>
+<div class="title">🎯 投资逻辑链条<span class="date-badge">7/20</span></div>
 <div class="tip">
 <strong>① 地缘冲突:</strong> 美伊→油价↑→通胀↑→降息受阻→流动性收紧→风险资产承压<br><br>
-<strong>② 半导体恐慌:</strong> 韩股暴跌→供应链恐慌→A股ETF跌停→大A半导体低开承压<br><br>
-<strong>③ 政策对冲:</strong> 降准降息→流动性支撑→部分对冲外部冲击<br><br>
+<strong>② 半导体恐慌:</strong> 韩股暴跌→恐慌传导→A股极致分化→中小盘释放尾部风险<br><br>
+<strong>③ 政策对冲:</strong> 国家队增持+降准降息→指数有底→红利央企领涨<br><br>
 <strong>④ 黄金避险:</strong> 弱美元+低利率→黄金受益→警惕美元反弹
 </div>
 <table style="margin-top:10px">
@@ -208,7 +210,8 @@ canvas{width:100%}
 <button class="histbtn" onclick="showHist('7/14',this)">7/14 周二</button>
 <button class="histbtn" onclick="showHist('7/15',this)">7/15 周三</button>
 <button class="histbtn" onclick="showHist('7/16',this)">7/16 周四</button>
-<button class="histbtn active" onclick="showHist('7/17',this)">7/17 周五</button>
+<button class="histbtn" onclick="showHist('7/17',this)">7/17 周五</button>
+<button class="histbtn active" onclick="showHist('7/20',this)">7/20 周一</button>
 </div>
 <div id="histContent"></div>
 </div>
@@ -218,25 +221,24 @@ canvas{width:100%}
 <!-- ================= 页面3：对比 ================= -->
 <div class="page" id="page-compare">
 <div class="section">
-<div class="title">⚡ 较昨日差异（7/16→7/17）<span class="date-badge">7/17收盘</span></div>
+<div class="title">⚡ 较前一交易日差异（7/17→7/20）<span class="date-badge">7/20收盘</span></div>
 <table>
 <tr><th>指标</th><th>市场</th><th>日变动</th></tr>
-<tr><td>美元指数</td><td>🇺🇸</td><td class="up">+0.02%</td></tr>
-<tr><td>国际金价</td><td>🇺🇸</td><td class="up">+0.68%</td></tr>
-<tr><td>沪金AU9999</td><td>🇨🇳</td><td class="down">-0.55%</td></tr>
-<tr><td>VIX波动率</td><td>🇺🇸</td><td class="up">+12.19%</td></tr>
-<tr><td>费城半导体</td><td>🇺🇸</td><td class="down">-1.63%</td></tr>
-<tr><td>英伟达</td><td>🇺🇸</td><td class="down">-2.21%</td></tr>
-<tr><td>韩国综指</td><td>🇰🇷</td><td class="down">-6.37%</td></tr>
-<tr><td>SK海力士</td><td>🇰🇷</td><td class="down">-11.53%</td></tr>
-<tr><td>中韩半导体ETF</td><td>🇨🇳</td><td class="down">-10.00%</td></tr>
+<tr><td>上证指数</td><td>🇨🇳</td><td class="up">+0.85%</td></tr>
+<tr><td>红利ETF</td><td>🇨🇳</td><td class="up">+3.41%</td></tr>
+<tr><td>中芯国际A</td><td>🇨🇳</td><td class="up">+2.94%</td></tr>
+<tr><td>中韩半导体ETF</td><td>🇨🇳</td><td class="down">-2.18%</td></tr>
+<tr><td>英伟达</td><td>🇺🇸</td><td class="up">+0.23%</td></tr>
+<tr><td>国际金价</td><td>🇺🇸</td><td class="down">-0.67%</td></tr>
+<tr><td>布伦特原油</td><td>🇺🇸</td><td class="up">+1.27%</td></tr>
+<tr><td>韩国综指</td><td>🇰🇷</td><td class="down">-1.0%(7/21早盘)</td></tr>
 </table>
 </div>
 
 <div class="section">
 <div class="title">📈 复盘准确率追踪（历史趋势）</div>
 <canvas id="accChart" width="560" height="260"></canvas>
-<div class="chart-note">早盘预判验证自7/20（周一）收盘起开始记录，首个数据点即将生成 · 灰色为未记录日期</div>
+<div class="chart-note">7/20 首个验证点：67%（3项预判命中2项）· 灰色为未记录日期</div>
 </div>
 </div><!-- /page-compare -->
 
@@ -316,6 +318,7 @@ function checkUpdate(){
 
 // ---------- 历史日期选择器 ----------
 const HISTORY = {
+  '7/20': {ok:true, html:'<div class="tip"><strong>7月20日 周一 · 快照</strong><br>🟡 黄金 黄灯0分：金价$3,985（日-0.67%），观望<br>🔴 半导体 红灯-2分：韩股跌幅收敛至-1%，英伟达企稳，继续回避<br>🔴 原油 红灯-3分：霍尔木兹通航量降至零，布油$89.22，不追涨<br>🟢 A股：国家队护盘首日，上证50 +3.01%，红利ETF +3.41%，极致分化<br><strong>操作：抱红利/央企/电力 · 医药低吸 · 半导体等止跌</strong></div>'},
   '7/17': {ok:true, html:'<div class="tip"><strong>7月17日 周五 · 快照</strong><br>🟡 黄金 黄灯+1分：金价$4,012.7（周+0.4%），观望<br>🔴 半导体 红灯-3分：韩综指-6.37%，海力士-11.53%，回避<br>🔴 原油 红灯-2分：布伦特$88.35（周+17.41%），不追涨<br>🟡 政策 黄灯0分：适度宽松，预计降息2次<br><strong>操作：黄金观望 · 半导体回避 · 原油不追涨</strong></div>'},
   '7/16': {ok:false}, '7/15': {ok:false}, '7/14': {ok:false}, '7/13': {ok:false}
 };
@@ -327,7 +330,7 @@ function showHist(date, btn){
   if(item && item.ok){ box.innerHTML = item.html; }
   else{ box.innerHTML = '<div class="empty-note">📭 '+date+' 快照未留存<br>自7/19版起每日自动保存，仅保留最近7天</div>'; }
 }
-showHist('7/17', document.querySelector('.histbtn.active'));
+showHist('7/20', document.querySelector('.histbtn.active'));
 
 // ---------- 复盘准确率趋势图 ----------
 function drawAccChart(){
@@ -336,7 +339,7 @@ function drawAccChart(){
   const W = cv.width, H = cv.height;
   ctx.clearRect(0,0,W,H);
   const days = ['7/13','7/14','7/15','7/16','7/17','7/20'];
-  const vals = [null,null,null,null,null,null]; // 待积累
+  const vals = [null,null,null,null,null,67]; // 7/20首个验证点
   const padL=40, padB=30, padT=16, cw=(W-padL-10)/days.length;
   // 网格线
   ctx.strokeStyle='#1e293b'; ctx.fillStyle='#64748b'; ctx.font='11px Arial'; ctx.textAlign='right';
@@ -355,6 +358,12 @@ function drawAccChart(){
       ctx.fillRect(x, padT, bw, baseY-padT);
       ctx.fillStyle='#475569';
       ctx.fillText('未记录', x+bw/2, padT+16);
+    } else {
+      const bh = (H-padB-padT)*vals[i]/100;
+      ctx.fillStyle='#ffd700';
+      ctx.fillRect(x, baseY-bh, bw, bh);
+      ctx.fillStyle='#ffd700';
+      ctx.fillText(vals[i]+'%', x+bw/2, baseY-bh-6);
     }
     ctx.fillStyle='#64748b';
     ctx.fillText(d, x+bw/2, H-padB+16);
@@ -401,7 +410,7 @@ loadSettings();
     st.textContent = "约5分钟 · 本地朗读";
   });
 })();
-var BRIEFING = "早上好，这里是PeterLuo财经日报，2026年7月19日，周日休市，数据基于7月17日周五收盘。先报政策要闻：7月19日晚间，中国国新公告，已使用超500亿元回购增持专项再贷款及配套资金，增持中央企业股票，维护市场稳定，未来还将继续增持。中国诚通同步官宣，累计买入近百亿元中国股票资产，后续继续大额增持国资央企和科技企业股票及ETF。两大国家队同日出手，护盘信号明确，利好央企、红利、中字头方向，周一大盘情绪面偏暖。隔夜变动：美元指数微涨0.02%，报100.75；国际金价上涨0.68%，报4012.7美元；VIX恐慌指数大涨12.19%；费城半导体下跌1.63%；韩国综指暴跌6.37%，SK海力士重挫11.53%。第一部分，黄金敏感指标，黄灯，加1分。美元指数周跌0.53%，美债十年期收益率4.541%，周降6.8个基点。沪金872.48元，周跌1.6%，金银比71.61。操作上持仓观望，盯紧美元指数100.15和101.50两个关键位，跌破加仓，升破减仓。第二部分，半导体科技因子，红灯，减3分。英伟达下跌2.21%，中韩半导体ETF跌停，中芯国际下跌9.97%。恐慌已从韩国传导至A股，短期回避高估值芯片股，不抄底，等缩量止跌。第三部分，原油地缘因子，红灯，减2分。布伦特原油报88.35美元，周大涨17.41%，WTI报81.77美元。地缘链：7月7日取消豁免，8日恢复封锁，13日油轮遇袭，霍尔木兹海峡流量降至五成。油价地缘溢价已高，不追涨。第四部分，A股八大板块信号。半导体，红灯，回避；AI基础设施，黄灯，观望；具身智能，黄灯，等右侧信号；商业航天，黄灯，回调关注低吸；电力电网，绿灯，逆势抗跌，资金避风港；创新药，黄灯，回调关注低吸；消费，黄灯，观察；红利，绿灯，弱市之盾，叠加国家队增持，底仓配置。第五部分，政策与宏观。货币政策适度宽松，预计年内降息两次，20到30个基点。美对华半导体管制持续，H20供应链反复。第六部分，半导体供应链。HBM涨价15%到30%，DDR4产能收缩15%，封测满载涨价。AI芯片方面，Vera Rubin投产，H200对华供应200万颗，全链缺货。材料端，覆铜板涨12%到22%，铜箔涨15%到28%，金刚石热沉进入元年。最后，投资逻辑与操作结论。四条主线：一，地缘冲突推升油价，通胀承压，降息受阻，风险资产承压；二，韩股暴跌引发半导体恐慌传导；三，国家队增持叠加国内宽松，对冲外部冲击；四，弱美元加低利率利好黄金，警惕美元反弹。操作上：黄金持有观望，半导体短期回避，原油不追涨，防御方向关注电力电网和红利。下周一关注：国家队增持能否带来政策底承接、韩股是否止跌、美伊局势。早盘预判将在7月20日早上9点前更新。以上仅供参考，不构成投资建议。";
+var BRIEFING = "早上好，这里是PeterLuo财经日报，2026年7月21日星期二，数据基于7月20日周一收盘。先报政策要闻：国家队增持官宣后首个交易日，效果立竿见影。中国国新超500亿元、中国诚通近百亿元增持落地，资金主攻宽基指数和央企红利，上证50大涨3.01%，沪深300涨1.53%，红利ETF大涨3.41%，港股通央企红利ETF涨2.77%。宽基ETF上周合计净流入552亿元，证监会同步召开机构座谈会。但要注意：3710只个股下跌，国家队护的是指数不是个股，结构必须跟对。收盘复盘：周一A股极致分化，大小盘剪刀差近6个百分点，年内罕见。沪指盘中最低3741点被强力托起，收3796.28点，涨0.85%。半导体ETF跌2.80%，中韩半导体ETF跌2.18%，中芯国际逆势涨2.94%。前日预判验证：半导体承压、防御关注红利电力，两项命中；黄金偏强一项未中，准确率67%。隔夜与早盘：英伟达微涨0.23%，企稳迹象初现。韩股今日早盘续跌1%，报6441点，SK海力士跌超1%，恐慌从暴跌6%收敛到1%，进入尾声但方向未反转。第一部分，黄金敏感指标，黄灯，0分。国际金价3985美元，日跌0.67%，小幅回调未破趋势。持仓观望，盯紧美元指数100.15和101.50两个关键位。第二部分，半导体科技因子，红灯，减2分。韩股未止跌，A股半导体未缩量，继续回避，不抄底。第三部分，原油地缘因子，红灯，减3分。布伦特收89.22美元，盘中突破91美元，为6月11日以来首次。霍尔木兹海峡通航量降至零，美军连续第九夜打击伊朗。地缘溢价继续，但不追涨，防高位回吐。第四部分，A股八大板块信号。半导体，红灯，回避；AI基础设施，黄灯，观望；具身智能，黄灯，等右侧；商业航天，黄灯，回调低吸；电力电网，绿灯，国家队主场；创新药，绿灯，结构全市场最健康，可低吸；消费，黄灯，观察；红利，绿灯，增持主场，底仓配置。第五部分，政策与宏观。货币政策适度宽松，预计年内降息两次。宽基ETF上周净流入552亿元，真金白银托底。第六部分，半导体供应链。HBM涨价15%到30%，封测满载涨价。AI芯片全链缺货，材料端覆铜板、铜箔继续涨价。最后，操作结论。四条主线：一，霍尔木兹通航量归零，油价地缘溢价延续；二，半导体恐慌进入尾声，但未反转；三，国家队增持明牌托底，红利央企领涨；四，黄金小幅回调，趋势未破。操作上：抱紧红利、央企、电力电网，创新药可低吸，半导体等韩股止跌加缩量确认，原油不追涨，黄金持有观望。今日关注：中证1000能否守住6800点，韩股能否止跌，美股AI财报季资本开支验证。以上仅供参考，不构成投资建议。";
 var speaking = false;
 function toggleVoice(){
   var st = document.getElementById("voiceStatus");
