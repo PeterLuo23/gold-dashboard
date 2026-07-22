@@ -55,9 +55,9 @@ canvas{width:100%}
 <body>
 <h1>📊 PeterLuo财经日报</h1>
 <div class="subtitle">黄金 · 科技 · 原油 · A股</div>
-<div class="sub">2026年7月22日 · 基于7月21日周二收盘</div>
+<div class="sub">2026年7月22日 晚报 · 基于7月22日周三收盘</div>
 
-<div class="notice" id="closeNotice">🚀 硬科技反转日 · 数据基于7月21日（周二）收盘 · 今早韩股+5%触发Sidecar · 全球芯片共振</div>
+<div class="notice" id="closeNotice">⚖️ 极致分化日 · 数据基于7月22日（周三）收盘 · 沪指+0.07% vs 创业板指-3.23% · 黄金有色领涨 · 通信重挫 · 主力净流出86亿</div>
 
 <div class="voicebar">
 <span class="vlabel">🔊 语音日报 <span id="voiceStatus" style="color:#64748b;font-weight:400;font-size:0.66rem">加载中…</span></span>
@@ -66,7 +66,7 @@ canvas{width:100%}
 <button class="updatebtn" onclick="checkUpdate()">🔄 一键更新</button>
 </div>
 
-<div class="banner"><b>⚡ 较前一交易日（7/20→7/21）：</b>上证指数 <span class="up">+1.79%</span>｜科创50 <span class="up">+10.73%</span>｜中芯国际A <span class="up">+11.11%</span>｜中韩半导体ETF <span class="up">+10.01%</span>｜费城半导体 <span class="up">+5.21%</span>｜布伦特原油 <span class="up">+2.0%</span></div>
+<div class="banner"><b>⚡ 较前一交易日（7/21→7/22）：</b>上证指数 <span class="up">+0.07%</span>｜创业板指 <span class="down">-3.23%</span>｜有色金属 <span class="up">+2.90%</span>｜石油石化 <span class="up">+3.23%</span>｜通信 <span class="down">-4.44%</span>｜主力净流出 <span class="down">-86.2亿</span></div>
 
 <!-- ================= 页面1：日报 ================= -->
 <div class="page active" id="page-daily">
@@ -101,14 +101,14 @@ canvas{width:100%}
 </div>
 
 <div class="section">
-<div class="title">🌇 收盘复盘（15:00收盘后）<span class="date-badge">7/21 周二</span></div>
+<div class="title">🌇 收盘复盘（17:00晚报）<span class="date-badge">7/22 周三</span></div>
 <div class="tip">
-<strong>🚀 硬科技王者归来：</strong>科创50 +10.73%、创业板指 +7.05%，成交2.96万亿放量2550亿，超百股涨停<br>
-<strong>💥 半导体产业链爆发：</strong>二十余股涨停，半导体设备ETF涨停，国证芯片+11.62%；中芯国际A +11.11%收160元，中韩半导体ETF +10.01%涨停<br>
-<strong>✨ 贵金属强势：</strong>现货黄金重回4000美元，赤峰黄金涨停；银行普跌（中行、交行-3%），资金从防御切向进攻<br>
-<strong>📊 预判验证（准确率 0/3 = 0%）：</strong>「抱红利」❌「医药低吸」❌「半导体回避」❌——V反日防御策略全线失效，右侧信号来得比预期快<br>
-<strong>📝 教训记录：</strong>恐慌尾声+国家队明牌+产业硬数据三重背景下，反转可以非常暴力；保守防御要在确认反转后果断切换，不能恋战<br>
-<strong>👀 次日关注：</strong>韩股Sidecar后持续性、量能能否维持2.5万亿+、伊朗停火提议进展
+<strong>⚖️ 指数平稳、个股大分化：</strong>沪指 +0.07%、深成指 -1.42%、创业板指 -3.23%，3876只个股下跌，主力全天净流出86.23亿——护盘保指数底，不保普涨<br>
+<strong>🥇 黄金有色全天领涨：</strong>石油石化 +3.23%、有色金属 +2.90%居行业前二；黄金概念净流入51.4亿居题材之首，紫金矿业+14.8亿，验证"金价修复+中报预增"双逻辑<br>
+<strong>💥 半导体内部换棒：</strong>通信 -4.44%领跌，新易盛-47.9亿、中际旭创-37.6亿遭大额兑现；中兴通讯涨停（+32.3亿）、通富微电+28.1亿——光模块退、封测/超节点进<br>
+<strong>📊 预判验证（准确率 4/5 = 80%）：</strong>「半导体高开」✓「不追高」✓（追光模块者大面）「红利让位」✓「黄金股持有」✓｜「CPO主线延续」❌（光模块全线兑现）<br>
+<strong>📝 结论：</strong>反转未破坏但进入"缩量抱团"预警——全天仅22个题材净流入超10亿（昨日77个），仓位向算力硬件+黄金有色两条主线龙头集中<br>
+<strong>👀 次日关注：</strong>题材净流入家数能否重回50+、通信链兑现是否蔓延、伊朗停火提议落地情况
 </div>
 </div>
 
@@ -244,7 +244,8 @@ canvas{width:100%}
 <button class="histbtn" onclick="showHist('7/16',this)">7/16 周四</button>
 <button class="histbtn" onclick="showHist('7/17',this)">7/17 周五</button>
 <button class="histbtn" onclick="showHist('7/20',this)">7/20 周一</button>
-<button class="histbtn active" onclick="showHist('7/21',this)">7/21 周二</button>
+<button class="histbtn" onclick="showHist('7/21',this)">7/21 周二</button>
+<button class="histbtn active" onclick="showHist('7/22',this)">7/22 周三</button>
 </div>
 <div id="histContent"></div>
 </div>
@@ -272,7 +273,7 @@ canvas{width:100%}
 <div class="section">
 <div class="title">📈 复盘准确率追踪（历史趋势）</div>
 <canvas id="accChart" width="560" height="260"></canvas>
-<div class="chart-note">7/20=67% · 7/21=0%（V反日防御策略失效，已记录教训）· 灰色为未记录日期</div>
+<div class="chart-note">7/20=67% · 7/21=0%（V反日教训）· 7/22=80%（4/5，CPO主线误判）· 灰色为未记录日期</div>
 </div>
 </div><!-- /page-compare -->
 
@@ -302,21 +303,21 @@ canvas{width:100%}
 <div class="tip">
 <strong>08:00</strong> 美股收盘后 · 数据汇总<br>
 <strong>09:00</strong> 韩股开盘前 · 早盘预判<br>
-<strong>15:00</strong> A股收盘后 · 收盘复盘+准确率验证<br>
+<strong>17:00</strong> A股收盘后 · 晚报：复盘+资金流向前十+准确率验证<br>
 <strong>🗓️</strong> 历史保留最近7天 · 一键更新获取最新部署版本
 </div>
 </div>
 
 <div class="footer">
 数据来源: iFinD·雅虎·富途·财新·EIA<br>
-08:00美股后·09:00韩股前·保留7天历史<br>
+08:00美股后·09:00韩股前·17:00收盘晚报·保留7天历史<br>
 仅供参考，不构成投资建议
 </div>
 </div><!-- /page-settings -->
 
 <div class="footer" id="mainFooter">
 数据来源: iFinD·雅虎·富途·财新·EIA<br>
-08:00美股后·09:00韩股前·保留7天历史<br>
+08:00美股后·09:00韩股前·17:00收盘晚报·保留7天历史<br>
 仅供参考，不构成投资建议
 </div>
 
@@ -352,6 +353,7 @@ function checkUpdate(){
 
 // ---------- 历史日期选择器 ----------
 const HISTORY = {
+  '7/22': {ok:true, html:'<div class="tip"><strong>7月22日 周三 · 晚报快照</strong><br>🟡 黄金 黄灯：概念净流入51.4亿居首，紫金矿业+14.8亿，有色行业+2.90%领涨<br>🟢 半导体 绿灯但内部换棒：通信-4.44%领跌，新易盛-47.9亿兑现；中兴涨停+32.3亿、通富微电+28.1亿承接<br>🔴 原油 红灯：不追涨·逢高止盈<br>⚖️ A股：沪指+0.07% vs 创业板指-3.23%，3876只下跌，主力净流出86.2亿，仅22题材净流入超10亿<br><strong>操作：缩量抱团预警 · 仓位向算力硬件+黄金有色龙头集中 · 不追光模块</strong></div>'},
   '7/21': {ok:true, html:'<div class="tip"><strong>7月21日 周二 · 快照</strong><br>🟡 黄金 黄灯+1分：金价重回$4,040，赤峰黄金涨停<br>🟢 半导体 绿灯+3分：反转确认！科创50 +10.73%，中芯国际 +11.11%，费半 +5.21%<br>🔴 原油 红灯-2分：布油$91.01五周新高，伊朗停火提议浮现，不追涨<br>🚀 A股：硬科技王者归来，成交2.96万亿，百股涨停<br><strong>操作：持仓待涨不追高 · 回踩5日线低吸 · 主线存储/HBM/CPO</strong></div>'},
   '7/20': {ok:true, html:'<div class="tip"><strong>7月20日 周一 · 快照</strong><br>🟡 黄金 黄灯0分：金价$3,985（日-0.67%），观望<br>🔴 半导体 红灯-2分：韩股跌幅收敛至-1%，英伟达企稳，继续回避<br>🔴 原油 红灯-3分：霍尔木兹通航量降至零，布油$89.22，不追涨<br>🟢 A股：国家队护盘首日，上证50 +3.01%，红利ETF +3.41%，极致分化<br><strong>操作：抱红利/央企/电力 · 医药低吸 · 半导体等止跌</strong></div>'},
   '7/17': {ok:true, html:'<div class="tip"><strong>7月17日 周五 · 快照</strong><br>🟡 黄金 黄灯+1分：金价$4,012.7（周+0.4%），观望<br>🔴 半导体 红灯-3分：韩综指-6.37%，海力士-11.53%，回避<br>🔴 原油 红灯-2分：布伦特$88.35（周+17.41%），不追涨<br>🟡 政策 黄灯0分：适度宽松，预计降息2次<br><strong>操作：黄金观望 · 半导体回避 · 原油不追涨</strong></div>'},
@@ -365,7 +367,7 @@ function showHist(date, btn){
   if(item && item.ok){ box.innerHTML = item.html; }
   else{ box.innerHTML = '<div class="empty-note">📭 '+date+' 快照未留存<br>自7/19版起每日自动保存，仅保留最近7天</div>'; }
 }
-showHist('7/21', document.querySelector('.histbtn.active'));
+showHist('7/22', document.querySelector('.histbtn.active'));
 
 // ---------- 复盘准确率趋势图 ----------
 function drawAccChart(){
@@ -373,8 +375,8 @@ function drawAccChart(){
   const ctx = cv.getContext('2d');
   const W = cv.width, H = cv.height;
   ctx.clearRect(0,0,W,H);
-  const days = ['7/14','7/15','7/16','7/17','7/20','7/21'];
-  const vals = [null,null,null,null,67,0]; // 7/20=67% 7/21=0%
+  const days = ['7/14','7/15','7/16','7/17','7/20','7/21','7/22'];
+  const vals = [null,null,null,null,67,0,80]; // 7/20=67% 7/21=0% 7/22=80%
   const padL=40, padB=30, padT=16, cw=(W-padL-10)/days.length;
   // 网格线
   ctx.strokeStyle='#1e293b'; ctx.fillStyle='#64748b'; ctx.font='11px Arial'; ctx.textAlign='right';
@@ -445,34 +447,7 @@ loadSettings();
     st.textContent = "约5分钟 · 本地朗读";
   });
 })();
-var BRIEFING = "早上好，这里是PeterLuo财经日报，2026年7月22日星期三，数据基于7月21日周二收盘。先报政策要闻：证监会主席吴清7月20日到证券营业部调研，召开投资者座谈会，表示全力维护市场平稳运行。产业面重磅：韩国7月前20天出口同比暴增62.9%，其中芯片出口飙升180.6%，存储周期反转获得官方数据背书。地缘面：调解方提出伊朗10天停火提议，油价溢价或见顶。收盘复盘：周二A股硬科技王者归来。科创50暴涨10.73%，创业板指大涨7.05%，成交2.96万亿元，放量2550亿，超百股涨停。半导体产业链全面爆发，二十余股涨停，半导体设备ETF涨停，中芯国际大涨11.11%收160元，中韩半导体ETF涨停。贵金属强势，现货黄金重回4000美元，赤峰黄金涨停。银行普跌，资金从防御切向进攻。隔夜与今晨：美股费城半导体指数大涨5.21%，创一个月最大涨幅，存储股大反攻，铠侠涨17%，美光涨12%，英伟达涨1.97%。今早韩股暴力反转，综指涨超5%触发Sidecar机制，SK海力士涨8%，三星涨5.6%。第一部分，黄金敏感指标，黄灯，加1分。金价重回4040美元上方，趋势修复，持有为主，盯美元指数100.15和101.50。第二部分，半导体科技因子，红灯转绿灯，加3分，反转确认。全球共振：韩国出口硬数据、中报业绩潮、存储涨价三证齐发。短线两日暴涨20%，不追高，回踩5日线低吸，主线存储、HBM、CPO、设备。第三部分，原油地缘因子，红灯，减2分。布伦特收91.01美元创五周新高，但伊朗停火提议浮现，溢价或见顶，坚决不追涨，持仓者逢高分批止盈。第四部分，A股八大板块信号。半导体，绿灯，右侧确认；AI基础设施，绿灯，CPO业绩潮；具身智能，黄灯，等补涨；商业航天，黄灯，观望；电力电网，黄灯，防御让位；创新药，黄灯，让位科技主线；消费，黄灯，观察；红利，黄灯，进攻期让位，底仓不动。第五部分，政策与宏观。货币适度宽松，宽基ETF净流入552亿元，监管层直接下场呵护市场。第六部分，半导体供应链。HBM涨价15%到30%，封测满载，AI芯片全链缺货，材料端持续涨价，景气度有增无减。最后，操作结论。政策底加产业底共振，反转不是情绪反弹。操作上：持仓待涨不追高，回踩5日线才是低吸位，主线存储、HBM、CPO；红利底仓不动；黄金股趋势修复可持有；原油不追涨。特别记录：前日防御预判在V反日全线失效，准确率0分。教训是恐慌尾声加国家队明牌背景下，右侧信号来得比预期快，确认反转后要果断切换。今日关注：韩股Sidecar后的持续性，量能能否维持2.5万亿以上，伊朗停火提议进展。以上仅供参考，不构成投资建议。";
-var speaking = false;
-function toggleVoice(){
-  var st = document.getElementById("voiceStatus");
-  var btn = document.getElementById("voiceBtn");
-  if(speaking){
-    speechSynthesis.cancel();
-    speaking = false; btn.textContent = "▶ 播放"; st.textContent = "已停止";
-    return;
-  }
-  if(!("speechSynthesis" in window)){
-    st.textContent = "当前浏览器不支持朗读，请用系统浏览器打开";
-    return;
-  }
-  var pref = "zhixing";
-  try{ pref = localStorage.getItem("voice_pref") || "zhixing"; }catch(e){}
-  var u = new SpeechSynthesisUtterance(BRIEFING);
-  u.lang = "zh-CN";
-  u.rate  = (pref === "huopo") ? 1.15 : 0.95;
-  u.pitch = (pref === "huopo") ? 1.2  : 1.0;
-  var zhs = speechSynthesis.getVoices().filter(function(v){ return v.lang && v.lang.indexOf("zh") === 0; });
-  if(zhs.length) u.voice = zhs[0];
-  u.onend = function(){ speaking = false; btn.textContent = "▶ 播放"; st.textContent = "播报完毕"; };
-  speechSynthesis.cancel();
-  speechSynthesis.speak(u);
-  speaking = true;
-  btn.textContent = "⏹ 停止";
-  st.textContent = "播报中…";
+var BRIEFING = "晚上好，这里是PeterLuo财经日报晚报，2026年7月22日星期三，数据基于7月22日周三收盘。先报今日盘面总览：极致分化日。上证指数微涨0.07%，深成指下跌1.42%，创业板指大跌3.23%，3876只个股下跌，主力资金全天净流出86.23亿元。护盘保住了指数底，但没有普涨。政策要闻：证监会主席吴清7月20日到证券营业部调研座谈，表示全力维护市场平稳运行，监管层直接下场呵护。产业面：韩国7月前20天芯片出口飙升180.6%，存储周期反转获官方数据背书。地缘面：伊朗10天停火提议浮现，油价溢价或见顶。收盘复盘：今天黄金有色全天领涨，石油石化涨3.23%，有色金属涨2.90%居行业前二，黄金概念净流入51.4亿元居题材之首，紫金矿业净流入14.8亿元。半导体内部换棒：通信板块重挫4.44%领跌，新易盛净流出47.9亿元，中际旭创净流出37.6亿元，光模块全线兑现；而中兴通讯涨停，净流入32.3亿元，通富微电净流入28.1亿元，封测与超节点方向承接资金。预判验证：今日准确率80%，五中四。半导体高开、不追高、红利让位、黄金股持有四条应验，CPO主线延续一条误判，光模块全天兑现。资金流向板块：流入前十题材，黄金概念、小金属、边缘计算、云计算、深圳特区、卫星互联网、IPv6、移动支付、腾讯云、网络安全。流出前列，通信净流出82.9亿元居首，传媒净流出27.8亿元，医药生物、建筑材料、电子净流出较多。资金流结论结合逻辑链条：第一，半导体反转链未破坏，但发生内部换棒，光模块退、封测进，短线波动加大，不追高纪律升级。第二，黄金链全天反超居首，停火提议下资金仍加仓，金价趋势修复加赤峰黄金中报预增双逻辑，压过地缘缓和利空。第三，政策呵护只保指数底，操作必须贴主线。第四，量能警报：全天仅22个题材净流入超10亿，昨日是77个，若明天不能重回50以上，行情进入缩量抱团阶段，仓位向算力硬件加黄金有色两条主线龙头集中。三大因子：黄金，黄灯，持有为主，置信度上调；半导体，绿灯，但内部换棒，回踩低吸不追高；原油，红灯，布油五周新高后溢价或见顶，不追涨，逢高止盈。明日关注：题材净流入家数能否重回50以上，通信链兑现是否蔓延，伊朗停火提议落地情况。以上仅供参考，不构成投资建议。";
 }
 </script>
 </body>
