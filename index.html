@@ -61,10 +61,12 @@ canvas{width:100%}
 <div class="notice" style="border-color:#334155;background:#101827;font-size:0.7rem">🕐 数据时点：🇨🇳A股 7/22收盘 ✅ ｜ 🇰🇷韩股 7/22收盘 ✅ ｜ 🇭🇰港股 7/22收盘 ✅ ｜ 🇺🇸美股 7/21收盘（今晚21:30才开盘，晚报时点无新数据，沿用最近收盘）｜ 遇休市将特别注明</div>
 
 <div class="voicebar">
+<div style="display:flex;width:100%;align-items:center;justify-content:space-between">
 <span class="vlabel">🔊 语音日报 <span id="voiceStatus" style="color:#64748b;font-weight:400;font-size:0.66rem">加载中…</span></span>
-<audio id="voiceAudio" controls preload="metadata" src="briefing.mp3" style="flex:1;min-width:140px;height:32px"></audio>
-<button class="updatebtn" id="voiceBtn" onclick="toggleVoice()" style="display:none">▶ 播放</button>
 <button class="updatebtn" onclick="checkUpdate()">🔄 一键更新</button>
+</div>
+<audio id="voiceAudio" controls preload="metadata" src="briefing.mp3" style="width:100%;height:34px;margin-top:8px"></audio>
+<button class="updatebtn" id="voiceBtn" onclick="toggleVoice()" style="display:none;margin-top:8px">▶ 播放（本地朗读）</button>
 </div>
 
 <div class="banner"><b>⚡ 较前一交易日（7/21→7/22）：</b>上证指数 <span class="up">+0.07%</span>｜创业板指 <span class="down">-3.23%</span>｜有色金属 <span class="up">+2.90%</span>｜石油石化 <span class="up">+3.23%</span>｜通信 <span class="down">-4.44%</span>｜主力净流出 <span class="down">-86.2亿</span></div>
