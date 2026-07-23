@@ -1,0 +1,186 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "last_updated": "2026-07-23T19:44:00+08:00",
+    "description": "PeterLuo财经日报配置中心"
+  },
+  "repository": {
+    "owner": "PeterLuo23",
+    "repo": "gold-dashboard",
+    "branch": "main",
+    "output_path": "finance-daily/",
+    "snapshots_path": "finance-daily/snapshots/",
+    "history_path": "finance-daily/history/"
+  },
+  "data_sources": {
+    "primary": {
+      "name": "ifind",
+      "enabled": true,
+      "apis": [
+        "ifind_get_price",
+        "ifind_get_stock_realtime_price"
+      ]
+    },
+    "fallback_1": {
+      "name": "eastmoney_api",
+      "enabled": true,
+      "endpoints": [
+        "https://push2.eastmoney.com/api/qt/clist/get"
+      ]
+    },
+    "fallback_2": {
+      "name": "web_search",
+      "enabled": true,
+      "sources": [
+        "财联社",
+        "证券时报",
+        "每日经济新闻"
+      ]
+    }
+  },
+  "voice": {
+    "primary": {
+      "engine": "kimi_tts",
+      "voice_id": "NLl76XZRVj1RVeXptX3h",
+      "description": "warm Mandarin female"
+    },
+    "fallback": {
+      "engine": "edge_tts",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "rate": "+22%",
+      "description": "降级方案，等效中文女声"
+    },
+    "audio_processing": {
+      "loudnorm": "I=-11:TP=-1.0:LRA=6",
+      "target_duration_min": 4,
+      "target_duration_max": 5,
+      "max_size_kb": 900,
+      "bitrate": "20k",
+      "sample_rate": 24000,
+      "channels": 1
+    }
+  },
+  "watchlist": {
+    "stocks": [
+      {
+        "code": "600519.SH",
+        "name": "贵州茅台",
+        "sector": "消费"
+      },
+      {
+        "code": "300750.SZ",
+        "name": "宁德时代",
+        "sector": "锂电"
+      },
+      {
+        "code": "002594.SZ",
+        "name": "比亚迪",
+        "sector": "新能源车"
+      },
+      {
+        "code": "688981.SH",
+        "name": "中芯国际",
+        "sector": "半导体"
+      },
+      {
+        "code": "300059.SZ",
+        "name": "东方财富",
+        "sector": "券商"
+      },
+      {
+        "code": "600036.SH",
+        "name": "招商银行",
+        "sector": "银行"
+      },
+      {
+        "code": "600900.SH",
+        "name": "长江电力",
+        "sector": "电力"
+      },
+      {
+        "code": "688256.SH",
+        "name": "寒武纪",
+        "sector": "AI芯片"
+      }
+    ],
+    "indices": [
+      {
+        "code": "000001.SH",
+        "name": "上证指数"
+      },
+      {
+        "code": "399001.SZ",
+        "name": "深证成指"
+      },
+      {
+        "code": "399006.SZ",
+        "name": "创业板指"
+      },
+      {
+        "code": "000300.SH",
+        "name": "沪深300"
+      },
+      {
+        "code": "000016.SH",
+        "name": "上证50"
+      },
+      {
+        "code": "000905.SH",
+        "name": "中证500"
+      },
+      {
+        "code": "000688.SH",
+        "name": "科创50"
+      },
+      {
+        "code": "899050.BJ",
+        "name": "北证50"
+      }
+    ],
+    "sector_etfs": [
+      {
+        "code": "512880.SH",
+        "name": "券商"
+      },
+      {
+        "code": "512800.SH",
+        "name": "银行"
+      },
+      {
+        "code": "159928.SZ",
+        "name": "消费"
+      },
+      {
+        "code": "512010.SH",
+        "name": "医药"
+      },
+      {
+        "code": "512760.SH",
+        "name": "芯片"
+      },
+      {
+        "code": "515790.SH",
+        "name": "光伏"
+      },
+      {
+        "code": "512660.SH",
+        "name": "军工"
+      },
+      {
+        "code": "512400.SH",
+        "name": "有色"
+      }
+    ]
+  },
+  "schedule": {
+    "market_days": "周一至周五",
+    "report_time": "17:00",
+    "timezone": "Asia/Shanghai",
+    "holiday_calendar": "cn_a_share"
+  },
+  "rolling_retention": {
+    "snapshots_days": 7,
+    "audio_files": 7,
+    "history_accuracy": 365
+  }
+}
