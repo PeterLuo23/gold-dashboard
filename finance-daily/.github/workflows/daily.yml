@@ -1,0 +1,40 @@
+name: PeterLuo Daily Report Trigger
+
+on:
+  # 定时触发: 每天 UTC 09:00 = CST 17:00
+  schedule:
+    - cron: '0 9 * * 1-5'
+
+  # 手动触发
+  workflow_dispatch:
+    inputs:
+      date:
+        description: '指定日期 (YYYY-MM-DD)，留空为今天'
+        required: false
+        default: ''
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check market day
+        id: check
+        run: |
+          # 简单判断：周一到周五为交易日（可扩展为读取交易日历）
+          DOW=$(date +%u)
+          if [ "$DOW" -le 5 ]; then
+            echo "is_market_day=true" >> $GITHUB_OUTPUT
+          else
+            echo "is_market_day=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Trigger Kimi Agent (placeholder)
+        if: steps.check.outputs.is_market_day == 'true'
+        run: |
+          echo "📅 交易日触发: $(date +%Y-%m-%d)"
+          echo "请手动向 Kimi Agent 发送消息执行日报更新"
+          echo "或配置 webhook 自动调用 Kimi API"
+          # 未来: curl -X POST https://api.kimi.com/v1/agent/trigger           #      -H "Authorization: Bearer ${{ secrets.KIMI_API_KEY }}"           #      -d '{"message":"执行PeterLuo财经日报17:00收盘晚报更新"}'
