@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "description": "早盘预判准确率历史",
+    "rebuilt_from": "2026-07-23",
+    "rebuilt_reason": "跨会话记忆丢失，自仓库重建"
+  },
+  "records": [
+    {
+      "date": "2026-07-23",
+      "type": "evening",
+      "predictions": {
+        "index_range": {
+          "low": 3850,
+          "high": 3900,
+          "actual_low": null,
+          "actual_high": null
+        },
+        "sectors_active": [
+          "电网",
+          "锂电"
+        ],
+        "sectors_weak": [
+          "半导体"
+        ],
+        "volume_range": {
+          "low": 2.1,
+          "high": 2.4,
+          "unit": "万亿"
+        }
+      },
+      "verified": false,
+      "verification_date": null,
+      "accuracy_score": null,
+      "notes": "首个重建后的预判记录，待7-24收盘验证"
+    }
+  ],
+  "stats": {
+    "total_predictions": 1,
+    "verified": 0,
+    "overall_accuracy": null,
+    "last_7_days": [],
+    "last_30_days": []
+  }
+}
