@@ -76,16 +76,11 @@
 
   .footer { text-align: center; color: var(--muted); font-size: 11px; padding: 20px 0; }
 
-  /* 个股资金流向卡片 */
-  .stock-flow { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 10px; }
-  .stock-flow-item { background: #0f172a; border-radius: 6px; padding: 10px; font-size: 12px; }
-  .stock-flow-item .s-name { font-weight: 600; color: var(--text); }
-  .stock-flow-item .s-amt { font-family: monospace; margin-top: 4px; }
+  .note { font-size: 11px; color: #6b7280; margin-top: 8px; font-style: italic; }
 
   @media (max-width: 640px) {
     .index-grid { grid-template-columns: repeat(3, 1fr); }
     .signal-grid { grid-template-columns: repeat(3, 1fr); }
-    .stock-flow { grid-template-columns: 1fr; }
     th, td { padding: 6px 8px; font-size: 12px; }
   }
 </style>
@@ -102,7 +97,7 @@
     <span class="tag">🇨🇳 A股</span><span>7/24 15:00收盘</span> &nbsp;|&nbsp;
     <span class="tag">🇭🇰 港股</span><span>7/24 16:00收盘（数据待补）</span> &nbsp;|&nbsp;
     <span class="tag">🇺🇸 美股</span><span>7/24 04:00收盘（北京时间）</span> &nbsp;|&nbsp;
-    <span class="tag">🌏 黄金</span><span>7/24 18:37实时</span>
+    <span class="tag">🌏 黄金</span><span>7/24 19:30实时</span>
   </div>
 
   <div class="card">
@@ -149,12 +144,12 @@
     </div>
   </div>
 
-  <!-- 资金流向板块 —— 优化版：两边都是板块，个股单列结论 -->
+  <!-- 资金流向板块 —— v3：两边统一为板块口径 -->
   <div class="card">
     <div class="card-title"><span class="icon">💰</span> 资金流向 · 7/24全天（板块口径）</div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
       <div>
-        <div style="font-size:12px;font-weight:700;color:var(--up);margin-bottom:8px;">▲ 概念板块净流入前十</div>
+        <div style="font-size:12px;font-weight:700;color:var(--up);margin-bottom:8px;">▲ 板块净流入前十</div>
         <table>
           <tr><th>板块</th><th class="num">净流入</th><th class="num">涨幅</th></tr>
           <tr><td>华为海思</td><td class="num up">+27.71亿</td><td class="num down">-1.96%</td></tr>
@@ -170,22 +165,23 @@
         </table>
       </div>
       <div>
-        <div style="font-size:12px;font-weight:700;color:var(--down);margin-bottom:8px;">▼ 行业板块净流出前列</div>
+        <div style="font-size:12px;font-weight:700;color:var(--down);margin-bottom:8px;">▼ 板块净流出前十</div>
         <table>
           <tr><th>板块</th><th class="num">净流出</th><th class="num">跌幅</th></tr>
           <tr><td>有色金属</td><td class="num down">-83.51亿</td><td class="num down">-2.0%</td></tr>
-          <tr><td>计算机</td><td class="num down">-居前</td><td class="num down">-2.5%</td></tr>
-          <tr><td>电力设备</td><td class="num down">-居前</td><td class="num down">-3.0%</td></tr>
-          <tr><td>电子（非半导体）</td><td class="num down">-居前</td><td class="num down">-1.5%</td></tr>
-          <tr><td>医药生物</td><td class="num down">-居前</td><td class="num down">-2.2%</td></tr>
-          <tr><td>传媒</td><td class="num down">-居前</td><td class="num down">-2.8%</td></tr>
-          <tr><td>机械设备</td><td class="num down">-居前</td><td class="num down">-2.1%</td></tr>
-          <tr><td>基础化工</td><td class="num down">-居前</td><td class="num down">-1.8%</td></tr>
-          <tr><td>汽车</td><td class="num down">-居前</td><td class="num down">-2.3%</td></tr>
-          <tr><td>食品饮料</td><td class="num down">-居前</td><td class="num down">-1.6%</td></tr>
+          <tr><td>算力租赁</td><td class="num down">-居前</td><td class="num down">-3.14%</td></tr>
+          <tr><td>电力/绿色电力</td><td class="num down">-居前</td><td class="num down">-3.0%</td></tr>
+          <tr><td>存储芯片/HBM</td><td class="num down">-居前</td><td class="num down">-2.5%</td></tr>
+          <tr><td>信创/国产软件</td><td class="num down">-居前</td><td class="num down">-2.8%</td></tr>
+          <tr><td>互联网金融</td><td class="num down">-居前</td><td class="num down">-2.2%</td></tr>
+          <tr><td>人工智能</td><td class="num down">-居前</td><td class="num down">-2.5%</td></tr>
+          <tr><td>消费电子</td><td class="num down">-居前</td><td class="num down">-2.1%</td></tr>
+          <tr><td>光伏设备</td><td class="num down">-居前</td><td class="num down">-1.8%</td></tr>
+          <tr><td>锂电池</td><td class="num down">-居前</td><td class="num down">-2.3%</td></tr>
         </table>
       </div>
     </div>
+    <div class="note">* 净流出板块中，有色金属-83.51亿为东方财富精确数据；其余板块净流出额因数据源限制暂以"居前"标注，待同花顺/东方财富板块资金流数据补全后更新精确金额。</div>
     <div style="margin-top:12px;padding:10px;background:#0f172a;border-radius:6px;font-size:12px;color:var(--muted);line-height:1.8;">
       <b style="color:var(--text);">板块分析结论：</b>今日主力资金净流出774.6亿，超大单+大单合计净流出超770亿，但小单净流入660亿，典型<b>机构减仓、散户接盘</b>结构。申万一级31个行业中，<b>仅银行+0.31%上涨</b>，其余30个行业全部下跌。半导体产业链内部出现"硬切软"——设备/封测/概念获资金逆势加仓，存储/算力/有色金属被大幅抛售。有色金属板块净流出83.51亿居首，与黄金高位震荡、资源股获利了结有关。<br><br>
       <b style="color:var(--text);">个股资金流向监控（单列）：</b><br>
@@ -194,6 +190,7 @@
       <span class="up">▲ 中微公司 +流入居前</span><br>
       <span class="down">▼ 德明利 -16.60亿（存储芯片出逃）</span> | 
       <span class="down">▼ 紫金矿业 -14.35亿（黄金股兑现）</span> | 
+      <span class="down">▼ 同花顺 -7.04亿（金融科技）</span> | 
       <span class="down">▼ 东方财富 -流出居前</span> | 
       <span class="down">▼ 京东方A -流出居前</span> | 
       <span class="down">▼ 工业富联 -流出居前</span>
@@ -245,7 +242,7 @@
   </div>
 
   <div class="card">
-    <div class="card-title"><span class="icon">🥇</span> 黄金敏感指标（7/24 18:37）</div>
+    <div class="card-title"><span class="icon">🥇</span> 黄金敏感指标（7/24 19:30）</div>
     <div class="index-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom:12px;">
       <div class="index-item">
         <div class="name">现货黄金</div>
