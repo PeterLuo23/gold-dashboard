@@ -95,7 +95,7 @@
     <span class="tag">🇨🇳 A股</span><span>7/24 15:00收盘</span> &nbsp;|&nbsp;
     <span class="tag">🇭🇰 港股</span><span>7/24 16:00收盘（数据待补）</span> &nbsp;|&nbsp;
     <span class="tag">🇺🇸 美股</span><span>7/24 04:00收盘（北京时间）</span> &nbsp;|&nbsp;
-    <span class="tag">🌏 黄金</span><span>7/24 22:24实时</span>
+    <span class="tag">🌏 黄金</span><span>7/24 22:30实时</span>
   </div>
 
   <div class="card">
@@ -142,7 +142,7 @@
     </div>
   </div>
 
-  <!-- 资金流向板块 —— v10：单列全宽，含代表个股 -->
+  <!-- 资金流向板块 -->
   <div class="card">
     <div class="card-title"><span class="icon">💰</span> 资金流向 · 7/24全天（同花顺板块口径）</div>
 
@@ -239,7 +239,7 @@
   </div>
 
   <div class="card">
-    <div class="card-title"><span class="icon">🥇</span> 黄金敏感指标（7/24 22:24）</div>
+    <div class="card-title"><span class="icon">🥇</span> 黄金敏感指标（7/24 22:30）</div>
     <div class="index-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom:12px;">
       <div class="index-item">
         <div class="name">现货黄金</div>
@@ -320,22 +320,26 @@
       </div>
     </div>
 
+    <!-- 信号灯：交通灯逻辑 —— 红灯停、绿灯行、黄灯等一等 -->
     <div class="signal-grid">
       <div class="signal">
-        <div class="light light-yellow"></div>
+        <div class="light light-red"></div>
         <div class="name">黄金</div>
         <div class="op">高位震荡·观望</div>
       </div>
       <div class="signal">
-        <div class="light light-red"></div>
+        <div class="light light-green"></div>
         <div class="name">半导体设备</div>
-        <div class="op">逆势强势·关注</div>
+        <div class="op">逆势强势·可参与</div>
       </div>
       <div class="signal">
-        <div class="light light-green"></div>
+        <div class="light light-yellow"></div>
         <div class="name">算力/电网</div>
         <div class="op">回调中·等买点</div>
       </div>
+    </div>
+    <div style="margin-top:8px;font-size:11px;color:var(--muted);text-align:center;">
+      🔴 红灯停 = 观望/回避 &nbsp;|&nbsp; 🟢 绿灯行 = 可参与 &nbsp;|&nbsp; 🟡 黄灯等 = 等一等/等买点
     </div>
   </div>
 
