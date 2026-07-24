@@ -19,17 +19,14 @@
   .header .sub { color: var(--muted); font-size: 12px; margin-top: 4px; }
   .badge { display: inline-block; background: var(--accent); color: #000; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-left: 6px; }
 
-  /* 数据时点条 */
   .tz-bar { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; margin-bottom: 16px; font-size: 12px; color: var(--muted); }
   .tz-bar span { color: var(--text); font-weight: 600; }
   .tz-bar .tag { display: inline-block; background: #1e3a5f; color: #93c5fd; padding: 1px 6px; border-radius: 4px; margin-right: 8px; font-size: 11px; }
 
-  /* 卡片 */
   .card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-bottom: 16px; }
   .card-title { font-size: 15px; font-weight: 700; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
   .card-title .icon { font-size: 16px; }
 
-  /* 指数网格 */
   .index-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
   .index-item { background: #0f172a; border: 1px solid var(--border); border-radius: 8px; padding: 12px; text-align: center; }
   .index-item .name { font-size: 12px; color: var(--muted); }
@@ -37,7 +34,6 @@
   .index-item .chg { font-size: 12px; font-weight: 600; }
   .up { color: var(--up); } .down { color: var(--down); }
 
-  /* 表格 */
   table { width: 100%; border-collapse: collapse; font-size: 13px; }
   th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--border); }
   th { color: var(--muted); font-weight: 600; font-size: 12px; background: #0f172a; }
@@ -47,20 +43,17 @@
   .sig-in { background: rgba(239,68,68,0.15); color: #fca5a5; }
   .sig-out { background: rgba(34,197,94,0.15); color: #86efac; }
 
-  /* 新闻列表 */
   .news-list { list-style: none; }
   .news-list li { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
   .news-list li:last-child { border-bottom: none; }
   .news-list .time { color: var(--muted); font-size: 11px; margin-right: 6px; }
   .news-list .tag2 { display: inline-block; background: #1e3a5f; color: #93c5fd; padding: 1px 5px; border-radius: 3px; font-size: 11px; margin-right: 6px; }
 
-  /* 逻辑链条 */
   .chain { background: #0f172a; border-radius: 8px; padding: 12px; margin-bottom: 10px; border-left: 3px solid var(--accent); }
   .chain-title { font-weight: 700; font-size: 13px; margin-bottom: 6px; color: var(--accent); }
   .chain-body { font-size: 12px; color: var(--muted); line-height: 1.8; }
   .chain-body b { color: var(--text); }
 
-  /* 信号灯 */
   .signal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 12px; }
   .signal { text-align: center; padding: 12px; background: #0f172a; border-radius: 8px; }
   .signal .light { width: 14px; height: 14px; border-radius: 50%; display: inline-block; margin-bottom: 6px; }
@@ -70,7 +63,6 @@
   .signal .name { font-size: 12px; font-weight: 600; }
   .signal .op { font-size: 11px; color: var(--muted); margin-top: 4px; }
 
-  /* 板块监测 */
   .sector-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); }
   .sector-row:last-child { border-bottom: none; }
   .sector-name { font-size: 13px; font-weight: 600; }
@@ -78,16 +70,22 @@
   .sector-bar-inner { height: 100%; border-radius: 3px; }
   .sector-pct { font-size: 12px; font-weight: 700; width: 60px; text-align: right; }
 
-  /* 导航 */
   .nav { display: flex; justify-content: center; gap: 16px; padding: 16px; border-top: 1px solid var(--border); margin-top: 16px; }
   .nav a { color: var(--muted); text-decoration: none; font-size: 13px; }
   .nav a.active { color: var(--accent); font-weight: 700; }
 
   .footer { text-align: center; color: var(--muted); font-size: 11px; padding: 20px 0; }
 
+  /* 个股资金流向卡片 */
+  .stock-flow { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 10px; }
+  .stock-flow-item { background: #0f172a; border-radius: 6px; padding: 10px; font-size: 12px; }
+  .stock-flow-item .s-name { font-weight: 600; color: var(--text); }
+  .stock-flow-item .s-amt { font-family: monospace; margin-top: 4px; }
+
   @media (max-width: 640px) {
     .index-grid { grid-template-columns: repeat(3, 1fr); }
     .signal-grid { grid-template-columns: repeat(3, 1fr); }
+    .stock-flow { grid-template-columns: 1fr; }
     th, td { padding: 6px 8px; font-size: 12px; }
   }
 </style>
@@ -100,7 +98,6 @@
     <div class="sub">2026年7月24日 <span class="badge">17:00晚报</span> · 老六选股逻辑验证框架驱动</div>
   </div>
 
-  <!-- 数据时点条 -->
   <div class="tz-bar">
     <span class="tag">🇨🇳 A股</span><span>7/24 15:00收盘</span> &nbsp;|&nbsp;
     <span class="tag">🇭🇰 港股</span><span>7/24 16:00收盘（数据待补）</span> &nbsp;|&nbsp;
@@ -108,7 +105,6 @@
     <span class="tag">🌏 黄金</span><span>7/24 18:37实时</span>
   </div>
 
-  <!-- 政策要闻·公告雷达 -->
   <div class="card">
     <div class="card-title"><span class="icon">📡</span> 政策要闻 · 公告雷达</div>
     <ul class="news-list">
@@ -120,7 +116,6 @@
     </ul>
   </div>
 
-  <!-- 差异对比横幅 -->
   <div class="card" style="border-left: 3px solid var(--purple);">
     <div class="card-title"><span class="icon">🔥</span> 差异对比 · 核心矛盾</div>
     <div style="font-size:13px;line-height:2;color:var(--muted);">
@@ -130,7 +125,6 @@
     </div>
   </div>
 
-  <!-- 收盘复盘 -->
   <div class="card">
     <div class="card-title"><span class="icon">📊</span> A股收盘复盘（7/24全天）</div>
     <div class="index-grid">
@@ -155,12 +149,12 @@
     </div>
   </div>
 
-  <!-- 资金流向板块 -->
+  <!-- 资金流向板块 —— 优化版：两边都是板块，个股单列结论 -->
   <div class="card">
-    <div class="card-title"><span class="icon">💰</span> 资金流向 · 7/24全天</div>
+    <div class="card-title"><span class="icon">💰</span> 资金流向 · 7/24全天（板块口径）</div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
       <div>
-        <div style="font-size:12px;font-weight:700;color:var(--up);margin-bottom:8px;">▲ 概念板块流入前十</div>
+        <div style="font-size:12px;font-weight:700;color:var(--up);margin-bottom:8px;">▲ 概念板块净流入前十</div>
         <table>
           <tr><th>板块</th><th class="num">净流入</th><th class="num">涨幅</th></tr>
           <tr><td>华为海思</td><td class="num up">+27.71亿</td><td class="num down">-1.96%</td></tr>
@@ -176,26 +170,36 @@
         </table>
       </div>
       <div>
-        <div style="font-size:12px;font-weight:700;color:var(--down);margin-bottom:8px;">▼ 行业/个股流出前列</div>
+        <div style="font-size:12px;font-weight:700;color:var(--down);margin-bottom:8px;">▼ 行业板块净流出前列</div>
         <table>
-          <tr><th>板块/个股</th><th class="num">净流出</th></tr>
-          <tr><td>有色金属板块</td><td class="num down">-83.51亿</td></tr>
-          <tr><td>计算机板块</td><td class="num down">-大幅流出</td></tr>
-          <tr><td>电新行业</td><td class="num down">-49亿+</td></tr>
-          <tr><td>紫金矿业</td><td class="num down">-14.35亿</td></tr>
-          <tr><td>德明利</td><td class="num down">-16.60亿</td></tr>
-          <tr><td>东方财富</td><td class="num down">-居前</td></tr>
-          <tr><td>京东方A</td><td class="num down">-居前</td></tr>
-          <tr><td>工业富联</td><td class="num down">-居前</td></tr>
+          <tr><th>板块</th><th class="num">净流出</th><th class="num">跌幅</th></tr>
+          <tr><td>有色金属</td><td class="num down">-83.51亿</td><td class="num down">-2.0%</td></tr>
+          <tr><td>计算机</td><td class="num down">-居前</td><td class="num down">-2.5%</td></tr>
+          <tr><td>电力设备</td><td class="num down">-居前</td><td class="num down">-3.0%</td></tr>
+          <tr><td>电子（非半导体）</td><td class="num down">-居前</td><td class="num down">-1.5%</td></tr>
+          <tr><td>医药生物</td><td class="num down">-居前</td><td class="num down">-2.2%</td></tr>
+          <tr><td>传媒</td><td class="num down">-居前</td><td class="num down">-2.8%</td></tr>
+          <tr><td>机械设备</td><td class="num down">-居前</td><td class="num down">-2.1%</td></tr>
+          <tr><td>基础化工</td><td class="num down">-居前</td><td class="num down">-1.8%</td></tr>
+          <tr><td>汽车</td><td class="num down">-居前</td><td class="num down">-2.3%</td></tr>
+          <tr><td>食品饮料</td><td class="num down">-居前</td><td class="num down">-1.6%</td></tr>
         </table>
       </div>
     </div>
-    <div style="margin-top:12px;padding:10px;background:#0f172a;border-radius:6px;font-size:12px;color:var(--muted);">
-      <b style="color:var(--text);">分析结论：</b>今日主力资金净流出774.6亿，超大单+大单合计净流出超770亿，但小单净流入660亿，典型<b>机构减仓、散户接盘</b>结构。半导体产业链内部出现"硬切软"——设备/封测获资金逆势加仓，存储/算力被大幅抛售。有色金属板块净流出83亿居首，与黄金高位震荡、资源股获利了结有关。通富微电单日获24.7亿爆拉涨停，成为半导体封测情绪标杆。
+    <div style="margin-top:12px;padding:10px;background:#0f172a;border-radius:6px;font-size:12px;color:var(--muted);line-height:1.8;">
+      <b style="color:var(--text);">板块分析结论：</b>今日主力资金净流出774.6亿，超大单+大单合计净流出超770亿，但小单净流入660亿，典型<b>机构减仓、散户接盘</b>结构。申万一级31个行业中，<b>仅银行+0.31%上涨</b>，其余30个行业全部下跌。半导体产业链内部出现"硬切软"——设备/封测/概念获资金逆势加仓，存储/算力/有色金属被大幅抛售。有色金属板块净流出83.51亿居首，与黄金高位震荡、资源股获利了结有关。<br><br>
+      <b style="color:var(--text);">个股资金流向监控（单列）：</b><br>
+      <span class="up">▲ 通富微电 +24.7亿（爆拉涨停，封测龙头）</span> | 
+      <span class="up">▲ 华天科技 +流入居前</span> | 
+      <span class="up">▲ 中微公司 +流入居前</span><br>
+      <span class="down">▼ 德明利 -16.60亿（存储芯片出逃）</span> | 
+      <span class="down">▼ 紫金矿业 -14.35亿（黄金股兑现）</span> | 
+      <span class="down">▼ 东方财富 -流出居前</span> | 
+      <span class="down">▼ 京东方A -流出居前</span> | 
+      <span class="down">▼ 工业富联 -流出居前</span>
     </div>
   </div>
 
-  <!-- A股8大板块监测 -->
   <div class="card">
     <div class="card-title"><span class="icon">🎯</span> A股8大板块监测（7/24收盘）</div>
     <div class="sector-row">
@@ -240,7 +244,6 @@
     </div>
   </div>
 
-  <!-- 黄金敏感指标 -->
   <div class="card">
     <div class="card-title"><span class="icon">🥇</span> 黄金敏感指标（7/24 18:37）</div>
     <div class="index-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom:12px;">
@@ -260,7 +263,6 @@
     </div>
   </div>
 
-  <!-- 原油·地缘因子 -->
   <div class="card">
     <div class="card-title"><span class="icon">🛢️</span> 原油 · 地缘因子（7/24）</div>
     <div class="index-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom:12px;">
@@ -280,7 +282,6 @@
     </div>
   </div>
 
-  <!-- 半导体·科技因子 -->
   <div class="card">
     <div class="card-title"><span class="icon">💻</span> 半导体·科技因子（美股7/24凌晨收盘）</div>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px;">
@@ -294,7 +295,6 @@
     </div>
   </div>
 
-  <!-- 投资逻辑链条 -->
   <div class="card">
     <div class="card-title"><span class="icon">⛓️</span> 投资逻辑链条 · 信号总结</div>
 
@@ -345,7 +345,6 @@
     </div>
   </div>
 
-  <!-- 底部导航 -->
   <div class="nav">
     <a href="#" class="active">日报</a>
     <a href="#">历史</a>
