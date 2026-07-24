@@ -1,0 +1,130 @@
+{
+  "meta": {
+    "version": "2.0.0",
+    "report_type": "morning_summary",
+    "date": "2026-07-24",
+    "generated_at": "2026-07-24T08:09:00+08:00",
+    "time_logic": {
+      "current_time": "08:09 CST",
+      "a股": "未开盘 (09:30开盘)",
+      "美股": "7/23 已收盘 (隔夜数据)",
+      "原油": "7/23 已收盘 (隔夜数据)",
+      "notes": "08:00汇总版基于隔夜美股+前日A股收盘"
+    }
+  },
+  "overnight_us": {
+    "date": "2026-07-23",
+    "dow": {
+      "close": 52218.58,
+      "change": -0.01
+    },
+    "nasdaq": {
+      "close": 25690.9,
+      "change": -0.57
+    },
+    "sp500": {
+      "close": 7498.96,
+      "change": -0.14
+    },
+    "notes": "美股小幅收跌，油价上涨令股市承压"
+  },
+  "crude_oil": {
+    "date": "2026-07-23",
+    "wti": {
+      "price": 86.83,
+      "change": 2.95
+    },
+    "brent": {
+      "price": 94.0,
+      "change": 3.0
+    },
+    "notes": "布伦特突破94美元，美对伊朗第11轮打击"
+  },
+  "prev_a_share": {
+    "date": "2026-07-23",
+    "shanghai": {
+      "close": 3876.78,
+      "change": 0.25
+    },
+    "shenzhen": {
+      "close": 14123.31,
+      "change": 0.44
+    },
+    "chinext": {
+      "close": 3575.52,
+      "change": 0.25
+    },
+    "volume": 22000,
+    "volume_change": -4580,
+    "up_stocks": 4200,
+    "limit_up": 116
+  },
+  "flow_prev_day": {
+    "net_outflow": 154.65,
+    "inflow_top": [
+      {
+        "name": "电力设备",
+        "amount": 74.35
+      },
+      {
+        "name": "有色金属",
+        "amount": 34.18
+      },
+      {
+        "name": "基础化工",
+        "amount": 3.0
+      },
+      {
+        "name": "国防军工",
+        "amount": 3.0
+      },
+      {
+        "name": "机械设备",
+        "amount": 3.0
+      }
+    ],
+    "outflow_top": [
+      {
+        "name": "电子",
+        "amount": -102.98
+      },
+      {
+        "name": "通信",
+        "amount": -52.0
+      },
+      {
+        "name": "计算机",
+        "amount": -52.0
+      },
+      {
+        "name": "医药生物",
+        "amount": -10.0
+      },
+      {
+        "name": "传媒",
+        "amount": -10.0
+      }
+    ]
+  },
+  "today_events": [
+    "深交所发布创业板通信指数",
+    "英特尔盘后财报 (7/23晚间)",
+    "特朗普宣布对60个经济体加征301关税 (10%-12.5%)"
+  ],
+  "predictions": {
+    "index_range": {
+      "low": 3850,
+      "high": 3900
+    },
+    "active_sectors": [
+      "电网",
+      "锂电",
+      "有色"
+    ],
+    "weak_sectors": [
+      "半导体",
+      "通信"
+    ],
+    "volume_estimate": "2.0-2.4万亿"
+  }
+}
