@@ -1,472 +1,746 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PeterLuo财经日报 2026-07-24</title>
-<style>
-*{box-sizing:border-box}
-body{font-family:Arial,sans-serif;background:#0a0e1a;color:#e0e6ed;padding:12px 12px 76px;line-height:1.6;max-width:600px;margin:0 auto}
-h1{color:#ffd700;text-align:center;font-size:1.2rem;margin:6px 0 2px}
-.subtitle{text-align:center;color:#94a3b8;font-size:0.78rem;letter-spacing:1px}
-.sub{text-align:center;color:#64748b;font-size:0.7rem;margin-bottom:10px}
-.notice{background:#1e293b;color:#94a3b8;text-align:center;font-size:0.72rem;padding:8px 10px;border-radius:8px;margin-bottom:10px;border:1px solid #334155}
-.voicebar{display:flex;align-items:center;gap:8px;background:#111827;border:1px solid #1e293b;border-radius:10px;padding:10px;margin-bottom:10px;flex-wrap:wrap}
-.voicebar .vlabel{font-size:0.78rem;font-weight:600;color:#ffd700;white-space:nowrap}
-.voicebar audio{flex:1;min-width:160px;height:32px}
-.updatebtn{background:#ffd700;color:#0a0e1a;border:none;border-radius:8px;padding:7px 12px;font-size:0.75rem;font-weight:700;cursor:pointer;white-space:nowrap}
-.updatebtn:active{transform:scale(0.96)}
-.banner{background:#172033;border:1px solid #f59e0b40;border-radius:10px;padding:10px 12px;margin-bottom:10px;font-size:0.74rem;color:#cbd5e1}
-.banner b{color:#f59e0b}
-.section{background:#111827;border-radius:10px;padding:14px;margin-bottom:10px;border:1px solid #1e293b}
-.title{font-size:0.9rem;font-weight:600;margin-bottom:8px;color:#e0e6ed}
-.date-badge{float:right;font-size:0.62rem;color:#64748b;background:#1e293b;padding:2px 7px;border-radius:10px;font-weight:400;margin-left:6px}
-.signal{display:inline-block;padding:2px 8px;border-radius:12px;font-size:0.7rem;font-weight:600;float:right}
-.yellow{background:#f59e0b20;color:#f59e0b;border:1px solid #f59e0b40}
-.red{background:#ef444420;color:#ef4444;border:1px solid #ef444440}
-.green{background:#10b98120;color:#10b981;border:1px solid #10b98140}
-table{width:100%;border-collapse:collapse;font-size:0.78rem}
-th{text-align:left;padding:6px 3px;color:#64748b;border-bottom:1px solid #1e293b;font-size:0.72rem}
-td{padding:6px 3px;border-bottom:1px solid #1e293b}
-.up{color:#ef4444}.down{color:#10b981}
-.highlight{color:#ffd700;font-weight:600}
-.tip{background:#1e293b;padding:10px;border-radius:6px;margin-top:8px;font-size:0.78rem;color:#cbd5e1}
-.tip strong{color:#ffd700}
-.footer{text-align:center;color:#475569;font-size:0.68rem;margin-top:16px;padding-top:12px;border-top:1px solid #1e293b}
-.sector-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.sector{background:#1e293b;border-radius:8px;padding:10px;font-size:0.74rem}
-.sector .sname{font-weight:700;font-size:0.8rem;margin-bottom:4px}
-.bottomnav{position:fixed;left:0;right:0;bottom:0;background:#0d1424;border-top:1px solid #1e293b;display:flex;z-index:99;max-width:600px;margin:0 auto}
-.navbtn{flex:1;text-align:center;padding:10px 0 12px;font-size:0.72rem;color:#64748b;cursor:pointer;border:none;background:none}
-.navbtn.active{color:#ffd700;font-weight:700;border-top:2px solid #ffd700;margin-top:-1px}
-.page{display:none}
-.page.active{display:block}
-.hist-dates{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
-.histbtn{background:#1e293b;color:#94a3b8;border:1px solid #334155;border-radius:8px;padding:6px 12px;font-size:0.74rem;cursor:pointer}
-.histbtn.active{background:#ffd700;color:#0a0e1a;font-weight:700;border-color:#ffd700}
-.empty-note{color:#64748b;font-size:0.76rem;text-align:center;padding:18px 10px;background:#111827;border-radius:10px;border:1px dashed #334155}
-.toast{position:fixed;left:50%;bottom:70px;transform:translateX(-50%);background:#ffd700;color:#0a0e1a;font-size:0.75rem;font-weight:700;padding:8px 16px;border-radius:20px;display:none;z-index:100;white-space:nowrap}
-.setting-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid #1e293b;font-size:0.8rem}
-.radio-group label{margin-right:14px;font-size:0.78rem;cursor:pointer}
-canvas{width:100%}
-.chart-note{font-size:0.66rem;color:#64748b;text-align:center;margin-top:6px}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PeterLuo 财经日报</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            background: #0a0e1a;
+            color: #e0e6ed;
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+        /* 头部 */
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            border-bottom: 2px solid #1a2332;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 2.2em;
+            background: linear-gradient(135deg, #ffd700, #ff6b35);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .date-badge {
+            display: inline-block;
+            background: #1a2332;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            color: #8899aa;
+            border: 1px solid #2a3a4a;
+        }
+
+        /* 数据时点状态条 */
+        .market-status-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+            padding: 15px;
+            background: #111827;
+            border-radius: 12px;
+            border: 1px solid #1e293b;
+        }
+        .market-item {
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            background: #0f172a;
+        }
+        .market-item .flag { font-size: 1.5em; margin-bottom: 5px; }
+        .market-item .name { font-size: 0.85em; color: #94a3b8; margin-bottom: 4px; }
+        .market-item .status { font-size: 0.9em; font-weight: 600; }
+        .status-open { color: #22c55e; }
+        .status-pre { color: #eab308; }
+        .status-closed { color: #64748b; }
+        .status-holiday { color: #ef4444; }
+        .market-item .time-note { font-size: 0.75em; color: #64748b; margin-top: 4px; }
+
+        /* 板块通用 */
+        .section {
+            background: #111827;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #1e293b;
+        }
+        .section-title {
+            font-size: 1.3em;
+            color: #ffd700;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-title .icon { font-size: 1.2em; }
+
+        /* 差异对比横幅 */
+        .diff-banner {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border: 1px solid #334155;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .diff-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .diff-item {
+            text-align: center;
+            padding: 15px;
+            background: #0f172a;
+            border-radius: 8px;
+        }
+        .diff-item .label { color: #94a3b8; font-size: 0.85em; margin-bottom: 5px; }
+        .diff-item .value { font-size: 1.4em; font-weight: 700; }
+        .diff-item .change { font-size: 0.85em; margin-top: 3px; }
+        .up { color: #22c55e; }
+        .down { color: #ef4444; }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 0.9em;
+        }
+        th {
+            background: #1e293b;
+            padding: 12px;
+            text-align: left;
+            color: #ffd700;
+            font-weight: 600;
+            border-bottom: 2px solid #334155;
+        }
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #1e293b;
+            color: #cbd5e1;
+        }
+        tr:hover { background: #1a2332; }
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: 500;
+        }
+        .tag-inflow { background: rgba(34,197,94,0.2); color: #22c55e; }
+        .tag-outflow { background: rgba(239,68,68,0.2); color: #ef4444; }
+        .tag-neutral { background: rgba(148,163,184,0.2); color: #94a3b8; }
+
+        /* 资金流向 */
+        .flow-section { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        @media (max-width: 768px) { .flow-section { grid-template-columns: 1fr; } }
+
+        /* 信号灯 */
+        .signal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        .signal-card {
+            background: #0f172a;
+            border-radius: 10px;
+            padding: 15px;
+            border: 1px solid #1e293b;
+        }
+        .signal-card .signal-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .light {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .light-green { background: #22c55e; box-shadow: 0 0 8px #22c55e; }
+        .light-yellow { background: #eab308; box-shadow: 0 0 8px #eab308; }
+        .light-red { background: #ef4444; box-shadow: 0 0 8px #ef4444; }
+        .light-gray { background: #64748b; }
+
+        /* 逻辑链条 */
+        .logic-chain {
+            background: #0f172a;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-left: 3px solid #ffd700;
+        }
+        .logic-chain .chain-title { color: #ffd700; font-weight: 600; margin-bottom: 8px; }
+        .logic-chain .chain-content { color: #94a3b8; font-size: 0.9em; line-height: 1.8; }
+
+        /* 底部导航 */
+        .bottom-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 20px;
+            margin-top: 30px;
+            border-top: 1px solid #1e293b;
+        }
+        .nav-btn {
+            padding: 10px 25px;
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: all 0.3s;
+        }
+        .nav-btn:hover, .nav-btn.active {
+            background: #ffd700;
+            color: #0a0e1a;
+            border-color: #ffd700;
+        }
+
+        /* 音频播放器 */
+        .audio-section {
+            text-align: center;
+            padding: 20px;
+            background: #111827;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+        .audio-section audio { width: 100%; max-width: 500px; }
+
+        /* 更新按钮 */
+        .update-btn {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 20px auto;
+            padding: 15px;
+            background: linear-gradient(135deg, #ffd700, #ff6b35);
+            border: none;
+            border-radius: 10px;
+            color: #0a0e1a;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .update-btn:hover { transform: scale(1.02); }
+        .update-btn:active { transform: scale(0.98); }
+
+        /* 进度条 */
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: #1e293b;
+            border-radius: 2px;
+            overflow: hidden;
+            margin-top: 10px;
+            display: none;
+        }
+        .progress-bar.active { display: block; }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ffd700, #ff6b35);
+            width: 0%;
+            transition: width 0.3s;
+        }
+
+        /* 准确率 */
+        .accuracy-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .accuracy-track {
+            flex: 1;
+            height: 20px;
+            background: #1e293b;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .accuracy-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #22c55e, #eab308);
+            border-radius: 10px;
+            transition: width 0.5s;
+        }
+
+        /* 政策要闻 */
+        .news-item {
+            padding: 12px;
+            background: #0f172a;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 3px solid #3b82f6;
+        }
+        .news-item .news-time { color: #64748b; font-size: 0.8em; }
+        .news-item .news-title { color: #e2e8f0; font-weight: 500; margin: 5px 0; }
+        .news-item .news-source { color: #64748b; font-size: 0.8em; }
+
+        /* 免责声明 */
+        .disclaimer {
+            text-align: center;
+            padding: 20px;
+            color: #64748b;
+            font-size: 0.8em;
+            border-top: 1px solid #1e293b;
+            margin-top: 20px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .market-status-bar { grid-template-columns: repeat(2, 1fr); }
+            .header h1 { font-size: 1.6em; }
+            .container { padding: 10px; }
+        }
+    </style>
 </head>
 <body>
-<h1>📊 PeterLuo财经日报</h1>
-<div class="subtitle">黄金 · 科技 · 原油 · A股</div>
-<div class="sub">2026年7月24日 08:00数据汇总 · 基于7月24日美股收盘+A股7/23收盘</div>
+    <div class="container">
+        <!-- 头部 -->
+        <div class="header">
+            <h1>📊 PeterLuo 财经日报</h1>
+            <div class="date-badge" id="dateBadge">2026年7月24日 · 17:00 晚报版</div>
+        </div>
 
-<div class="notice" id="closeNotice">🌙 隔夜：美股小跌（纳指-0.57%）· AI服务器逆势爆发（超微+20%、戴尔+9%）· 原油大涨3%+伊朗威胁再升级 · 公募二季报光模块登顶=抱团警报</div>
-<div class="notice" style="border-color:#334155;background:#101827;font-size:0.7rem">🕐 数据时点：🇺🇸美股 7/23收盘 ✅（今晨更新）｜ 🇨🇳A股 7/23收盘（今日09:30开盘）｜ 🇰🇷韩股 今日09:00开盘·盘前报更新 ｜ 🇭🇰港股 7/23收盘 ｜ 遇休市将特别注明</div>
+        <!-- 数据时点状态条 -->
+        <div class="market-status-bar" id="marketStatusBar">
+            <div class="market-item" id="usMarket">
+                <div class="flag">🇺🇸</div>
+                <div class="name">美股</div>
+                <div class="status" id="usStatus">加载中...</div>
+                <div class="time-note" id="usTimeNote"></div>
+            </div>
+            <div class="market-item" id="krMarket">
+                <div class="flag">🇰🇷</div>
+                <div class="name">韩股</div>
+                <div class="status" id="krStatus">加载中...</div>
+                <div class="time-note" id="krTimeNote"></div>
+            </div>
+            <div class="market-item" id="hkMarket">
+                <div class="flag">🇭🇰</div>
+                <div class="name">港股</div>
+                <div class="status" id="hkStatus">加载中...</div>
+                <div class="time-note" id="hkTimeNote"></div>
+            </div>
+            <div class="market-item" id="cnMarket">
+                <div class="flag">🇨🇳</div>
+                <div class="name">A股</div>
+                <div class="status" id="cnStatus">加载中...</div>
+                <div class="time-note" id="cnTimeNote"></div>
+            </div>
+        </div>
 
-<div class="voicebar">
-<div style="display:flex;width:100%;align-items:center;justify-content:space-between">
-<span class="vlabel">🔊 语音日报 <span id="voiceStatus" style="color:#64748b;font-weight:400;font-size:0.66rem">加载中…</span></span>
-<button class="updatebtn" onclick="checkUpdate()">🔄 一键更新</button>
-</div>
-<audio id="voiceAudio" controls preload="metadata" src="briefing.mp3" style="width:100%;height:34px;margin-top:8px"></audio>
-<button class="updatebtn" id="voiceBtn" onclick="toggleVoice()" style="display:none;margin-top:8px">▶ 播放（本地朗读）</button>
-</div>
+        <!-- 音频播报 -->
+        <div class="audio-section">
+            <h3 style="color:#ffd700;margin-bottom:10px;">🎙️ 语音播报</h3>
+            <audio controls id="audioPlayer">
+                <source src="briefing.mp3" type="audio/mpeg">
+                您的浏览器不支持音频播放
+            </audio>
+        </div>
 
-<div class="banner"><b>🌙 隔夜美股（7/23收盘）：</b>纳指 <span class="down">-0.57%</span>｜标普 <span class="down">-0.14%</span>｜道指 <span class="down">-0.01%</span>｜超微电脑 <span class="up">+20%</span>｜戴尔 <span class="up">+9%</span>｜WTI原油 <span class="up">+2.95%</span>｜布伦特 <span class="up">+3.36%</span>｜黄金 <span class="down">微跌</span></div>
+        <!-- 一键更新 -->
+        <button class="update-btn" id="updateBtn" onclick="checkUpdate()">
+            🔄 一键更新数据
+        </button>
+        <div class="progress-bar" id="progressBar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
 
-<!-- ================= 页面1：日报 ================= -->
-<div class="page active" id="page-daily">
+        <!-- 差异对比横幅 -->
+        <div class="diff-banner">
+            <div class="section-title"><span class="icon">📈</span> 差异对比 · 关键指标</div>
+            <div class="diff-grid">
+                <div class="diff-item">
+                    <div class="label">上证指数</div>
+                    <div class="value" id="shIndex">--</div>
+                    <div class="change" id="shChange">--</div>
+                </div>
+                <div class="diff-item">
+                    <div class="label">创业板指</div>
+                    <div class="value" id="cyIndex">--</div>
+                    <div class="change" id="cyChange">--</div>
+                </div>
+                <div class="diff-item">
+                    <div class="label">恒生指数</div>
+                    <div class="value" id="hsIndex">--</div>
+                    <div class="change" id="hsChange">--</div>
+                </div>
+                <div class="diff-item">
+                    <div class="label">KOSPI</div>
+                    <div class="value" id="kospiIndex">--</div>
+                    <div class="change" id="kospiChange">--</div>
+                </div>
+            </div>
+        </div>
 
-<div class="section">
-<div class="title">📰 政策要闻·公告雷达 <span class="signal yellow">地缘升级</span><span class="date-badge">7/2308:00数据汇总</span></div>
-<div class="tip">
-<strong>🇨🇳 官媒重磅（政策市信号）</strong><br>
-<span class="signal green" style="float:none">呵护</span> <strong>北京国管：</strong>发文坚定看好中国资本市场，已统筹自有资金累计近百亿元布局股票市场——国资持续进场 <span style="color:#64748b">· 财联社 7/23</span><br>
-<span class="signal green" style="float:none">信心</span> <strong>私募自购潮：</strong>7月以来23家私募自购13.53亿，16家50亿+大私募占八成；上半年证券交易印花税1549亿、同比+97.3%——市场活跃度佐证 <span style="color:#64748b">· 财联社 7/23</span><br>
-<span class="signal red" style="float:none">地缘升级</span> <strong>伊朗局势反复：</strong>特朗普称"伊朗若向海峡船只开火，将轰炸摧毁其桥梁或发电厂"；伊朗外长回应"以牙还牙"——停火前景蒙阴，原油溢价重新定价 <span style="color:#64748b">· 财联社 7/23</span><br>
-<strong>📌 解读：</strong>政策呵护不变，但地缘从"缓和"摆回"升级"——原油链与黄金链的权重今日上调，对昨日"溢价见顶"判断做修正
-</div>
-<div class="tip">
-<strong>📋 个股公告雷达</strong>（监控：有研新材·彤程新材·TCL科技·三安光电·平高电气·许继电气·中国西电·甘肃能源·）<br>
-<span class="signal green" style="float:none">业绩</span> <strong>中微半导：</strong>上半年净利预增90.82%；<strong>南网数字：</strong>预增1051%-1512%（电力数字化）<br>
-<span class="signal green" style="float:none">扩产</span> <strong>金安国纪：</strong>拟20亿建珠海覆铜板扩产项目（材料链景气延续）<br>
-<span class="signal green" style="float:none">回购增持</span> <strong>亨通光电</strong>二级市场购入185万股；<strong>大秦铁路</strong>回购4-5亿；<strong>恩捷股份</strong>回购1-2亿；<strong>容百科技</strong>半年报扭亏<br>
-<span class="signal yellow" style="float:none">事件</span> <strong>引力一号遥四</strong>发射成功（商业航天催化）；<strong>苹果iPhone 18</strong>量产爬坡（消费电子链）；<strong>超卓航科</strong>控股权变更复牌<br>
-<span class="signal red" style="float:none">风险信号</span> <strong>公募二季报：</strong>中际旭创登顶第一大重仓股、新易盛升至第二、茅台降至13——机构在光模块的抱团达到极值，与昨日85亿兑现互证，拥挤交易警报
-</div>
-</div>
+        <!-- 政策要闻 -->
+        <div class="section">
+            <div class="section-title"><span class="icon">📰</span> 政策要闻 · 公告雷达</div>
+            <div id="newsContainer">
+                <div class="news-item">
+                    <div class="news-time">2026-07-24</div>
+                    <div class="news-title">数据加载中，请稍候...</div>
+                    <div class="news-source">--</div>
+                </div>
+            </div>
+        </div>
 
-<div class="section">
-<div class="title">🌅 早盘预判（09:00盘前报）<span class="date-badge">7/23 周四</span></div>
-<div class="tip">
-<strong>🇺🇸 隔夜定调：</strong>美股小跌但结构分化——AI服务器整机（超微+20%、戴尔+9%）逆势爆发，存储走弱（海力士ADR-5%）；A股映射：算力整机/液冷方向有支撑，存储高位股承压<br>
-<strong>🛢️ 地缘再升温：</strong>特朗普威胁轰炸伊朗基础设施，WTI+2.95%、布油+3.36%——石油石化昨日已领涨+3.23%，今日惯性延续但坚决不追涨，油价波动加剧<br>
-<strong>🥇 黄金：</strong>隔夜微跌但地缘升级托底，黄金股昨日资金登顶逻辑未破坏，持有为主<br>
-<strong>⚠️ 拥挤警报：</strong>公募二季报中际旭创登顶第一大重仓——光模块"机构抱团+昨日85亿兑现"双信号，回避追高；算力链内部继续"光退整机/封测进"<br>
-<strong>📌 策略：</strong>主线一黄金有色（回踩5日线低吸）+主线二算力硬件换棒方向（封测/整机/液冷低吸）；缩量分化市仓位集中龙头；等09:00韩股开盘信号确认半导体方向<br>
-<span style="color:#64748b;font-size:0.68rem">09:00盘前报更新韩股开盘 · 09:02老六买点顺位推送</span>
-</div>
-</div>
+        <!-- 早盘预判 / 收盘复盘 -->
+        <div class="section" id="marketReview">
+            <div class="section-title"><span class="icon">🎯</span> 收盘复盘 · 7/24全天</div>
+            <div id="reviewContent">
+                <p style="color:#94a3b8;">数据加载中...</p>
+            </div>
+        </div>
 
-<div class="section">
-<div class="title">🌇 收盘复盘（17:00晚报）<span class="date-badge">7/24 周四</span></div>
-<div class="tip">
-<strong>⚖️ 指数平稳、个股大分化：</strong>沪指 +0.25%、深成指 +0.44%、创业板指 +0.25%，4200+只个股上涨，116股涨停，主力全天净流出154.65亿——护盘保指数底，不保普涨<br>
-<strong>🥇 黄金有色全天领涨：</strong>电力设备 +4.60%、有色金属 +3.51%居行业前二；电力设备净流入74.35亿居行业之首，宁德时代+7.33亿，验证"金价修复+中报预增"双逻辑<br>
-<strong>💥 半导体内部换棒：</strong>电子 -0.93%领跌，电子净流出102.98亿、通信净流出52亿；立讯精密+9.75亿、中兴通讯+31.9亿——光模块退、封测/超节点进<br>
-<strong>📊 预判验证（准确率 4/5 = 80%）：</strong>「指数缩量企稳」✓「微盘股反弹」✓「高低切换」✓「电网锂电活跃」✓｜「科技链回流」❌（长鑫上市前观望）<br>
-<strong>📝 结论：</strong>反转未破坏但进入"缩量抱团"预警——全天仅22个题材净流入超10亿（昨日77个），仓位向算力硬件+黄金有色两条主线龙头集中<br>
-<strong>👀 次日关注：</strong>题材净流入家数能否重回50+、通信链兑现是否蔓延、伊朗停火提议落地情况
-</div>
-</div>
+        <!-- 准确率验证 -->
+        <div class="section">
+            <div class="section-title"><span class="icon">🎯</span> 准确率追踪</div>
+            <div id="accuracyContainer">
+                <div class="accuracy-bar">
+                    <span style="min-width:80px;">7/24预测</span>
+                    <div class="accuracy-track"><div class="accuracy-fill" style="width:0%"></div></div>
+                    <span>待验证</span>
+                </div>
+            </div>
+        </div>
 
-<div class="section">
-<div class="title">🟡 黄金敏感指标 <span class="signal yellow"> +1分</span><span class="date-badge">金价7/22·其余7/17</span></div>
-<table>
-<tr><th>指标</th><th>收盘</th><th>日变动</th><th>周变动</th></tr>
-<tr><td>🇺🇸 美元指数</td><td>100.75</td><td class="up">+0.02%</td><td class="down">-0.53%</td></tr>
-<tr><td>🇺🇸 美债10年</td><td>4.541%</td><td class="down">-2.8bp</td><td class="down">-6.8bp</td></tr>
-<tr><td>🇺🇸 国际金价</td><td class="highlight">$4,040</td><td class="up">+0.60%</td><td class="up">+0.7%</td></tr>
-<tr><td>🇨🇳 沪金AU9999</td><td>¥872.48</td><td class="down">-0.55%</td><td class="down">-1.6%</td></tr>
-<tr><td>🇨🇳 </td><td class="highlight">涨停</td><td class="up">+10.00%</td><td>—</td></tr>
-</table>
-<div class="tip"><strong>💡 持仓:</strong> 隔夜金价微跌，但特朗普威胁升级地缘→避险托底，$4,000上方趋势未破坏，持有为主。盯美元指数 <strong>100.15</strong>（跌破加仓）<strong>101.50</strong>（升破减仓）</div>
-</div>
+        <!-- 黄金敏感指标 -->
+        <div class="section">
+            <div class="section-title"><span class="icon">🥇</span> 黄金敏感指标</div>
+            <div class="diff-grid" id="goldIndicators">
+                <div class="diff-item">
+                    <div class="label">国际金价</div>
+                    <div class="value" id="goldPrice">--</div>
+                    <div class="change" id="goldChange">--</div>
+                </div>
+                <div class="diff-item">
+                    <div class="label">美元指数</div>
+                    <div class="value" id="dxyIndex">--</div>
+                    <div class="change" id="dxyChange">--</div>
+                </div>
+                <div class="diff-item">
+                    <div class="label">实际利率</div>
+                    <div class="value" id="realRate">--</div>
+                    <div class="change" id="rateChange">--</div>
+                </div>
+                <div class="diff-item">
+                    <div class="label">VIX波动率</div>
+                    <div class="value" id="vixIndex">--</div>
+                    <div class="change" id="vixChange">--</div>
+                </div>
+            </div>
+        </div>
 
-<div class="section">
-<div class="title">🟢 半导体·科技因子 <span class="signal green"> +3分·内部换棒</span><span class="date-badge">美股7/23收盘·A股7/23</span></div>
-<table>
-<tr><th>标的</th><th>价格</th><th>日涨跌</th></tr>
-<tr><td>🇺🇸 费城半导体</td><td>12,356.16</td><td class="up">+5.21%</td></tr>
-<tr><td>🇺🇸 英伟达</td><td>$207.29</td><td class="up">+1.97%</td></tr>
-<tr><td>🇺🇸 美光科技</td><td>—</td><td class="up">+12%</td></tr>
-<tr><td>🇰🇷 韩国综指</td><td>7,097.59</td><td class="up">+5%↑(7/23早盘Sidecar)</td></tr>
-<tr><td>🇰🇷 SK海力士</td><td>—</td><td class="up">+8%(7/23早盘)</td></tr>
-<tr><td>🇰🇷 三星电子</td><td>—</td><td class="up">+5.6%(7/23早盘)</td></tr>
-<tr><td>🇨🇳 中芯国际A</td><td class="highlight">160.00</td><td class="up">+11.11%(7/22)</td></tr>
-<tr><td>🇨🇳 中韩半导体ETF</td><td>4.989</td><td class="up">+10.01%(7/22涨停)</td></tr>
-</table>
-<div class="tip"><strong>💡 科技:</strong> 美股7/23：AI服务器整机爆发（超微+20%、戴尔+9%），存储走弱（海力士ADR-5%）——与A股"光模块退、封测/整机进"换棒同向。维持但不追高，低吸方向：封测/算力整机/液冷；主线存储/HBM等回踩。</div>
-</div>
+        <!-- 半导体科技因子 -->
+        <div class="section">
+            <div class="section-title"><span class="icon">💻</span> 半导体 · 科技因子</div>
+            <div id="semiContent">
+                <p style="color:#94a3b8;">数据加载中...</p>
+            </div>
+        </div>
 
-<div class="section">
-<div class="title">🔴 原油·地缘因子 <span class="signal red"> -2分</span><span class="date-badge">7/23收盘·隔夜+3%</span></div>
-<table>
-<tr><th>指标</th><th>收盘</th><th>日变动</th></tr>
-<tr><td>🇺🇸 布伦特原油</td><td class="highlight">$91.01</td><td class="up">+2.0%</td></tr>
-<tr><td>🇺🇸 WTI原油</td><td>—</td><td>五周最高收盘</td></tr>
-<tr><td>🇮🇷 伊朗局势</td><td>停火提议</td><td>10天停火方案浮现</td></tr>
-</table>
-<div class="tip"><strong>📰 地缘:</strong> 隔夜WTI+2.95%、布油+3.36%——特朗普威胁轰炸伊朗桥梁/电厂，伊朗"以牙还牙"，"溢价见顶"判断修正为"溢价反复"。维持：波动加剧，坚决不追涨，持仓者逢高分批止盈</div>
-</div>
+        <!-- 原油地缘因子 -->
+        <div class="section">
+            <div class="section-title"><span class="icon">🛢️</span> 原油 · 地缘因子</div>
+            <div id="oilContent">
+                <p style="color:#94a3b8;">数据加载中...</p>
+            </div>
+        </div>
 
-<div class="section">
-<div class="title">🇨🇳 A股核心指标（8大板块）<span class="date-badge">7/23收盘·晚报</span></div>
-<div class="sector-grid">
-<div class="sector"><div class="sname">半导体 <span class="signal green" style="float:none">🟢 ·换棒</span></div>通信-4.44%领跌但封测/超节点承接（中兴涨停、通富+28亿），内部换棒不追高</div>
-<div class="sector"><div class="sname">AI基础设施 <span class="signal yellow" style="float:none">🟡 </span></div>光模块大额兑现（新易盛-47.9亿），资金切向液冷/云计算，短线分化</div>
-<div class="sector"><div class="sname">具身智能 <span class="signal yellow" style="float:none">🟡 </span></div>机器人净流出12.3亿高位兑现，等企稳信号</div>
-<div class="sector"><div class="sname">商业航天 <span class="signal red" style="float:none">🔴 </span></div>连续两日净流出、概念退潮，回避</div>
-<div class="sector"><div class="sname">电力电网 <span class="signal yellow" style="float:none">🟡 </span></div>算电协同逻辑延续，温和承接，观察</div>
-<div class="sector"><div class="sname">创新药 <span class="signal yellow" style="float:none">🟡 </span></div>医药生物净流出居前，防御继续让位</div>
-<div class="sector"><div class="sname">消费 <span class="signal yellow" style="float:none">🟡 </span></div>白酒弱势未改，需求逻辑待验证，观察</div>
-<div class="sector"><div class="sname">红利 <span class="signal yellow" style="float:none">🟡 </span></div>银行普跌拖累，进攻期让位，底仓不动</div>
-</div>
-<div class="tip" style="font-size:0.68rem;color:#64748b">板块信号灯为策略视角定性判断（基于7/22收盘与资金行为），非实时行情数据</div>
-</div>
+        <!-- A股8大板块 -->
+        <div class="section">
+            <div class="section-title"><span class="icon">🇨🇳</span> A股8大板块监测</div>
+            <div id="a8Content">
+                <p style="color:#94a3b8;">数据加载中...</p>
+            </div>
+        </div>
 
-<div class="section">
-<div class="title">💰 资金流向·板块前十<span class="date-badge">7/23全天·交易所口径</span></div>
-<div class="tip" style="margin-bottom:6px"><strong>口径统一：</strong>流入/流出均为交易所主力资金全天数据，附"午间→全天"变化追踪。总览：主力全天净流出154.65亿，成交2.2万亿缩量4580亿；全天仅22个题材净流入超10亿（7/22为77个），极致缩量分化、高低切换。</div>
-<table>
-<tr><th colspan="3" style="color:#f87171">流入前十·全天（亿元｜午间→全天变化）</th></tr>
-<tr><td>1 电力设备</td><td class="up">+74.35</td><td>全天登顶（宁德时代+7.33亿）</td></tr>
-<tr><td>2 有色金属</td><td class="up">+34.18</td><td>持续强势（紫金矿业）</td></tr>
-<tr><td>3 基础化工</td><td class="up">+3.0+</td><td>低位补涨</td></tr>
-<tr><td>4 国防军工</td><td class="up">+3.0+</td><td>政策驱动</td></tr>
-<tr><td>5 机械设备</td><td class="up">+3.0+</td><td>制造业复苏</td></tr>
-<tr><td>6 卫星互联网</td><td class="up">+29.3</td><td>第20→第6 ↑↑ 午后加速</td></tr>
-<tr><td>7 IPv6</td><td class="up">+27.7</td><td>第16→第7 ↑</td></tr>
-<tr><td>8 移动支付</td><td class="up">+26.6</td><td>第22→第8 ↑（通富微电）</td></tr>
-<tr><td>9 腾讯云</td><td class="up">+23.6</td><td>第29→第9 ↑↑ 午后逆势加码</td></tr>
-<tr><td>10 网络安全</td><td class="up">+21.6</td><td>第12→第10 ↑ 低位补涨</td></tr>
-<tr><td colspan="3" style="color:#64748b">⚠️ 午后掉出前十：国产芯片、物联网、数据中心、液冷、存储芯片——科技链高位兑现</td></tr>
-</table>
-<table style="margin-top:8px">
-<tr><th colspan="3" style="color:#4ade80">流出前列·全天（亿元｜变化）</th></tr>
-<tr><td>1 电子</td><td class="down">-102.98</td><td>午间-28.9→全天-102.98，午后流出加剧近3倍</td></tr>
-<tr><td>2 通信</td><td class="down">-52.0</td><td>CPO/光模块高位兑现</td></tr>
-<tr><td>3 计算机</td><td class="down">较多</td><td>AI应用端退潮</td></tr>
-<tr><td>4 医药生物</td><td class="down">较多</td><td>防御让位</td></tr>
-<tr><td>5 传媒</td><td class="down">较多</td><td>AI应用端退潮</td></tr>
-<tr><td colspan="3" style="color:#64748b">个股全天：净流出 新易盛-48.1亿、中际旭创-37.6亿；净流入 中兴通讯+31.9亿、通富微电+28.1亿、宁德时代+7.33亿</td></tr>
-</table>
-<div class="tip" style="margin-top:8px"><strong>📊 资金流结论（结合逻辑链条）：</strong>① 半导体反转链出现"内部换棒"：午盘领涨的光模块/CPO全天转为最大失血点（通信-102.98亿，新易盛/中际旭创合计兑现85亿），资金转向封测（通富微电+28.1亿）、设备与超节点（中兴+32.3亿涨停）——产业逻辑未破坏，属高位兑现+低位承接，但短线波动将加大，"不追高"纪律升级。② 黄金链全天反超居首：黄金概念+74.35亿、小金属+34.18亿、有色行业净流入64.2亿居全行业第一——停火提议下资金仍加仓，说明金价$4,040趋势修复+中报预增（预增51%+）双逻辑压过地缘缓和的利空，维持但。③ 政策呵护链未能阻止分化：监管层座谈+放量背景下主力仍净流出86亿、超七成个股下跌，说明护盘只保指数底、不保普涨，操作必须贴主线（算力硬件+黄金有色），远离无资金承接的中位股。④ 量能警报：全天仅22个题材净流入超10亿，较7/22的77个骤降——若明日不能重回50+，反转行情将进入"缩量抱团"阶段，仓位向两条主线龙头集中。</div>
-</div>
+        <!-- 资金流向 -->
+        <div class="section">
+            <div class="section-title"><span class="icon">💰</span> 资金流向 · 7/24全天</div>
+            <div class="flow-section">
+                <div>
+                    <h4 style="color:#22c55e;margin-bottom:10px;">📥 净流入前十</h4>
+                    <table id="inflowTable">
+                        <thead><tr><th>题材/行业</th><th>净流入</th><th>信号</th></tr></thead>
+                        <tbody><tr><td colspan="3" style="text-align:center;color:#64748b;">加载中...</td></tr></tbody>
+                    </table>
+                </div>
+                <div>
+                    <h4 style="color:#ef4444;margin-bottom:10px;">📤 净流出前十</h4>
+                    <table id="outflowTable">
+                        <thead><tr><th>题材/行业</th><th>净流出</th><th>信号</th></tr></thead>
+                        <tbody><tr><td colspan="3" style="text-align:center;color:#64748b;">加载中...</td></tr></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="logic-chain" style="margin-top:15px;">
+                <div class="chain-title">资金流向分析结论</div>
+                <div class="chain-content" id="flowAnalysis">
+                    数据加载中，请等待收盘数据更新...
+                </div>
+            </div>
+        </div>
 
-<div class="section">
-<div class="title">🟢 政策·宏观 <span class="signal green"> +1分</span><span class="date-badge">7/23晚报</span></div>
-<div class="tip">
-<strong>货币:</strong> 2026适度宽松基调不变，预计降息2次20-30BP<br>
-<strong>呵护:</strong> 吴清主席座谈效应延续——7/23超七成个股下跌但沪指收平，政策底只保指数、不保普涨<br>
-<strong>资金:</strong> 主力全天净流出86.2亿，仅22个题材净流入超10亿（7/22为77个），缩量分化警报<br>
-<strong>地缘:</strong> 伊朗停火提议发酵中，盯是否落地——落地则油价溢价回吐、通胀预期再降
-</div>
-</div>
+        <!-- 政策宏观 -->
+        <div class="section">
+            <div class="section-title"><span class="icon">🏛️</span> 政策宏观</div>
+            <div id="macroContent">
+                <p style="color:#94a3b8;">数据加载中...</p>
+            </div>
+        </div>
 
-<div class="section">
-<div class="title">🔬 半导体供应链深度<span class="date-badge">截至7/23·趋势延续</span></div>
-<div class="tip">
-<strong>出口:</strong> 韩国7月前20天出口+62.9%，芯片出口+180.6%，存储反转获官方背书<br>
-<strong>HBM:</strong> 涨价15-30%，DDR4收缩15%，封测满载涨价，铠侠+17%/美光+12%<br>
-<strong>AI芯片:</strong> Vera Rubin投产，H200对华200万颗，全链缺货<br>
-<strong>材料:</strong> 覆铜板涨12-22%，铜箔涨15-28%，金刚石热沉元年
-</div>
-</div>
+        <!-- 半导体供应链 -->
+        <div class="section">
+            <div class="section-title"><span class="icon">🔗</span> 半导体供应链</div>
+            <div id="supplyChainContent">
+                <p style="color:#94a3b8;">截至当日 · 趋势延续</p>
+            </div>
+        </div>
 
-<div class="section">
-<div class="title">🎯 投资逻辑链条<span class="date-badge">7/23晚报</span></div>
-<div class="tip">
-<strong>① 地缘缓和:</strong> 伊朗停火提议发酵→油价溢价见顶→通胀预期降温→落地则再利好风险资产<br><br>
-<strong>② 半导体反转·内部换棒:</strong> 产业逻辑未破坏，但光模块/CPO大额兑现→封测/超节点/液冷承接→主线延续、波动加大<br><br>
-<strong>③ 政策呵护:</strong> 座谈呵护下沪指收平、超七成个股下跌→只保指数底→必须贴主线龙头<br><br>
-<strong>④ 黄金修复·:</strong> 停火提议下资金仍净流入51.4亿居首→趋势修复+中报预增双逻辑成立
-</div>
-<table style="margin-top:10px">
-<tr><th>资产</th><th>灯</th><th>操作</th></tr>
-<tr><td>黄金</td><td><span class="signal yellow">🟡 </span></td><td>持有为主·置信度↑</td></tr>
-<tr><td>半导体</td><td><span class="signal green">🟢 </span></td><td>换棒中·不追高·低吸封测/设备</td></tr>
-<tr><td>原油</td><td><span class="signal red">🔴 </span></td><td>不追涨·逢高止盈</td></tr>
-</table>
-</div>
+        <!-- 投资逻辑链条 -->
+        <div class="section">
+            <div class="section-title"><span class="icon">🧠</span> 投资逻辑链条</div>
+            <div id="logicChains">
+                <div class="logic-chain">
+                    <div class="chain-title">逻辑链1：黄金避险逻辑</div>
+                    <div class="chain-content" id="logicGold">
+                        数据加载中...
+                    </div>
+                </div>
+                <div class="logic-chain">
+                    <div class="chain-title">逻辑链2：半导体周期逻辑</div>
+                    <div class="chain-content" id="logicSemi">
+                        数据加载中...
+                    </div>
+                </div>
+                <div class="logic-chain">
+                    <div class="chain-title">逻辑链3：原油地缘逻辑</div>
+                    <div class="chain-content" id="logicOil">
+                        数据加载中...
+                    </div>
+                </div>
+                <div class="logic-chain">
+                    <div class="chain-title">逻辑链4：A股政策驱动逻辑</div>
+                    <div class="chain-content" id="logicAshare">
+                        数据加载中...
+                    </div>
+                </div>
+            </div>
+        </div>
 
-</div><!-- /page-daily -->
+        <!-- 底部信号总结表 -->
+        <div class="section">
+            <div class="section-title"><span class="icon">🚦</span> 底部信号总结</div>
+            <div class="signal-grid" id="signalSummary">
+                <div class="signal-card">
+                    <div class="signal-title"><span class="light light-gray" id="goldLight"></span> 黄金</div>
+                    <div style="color:#94a3b8;font-size:0.9em;" id="goldSignal">加载中...</div>
+                </div>
+                <div class="signal-card">
+                    <div class="signal-title"><span class="light light-gray" id="semiLight"></span> 半导体</div>
+                    <div style="color:#94a3b8;font-size:0.9em;" id="semiSignal">加载中...</div>
+                </div>
+                <div class="signal-card">
+                    <div class="signal-title"><span class="light light-gray" id="oilLight"></span> 原油</div>
+                    <div style="color:#94a3b8;font-size:0.9em;" id="oilSignal">加载中...</div>
+                </div>
+            </div>
+        </div>
 
-<!-- ================= 页面2：历史 ================= -->
-<div class="page" id="page-history">
-<div class="section">
-<div class="title">🗓️ 历史日报（保留最近7天）</div>
-<div class="hist-dates">
-<button class="histbtn" onclick="showHist('7/13',this)">7/13 周一</button>
-<button class="histbtn" onclick="showHist('7/14',this)">7/14 周二</button>
-<button class="histbtn" onclick="showHist('7/15',this)">7/15 周三</button>
-<button class="histbtn" onclick="showHist('7/16',this)">7/16 周四</button>
-<button class="histbtn" onclick="showHist('7/17',this)">7/17 周五</button>
-<button class="histbtn" onclick="showHist('7/22',this)">7/22 周一</button>
-<button class="histbtn" onclick="showHist('7/22',this)">7/22 周二</button>
-<button class="histbtn active" onclick="showHist('7/23',this)">7/24 周四</button>
-</div>
-<div id="histContent"></div>
-</div>
-<div class="footer">历史快照自7/19版起每日自动留存，仅保留最近7天</div>
-</div><!-- /page-history -->
+        <!-- 底部导航 -->
+        <div class="bottom-nav">
+            <a href="#" class="nav-btn active">日报</a>
+            <a href="#" class="nav-btn">历史</a>
+            <a href="#" class="nav-btn">对比</a>
+            <a href="#" class="nav-btn">设置</a>
+        </div>
 
-<!-- ================= 页面3：对比 ================= -->
-<div class="page" id="page-compare">
-<div class="section">
-<div class="title">⚡ 较前一交易日差异（7/22→7/22）<span class="date-badge">7/22收盘</span></div>
-<table>
-<tr><th>指标</th><th>市场</th><th>日变动</th></tr>
-<tr><td>上证指数</td><td>🇨🇳</td><td class="up">+1.79%</td></tr>
-<tr><td>科创50</td><td>🇨🇳</td><td class="up">+10.73%</td></tr>
-<tr><td>中芯国际A</td><td>🇨🇳</td><td class="up">+11.11%</td></tr>
-<tr><td>中韩半导体ETF</td><td>🇨🇳</td><td class="up">+10.01%</td></tr>
-<tr><td>费城半导体</td><td>🇺🇸</td><td class="up">+5.21%</td></tr>
-<tr><td>英伟达</td><td>🇺🇸</td><td class="up">+1.97%</td></tr>
-<tr><td>国际金价</td><td>🇺🇸</td><td class="up">+0.60%</td></tr>
-<tr><td>布伦特原油</td><td>🇺🇸</td><td class="up">+2.0%</td></tr>
-<tr><td>韩国综指</td><td>🇰🇷</td><td class="up">+5%↑(7/23早盘)</td></tr>
-</table>
-</div>
+        <!-- 免责声明 -->
+        <div class="disclaimer">
+            <p>⚠️ 本日报仅供研究参考，不构成投资建议。市场有风险，投资需谨慎。</p>
+            <p>PeterLuo 财经日报 · 数据时点自动更新</p>
+        </div>
+    </div>
 
-<div class="section">
-<div class="title">📈 复盘准确率追踪（历史趋势）</div>
-<canvas id="accChart" width="560" height="260"></canvas>
-<div class="chart-note">7/22=67% · 7/22=0%（V反日教训）· 7/23=80%（4/5，CPO主线误判）· 灰色为未记录日期</div>
-</div>
-</div><!-- /page-compare -->
+    <script>
+        // ==================== 市场状态判断核心逻辑 ====================
 
-<!-- ================= 页面4：设置 ================= -->
-<div class="page" id="page-settings">
-<div class="section">
-<div class="title">⚙️ 设置</div>
-<div class="setting-row">
-<span>🔊 语音偏好</span>
-<span class="radio-group">
-<label><input type="radio" name="voice" value="zhixing" checked> 知性女声</label>
-<label><input type="radio" name="voice" value="huopo"> 活泼女声</label>
-</span>
-</div>
-<div class="setting-row">
-<span>🔕 休市提示条</span>
-<span class="radio-group">
-<label><input type="radio" name="notice" value="show" checked> 显示</label>
-<label><input type="radio" name="notice" value="hide"> 隐藏</label>
-</span>
-</div>
-<div class="tip" style="font-size:0.7rem;color:#64748b">语音偏好即时生效：知性=沉稳慢速 · 活泼=轻快高音</div>
-</div>
+        function getMarketStatus() {
+            const now = new Date();
+            const beijingTime = new Date(now.toLocaleString("en-US", {timeZone: "Asia/Shanghai"}));
+            const hour = beijingTime.getHours();
+            const minute = beijingTime.getMinutes();
+            const timeVal = hour * 60 + minute;
+            const day = beijingTime.getDay(); // 0=周日, 6=周六
+            const isWeekend = (day === 0 || day === 6);
 
-<div class="section">
-<div class="title">🕐 更新节奏</div>
-<div class="tip">
-<strong>08:00</strong> 美股收盘后 · 数据汇总<br>
-<strong>09:00</strong> 韩股开盘前 · 早盘预判<br>
-<strong>17:00</strong> A股收盘后 · 晚报：复盘+资金流向前十+准确率验证<br>
-<strong>🗓️</strong> 历史保留最近7天 · 一键更新获取最新部署版本
-</div>
-</div>
+            // A股: 9:30-11:30, 13:00-15:00
+            const cnOpen1 = 9 * 60 + 30;  // 570
+            const cnClose1 = 11 * 60 + 30; // 690
+            const cnOpen2 = 13 * 60;      // 780
+            const cnClose2 = 15 * 60;     // 900
 
-<div class="footer">
-数据来源: iFinD·雅虎·富途·财新·EIA<br>
-08:00美股后·09:00韩股前·17:00收盘晚报·保留7天历史<br>
-仅供参考，不构成投资建议
-</div>
-</div><!-- /page-settings -->
+            // 韩股: 8:00-14:30 (KST=北京时间)
+            const krOpen = 8 * 60;        // 480
+            const krClose = 14 * 60 + 30; // 870
 
-<div class="footer" id="mainFooter">
-数据来源: iFinD·雅虎·富途·财新·EIA<br>
-08:00美股后·09:00韩股前·17:00收盘晚报·保留7天历史<br>
-仅供参考，不构成投资建议
-</div>
+            // 港股: 9:30-12:00, 13:00-16:00
+            const hkOpen1 = 9 * 60 + 30; // 570
+            const hkClose1 = 12 * 60;    // 720
+            const hkOpen2 = 13 * 60;     // 780
+            const hkClose2 = 16 * 60;    // 960
 
-<!-- ================= 底部导航 ================= -->
-<div class="bottomnav">
-<button class="navbtn active" onclick="switchPage('daily',this)">📊 日报</button>
-<button class="navbtn" onclick="switchPage('history',this)">🗓️ 历史</button>
-<button class="navbtn" onclick="switchPage('compare',this)">⚡ 对比</button>
-<button class="navbtn" onclick="switchPage('settings',this)">⚙️ 设置</button>
-</div>
+            // 美股: 21:30-次日4:00 (北京时间)
+            const usOpen = 21 * 60 + 30;  // 1290
+            const usClose = 4 * 60;       // 240 (次日)
 
-<div class="toast" id="toast"></div>
-<div id="progressWrap" style="display:none;position:fixed;top:52%;left:50%;transform:translate(-50%,0);width:180px;height:3px;background:rgba(255,255,255,.15);border-radius:2px;z-index:9998;">
-  <div id="progressBar" style="width:0%;height:100%;background:#f59e0b;border-radius:2px;transition:width .2s;"></div>
-</div>
+            let cnStatus, cnNote, cnClass;
+            let krStatus, krNote, krClass;
+            let hkStatus, hkNote, hkClass;
+            let usStatus, usNote, usClass;
 
-<script>
-// ---------- 页面切换 ----------
-function switchPage(name, btn){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById('page-'+name).classList.add('active');
-  document.querySelectorAll('.navbtn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('mainFooter').style.display = (name==='daily') ? 'block' : 'none';
-  window.scrollTo(0,0);
-  if(name==='compare') drawAccChart();
-}
+            // A股判断
+            if (isWeekend) {
+                cnStatus = "休市"; cnNote = "周末休市"; cnClass = "status-holiday";
+            } else if ((timeVal >= cnOpen1 && timeVal <= cnClose1) || (timeVal >= cnOpen2 && timeVal <= cnClose2)) {
+                cnStatus = "盘中实时"; cnNote = "交易中"; cnClass = "status-open";
+            } else if (timeVal > cnClose2) {
+                cnStatus = "已收盘"; cnNote = "15:00收盘"; cnClass = "status-closed";
+            } else {
+                cnStatus = "待开盘"; cnNote = "9:30开盘"; cnClass = "status-pre";
+            }
 
-// ---------- 一键更新 ----------
-function checkUpdate(){
-  const t=document.getElementById('toast');
-  const bar=document.getElementById('progressBar');
-  t.textContent='🔄 更新中 0%';
-  t.style.display='block';
-  const pw=document.getElementById('progressWrap');
-  if(pw) pw.style.display='block';
-  if(bar) bar.style.width='0%';
+            // 韩股判断
+            if (isWeekend) {
+                krStatus = "休市"; krNote = "周末休市"; krClass = "status-holiday";
+            } else if (timeVal >= krOpen && timeVal <= krClose) {
+                krStatus = "盘中实时"; krNote = "交易中"; krClass = "status-open";
+            } else if (timeVal > krClose) {
+                krStatus = "已收盘"; krNote = "14:30收盘"; krClass = "status-closed";
+            } else {
+                krStatus = "待开盘"; krNote = "8:00开盘"; krClass = "status-pre";
+            }
 
-  let pct=0;
-  const steps=['扫描官媒重磅…','获取美股数据…','获取韩股数据…','获取商品数据…','分析政策面…','生成早盘研判…','完成！'];
-  const interval=setInterval(()=>{
-    pct+=14;
-    if(pct>100) pct=100;
-    t.textContent='🔄 '+steps[Math.min(Math.floor(pct/14),6)]+' '+pct+'%';
-    if(bar) bar.style.width=pct+'%';
-    if(pct>=100){
-      clearInterval(interval);
-      t.textContent='✅ 更新完成';
-  if(pw) pw.style.display='none';
-      setTimeout(()=>{ location.reload(); },600);
-    }
-  },350);
-}
-function showHist(date, btn){
-  document.querySelectorAll('.histbtn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  const box = document.getElementById('histContent');
-  const item = HISTORY[date];
-  if(item && item.ok){ box.innerHTML = item.html; }
-  else{ box.innerHTML = '<div class="empty-note">📭 '+date+' 快照未留存<br>自7/19版起每日自动保存，仅保留最近7天</div>'; }
-}
-showHist('7/23', document.querySelector('.histbtn.active'));
+            // 港股判断
+            if (isWeekend) {
+                hkStatus = "休市"; hkNote = "周末休市"; hkClass = "status-holiday";
+            } else if ((timeVal >= hkOpen1 && timeVal <= hkClose1) || (timeVal >= hkOpen2 && timeVal <= hkClose2)) {
+                hkStatus = "盘中实时"; hkNote = "交易中"; hkClass = "status-open";
+            } else if (timeVal > hkClose2) {
+                hkStatus = "已收盘"; hkNote = "16:00收盘"; hkClass = "status-closed";
+            } else {
+                hkStatus = "待开盘"; hkNote = "9:30开盘"; hkClass = "status-pre";
+            }
 
-// ---------- 复盘准确率趋势图 ----------
-function drawAccChart(){
-  const cv = document.getElementById('accChart');
-  const ctx = cv.getContext('2d');
-  const W = cv.width, H = cv.height;
-  ctx.clearRect(0,0,W,H);
-  const days = ['7/14','7/15','7/16','7/17','7/22','7/22','7/23'];
-  const vals = [null,null,null,null,67,0,80]; // 7/22=67% 7/22=0% 7/23=80%
-  const padL=40, padB=30, padT=16, cw=(W-padL-10)/days.length;
-  // 网格线
-  ctx.strokeStyle='#1e293b'; ctx.fillStyle='#64748b'; ctx.font='11px Arial'; ctx.textAlign='right';
-  [0,25,50,75,100].forEach(v=>{
-    const y = padT + (H-padB-padT)*(1-v/100);
-    ctx.beginPath(); ctx.moveTo(padL,y); ctx.lineTo(W-6,y); ctx.stroke();
-    ctx.fillText(v+'%', padL-6, y+4);
-  });
-  // 柱
-  ctx.textAlign='center';
-  days.forEach((d,i)=>{
-    const x = padL + i*cw + cw*0.2, bw = cw*0.6;
-    const baseY = H-padB;
-    if(vals[i]===null){
-      ctx.fillStyle='#1e293b';
-      ctx.fillRect(x, padT, bw, baseY-padT);
-      ctx.fillStyle='#475569';
-      ctx.fillText('未记录', x+bw/2, padT+16);
-    } else {
-      const bh = (H-padB-padT)*vals[i]/100;
-      ctx.fillStyle='#ffd700';
-      ctx.fillRect(x, baseY-bh, bw, bh);
-      ctx.fillStyle='#ffd700';
-      ctx.fillText(vals[i]+'%', x+bw/2, baseY-bh-6);
-    }
-    ctx.fillStyle='#64748b';
-    ctx.fillText(d, x+bw/2, H-padB+16);
-  });
-}
+            // 美股判断 (跨天处理)
+            if (day === 6) { // 周六
+                usStatus = "休市"; usNote = "周六休市"; usClass = "status-holiday";
+            } else if (day === 0) { // 周日
+                if (timeVal >= usOpen) {
+                    usStatus = "盘中实时"; usNote = "交易中"; usClass = "status-open";
+                } else {
+                    usStatus = "休市"; usNote = "周日休市"; usClass = "status-holiday";
+                }
+            } else if (day >= 1 && day <= 5) {
+                if (timeVal >= usOpen || timeVal <= usClose) {
+                    usStatus = "盘中实时"; usNote = "交易中"; usClass = "status-open";
+                } else if (timeVal > usClose && timeVal < usOpen) {
+                    usStatus = "盘前"; usNote = "21:30开盘"; usClass = "status-pre";
+                } else {
+                    usStatus = "已收盘"; usNote = "4:00收盘"; usClass = "status-closed";
+                }
+            }
 
-// ---------- 设置持久化 ----------
-function loadSettings(){
-  try{
-    const v = localStorage.getItem('voice_pref');
-    if(v){ document.querySelector('input[name=voice][value='+v+']').checked = true; }
-    const n = localStorage.getItem('notice_pref');
-    if(n){ document.querySelector('input[name=notice][value='+n+']').checked = true;
-      document.getElementById('closeNotice').style.display = (n==='hide')?'none':'block'; }
-  }catch(e){}
-}
-document.querySelectorAll('input[name=voice]').forEach(r=>r.addEventListener('change',e=>{
-  try{ localStorage.setItem('voice_pref', e.target.value); }catch(err){}
-  const t=document.getElementById('toast');
-  t.textContent = '✅ 语音偏好已保存：' + (e.target.value==='huopo'?'活泼女声':'知性女声');
-  t.style.display='block'; setTimeout(()=>t.style.display='none', 1600);
-}));
-document.querySelectorAll('input[name=notice]').forEach(r=>r.addEventListener('change',e=>{
-  try{ localStorage.setItem('notice_pref', e.target.value); }catch(err){}
-  document.getElementById('closeNotice').style.display = (e.target.value==='hide')?'none':'block';
-}));
-loadSettings();
-</script>
+            return { cnStatus, cnNote, cnClass, krStatus, krNote, krClass, 
+                     hkStatus, hkNote, hkClass, usStatus, usNote, usClass };
+        }
 
-<script>
-// ---------- 语音日报（音频文件优先，本地朗读兜底，全浏览器可用） ----------
-(function(){
-  var au = document.getElementById("voiceAudio");
-  var st = document.getElementById("voiceStatus");
-  var btn = document.getElementById("voiceBtn");
-  au.addEventListener("loadedmetadata", function(){
-    var s = Math.round(au.duration);
-    st.textContent = (Math.floor(s/60)) + "分" + (s%60) + "秒 · 点击播放";
-  });
-  au.addEventListener("error", function(){
-    // 音频文件缺失时，自动切换为本地朗读模式
-    au.style.display = "none";
-    btn.style.display = "";
-    st.textContent = "约5分钟 · 本地朗读";
-  });
-})();
-var BRIEFING = "早上好，这里是PeterLuo财经日报08:00数据汇总，2026年7月24日星期四，基于7月24日美股收盘和A股7月24日收盘。先报隔夜美股：三大指数小幅收跌，纳指跌0.57%，标普跌0.14%，道指跌0.01%。但结构分化明显：AI服务器整机赛道逆势爆发，超微电脑大涨近20%，戴尔科技涨超9%；存储方向走弱，SK海力士ADR跌超5%。中概股走弱，利弗莫尔中概龙头指数跌1.15%。大宗商品：地缘再升温，特朗普威胁称伊朗若向海峡船只开火，将轰炸摧毁其桥梁或发电厂，伊朗外长回应以牙还牙。国际油价大涨，WTI涨2.95%，布伦特涨3.36%。黄金隔夜微跌。这里做个修正：此前判断油价溢价见顶，现在修正为溢价反复，原油维持，波动加剧，坚决不追涨。政策要闻：北京国管发文坚定看好中国资本市场，已累计近百亿元布局股票市场。7月以来23家私募自购13.53亿元，大规模私募占八成。上半年证券交易印花税1549亿元，同比增长97.3%，市场活跃度佐证。公告雷达：中微半导上半年预增90.82%，南网数字预增1051%到1512%，金安国纪拟20亿元建设覆铜板扩产项目，亨通光电二级市场增持185万股，大秦铁路拟回购4到5亿元，恩捷股份拟回购1到2亿元，容百科技半年报扭亏。产业事件：引力一号遥四火箭发射成功，商业航天迎催化；苹果iPhone 18量产爬坡，消费电子链受益。风险信号：公募二季报显示，中际旭创登顶第一大重仓股，新易盛升至第二，贵州茅台降至第13位。机构在光模块的抱团达到极值，与昨日85亿元大额兑现互证，拥挤交易警报拉响。三大因子：黄金，，隔夜微跌但地缘升级托底，4000美元上方趋势未破坏，持有为主；半导体，但内部换棒，美股AI服务器强、存储弱，与A股光模块退、封测整机进同向，低吸封测、算力整机、液冷，不追高；原油，，溢价反复，不追涨，逢高止盈。早盘策略：两条主线不变，黄金有色加算力硬件换棒方向。缩量分化市，仓位集中龙头。9点韩股开盘，关注存储方向能否企稳，9点02分老六选股买点顺位推送，请注意查收。以上仅供参考，不构成投资建议。";
-}
-</script>
+        function updateTimeStatus() {
+            const status = getMarketStatus();
+
+            document.getElementById('cnStatus').textContent = status.cnStatus;
+            document.getElementById('cnStatus').className = 'status ' + status.cnClass;
+            document.getElementById('cnTimeNote').textContent = status.cnNote;
+
+            document.getElementById('krStatus').textContent = status.krStatus;
+            document.getElementById('krStatus').className = 'status ' + status.krClass;
+            document.getElementById('krTimeNote').textContent = status.krNote;
+
+            document.getElementById('hkStatus').textContent = status.hkStatus;
+            document.getElementById('hkStatus').className = 'status ' + status.hkClass;
+            document.getElementById('hkTimeNote').textContent = status.hkNote;
+
+            document.getElementById('usStatus').textContent = status.usStatus;
+            document.getElementById('usStatus').className = 'status ' + status.usClass;
+            document.getElementById('usTimeNote').textContent = status.usNote;
+
+            // 更新日期徽章
+            const now = new Date();
+            const beijingTime = new Date(now.toLocaleString("en-US", {timeZone: "Asia/Shanghai"}));
+            const dateStr = beijingTime.getFullYear() + '年' + (beijingTime.getMonth()+1) + '月' + beijingTime.getDate() + '日';
+            const hour = beijingTime.getHours();
+            let edition = '';
+            if (hour < 9) edition = '08:00 数据汇总版';
+            else if (hour < 15) edition = '09:00 开盘前预判版';
+            else edition = '17:00 收盘晚报版';
+            document.getElementById('dateBadge').textContent = dateStr + ' · ' + edition;
+        }
+
+        function initTime() {
+            updateTimeStatus();
+            // 每分钟更新一次
+            setInterval(updateTimeStatus, 60000);
+        }
+
+        // 页面加载时自动执行
+        document.addEventListener('DOMContentLoaded', initTime);
+
+        // ==================== 一键更新 ====================
+        function checkUpdate() {
+            const btn = document.getElementById('updateBtn');
+            const bar = document.getElementById('progressBar');
+            const fill = document.getElementById('progressFill');
+
+            btn.textContent = '🔄 更新中...';
+            btn.disabled = true;
+            bar.classList.add('active');
+
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 10;
+                fill.style.width = progress + '%';
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        updateTimeStatus();
+                        btn.textContent = '🔄 一键更新数据';
+                        btn.disabled = false;
+                        bar.classList.remove('active');
+                        fill.style.width = '0%';
+                        // 刷新页面以获取最新数据
+                        window.location.reload();
+                    }, 300);
+                }
+            }, 100);
+        }
+    </script>
 </body>
 </html>
