@@ -66,12 +66,13 @@
   .factor .f-name { color: var(--muted); }
   .factor .f-val { color: var(--text); font-weight: 600; }
 
-  .sector-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); }
+  /* 8大板块监测 —— 进度条左对齐，固定比例 */
+  .sector-row { display: flex; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); gap: 10px; }
   .sector-row:last-child { border-bottom: none; }
-  .sector-name { font-size: 13px; font-weight: 600; }
-  .sector-bar { flex: 1; margin: 0 12px; height: 6px; background: #1f2937; border-radius: 3px; overflow: hidden; }
-  .sector-bar-inner { height: 100%; border-radius: 3px; }
-  .sector-pct { font-size: 12px; font-weight: 700; width: 60px; text-align: right; }
+  .sector-name { font-size: 13px; font-weight: 600; flex: 0 0 130px; text-align: left; }
+  .sector-bar-wrap { flex: 1; height: 8px; background: #1f2937; border-radius: 4px; overflow: hidden; }
+  .sector-bar-inner { height: 100%; border-radius: 4px; }
+  .sector-pct { font-size: 12px; font-weight: 700; flex: 0 0 60px; text-align: right; }
 
   .nav { display: flex; justify-content: center; gap: 16px; padding: 16px; border-top: 1px solid var(--border); margin-top: 16px; }
   .nav a { color: var(--muted); text-decoration: none; font-size: 13px; }
@@ -85,6 +86,7 @@
     .index-grid { grid-template-columns: repeat(3, 1fr); }
     .signal-grid { grid-template-columns: repeat(3, 1fr); }
     .factor-grid { grid-template-columns: repeat(2, 1fr); }
+    .sector-name { flex: 0 0 110px; font-size: 12px; }
     th, td { padding: 6px 8px; font-size: 12px; }
   }
 </style>
@@ -101,7 +103,7 @@
     <span class="tag">🇨🇳 A股</span><span>7/24 15:00收盘</span> &nbsp;|&nbsp;
     <span class="tag">🇭🇰 港股</span><span>7/24 16:00收盘（数据待补）</span> &nbsp;|&nbsp;
     <span class="tag">🇺🇸 美股</span><span>7/24 04:00收盘（北京时间）</span> &nbsp;|&nbsp;
-    <span class="tag">🌏 黄金</span><span>7/24 22:40实时</span>
+    <span class="tag">🌏 黄金</span><span>7/24 22:46实时</span>
   </div>
 
   <div class="card">
@@ -200,53 +202,54 @@
     </div>
   </div>
 
+  <!-- A股8大板块监测 —— 进度条左对齐，按比例缩放 -->
   <div class="card">
     <div class="card-title"><span class="icon">🎯</span> A股8大板块监测（7/24收盘）</div>
     <div class="sector-row">
       <span class="sector-name">半导体设备</span>
-      <div class="sector-bar"><div class="sector-bar-inner" style="width:100%;background:var(--up);"></div></div>
+      <div class="sector-bar-wrap"><div class="sector-bar-inner" style="width:100%;background:var(--up);"></div></div>
       <span class="sector-pct up">+3.18%</span>
     </div>
     <div class="sector-row">
       <span class="sector-name">集成电路封测</span>
-      <div class="sector-bar"><div class="sector-bar-inner" style="width:60%;background:var(--up);"></div></div>
+      <div class="sector-bar-wrap"><div class="sector-bar-inner" style="width:58.8%;background:var(--up);"></div></div>
       <span class="sector-pct up">+1.87%</span>
     </div>
     <div class="sector-row">
       <span class="sector-name">地面兵装/军工</span>
-      <div class="sector-bar"><div class="sector-bar-inner" style="width:68%;background:var(--up);"></div></div>
+      <div class="sector-bar-wrap"><div class="sector-bar-inner" style="width:66.0%;background:var(--up);"></div></div>
       <span class="sector-pct up">+2.10%</span>
     </div>
     <div class="sector-row">
       <span class="sector-name">半导体</span>
-      <div class="sector-bar"><div class="sector-bar-inner" style="width:1%;background:var(--down);"></div></div>
+      <div class="sector-bar-wrap"><div class="sector-bar-inner" style="width:0.3%;background:var(--down);"></div></div>
       <span class="sector-pct down">-0.01%</span>
     </div>
     <div class="sector-row">
       <span class="sector-name">半导体材料</span>
-      <div class="sector-bar"><div class="sector-bar-inner" style="width:32%;background:var(--down);"></div></div>
+      <div class="sector-bar-wrap"><div class="sector-bar-inner" style="width:10.1%;background:var(--down);"></div></div>
       <span class="sector-pct down">-0.32%</span>
     </div>
     <div class="sector-row">
       <span class="sector-name">电网设备(特高压)</span>
-      <div class="sector-bar"><div class="sector-bar-inner" style="width:100%;background:var(--down);"></div></div>
+      <div class="sector-bar-wrap"><div class="sector-bar-inner" style="width:95.6%;background:var(--down);"></div></div>
       <span class="sector-pct down">-3.04%</span>
     </div>
     <div class="sector-row">
       <span class="sector-name">算力/东数西算</span>
-      <div class="sector-bar"><div class="sector-bar-inner" style="width:100%;background:var(--down);"></div></div>
+      <div class="sector-bar-wrap"><div class="sector-bar-inner" style="width:98.7%;background:var(--down);"></div></div>
       <span class="sector-pct down">-3.14%</span>
     </div>
     <div class="sector-row">
       <span class="sector-name">智能电网</span>
-      <div class="sector-bar"><div class="sector-bar-inner" style="width:80%;background:var(--down);"></div></div>
+      <div class="sector-bar-wrap"><div class="sector-bar-inner" style="width:78.6%;background:var(--down);"></div></div>
       <span class="sector-pct down">-2.5%</span>
     </div>
   </div>
 
   <!-- 黄金敏感指标 —— 补回关键因子 -->
   <div class="card">
-    <div class="card-title"><span class="icon">🥇</span> 黄金敏感指标（7/24 22:40）</div>
+    <div class="card-title"><span class="icon">🥇</span> 黄金敏感指标（7/24 22:46）</div>
     <div class="index-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom:12px;">
       <div class="index-item">
         <div class="name">现货黄金</div>
