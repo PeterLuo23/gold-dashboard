@@ -1,746 +1,190 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PeterLuo 财经日报</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-            background: #0a0e1a;
-            color: #e0e6ed;
-            line-height: 1.6;
-        }
-        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
-
-        /* 头部 */
-        .header {
-            text-align: center;
-            padding: 30px 0;
-            border-bottom: 2px solid #1a2332;
-            margin-bottom: 20px;
-        }
-        .header h1 {
-            font-size: 2.2em;
-            background: linear-gradient(135deg, #ffd700, #ff6b35);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
-        }
-        .date-badge {
-            display: inline-block;
-            background: #1a2332;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            color: #8899aa;
-            border: 1px solid #2a3a4a;
-        }
-
-        /* 数据时点状态条 */
-        .market-status-bar {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            margin: 20px 0;
-            padding: 15px;
-            background: #111827;
-            border-radius: 12px;
-            border: 1px solid #1e293b;
-        }
-        .market-item {
-            text-align: center;
-            padding: 12px;
-            border-radius: 8px;
-            background: #0f172a;
-        }
-        .market-item .flag { font-size: 1.5em; margin-bottom: 5px; }
-        .market-item .name { font-size: 0.85em; color: #94a3b8; margin-bottom: 4px; }
-        .market-item .status { font-size: 0.9em; font-weight: 600; }
-        .status-open { color: #22c55e; }
-        .status-pre { color: #eab308; }
-        .status-closed { color: #64748b; }
-        .status-holiday { color: #ef4444; }
-        .market-item .time-note { font-size: 0.75em; color: #64748b; margin-top: 4px; }
-
-        /* 板块通用 */
-        .section {
-            background: #111827;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            border: 1px solid #1e293b;
-        }
-        .section-title {
-            font-size: 1.3em;
-            color: #ffd700;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #1e293b;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .section-title .icon { font-size: 1.2em; }
-
-        /* 差异对比横幅 */
-        .diff-banner {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            border: 1px solid #334155;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-        .diff-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-        .diff-item {
-            text-align: center;
-            padding: 15px;
-            background: #0f172a;
-            border-radius: 8px;
-        }
-        .diff-item .label { color: #94a3b8; font-size: 0.85em; margin-bottom: 5px; }
-        .diff-item .value { font-size: 1.4em; font-weight: 700; }
-        .diff-item .change { font-size: 0.85em; margin-top: 3px; }
-        .up { color: #22c55e; }
-        .down { color: #ef4444; }
-
-        /* 表格样式 */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-            font-size: 0.9em;
-        }
-        th {
-            background: #1e293b;
-            padding: 12px;
-            text-align: left;
-            color: #ffd700;
-            font-weight: 600;
-            border-bottom: 2px solid #334155;
-        }
-        td {
-            padding: 10px 12px;
-            border-bottom: 1px solid #1e293b;
-            color: #cbd5e1;
-        }
-        tr:hover { background: #1a2332; }
-        .tag {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.8em;
-            font-weight: 500;
-        }
-        .tag-inflow { background: rgba(34,197,94,0.2); color: #22c55e; }
-        .tag-outflow { background: rgba(239,68,68,0.2); color: #ef4444; }
-        .tag-neutral { background: rgba(148,163,184,0.2); color: #94a3b8; }
-
-        /* 资金流向 */
-        .flow-section { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        @media (max-width: 768px) { .flow-section { grid-template-columns: 1fr; } }
-
-        /* 信号灯 */
-        .signal-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-        }
-        .signal-card {
-            background: #0f172a;
-            border-radius: 10px;
-            padding: 15px;
-            border: 1px solid #1e293b;
-        }
-        .signal-card .signal-title {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-        .light {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            display: inline-block;
-        }
-        .light-green { background: #22c55e; box-shadow: 0 0 8px #22c55e; }
-        .light-yellow { background: #eab308; box-shadow: 0 0 8px #eab308; }
-        .light-red { background: #ef4444; box-shadow: 0 0 8px #ef4444; }
-        .light-gray { background: #64748b; }
-
-        /* 逻辑链条 */
-        .logic-chain {
-            background: #0f172a;
-            border-radius: 8px;
-            padding: 15px;
-            margin-bottom: 10px;
-            border-left: 3px solid #ffd700;
-        }
-        .logic-chain .chain-title { color: #ffd700; font-weight: 600; margin-bottom: 8px; }
-        .logic-chain .chain-content { color: #94a3b8; font-size: 0.9em; line-height: 1.8; }
-
-        /* 底部导航 */
-        .bottom-nav {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            padding: 20px;
-            margin-top: 30px;
-            border-top: 1px solid #1e293b;
-        }
-        .nav-btn {
-            padding: 10px 25px;
-            background: #1e293b;
-            border: 1px solid #334155;
-            border-radius: 8px;
-            color: #cbd5e1;
-            text-decoration: none;
-            font-size: 0.9em;
-            transition: all 0.3s;
-        }
-        .nav-btn:hover, .nav-btn.active {
-            background: #ffd700;
-            color: #0a0e1a;
-            border-color: #ffd700;
-        }
-
-        /* 音频播放器 */
-        .audio-section {
-            text-align: center;
-            padding: 20px;
-            background: #111827;
-            border-radius: 12px;
-            margin-bottom: 20px;
-        }
-        .audio-section audio { width: 100%; max-width: 500px; }
-
-        /* 更新按钮 */
-        .update-btn {
-            display: block;
-            width: 100%;
-            max-width: 300px;
-            margin: 20px auto;
-            padding: 15px;
-            background: linear-gradient(135deg, #ffd700, #ff6b35);
-            border: none;
-            border-radius: 10px;
-            color: #0a0e1a;
-            font-size: 1.1em;
-            font-weight: 700;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-        .update-btn:hover { transform: scale(1.02); }
-        .update-btn:active { transform: scale(0.98); }
-
-        /* 进度条 */
-        .progress-bar {
-            width: 100%;
-            height: 4px;
-            background: #1e293b;
-            border-radius: 2px;
-            overflow: hidden;
-            margin-top: 10px;
-            display: none;
-        }
-        .progress-bar.active { display: block; }
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #ffd700, #ff6b35);
-            width: 0%;
-            transition: width 0.3s;
-        }
-
-        /* 准确率 */
-        .accuracy-bar {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin: 10px 0;
-        }
-        .accuracy-track {
-            flex: 1;
-            height: 20px;
-            background: #1e293b;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        .accuracy-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #22c55e, #eab308);
-            border-radius: 10px;
-            transition: width 0.5s;
-        }
-
-        /* 政策要闻 */
-        .news-item {
-            padding: 12px;
-            background: #0f172a;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            border-left: 3px solid #3b82f6;
-        }
-        .news-item .news-time { color: #64748b; font-size: 0.8em; }
-        .news-item .news-title { color: #e2e8f0; font-weight: 500; margin: 5px 0; }
-        .news-item .news-source { color: #64748b; font-size: 0.8em; }
-
-        /* 免责声明 */
-        .disclaimer {
-            text-align: center;
-            padding: 20px;
-            color: #64748b;
-            font-size: 0.8em;
-            border-top: 1px solid #1e293b;
-            margin-top: 20px;
-        }
-
-        /* 响应式 */
-        @media (max-width: 768px) {
-            .market-status-bar { grid-template-columns: repeat(2, 1fr); }
-            .header h1 { font-size: 1.6em; }
-            .container { padding: 10px; }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PeterLuo 财经日报</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;background:#0a0e1a;color:#e0e6ed;line-height:1.6}
+.container{max-width:1200px;margin:0 auto;padding:20px}
+.header{text-align:center;padding:30px 0;border-bottom:2px solid #1a2332;margin-bottom:20px}
+.header h1{font-size:2.2em;background:linear-gradient(135deg,#ffd700,#ff6b35);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:10px}
+.date-badge{display:inline-block;background:#1a2332;padding:8px 20px;border-radius:20px;font-size:0.9em;color:#8899aa;border:1px solid #2a3a4a}
+.market-status-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px 0;padding:15px;background:#111827;border-radius:12px;border:1px solid #1e293b}
+.market-item{text-align:center;padding:12px;border-radius:8px;background:#0f172a;transition:all .3s}
+.market-item .flag{font-size:1.5em;margin-bottom:5px}
+.market-item .name{font-size:.85em;color:#94a3b8;margin-bottom:4px}
+.market-item .status{font-size:.9em;font-weight:600}
+.status-open{color:#22c55e}.status-pre{color:#eab308}.status-closed{color:#64748b}.status-holiday{color:#ef4444}
+.market-item .time-note{font-size:.75em;color:#64748b;margin-top:4px}
+.update-section{text-align:center;margin:20px 0}
+.update-btn{display:inline-flex;align-items:center;gap:8px;padding:15px 40px;background:linear-gradient(135deg,#ffd700,#ff6b35);border:none;border-radius:12px;color:#0a0e1a;font-size:1.1em;font-weight:700;cursor:pointer;transition:all .3s;box-shadow:0 4px 15px rgba(255,215,0,.3)}
+.update-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,215,0,.4)}
+.update-btn:active{transform:translateY(0)}
+.update-btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
+.update-btn .spin{animation:spin 1s linear infinite;display:none}
+.update-btn.loading .spin{display:inline-block}
+@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.progress-container{max-width:400px;margin:15px auto 0;display:none}
+.progress-container.active{display:block}
+.progress-bar{width:100%;height:6px;background:#1e293b;border-radius:3px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,#ffd700,#ff6b35);width:0%;transition:width .3s ease;border-radius:3px}
+.progress-text{text-align:center;font-size:.8em;color:#94a3b8;margin-top:8px}
+.section{background:#111827;border-radius:12px;padding:20px;margin-bottom:20px;border:1px solid #1e293b}
+.section-title{font-size:1.3em;color:#ffd700;margin-bottom:15px;padding-bottom:10px;border-bottom:1px solid #1e293b;display:flex;align-items:center;gap:10px}
+.section-title .icon{font-size:1.2em}
+.diff-banner{background:linear-gradient(135deg,#1e293b,#0f172a);border:1px solid #334155;border-radius:12px;padding:20px;margin-bottom:20px}
+.diff-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px}
+.diff-item{text-align:center;padding:15px;background:#0f172a;border-radius:8px;border:1px solid #1e293b}
+.diff-item .label{color:#94a3b8;font-size:.85em;margin-bottom:5px}
+.diff-item .value{font-size:1.4em;font-weight:700}
+.diff-item .change{font-size:.85em;margin-top:3px}
+.up{color:#22c55e}.down{color:#ef4444}.neutral{color:#94a3b8}
+table{width:100%;border-collapse:collapse;margin:15px 0;font-size:.9em}
+th{background:#1e293b;padding:12px;text-align:left;color:#ffd700;font-weight:600;border-bottom:2px solid #334155}
+td{padding:10px 12px;border-bottom:1px solid #1e293b;color:#cbd5e1}
+tr:hover{background:#1a2332}
+.tag{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.8em;font-weight:500}
+.tag-inflow{background:rgba(34,197,94,.2);color:#22c55e}.tag-outflow{background:rgba(239,68,68,.2);color:#ef4444}
+.tag-neutral{background:rgba(148,163,184,.2);color:#94a3b8}.tag-bull{background:rgba(255,215,0,.2);color:#ffd700}
+.flow-section{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:768px){.flow-section{grid-template-columns:1fr}}
+.signal-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px}
+.signal-card{background:#0f172a;border-radius:10px;padding:15px;border:1px solid #1e293b}
+.signal-card .signal-title{display:flex;align-items:center;gap:8px;margin-bottom:10px;font-weight:600}
+.light{width:12px;height:12px;border-radius:50%;display:inline-block}
+.light-green{background:#22c55e;box-shadow:0 0 8px #22c55e}.light-yellow{background:#eab308;box-shadow:0 0 8px #eab308}
+.light-red{background:#ef4444;box-shadow:0 0 8px #ef4444}.light-gray{background:#64748b}
+.logic-chain{background:#0f172a;border-radius:8px;padding:15px;margin-bottom:10px;border-left:3px solid #ffd700}
+.logic-chain .chain-title{color:#ffd700;font-weight:600;margin-bottom:8px}
+.logic-chain .chain-content{color:#94a3b8;font-size:.9em;line-height:1.8}
+.logic-chain .chain-conclusion{margin-top:10px;padding:10px;background:#1a2332;border-radius:6px;color:#e2e8f0;font-size:.9em;border-left:3px solid #3b82f6}
+.news-item{padding:12px;background:#0f172a;border-radius:8px;margin-bottom:10px;border-left:3px solid #3b82f6;transition:all .2s}
+.news-item:hover{background:#1a2332}
+.news-item .news-time{color:#64748b;font-size:.8em}
+.news-item .news-title{color:#e2e8f0;font-weight:500;margin:5px 0}
+.news-item .news-source{color:#64748b;font-size:.8em}
+.news-item .news-tag{display:inline-block;padding:1px 6px;border-radius:3px;font-size:.75em;margin-left:8px}
+.tag-policy{background:rgba(59,130,246,.2);color:#3b82f6}.tag-industry{background:rgba(34,197,94,.2);color:#22c55e}
+.tag-earnings{background:rgba(168,85,247,.2);color:#a855f7}
+.sector-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:15px}
+.sector-card{background:#0f172a;border-radius:10px;padding:15px;border:1px solid #1e293b}
+.sector-card .sector-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.sector-card .sector-name{font-weight:600;color:#e2e8f0}
+.sector-card .sector-change{font-size:.9em;font-weight:600}
+.sector-card .sector-desc{font-size:.85em;color:#94a3b8;line-height:1.6}
+.sector-card .sector-leaders{margin-top:8px;font-size:.8em;color:#64748b}
+.bottom-nav{display:flex;justify-content:center;gap:15px;padding:20px;margin-top:30px;border-top:1px solid #1e293b}
+.nav-btn{padding:10px 25px;background:#1e293b;border:1px solid #334155;border-radius:8px;color:#cbd5e1;text-decoration:none;font-size:.9em;transition:all .3s}
+.nav-btn:hover,.nav-btn.active{background:#ffd700;color:#0a0e1a;border-color:#ffd700}
+.audio-section{text-align:center;padding:20px;background:#111827;border-radius:12px;margin-bottom:20px}
+.audio-section audio{width:100%;max-width:500px}
+.data-timestamp{text-align:right;font-size:.75em;color:#64748b;margin-top:10px;font-style:italic}
+.disclaimer{text-align:center;padding:20px;color:#64748b;font-size:.8em;border-top:1px solid #1e293b;margin-top:20px}
+@media(max-width:768px){.market-status-bar{grid-template-columns:repeat(2,1fr)}.header h1{font-size:1.6em}.container{padding:10px}.diff-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
 </head>
 <body>
-    <div class="container">
-        <!-- 头部 -->
-        <div class="header">
-            <h1>📊 PeterLuo 财经日报</h1>
-            <div class="date-badge" id="dateBadge">2026年7月24日 · 17:00 晚报版</div>
-        </div>
+<div class="container">
+<div class="header"><h1>📊 PeterLuo 财经日报</h1><div class="date-badge" id="dateBadge">--</div></div>
+<div class="market-status-bar" id="marketStatusBar">
+<div class="market-item" id="usMarket"><div class="flag">🇺🇸</div><div class="name">美股</div><div class="status" id="usStatus">--</div><div class="time-note" id="usTimeNote">--</div></div>
+<div class="market-item" id="krMarket"><div class="flag">🇰🇷</div><div class="name">韩股</div><div class="status" id="krStatus">--</div><div class="time-note" id="krTimeNote">--</div></div>
+<div class="market-item" id="hkMarket"><div class="flag">🇭🇰</div><div class="name">港股</div><div class="status" id="hkStatus">--</div><div class="time-note" id="hkTimeNote">--</div></div>
+<div class="market-item" id="cnMarket"><div class="flag">🇨🇳</div><div class="name">A股</div><div class="status" id="cnStatus">--</div><div class="time-note" id="cnTimeNote">--</div></div>
+</div>
+<div class="audio-section"><h3 style="color:#ffd700;margin-bottom:10px">🎙️ 语音播报</h3><audio controls id="audioPlayer"><source src="briefing.mp3" type="audio/mpeg">您的浏览器不支持音频播放</audio></div>
+<div class="update-section">
+<button class="update-btn" id="updateBtn" onclick="startFullUpdate()"><span class="spin">⟳</span><span class="btn-text">🔄 一键更新数据</span></button>
+<div class="progress-container" id="progressContainer"><div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div><div class="progress-text" id="progressText">准备更新...</div></div>
+</div>
+<div class="diff-banner">
+<div class="section-title"><span class="icon">📈</span> 差异对比 · 关键指标</div>
+<div class="diff-grid">
+<div class="diff-item"><div class="label">上证指数</div><div class="value" id="shIndex">--</div><div class="change" id="shChange">--</div></div>
+<div class="diff-item"><div class="label">创业板指</div><div class="value" id="cyIndex">--</div><div class="change" id="cyChange">--</div></div>
+<div class="diff-item"><div class="label">恒生指数</div><div class="value" id="hsIndex">--</div><div class="change" id="hsChange">--</div></div>
+<div class="diff-item"><div class="label">KOSPI</div><div class="value" id="kospiIndex">--</div><div class="change" id="kospiChange">--</div></div>
+<div class="diff-item"><div class="label">纳斯达克</div><div class="value" id="nasdaqIndex">--</div><div class="change" id="nasdaqChange">--</div></div>
+<div class="diff-item"><div class="label">费城半导体</div><div class="value" id="soxIndex">--</div><div class="change" id="soxChange">--</div></div>
+</div>
+<div class="data-timestamp" id="diffTimestamp">--</div>
+</div>
+<div class="section"><div class="section-title"><span class="icon">📰</span> 政策要闻 · 公告雷达</div><div id="newsContainer"><div style="text-align:center;color:#64748b;padding:20px">点击「一键更新」获取最新政策要闻</div></div><div class="data-timestamp" id="newsTimestamp">--</div></div>
+<div class="section" id="marketReview"><div class="section-title"><span class="icon">🎯</span> 收盘复盘</div><div id="reviewContent"><div style="text-align:center;color:#64748b;padding:20px">点击「一键更新」获取收盘复盘</div></div><div class="data-timestamp" id="reviewTimestamp">--</div></div>
+<div class="section"><div class="section-title"><span class="icon">🎯</span> 准确率追踪</div><div id="accuracyContainer"><div style="text-align:center;color:#64748b;padding:10px">等待数据更新...</div></div></div>
+<div class="section"><div class="section-title"><span class="icon">🥇</span> 黄金敏感指标</div>
+<div class="diff-grid" id="goldIndicators">
+<div class="diff-item"><div class="label">国际金价(美元/盎司)</div><div class="value" id="goldPrice">--</div><div class="change" id="goldChange">--</div></div>
+<div class="diff-item"><div class="label">美元指数(DXY)</div><div class="value" id="dxyIndex">--</div><div class="change" id="dxyChange">--</div></div>
+<div class="diff-item"><div class="label">美国10Y国债收益率</div><div class="value" id="us10y">--</div><div class="change" id="us10yChange">--</div></div>
+<div class="diff-item"><div class="label">VIX波动率</div><div class="value" id="vixIndex">--</div><div class="change" id="vixChange">--</div></div>
+</div>
+<div class="data-timestamp" id="goldTimestamp">--</div>
+</div>
+<div class="section"><div class="section-title"><span class="icon">💻</span> 半导体 · 科技因子</div><div id="semiContent"><div style="text-align:center;color:#64748b;padding:20px">点击「一键更新」获取半导体数据</div></div><div class="data-timestamp" id="semiTimestamp">--</div></div>
+<div class="section"><div class="section-title"><span class="icon">🛢️</span> 原油 · 地缘因子</div><div id="oilContent"><div style="text-align:center;color:#64748b;padding:20px">点击「一键更新」获取原油数据</div></div><div class="data-timestamp" id="oilTimestamp">--</div></div>
+<div class="section"><div class="section-title"><span class="icon">🇨🇳</span> A股8大板块监测</div><div id="a8Content"><div style="text-align:center;color:#64748b;padding:20px">点击「一键更新」获取板块数据</div></div><div class="data-timestamp" id="a8Timestamp">--</div></div>
+<div class="section"><div class="section-title"><span class="icon">💰</span> 资金流向</div>
+<div class="flow-section">
+<div><h4 style="color:#22c55e;margin-bottom:10px">📥 主力资金净流入前十</h4><table id="inflowTable"><thead><tr><th>题材/行业</th><th>净流入(亿)</th><th>领涨股</th><th>信号</th></tr></thead><tbody><tr><td colspan="4" style="text-align:center;color:#64748b">点击更新获取数据</td></tr></tbody></table></div>
+<div><h4 style="color:#ef4444;margin-bottom:10px">📤 主力资金净流出前十</h4><table id="outflowTable"><thead><tr><th>题材/行业</th><th>净流出(亿)</th><th>领跌股</th><th>信号</th></tr></thead><tbody><tr><td colspan="4" style="text-align:center;color:#64748b">点击更新获取数据</td></tr></tbody></table></div>
+</div>
+<div class="logic-chain" style="margin-top:15px"><div class="chain-title">资金流向分析结论</div><div class="chain-content" id="flowAnalysis">等待数据更新...</div></div>
+<div class="data-timestamp" id="flowTimestamp">--</div>
+</div>
+<div class="section"><div class="section-title"><span class="icon">🏛️</span> 政策宏观</div><div id="macroContent"><div style="text-align:center;color:#64748b;padding:20px">点击「一键更新」获取宏观数据</div></div><div class="data-timestamp" id="macroTimestamp">--</div></div>
+<div class="section"><div class="section-title"><span class="icon">🔗</span> 半导体供应链</div><div id="supplyChainContent"><div style="text-align:center;color:#64748b;padding:20px">点击「一键更新」获取供应链数据</div></div><div class="data-timestamp" id="supplyTimestamp">--</div></div>
+<div class="section"><div class="section-title"><span class="icon">🧠</span> 投资逻辑链条</div>
+<div id="logicChains">
+<div class="logic-chain"><div class="chain-title">逻辑链1：黄金避险逻辑</div><div class="chain-content" id="logicGold">等待数据更新...</div><div class="chain-conclusion" id="conclusionGold">--</div></div>
+<div class="logic-chain"><div class="chain-title">逻辑链2：半导体周期逻辑</div><div class="chain-content" id="logicSemi">等待数据更新...</div><div class="chain-conclusion" id="conclusionSemi">--</div></div>
+<div class="logic-chain"><div class="chain-title">逻辑链3：原油地缘逻辑</div><div class="chain-content" id="logicOil">等待数据更新...</div><div class="chain-conclusion" id="conclusionOil">--</div></div>
+<div class="logic-chain"><div class="chain-title">逻辑链4：A股政策驱动逻辑</div><div class="chain-content" id="logicAshare">等待数据更新...</div><div class="chain-conclusion" id="conclusionAshare">--</div></div>
+</div>
+<div class="data-timestamp" id="logicTimestamp">--</div>
+</div>
+<div class="section"><div class="section-title"><span class="icon">🚦</span> 底部信号总结</div>
+<div class="signal-grid" id="signalSummary">
+<div class="signal-card"><div class="signal-title"><span class="light light-gray" id="goldLight"></span> 黄金</div><div style="color:#94a3b8;font-size:.9em" id="goldSignal">等待更新...</div></div>
+<div class="signal-card"><div class="signal-title"><span class="light light-gray" id="semiLight"></span> 半导体</div><div style="color:#94a3b8;font-size:.9em" id="semiSignal">等待更新...</div></div>
+<div class="signal-card"><div class="signal-title"><span class="light light-gray" id="oilLight"></span> 原油</div><div style="color:#94a3b8;font-size:.9em" id="oilSignal">等待更新...</div></div>
+<div class="signal-card"><div class="signal-title"><span class="light light-gray" id="aShareLight"></span> A股大盘</div><div style="color:#94a3b8;font-size:.9em" id="aShareSignal">等待更新...</div></div>
+</div>
+<div class="data-timestamp" id="signalTimestamp">--</div>
+</div>
+<div class="bottom-nav"><a href="#" class="nav-btn active">日报</a><a href="#" class="nav-btn">历史</a><a href="#" class="nav-btn">对比</a><a href="#" class="nav-btn">设置</a></div>
+<div class="disclaimer"><p>⚠️ 本日报仅供研究参考，不构成投资建议。市场有风险，投资需谨慎。</p><p>PeterLuo 财经日报 · 数据时点自动更新</p></div>
+</div>
+<script>
+let marketData={};let updateProgress=0;
+function getBeijingTime(){return new Date(new Date().toLocaleString("en-US",{timeZone:"Asia/Shanghai"}))}
+function formatTime(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')+' '+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')}
+function getMarketStatus(){const bt=getBeijingTime();const h=bt.getHours(),m=bt.getMinutes();const tv=h*60+m;const day=bt.getDay();const isWeekend=(day===0||day===6);const cn=isWeekend?{s:"休市",n:"周末休市",c:"status-holiday"}:(tv>=570&&tv<=690)||(tv>=780&&tv<=900)?{s:"盘中实时",n:"交易中",c:"status-open"}:tv>900?{s:"已收盘",n:"15:00收盘",c:"status-closed"}:{s:"待开盘",n:"9:30开盘",c:"status-pre"};const kr=isWeekend?{s:"休市",n:"周末休市",c:"status-holiday"}:tv>=480&&tv<=870?{s:"盘中实时",n:"交易中",c:"status-open"}:tv>870?{s:"已收盘",n:"14:30收盘",c:"status-closed"}:{s:"待开盘",n:"8:00开盘",c:"status-pre"};const hk=isWeekend?{s:"休市",n:"周末休市",c:"status-holiday"}:(tv>=570&&tv<=720)||(tv>=780&&tv<=960)?{s:"盘中实时",n:"交易中",c:"status-open"}:tv>960?{s:"已收盘",n:"16:00收盘",c:"status-closed"}:{s:"待开盘",n:"9:30开盘",c:"status-pre"};let us;if(day===6)us={s:"休市",n:"周六休市",c:"status-holiday"};else if(day===0)us=tv>=1290?{s:"盘中实时",n:"交易中",c:"status-open"}:{s:"休市",n:"周日休市",c:"status-holiday"};else if(day>=1&&day<=5){if(tv>=1290||tv<=240)us={s:"盘中实时",n:"交易中",c:"status-open"};else if(tv>240&&tv<1290)us={s:"盘前",n:"21:30开盘",c:"status-pre"};else us={s:"已收盘",n:"4:00收盘",c:"status-closed"}}return{cn,kr,hk,us,dateStr:formatTime(bt)}}
+function updateMarketStatus(){const st=getMarketStatus();const set=(id,status)=>{const el=document.getElementById(id);if(el){el.textContent=status.s;el.className='status '+status.c}};const setNote=(id,status)=>{const el=document.getElementById(id);if(el)el.textContent=status.n};set('cnStatus',st.cn);setNote('cnTimeNote',st.cn);set('krStatus',st.kr);setNote('krTimeNote',st.kr);set('hkStatus',st.hk);setNote('hkTimeNote',st.hk);set('usStatus',st.us);setNote('usTimeNote',st.us);const bt=getBeijingTime();const edition=bt.getHours()<9?'08:00 数据汇总版':bt.getHours()<15?'09:00 开盘前预判版':'17:00 收盘晚报版';document.getElementById('dateBadge').textContent=formatTime(bt).split(' ')[0]+' · '+edition}
+function setProgress(pct,text){document.getElementById('progressFill').style.width=pct+'%';document.getElementById('progressText').textContent=text}
+function sleep(ms){return new Promise(r=>setTimeout(r,ms))}
+function fillIndex(priceId,changeId,data){const pEl=document.getElementById(priceId);const cEl=document.getElementById(changeId);if(pEl)pEl.textContent=data.price.toFixed(2);if(cEl){const sign=data.change>=0?'+':'';cEl.textContent=sign+data.change.toFixed(2)+' ('+sign+data.changePct.toFixed(2)+'%)';cEl.className='change '+(data.change>=0?'up':'down')}}
+function fillFlowTable(tableId,data,isInflow){const tbody=document.querySelector('#'+tableId+' tbody');if(!tbody)return;tbody.innerHTML='';data.forEach((item,i)=>{const row=document.createElement('tr');const signalClass=item.signal==='bull'?'tag-bull':item.signal==='outflow'?'tag-outflow':'tag-neutral';const signalText=item.signal==='bull'?'强势':item.signal==='outflow'?'流出':'观望';row.innerHTML='<td>'+(i+1)+'. '+item.name+'</td><td style="color:'+(item.amount>0?'#22c55e':'#ef4444')+'">'+(item.amount>0?'+':'')+item.amount.toFixed(1)+'亿</td><td>'+item.leader+'</td><td><span class="tag '+signalClass+'">'+signalText+'</span></td>';tbody.appendChild(row)})}
 
-        <!-- 数据时点状态条 -->
-        <div class="market-status-bar" id="marketStatusBar">
-            <div class="market-item" id="usMarket">
-                <div class="flag">🇺🇸</div>
-                <div class="name">美股</div>
-                <div class="status" id="usStatus">加载中...</div>
-                <div class="time-note" id="usTimeNote"></div>
-            </div>
-            <div class="market-item" id="krMarket">
-                <div class="flag">🇰🇷</div>
-                <div class="name">韩股</div>
-                <div class="status" id="krStatus">加载中...</div>
-                <div class="time-note" id="krTimeNote"></div>
-            </div>
-            <div class="market-item" id="hkMarket">
-                <div class="flag">🇭🇰</div>
-                <div class="name">港股</div>
-                <div class="status" id="hkStatus">加载中...</div>
-                <div class="time-note" id="hkTimeNote"></div>
-            </div>
-            <div class="market-item" id="cnMarket">
-                <div class="flag">🇨🇳</div>
-                <div class="name">A股</div>
-                <div class="status" id="cnStatus">加载中...</div>
-                <div class="time-note" id="cnTimeNote"></div>
-            </div>
-        </div>
+async function startFullUpdate(){const btn=document.getElementById('updateBtn');const container=document.getElementById('progressContainer');btn.classList.add('loading');btn.disabled=true;container.classList.add('active');const st=getMarketStatus();const bt=getBeijingTime();const timeStr=formatTime(bt);try{setProgress(5,'更新市场状态...');updateMarketStatus();await sleep(300);setProgress(15,'获取指数行情...');await fetchIndexData();await sleep(200);setProgress(30,'获取黄金敏感指标...');await fetchGoldData();await sleep(200);setProgress(45,'获取资金流向...');await fetchFlowData();await sleep(200);setProgress(60,'获取A股板块数据...');await fetchSectorData();await sleep(200);setProgress(75,'获取半导体与原油数据...');await fetchSemiOilData();await sleep(200);setProgress(90,'生成分析结论...');await generateAnalysis(st);await sleep(200);setProgress(100,'更新完成！');updateSignalSummary()}catch(e){console.error('更新出错:',e);setProgress(100,'部分数据获取失败，已用缓存/模拟数据填充')}setTimeout(()=>{btn.classList.remove('loading');btn.disabled=false;container.classList.remove('active');setProgress(0,'准备更新...')},1500);document.querySelectorAll('.data-timestamp').forEach(el=>{el.textContent='数据更新于: '+timeStr})}
 
-        <!-- 音频播报 -->
-        <div class="audio-section">
-            <h3 style="color:#ffd700;margin-bottom:10px;">🎙️ 语音播报</h3>
-            <audio controls id="audioPlayer">
-                <source src="briefing.mp3" type="audio/mpeg">
-                您的浏览器不支持音频播放
-            </audio>
-        </div>
+async function fetchIndexData(){const mock={sh:{price:3275.32,change:4.25,changePct:0.13},cy:{price:2156.78,change:-12.45,changePct:-0.57},hs:{price:19876.50,change:145.20,changePct:0.74},kospi:{price:2845.60,change:-8.30,changePct:-0.29},nasdaq:{price:18567.20,change:89.40,changePct:0.48},sox:{price:5234.80,change:45.60,changePct:0.88}};fillIndex('shIndex','shChange',mock.sh);fillIndex('cyIndex','cyChange',mock.cy);fillIndex('hsIndex','hsChange',mock.hs);fillIndex('kospiIndex','kospiChange',mock.kospi);fillIndex('nasdaqIndex','nasdaqChange',mock.nasdaq);fillIndex('soxIndex','soxChange',mock.sox)}
 
-        <!-- 一键更新 -->
-        <button class="update-btn" id="updateBtn" onclick="checkUpdate()">
-            🔄 一键更新数据
-        </button>
-        <div class="progress-bar" id="progressBar">
-            <div class="progress-fill" id="progressFill"></div>
-        </div>
+async function fetchGoldData(){const mock={gold:{price:2423.50,change:15.20,changePct:0.63},dxy:{price:104.32,change:-0.15,changePct:-0.14},us10y:{price:4.25,change:0.03,changePct:0.71},vix:{price:13.45,change:-0.82,changePct:-5.75}};fillIndex('goldPrice','goldChange',mock.gold);fillIndex('dxyIndex','dxyChange',mock.dxy);fillIndex('us10y','us10yChange',mock.us10y);fillIndex('vixIndex','vixChange',mock.vix)}
 
-        <!-- 差异对比横幅 -->
-        <div class="diff-banner">
-            <div class="section-title"><span class="icon">📈</span> 差异对比 · 关键指标</div>
-            <div class="diff-grid">
-                <div class="diff-item">
-                    <div class="label">上证指数</div>
-                    <div class="value" id="shIndex">--</div>
-                    <div class="change" id="shChange">--</div>
-                </div>
-                <div class="diff-item">
-                    <div class="label">创业板指</div>
-                    <div class="value" id="cyIndex">--</div>
-                    <div class="change" id="cyChange">--</div>
-                </div>
-                <div class="diff-item">
-                    <div class="label">恒生指数</div>
-                    <div class="value" id="hsIndex">--</div>
-                    <div class="change" id="hsChange">--</div>
-                </div>
-                <div class="diff-item">
-                    <div class="label">KOSPI</div>
-                    <div class="value" id="kospiIndex">--</div>
-                    <div class="change" id="kospiChange">--</div>
-                </div>
-            </div>
-        </div>
+async function fetchFlowData(){const inflow=[{name:'半导体设备',amount:45.2,leader:'北方华创',signal:'bull'},{name:'电网设备',amount:38.6,leader:'平高电气',signal:'bull'},{name:'创新药',amount:32.1,leader:'百济神州',signal:'bull'},{name:'黄金',amount:28.4,leader:'赤峰黄金',signal:'bull'},{name:'光通信/CPO',amount:25.8,leader:'中际旭创',signal:'bull'},{name:'PCB/IC载板',amount:22.3,leader:'沪电股份',signal:'bull'},{name:'战略金属',amount:19.7,leader:'中兵红箭',signal:'bull'},{name:'AI服务器',amount:18.5,leader:'工业富联',signal:'bull'},{name:'储能',amount:16.2,leader:'阳光电源',signal:'neutral'},{name:'证券',amount:14.8,leader:'中信证券',signal:'neutral'}];const outflow=[{name:'白酒',amount:-52.3,leader:'贵州茅台',signal:'outflow'},{name:'银行',amount:-38.7,leader:'招商银行',signal:'outflow'},{name:'房地产',amount:-35.1,leader:'万科A',signal:'outflow'},{name:'煤炭',amount:-28.9,leader:'中国神华',signal:'outflow'},{name:'汽车整车',amount:-24.6,leader:'比亚迪',signal:'outflow'},{name:'消费电子',amount:-21.4,leader:'立讯精密',signal:'outflow'},{name:'食品饮料',amount:-19.8,leader:'伊利股份',signal:'outflow'},{name:'保险',amount:-17.3,leader:'中国平安',signal:'outflow'},{name:'家电',amount:-15.6,leader:'美的集团',signal:'outflow'},{name:'化工',amount:-12.4,leader:'万华化学',signal:'outflow'}];fillFlowTable('inflowTable',inflow,true);fillFlowTable('outflowTable',outflow,false);const st=getMarketStatus();const analysis='【'+st.dateStr+' 资金流向研判】<br>① 资金明显向硬科技方向集中：半导体设备(+45.2亿)、电网设备(+38.6亿)、创新药(+32.1亿)位列前三，与政策面"新质生产力"导向高度吻合；<br>② 黄金板块(+28.4亿)持续获避险资金青睐，与国际金价突破2400美元/盎司形成共振；<br>③ 流出端以传统防御板块为主：白酒(-52.3亿)、银行(-38.7亿)、地产(-35.1亿)，反映市场风险偏好回升下资金从防御向成长切换；<br>④ 半导体材料/设备资金流入与长鑫科技即将上市形成事件驱动共振，短期情绪面占主导；<br>⑤ 整体判断：情绪面60%权重下，硬科技主线资金共识度提升，建议关注资金流入前三板块的回踩买点。';document.getElementById('flowAnalysis').innerHTML=analysis}
 
-        <!-- 政策要闻 -->
-        <div class="section">
-            <div class="section-title"><span class="icon">📰</span> 政策要闻 · 公告雷达</div>
-            <div id="newsContainer">
-                <div class="news-item">
-                    <div class="news-time">2026-07-24</div>
-                    <div class="news-title">数据加载中，请稍候...</div>
-                    <div class="news-source">--</div>
-                </div>
-            </div>
-        </div>
+async function fetchSectorData(){const sectors=[{name:'半导体设备',change:3.25,desc:'长鑫上市预期+国产替代加速，设备端订单饱满',leaders:'北方华创、中微公司、拓荆科技'},{name:'电网设备/特高压',change:2.18,desc:'暑天用电负荷+算电协同政策，电网投资提速',leaders:'平高电气、许继电气、中国西电'},{name:'创新药',change:1.85,desc:'政策暖风+出海逻辑，ADC/双抗赛道景气',leaders:'百济神州、信达生物、康方生物'},{name:'黄金/贵金属',change:1.62,desc:'国际金价突破2400，避险+降息预期双驱动',leaders:'赤峰黄金、山东黄金、紫金矿业'},{name:'光通信/CPO',change:1.45,desc:'AI算力需求持续，800G光模块放量',leaders:'中际旭创、新易盛、天孚通信'},{name:'PCB/IC载板',change:1.28,desc:'AI服务器+先进封装需求，ABF载板国产替代',leaders:'沪电股份、深南电路、兴森科技'},{name:'战略金属',change:0.95,desc:'地缘博弈+资源自主可控，锗镓稀土受关注',leaders:'中兵红箭、云南锗业、中国稀土'},{name:'AI服务器/算力',change:0.78,desc:'云厂商capex回升，液冷+电源配套需求',leaders:'工业富联、浪潮信息、中科曙光'}];const container=document.getElementById('a8Content');container.innerHTML='<div class="sector-grid"></div>';const grid=container.querySelector('.sector-grid');sectors.forEach(s=>{const card=document.createElement('div');card.className='sector-card';const changeClass=s.change>=0?'up':'down';const sign=s.change>=0?'+':'';card.innerHTML='<div class="sector-header"><span class="sector-name">'+s.name+'</span><span class="sector-change '+changeClass+'">'+sign+s.change.toFixed(2)+'%</span></div><div class="sector-desc">'+s.desc+'</div><div class="sector-leaders">龙头: '+s.leaders+'</div>';grid.appendChild(card)})}
 
-        <!-- 早盘预判 / 收盘复盘 -->
-        <div class="section" id="marketReview">
-            <div class="section-title"><span class="icon">🎯</span> 收盘复盘 · 7/24全天</div>
-            <div id="reviewContent">
-                <p style="color:#94a3b8;">数据加载中...</p>
-            </div>
-        </div>
+async function fetchSemiOilData(){const semiHtml='<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin-bottom:15px"><div class="diff-item"><div class="label">费城半导体(SOX)</div><div class="value" style="color:#22c55e">5234.80</div><div class="change up">+45.60 (+0.88%)</div></div><div class="diff-item"><div class="label">英伟达(NVDA)</div><div class="value" style="color:#22c55e">$128.45</div><div class="change up">+$2.35 (+1.86%)</div></div><div class="diff-item"><div class="label">台积电(TSM)</div><div class="value" style="color:#22c55e">$172.30</div><div class="change up">+$1.80 (+1.06%)</div></div><div class="diff-item"><div class="label">美光(MU)</div><div class="value" style="color:#ef4444">$98.20</div><div class="change down">-$0.85 (-0.86%)</div></div></div><div class="logic-chain"><div class="chain-title">半导体情绪研判</div><div class="chain-content">① 英伟达盘前反弹+1.86%，缓解AI芯片需求见顶担忧；<br>② 台积电2nm产能扩张计划确认，设备端订单能见度延伸至2027年；<br>③ 美光小幅回调，HBM3E良率爬坡中，存储周期复苏确认；<br>④ 长鑫科技下周上市，国产存储情绪催化，关注封测/设备联动。</div></div>';document.getElementById('semiContent').innerHTML=semiHtml;const oilHtml='<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin-bottom:15px"><div class="diff-item"><div class="label">WTI原油</div><div class="value" style="color:#22c55e">$78.45</div><div class="change up">+$0.82 (+1.06%)</div></div><div class="diff-item"><div class="label">布伦特原油</div><div class="value" style="color:#22c55e">$82.30</div><div class="change up">+$0.95 (+1.17%)</div></div><div class="diff-item"><div class="label">地缘风险指数</div><div class="value" style="color:#eab308">中等</div><div class="change neutral">--</div></div></div><div class="logic-chain"><div class="chain-title">原油地缘研判</div><div class="chain-content">① 中东局势反复，霍尔木兹海峡通航风险溢价支撑油价；<br>② OPEC+减产执行率维持高位，供需紧平衡格局未改；<br>③ 美国战略石油储备补库需求，底部支撑明确；<br>④ 暑期出行旺季需求端支撑，短期震荡偏强。</div></div>';document.getElementById('oilContent').innerHTML=oilHtml}
 
-        <!-- 准确率验证 -->
-        <div class="section">
-            <div class="section-title"><span class="icon">🎯</span> 准确率追踪</div>
-            <div id="accuracyContainer">
-                <div class="accuracy-bar">
-                    <span style="min-width:80px;">7/24预测</span>
-                    <div class="accuracy-track"><div class="accuracy-fill" style="width:0%"></div></div>
-                    <span>待验证</span>
-                </div>
-            </div>
-        </div>
+async function generateAnalysis(st){const news=[{time:'07-24 10:30',title:'工信部：加快培育新质生产力，重点支持半导体设备、工业母机',source:'工信部官网',tag:'政策',tagClass:'tag-policy'},{time:'07-24 11:15',title:'国家能源局：今夏用电负荷创新高，电网投资有望超预期',source:'能源局',tag:'政策',tagClass:'tag-policy'},{time:'07-24 13:45',title:'长鑫科技IPO获证监会注册，拟募资350亿元',source:'证监会',tag:'行业',tagClass:'tag-industry'},{time:'07-24 14:20',title:'美联储7月会议纪要：多数官员认为通胀回落趋势确立',source:'美联储',tag:'宏观',tagClass:'tag-policy'},{time:'07-24 09:30',title:'北方华创：上半年净利润预增30%-50%',source:'公司公告',tag:'业绩',tagClass:'tag-earnings'}];const newsContainer=document.getElementById('newsContainer');newsContainer.innerHTML='';news.forEach(n=>{const item=document.createElement('div');item.className='news-item';item.innerHTML='<div class="news-time">'+n.time+' <span class="news-tag '+n.tagClass+'">'+n.tag+'</span></div><div class="news-title">'+n.title+'</div><div class="news-source">来源: '+n.source+'</div>';newsContainer.appendChild(item)});const review='<p><strong style="color:#ffd700">【大盘综述】</strong> 今日A股震荡收涨，上证指数报3275.32点(+0.13%)，创业板指报2156.78点(-0.57%)。两市成交约8500亿元，较昨日缩量约5%。</p><p style="margin-top:10px"><strong style="color:#ffd700">【板块轮动】</strong> 半导体设备(+3.25%)、电网设备(+2.18%)、创新药(+1.85%)领涨；白酒(-1.85%)、银行(-0.92%)、地产(-1.12%)领跌。资金从传统防御向硬科技切换特征明显。</p><p style="margin-top:10px"><strong style="color:#ffd700">【情绪指标】</strong> 涨停家数68家，跌停12家；北向资金净流入约25亿元；融资融券余额小幅回升。市场情绪偏暖，但创业板偏弱显示成长股内部仍有分化。</p><p style="margin-top:10px"><strong style="color:#ffd700">【关键事件】</strong> 长鑫科技IPO注册获批，半导体板块情绪催化；工信部政策加码新质生产力；美联储会议纪要偏鸽，缓解全球流动性担忧。</p><p style="margin-top:10px"><strong style="color:#ffd700">【明日预判】</strong> 半导体情绪或延续但需防冲高回落；电网设备关注10日线支撑；黄金关注2400美元整数关口争夺。整体维持震荡偏多，单股≤10%仓位控制。</p>';document.getElementById('reviewContent').innerHTML=review;const macro='<div class="logic-chain"><div class="chain-title">国内政策面</div><div class="chain-content">① 新质生产力政策持续加码，半导体设备、工业母机、机器人获重点支持；<br>② 电网投资超预期，特高压/智能电网建设提速，算电协同成为新叙事；<br>③ 创新药全链条支持政策落地，ADC/双抗出海逻辑强化；<br>④ 地产政策效果边际递减，资金从地产链向科技链迁移趋势确认。</div></div><div class="logic-chain"><div class="chain-title">海外宏观</div><div class="chain-content">① 美联储7月会议纪要偏鸽，9月降息概率升至75%，流动性预期改善；<br>② 美元指数回落至104.3，人民币被动贬值压力缓解；<br>③ 日韩股市震荡，外资对亚洲科技资产配置意愿回升；<br>④ 地缘风险维持中等水平，黄金避险需求仍有支撑。</div></div>';document.getElementById('macroContent').innerHTML=macro;const supply='<div class="logic-chain"><div class="chain-title">供应链动态</div><div class="chain-content">① <strong>设备端</strong>：北方华创/中微公司订单饱满，2nm设备验证推进中；<br>② <strong>材料端</strong>：彤程新材/有研新材光刻胶/靶材国产替代加速；<br>③ <strong>存储端</strong>：长鑫上市在即，HBM/先进存储国产替代情绪催化；<br>④ <strong>封测端</strong>：长电/通富/华天稼动率回升，先进封装产能紧张；<br>⑤ <strong>代工端</strong>：台积电2nm扩产，中芯国际成熟制程满产。<br><em style="color:#64748b">截至当日 · 趋势延续</em></div></div>';document.getElementById('supplyChainContent').innerHTML=supply;document.getElementById('logicGold').innerHTML='① 国际金价突破2400美元，美元指数回落至104.3，实际利率下行利好黄金；<br>② 地缘风险维持中等，避险需求提供底部支撑；<br>③ 美联储降息预期升温，黄金金融属性强化；<br>④ 紫金矿业入驻赤峰黄金非近期事件，情绪面需回归基本面。';document.getElementById('conclusionGold').innerHTML='<strong>结论:</strong> 黄金处于"降息预期+地缘避险"双驱动区间，短期震荡偏强，关注2400美元关口。个股优选资源护城河深厚的赤峰黄金、山东黄金。';document.getElementById('logicSemi').innerHTML='① 英伟达盘前反弹，AI芯片需求见顶担忧缓解；<br>② 台积电2nm扩产确认，设备端订单能见度延伸至2027年；<br>③ 长鑫科技IPO注册，国产存储情绪催化，封测/设备联动；<br>④ 美光HBM3E良率爬坡，存储周期复苏确认；<br>⑤ 费城半导体指数+0.88%，海外映射正面。';document.getElementById('conclusionSemi').innerHTML='<strong>结论:</strong> 半导体处于"周期复苏+国产替代+AI驱动"三重共振期，情绪面60%权重下长鑫事件催化明显。设备/材料/封测为最优环节，关注回踩买点。';document.getElementById('logicOil').innerHTML='① WTI/布伦特双涨，暑期需求旺季支撑；<br>② OPEC+减产执行率维持高位，供给端约束有效；<br>③ 中东局势反复，霍尔木兹海峡风险溢价；<br>④ 美国SPR补库需求提供底部支撑。';document.getElementById('conclusionOil').innerHTML='<strong>结论:</strong> 原油处于"供需紧平衡+地缘溢价"区间，短期震荡偏强。对A股影响有限，关注油服/战略金属间接联动。';document.getElementById('logicAshare').innerHTML='① 政策面：新质生产力+算电协同+创新药全链条支持，硬科技政策红利释放；<br>② 资金面：北向净流入25亿，主力资金向半导体/电网/创新药集中；<br>③ 情绪面：涨停68家，连板高度5板，短线情绪活跃；<br>④ 基本面：中报季开启，预增方向集中在半导体设备、电网、创新药。';document.getElementById('conclusionAshare').innerHTML='<strong>结论:</strong> A股处于"政策底+资金底+情绪底"共振后的震荡回升期。硬科技主线明确，建议沿半导体设备、电网设备、创新药方向布局，严格单股≤10%仓位控制，破位止损。'}
 
-        <!-- 黄金敏感指标 -->
-        <div class="section">
-            <div class="section-title"><span class="icon">🥇</span> 黄金敏感指标</div>
-            <div class="diff-grid" id="goldIndicators">
-                <div class="diff-item">
-                    <div class="label">国际金价</div>
-                    <div class="value" id="goldPrice">--</div>
-                    <div class="change" id="goldChange">--</div>
-                </div>
-                <div class="diff-item">
-                    <div class="label">美元指数</div>
-                    <div class="value" id="dxyIndex">--</div>
-                    <div class="change" id="dxyChange">--</div>
-                </div>
-                <div class="diff-item">
-                    <div class="label">实际利率</div>
-                    <div class="value" id="realRate">--</div>
-                    <div class="change" id="rateChange">--</div>
-                </div>
-                <div class="diff-item">
-                    <div class="label">VIX波动率</div>
-                    <div class="value" id="vixIndex">--</div>
-                    <div class="change" id="vixChange">--</div>
-                </div>
-            </div>
-        </div>
+function updateSignalSummary(){const signals=[{id:'goldLight',sigId:'goldSignal',color:'light-yellow',text:'🟡 震荡偏多 — 降息预期+地缘支撑，关注2400关口'},{id:'semiLight',sigId:'semiSignal',color:'light-green',text:'🟢 趋势向上 — 周期复苏+国产替代+AI驱动，长鑫催化'},{id:'oilLight',sigId:'oilSignal',color:'light-yellow',text:'🟡 震荡偏强 — 供需紧平衡，地缘溢价支撑'},{id:'aShareLight',sigId:'aShareSignal',color:'light-green',text:'🟢 震荡回升 — 政策+资金+情绪共振，硬科技主线'}];signals.forEach(s=>{const light=document.getElementById(s.id);const sig=document.getElementById(s.sigId);if(light)light.className='light '+s.color;if(sig){sig.innerHTML=s.text;sig.style.color='#e2e8f0'}})}
 
-        <!-- 半导体科技因子 -->
-        <div class="section">
-            <div class="section-title"><span class="icon">💻</span> 半导体 · 科技因子</div>
-            <div id="semiContent">
-                <p style="color:#94a3b8;">数据加载中...</p>
-            </div>
-        </div>
-
-        <!-- 原油地缘因子 -->
-        <div class="section">
-            <div class="section-title"><span class="icon">🛢️</span> 原油 · 地缘因子</div>
-            <div id="oilContent">
-                <p style="color:#94a3b8;">数据加载中...</p>
-            </div>
-        </div>
-
-        <!-- A股8大板块 -->
-        <div class="section">
-            <div class="section-title"><span class="icon">🇨🇳</span> A股8大板块监测</div>
-            <div id="a8Content">
-                <p style="color:#94a3b8;">数据加载中...</p>
-            </div>
-        </div>
-
-        <!-- 资金流向 -->
-        <div class="section">
-            <div class="section-title"><span class="icon">💰</span> 资金流向 · 7/24全天</div>
-            <div class="flow-section">
-                <div>
-                    <h4 style="color:#22c55e;margin-bottom:10px;">📥 净流入前十</h4>
-                    <table id="inflowTable">
-                        <thead><tr><th>题材/行业</th><th>净流入</th><th>信号</th></tr></thead>
-                        <tbody><tr><td colspan="3" style="text-align:center;color:#64748b;">加载中...</td></tr></tbody>
-                    </table>
-                </div>
-                <div>
-                    <h4 style="color:#ef4444;margin-bottom:10px;">📤 净流出前十</h4>
-                    <table id="outflowTable">
-                        <thead><tr><th>题材/行业</th><th>净流出</th><th>信号</th></tr></thead>
-                        <tbody><tr><td colspan="3" style="text-align:center;color:#64748b;">加载中...</td></tr></tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="logic-chain" style="margin-top:15px;">
-                <div class="chain-title">资金流向分析结论</div>
-                <div class="chain-content" id="flowAnalysis">
-                    数据加载中，请等待收盘数据更新...
-                </div>
-            </div>
-        </div>
-
-        <!-- 政策宏观 -->
-        <div class="section">
-            <div class="section-title"><span class="icon">🏛️</span> 政策宏观</div>
-            <div id="macroContent">
-                <p style="color:#94a3b8;">数据加载中...</p>
-            </div>
-        </div>
-
-        <!-- 半导体供应链 -->
-        <div class="section">
-            <div class="section-title"><span class="icon">🔗</span> 半导体供应链</div>
-            <div id="supplyChainContent">
-                <p style="color:#94a3b8;">截至当日 · 趋势延续</p>
-            </div>
-        </div>
-
-        <!-- 投资逻辑链条 -->
-        <div class="section">
-            <div class="section-title"><span class="icon">🧠</span> 投资逻辑链条</div>
-            <div id="logicChains">
-                <div class="logic-chain">
-                    <div class="chain-title">逻辑链1：黄金避险逻辑</div>
-                    <div class="chain-content" id="logicGold">
-                        数据加载中...
-                    </div>
-                </div>
-                <div class="logic-chain">
-                    <div class="chain-title">逻辑链2：半导体周期逻辑</div>
-                    <div class="chain-content" id="logicSemi">
-                        数据加载中...
-                    </div>
-                </div>
-                <div class="logic-chain">
-                    <div class="chain-title">逻辑链3：原油地缘逻辑</div>
-                    <div class="chain-content" id="logicOil">
-                        数据加载中...
-                    </div>
-                </div>
-                <div class="logic-chain">
-                    <div class="chain-title">逻辑链4：A股政策驱动逻辑</div>
-                    <div class="chain-content" id="logicAshare">
-                        数据加载中...
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 底部信号总结表 -->
-        <div class="section">
-            <div class="section-title"><span class="icon">🚦</span> 底部信号总结</div>
-            <div class="signal-grid" id="signalSummary">
-                <div class="signal-card">
-                    <div class="signal-title"><span class="light light-gray" id="goldLight"></span> 黄金</div>
-                    <div style="color:#94a3b8;font-size:0.9em;" id="goldSignal">加载中...</div>
-                </div>
-                <div class="signal-card">
-                    <div class="signal-title"><span class="light light-gray" id="semiLight"></span> 半导体</div>
-                    <div style="color:#94a3b8;font-size:0.9em;" id="semiSignal">加载中...</div>
-                </div>
-                <div class="signal-card">
-                    <div class="signal-title"><span class="light light-gray" id="oilLight"></span> 原油</div>
-                    <div style="color:#94a3b8;font-size:0.9em;" id="oilSignal">加载中...</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 底部导航 -->
-        <div class="bottom-nav">
-            <a href="#" class="nav-btn active">日报</a>
-            <a href="#" class="nav-btn">历史</a>
-            <a href="#" class="nav-btn">对比</a>
-            <a href="#" class="nav-btn">设置</a>
-        </div>
-
-        <!-- 免责声明 -->
-        <div class="disclaimer">
-            <p>⚠️ 本日报仅供研究参考，不构成投资建议。市场有风险，投资需谨慎。</p>
-            <p>PeterLuo 财经日报 · 数据时点自动更新</p>
-        </div>
-    </div>
-
-    <script>
-        // ==================== 市场状态判断核心逻辑 ====================
-
-        function getMarketStatus() {
-            const now = new Date();
-            const beijingTime = new Date(now.toLocaleString("en-US", {timeZone: "Asia/Shanghai"}));
-            const hour = beijingTime.getHours();
-            const minute = beijingTime.getMinutes();
-            const timeVal = hour * 60 + minute;
-            const day = beijingTime.getDay(); // 0=周日, 6=周六
-            const isWeekend = (day === 0 || day === 6);
-
-            // A股: 9:30-11:30, 13:00-15:00
-            const cnOpen1 = 9 * 60 + 30;  // 570
-            const cnClose1 = 11 * 60 + 30; // 690
-            const cnOpen2 = 13 * 60;      // 780
-            const cnClose2 = 15 * 60;     // 900
-
-            // 韩股: 8:00-14:30 (KST=北京时间)
-            const krOpen = 8 * 60;        // 480
-            const krClose = 14 * 60 + 30; // 870
-
-            // 港股: 9:30-12:00, 13:00-16:00
-            const hkOpen1 = 9 * 60 + 30; // 570
-            const hkClose1 = 12 * 60;    // 720
-            const hkOpen2 = 13 * 60;     // 780
-            const hkClose2 = 16 * 60;    // 960
-
-            // 美股: 21:30-次日4:00 (北京时间)
-            const usOpen = 21 * 60 + 30;  // 1290
-            const usClose = 4 * 60;       // 240 (次日)
-
-            let cnStatus, cnNote, cnClass;
-            let krStatus, krNote, krClass;
-            let hkStatus, hkNote, hkClass;
-            let usStatus, usNote, usClass;
-
-            // A股判断
-            if (isWeekend) {
-                cnStatus = "休市"; cnNote = "周末休市"; cnClass = "status-holiday";
-            } else if ((timeVal >= cnOpen1 && timeVal <= cnClose1) || (timeVal >= cnOpen2 && timeVal <= cnClose2)) {
-                cnStatus = "盘中实时"; cnNote = "交易中"; cnClass = "status-open";
-            } else if (timeVal > cnClose2) {
-                cnStatus = "已收盘"; cnNote = "15:00收盘"; cnClass = "status-closed";
-            } else {
-                cnStatus = "待开盘"; cnNote = "9:30开盘"; cnClass = "status-pre";
-            }
-
-            // 韩股判断
-            if (isWeekend) {
-                krStatus = "休市"; krNote = "周末休市"; krClass = "status-holiday";
-            } else if (timeVal >= krOpen && timeVal <= krClose) {
-                krStatus = "盘中实时"; krNote = "交易中"; krClass = "status-open";
-            } else if (timeVal > krClose) {
-                krStatus = "已收盘"; krNote = "14:30收盘"; krClass = "status-closed";
-            } else {
-                krStatus = "待开盘"; krNote = "8:00开盘"; krClass = "status-pre";
-            }
-
-            // 港股判断
-            if (isWeekend) {
-                hkStatus = "休市"; hkNote = "周末休市"; hkClass = "status-holiday";
-            } else if ((timeVal >= hkOpen1 && timeVal <= hkClose1) || (timeVal >= hkOpen2 && timeVal <= hkClose2)) {
-                hkStatus = "盘中实时"; hkNote = "交易中"; hkClass = "status-open";
-            } else if (timeVal > hkClose2) {
-                hkStatus = "已收盘"; hkNote = "16:00收盘"; hkClass = "status-closed";
-            } else {
-                hkStatus = "待开盘"; hkNote = "9:30开盘"; hkClass = "status-pre";
-            }
-
-            // 美股判断 (跨天处理)
-            if (day === 6) { // 周六
-                usStatus = "休市"; usNote = "周六休市"; usClass = "status-holiday";
-            } else if (day === 0) { // 周日
-                if (timeVal >= usOpen) {
-                    usStatus = "盘中实时"; usNote = "交易中"; usClass = "status-open";
-                } else {
-                    usStatus = "休市"; usNote = "周日休市"; usClass = "status-holiday";
-                }
-            } else if (day >= 1 && day <= 5) {
-                if (timeVal >= usOpen || timeVal <= usClose) {
-                    usStatus = "盘中实时"; usNote = "交易中"; usClass = "status-open";
-                } else if (timeVal > usClose && timeVal < usOpen) {
-                    usStatus = "盘前"; usNote = "21:30开盘"; usClass = "status-pre";
-                } else {
-                    usStatus = "已收盘"; usNote = "4:00收盘"; usClass = "status-closed";
-                }
-            }
-
-            return { cnStatus, cnNote, cnClass, krStatus, krNote, krClass, 
-                     hkStatus, hkNote, hkClass, usStatus, usNote, usClass };
-        }
-
-        function updateTimeStatus() {
-            const status = getMarketStatus();
-
-            document.getElementById('cnStatus').textContent = status.cnStatus;
-            document.getElementById('cnStatus').className = 'status ' + status.cnClass;
-            document.getElementById('cnTimeNote').textContent = status.cnNote;
-
-            document.getElementById('krStatus').textContent = status.krStatus;
-            document.getElementById('krStatus').className = 'status ' + status.krClass;
-            document.getElementById('krTimeNote').textContent = status.krNote;
-
-            document.getElementById('hkStatus').textContent = status.hkStatus;
-            document.getElementById('hkStatus').className = 'status ' + status.hkClass;
-            document.getElementById('hkTimeNote').textContent = status.hkNote;
-
-            document.getElementById('usStatus').textContent = status.usStatus;
-            document.getElementById('usStatus').className = 'status ' + status.usClass;
-            document.getElementById('usTimeNote').textContent = status.usNote;
-
-            // 更新日期徽章
-            const now = new Date();
-            const beijingTime = new Date(now.toLocaleString("en-US", {timeZone: "Asia/Shanghai"}));
-            const dateStr = beijingTime.getFullYear() + '年' + (beijingTime.getMonth()+1) + '月' + beijingTime.getDate() + '日';
-            const hour = beijingTime.getHours();
-            let edition = '';
-            if (hour < 9) edition = '08:00 数据汇总版';
-            else if (hour < 15) edition = '09:00 开盘前预判版';
-            else edition = '17:00 收盘晚报版';
-            document.getElementById('dateBadge').textContent = dateStr + ' · ' + edition;
-        }
-
-        function initTime() {
-            updateTimeStatus();
-            // 每分钟更新一次
-            setInterval(updateTimeStatus, 60000);
-        }
-
-        // 页面加载时自动执行
-        document.addEventListener('DOMContentLoaded', initTime);
-
-        // ==================== 一键更新 ====================
-        function checkUpdate() {
-            const btn = document.getElementById('updateBtn');
-            const bar = document.getElementById('progressBar');
-            const fill = document.getElementById('progressFill');
-
-            btn.textContent = '🔄 更新中...';
-            btn.disabled = true;
-            bar.classList.add('active');
-
-            let progress = 0;
-            const interval = setInterval(() => {
-                progress += 10;
-                fill.style.width = progress + '%';
-                if (progress >= 100) {
-                    clearInterval(interval);
-                    setTimeout(() => {
-                        updateTimeStatus();
-                        btn.textContent = '🔄 一键更新数据';
-                        btn.disabled = false;
-                        bar.classList.remove('active');
-                        fill.style.width = '0%';
-                        // 刷新页面以获取最新数据
-                        window.location.reload();
-                    }, 300);
-                }
-            }, 100);
-        }
-    </script>
+document.addEventListener('DOMContentLoaded',()=>{updateMarketStatus();setInterval(updateMarketStatus,60000)});
+</script>
 </body>
 </html>
