@@ -39,9 +39,6 @@
   th { color: var(--muted); font-weight: 600; font-size: 12px; background: #0f172a; }
   tr:last-child td { border-bottom: none; }
   .num { font-family: "SF Mono", Monaco, monospace; text-align: right; }
-  .sig { font-size: 11px; padding: 2px 6px; border-radius: 4px; font-weight: 600; }
-  .sig-in { background: rgba(239,68,68,0.15); color: #fca5a5; }
-  .sig-out { background: rgba(34,197,94,0.15); color: #86efac; }
 
   .news-list { list-style: none; }
   .news-list li { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
@@ -76,7 +73,7 @@
 
   .footer { text-align: center; color: var(--muted); font-size: 11px; padding: 20px 0; }
 
-  .note { font-size: 11px; color: #6b7280; margin-top: 8px; font-style: italic; }
+  .note { font-size: 11px; color: #6b7280; margin-top: 10px; font-style: italic; line-height: 1.6; padding: 8px; background: #0f172a; border-radius: 6px; }
 
   @media (max-width: 640px) {
     .index-grid { grid-template-columns: repeat(3, 1fr); }
@@ -97,7 +94,7 @@
     <span class="tag">🇨🇳 A股</span><span>7/24 15:00收盘</span> &nbsp;|&nbsp;
     <span class="tag">🇭🇰 港股</span><span>7/24 16:00收盘（数据待补）</span> &nbsp;|&nbsp;
     <span class="tag">🇺🇸 美股</span><span>7/24 04:00收盘（北京时间）</span> &nbsp;|&nbsp;
-    <span class="tag">🌏 黄金</span><span>7/24 19:30实时</span>
+    <span class="tag">🌏 黄金</span><span>7/24 20:10实时</span>
   </div>
 
   <div class="card">
@@ -115,7 +112,7 @@
     <div class="card-title"><span class="icon">🔥</span> 差异对比 · 核心矛盾</div>
     <div style="font-size:13px;line-height:2;color:var(--muted);">
       <b style="color:var(--text);">① 半导体内部极致分化：</b>设备+3.18%、封测+1.87%强势，但材料-0.32%、算力-3.14%暴跌——资金在半导体产业链内做"硬切软"。<br>
-      <b style="color:var(--text);">② 资金逆势吸筹：</b>华为海思、中芯概念、先进封装等概念板块资金大幅净流入，但股价多数下跌，说明主力在借大盘调整吃货。<br>
+      <b style="color:var(--text);">② 资金逆势吸筹：</b>半导体、地面兵装等行业获资金净流入，但多数行业下跌，说明主力在借大盘调整吃货。<br>
       <b style="color:var(--text);">③ 美股映射背离：</b>美光+3%、SK海力士+2.5%收涨，但A股存储/算力反而大跌，中美半导体情绪短期脱钩。
     </div>
   </div>
@@ -144,55 +141,57 @@
     </div>
   </div>
 
-  <!-- 资金流向板块 —— v3：两边统一为板块口径 -->
+  <!-- 资金流向板块 —— v4：统一为行业板块口径 -->
   <div class="card">
-    <div class="card-title"><span class="icon">💰</span> 资金流向 · 7/24全天（板块口径）</div>
+    <div class="card-title"><span class="icon">💰</span> 资金流向 · 7/24全天（行业板块口径）</div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
       <div>
-        <div style="font-size:12px;font-weight:700;color:var(--up);margin-bottom:8px;">▲ 板块净流入前十</div>
+        <div style="font-size:12px;font-weight:700;color:var(--up);margin-bottom:8px;">▲ 行业板块净流入前十</div>
         <table>
-          <tr><th>板块</th><th class="num">净流入</th><th class="num">涨幅</th></tr>
-          <tr><td>华为海思</td><td class="num up">+27.71亿</td><td class="num down">-1.96%</td></tr>
-          <tr><td>中芯概念</td><td class="num up">+26.25亿</td><td class="num up">+0.69%</td></tr>
-          <tr><td>先进封装</td><td class="num up">+20.23亿</td><td class="num down">-0.25%</td></tr>
-          <tr><td>毫米波概念</td><td class="num up">+14.26亿</td><td class="num down">-2.18%</td></tr>
-          <tr><td>高带宽内存</td><td class="num up">+13.69亿</td><td class="num up">+0.79%</td></tr>
-          <tr><td>移动支付</td><td class="num up">+11.95亿</td><td class="num down">-2.99%</td></tr>
-          <tr><td>光刻机(胶)</td><td class="num up">+11.84亿</td><td class="num down">-1.12%</td></tr>
-          <tr><td>第三代半导体</td><td class="num up">+11.24亿</td><td class="num down">-1.86%</td></tr>
-          <tr><td>氟化工概念</td><td class="num up">+10.44亿</td><td class="num down">-0.52%</td></tr>
-          <tr><td>碳化硅</td><td class="num up">+10.27亿</td><td class="num down">-1.57%</td></tr>
+          <tr><th>行业板块</th><th class="num">净流入</th><th class="num">涨幅</th></tr>
+          <tr><td>半导体</td><td class="num up">+33.06亿</td><td class="num down">-0.01%</td></tr>
+          <tr><td>地面兵装Ⅱ</td><td class="num up">+3.82亿</td><td class="num up">+2.10%</td></tr>
+          <tr><td>其他电子Ⅱ</td><td class="num up">+2.35亿</td><td class="num down">-1.38%</td></tr>
+          <tr><td>专用设备</td><td class="num up">+2.15亿</td><td class="num down">-1.92%</td></tr>
+          <tr><td>环境治理</td><td class="num up">+1.85亿</td><td class="num down">-2.28%</td></tr>
+          <tr><td>纺织制造</td><td class="num up">+1.27亿</td><td class="num down">-1.49%</td></tr>
+          <tr><td>油气开采Ⅱ</td><td class="num up">+0.63亿</td><td class="num down">-3.57%</td></tr>
+          <tr><td>汽车服务</td><td class="num up">+0.38亿</td><td class="num down">-1.70%</td></tr>
+          <tr><td>林业Ⅱ</td><td class="num up">+0.32亿</td><td class="num down">-2.60%</td></tr>
+          <tr><td>摩托车及其他</td><td class="num up">+0.20亿</td><td class="num down">-0.35%</td></tr>
         </table>
       </div>
       <div>
-        <div style="font-size:12px;font-weight:700;color:var(--down);margin-bottom:8px;">▼ 板块净流出前十</div>
+        <div style="font-size:12px;font-weight:700;color:var(--down);margin-bottom:8px;">▼ 行业板块净流出前十</div>
         <table>
-          <tr><th>板块</th><th class="num">净流出</th><th class="num">跌幅</th></tr>
-          <tr><td>有色金属</td><td class="num down">-83.51亿</td><td class="num down">-2.0%</td></tr>
-          <tr><td>算力租赁</td><td class="num down">-居前</td><td class="num down">-3.14%</td></tr>
-          <tr><td>电力/绿色电力</td><td class="num down">-居前</td><td class="num down">-3.0%</td></tr>
-          <tr><td>存储芯片/HBM</td><td class="num down">-居前</td><td class="num down">-2.5%</td></tr>
-          <tr><td>信创/国产软件</td><td class="num down">-居前</td><td class="num down">-2.8%</td></tr>
-          <tr><td>互联网金融</td><td class="num down">-居前</td><td class="num down">-2.2%</td></tr>
-          <tr><td>人工智能</td><td class="num down">-居前</td><td class="num down">-2.5%</td></tr>
-          <tr><td>消费电子</td><td class="num down">-居前</td><td class="num down">-2.1%</td></tr>
-          <tr><td>光伏设备</td><td class="num down">-居前</td><td class="num down">-1.8%</td></tr>
-          <tr><td>锂电池</td><td class="num down">-居前</td><td class="num down">-2.3%</td></tr>
+          <tr><th>行业板块</th><th class="num">净流出</th><th class="num">跌幅</th></tr>
+          <tr><td>计算机</td><td class="num down">-62.0亿+</td><td class="num down">-3.0%</td></tr>
+          <tr><td>电子</td><td class="num down">-62.0亿+</td><td class="num down">-2.5%</td></tr>
+          <tr><td>通信</td><td class="num down">-50.0亿+</td><td class="num down">-2.8%</td></tr>
+          <tr><td>有色金属</td><td class="num down">-20.0亿+</td><td class="num down">-4.0%</td></tr>
+          <tr><td>医药生物</td><td class="num down">-20.0亿+</td><td class="num down">-3.2%</td></tr>
+          <tr><td>非银金融</td><td class="num down">-20.0亿+</td><td class="num down">-2.2%</td></tr>
+          <tr><td>传媒</td><td class="num down">-20.0亿+</td><td class="num down">-2.8%</td></tr>
+          <tr><td>公用事业</td><td class="num down">-20.0亿+</td><td class="num down">-3.0%</td></tr>
+          <tr><td>美容护理</td><td class="num down">-20.0亿+</td><td class="num down">-3.5%</td></tr>
+          <tr><td>电力设备</td><td class="num down">-居前</td><td class="num down">-3.0%</td></tr>
         </table>
       </div>
     </div>
-    <div class="note">* 净流出板块中，有色金属-83.51亿为东方财富精确数据；其余板块净流出额因数据源限制暂以"居前"标注，待同花顺/东方财富板块资金流数据补全后更新精确金额。</div>
+    <div class="note">
+      数据来源：左边为东方财富申万二级行业精确数据；右边为证券时报·数据宝申万一级行业数据（部分标注"+"表示实际金额大于该值，电力设备因数据源限制暂以"居前"标注）。申万一级31个行业中，今日仅6个行业获主力净流入，25个行业净流出。
+    </div>
     <div style="margin-top:12px;padding:10px;background:#0f172a;border-radius:6px;font-size:12px;color:var(--muted);line-height:1.8;">
-      <b style="color:var(--text);">板块分析结论：</b>今日主力资金净流出774.6亿，超大单+大单合计净流出超770亿，但小单净流入660亿，典型<b>机构减仓、散户接盘</b>结构。申万一级31个行业中，<b>仅银行+0.31%上涨</b>，其余30个行业全部下跌。半导体产业链内部出现"硬切软"——设备/封测/概念获资金逆势加仓，存储/算力/有色金属被大幅抛售。有色金属板块净流出83.51亿居首，与黄金高位震荡、资源股获利了结有关。<br><br>
+      <b style="color:var(--text);">板块分析结论：</b>今日主力资金净流出774.6亿，超大单+大单合计净流出超770亿，但小单净流入660亿，典型<b>机构减仓、散户接盘</b>结构。申万一级31个行业中，<b>仅银行+0.31%上涨</b>，其余30个行业全部下跌。半导体（申万二级）获33亿净流入成为唯一避风港，但电子（申万一级）整体净流出62亿+，说明电子行业内部极度分化——半导体设备/封测获资金抢筹，消费电子/元件被大幅抛售。有色金属净流出20亿+居资源股之首，与黄金高位震荡、获利了结有关。<br><br>
       <b style="color:var(--text);">个股资金流向监控（单列）：</b><br>
       <span class="up">▲ 通富微电 +24.7亿（爆拉涨停，封测龙头）</span> | 
-      <span class="up">▲ 华天科技 +流入居前</span> | 
+      <span class="up">▲ 华天科技 +6.93亿（封测）</span> | 
       <span class="up">▲ 中微公司 +流入居前</span><br>
       <span class="down">▼ 德明利 -16.60亿（存储芯片出逃）</span> | 
       <span class="down">▼ 紫金矿业 -14.35亿（黄金股兑现）</span> | 
-      <span class="down">▼ 同花顺 -7.04亿（金融科技）</span> | 
-      <span class="down">▼ 东方财富 -流出居前</span> | 
-      <span class="down">▼ 京东方A -流出居前</span> | 
+      <span class="down">▼ 东方财富 -16.10亿（金融科技）</span> | 
+      <span class="down">▼ 同花顺 -7.04亿</span> | 
+      <span class="down">▼ 京东方A -6.0亿+</span> | 
       <span class="down">▼ 工业富联 -流出居前</span>
     </div>
   </div>
@@ -242,7 +241,7 @@
   </div>
 
   <div class="card">
-    <div class="card-title"><span class="icon">🥇</span> 黄金敏感指标（7/24 19:30）</div>
+    <div class="card-title"><span class="icon">🥇</span> 黄金敏感指标（7/24 20:10）</div>
     <div class="index-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom:12px;">
       <div class="index-item">
         <div class="name">现货黄金</div>
