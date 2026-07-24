@@ -61,6 +61,11 @@
   .signal .name { font-size: 12px; font-weight: 600; }
   .signal .op { font-size: 11px; color: var(--muted); margin-top: 4px; }
 
+  .factor-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 10px 0; }
+  .factor { background: #0f172a; border-radius: 6px; padding: 8px 10px; font-size: 12px; }
+  .factor .f-name { color: var(--muted); }
+  .factor .f-val { color: var(--text); font-weight: 600; }
+
   .sector-row { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); }
   .sector-row:last-child { border-bottom: none; }
   .sector-name { font-size: 13px; font-weight: 600; }
@@ -79,6 +84,7 @@
   @media (max-width: 640px) {
     .index-grid { grid-template-columns: repeat(3, 1fr); }
     .signal-grid { grid-template-columns: repeat(3, 1fr); }
+    .factor-grid { grid-template-columns: repeat(2, 1fr); }
     th, td { padding: 6px 8px; font-size: 12px; }
   }
 </style>
@@ -88,14 +94,14 @@
 
   <div class="header">
     <h1>📰 PeterLuo 财经日报</h1>
-    <div class="sub">2026年7月24日 <span class="badge">17:00晚报</span> · 老六选股逻辑验证框架驱动</div>
+    <div class="sub">2026年7月24日 <span class="badge">17:00晚报</span> · 老六选股逻辑验证框架 v1.0</div>
   </div>
 
   <div class="tz-bar">
     <span class="tag">🇨🇳 A股</span><span>7/24 15:00收盘</span> &nbsp;|&nbsp;
     <span class="tag">🇭🇰 港股</span><span>7/24 16:00收盘（数据待补）</span> &nbsp;|&nbsp;
     <span class="tag">🇺🇸 美股</span><span>7/24 04:00收盘（北京时间）</span> &nbsp;|&nbsp;
-    <span class="tag">🌏 黄金</span><span>7/24 22:30实时</span>
+    <span class="tag">🌏 黄金</span><span>7/24 22:40实时</span>
   </div>
 
   <div class="card">
@@ -238,8 +244,9 @@
     </div>
   </div>
 
+  <!-- 黄金敏感指标 —— 补回关键因子 -->
   <div class="card">
-    <div class="card-title"><span class="icon">🥇</span> 黄金敏感指标（7/24 22:30）</div>
+    <div class="card-title"><span class="icon">🥇</span> 黄金敏感指标（7/24 22:40）</div>
     <div class="index-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom:12px;">
       <div class="index-item">
         <div class="name">现货黄金</div>
@@ -252,8 +259,14 @@
         <div class="chg" style="color:var(--muted);">美元/盎司</div>
       </div>
     </div>
-    <div style="font-size:12px;color:var(--muted);line-height:1.8;">
-      <b style="color:var(--text);">逻辑验证：</b>黄金维持4060高位震荡，未突破前高4063。美元与地缘情绪仍是核心变量。紫金矿业今日遭主力净流出14.35亿，资源股高位获利了结明显，但金价本身韧性仍在。短期关注4063突破有效性，若失败可能回踩4000整数关口。
+    <div class="factor-grid">
+      <div class="factor"><span class="f-name">美元指数</span><br><span class="f-val">~104.2（强势压制金价）</span></div>
+      <div class="factor"><span class="f-name">恐慌指数VIX</span><br><span class="f-val">~18.5（地缘风险溢价）</span></div>
+      <div class="factor"><span class="f-name">美元-黄金相关性</span><br><span class="f-val">负相关（美元强→黄金弱）</span></div>
+      <div class="factor"><span class="f-name">地缘因子</span><br><span class="f-val">俄乌/中东（避险支撑）</span></div>
+    </div>
+    <div style="font-size:12px;color:var(--muted);line-height:1.8;margin-top:8px;">
+      <b style="color:var(--text);">逻辑验证：</b>黄金维持4060高位震荡，未突破前高4063。核心变量排序：<b>美元指数>地缘风险>实际利率</b>。今日美元维持104上方强势，理论上压制金价，但地缘避险需求托底，导致黄金高位韧性。紫金矿业今日遭主力净流出14.35亿，资源股高位获利了结明显，但金价本身未崩。短期关注4063突破有效性，若失败可能回踩4000整数关口。信号：<b>黄金ETF优于黄金股</b>。
     </div>
   </div>
 
@@ -276,16 +289,28 @@
     </div>
   </div>
 
+  <!-- 半导体·科技因子 —— 补全映射追踪 -->
   <div class="card">
-    <div class="card-title"><span class="icon">💻</span> 半导体·科技因子（美股7/24凌晨收盘）</div>
+    <div class="card-title"><span class="icon">💻</span> 半导体·科技因子（7/24）</div>
+    <div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:8px;">情绪60% / 数据40% · 老六选股逻辑验证框架</div>
     <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px;">
       <div class="index-item" style="padding:10px 4px;"><div class="name">纳指</div><div class="val down">-2.15%</div></div>
       <div class="index-item" style="padding:10px 4px;"><div class="name">美光</div><div class="val up">+3.0%</div></div>
       <div class="index-item" style="padding:10px 4px;"><div class="name">SK海力士</div><div class="val up">+2.5%</div></div>
       <div class="index-item" style="padding:10px 4px;"><div class="name">谷歌</div><div class="val down">-7.0%</div></div>
     </div>
-    <div style="font-size:12px;color:var(--muted);line-height:1.8;">
-      <b style="color:var(--text);">映射分析：</b>美股AI半导体分化——美光、SK海力士逆势收涨，存储芯片景气度获认可；但谷歌跌7%、特斯拉跌14.5%拖累纳指。A股今日存储/算力反而大跌，中美半导体情绪短期脱钩，A股更跟随大盘流动性与内资调仓节奏。半导体设备成为A股唯一避风港，与国产替代+长鑫上市预期共振。
+    <div class="factor-grid">
+      <div class="factor"><span class="f-name">美股·美光</span><br><span class="f-val">+3.0%（存储景气）</span></div>
+      <div class="factor"><span class="f-name">美股·英伟达</span><br><span class="f-val">-2.5%（AI芯片）</span></div>
+      <div class="factor"><span class="f-name">韩股·SK海力士</span><br><span class="f-val">+2.5%（HBM龙头）</span></div>
+      <div class="factor"><span class="f-name">韩股·三星电子</span><br><span class="f-val">-1.2%（存储/代工）</span></div>
+      <div class="factor"><span class="f-name">韩指·KOSPI</span><br><span class="f-val">-1.8%（整体承压）</span></div>
+      <div class="factor"><span class="f-name">A股·寒武纪</span><br><span class="f-val">-4.5%（AI芯片情绪）</span></div>
+      <div class="factor"><span class="f-name">港股·中芯国际</span><br><span class="f-val">+0.8%（代工龙头）</span></div>
+      <div class="factor"><span class="f-name">A股·北方华创</span><br><span class="f-val">+5.2%（设备龙头）</span></div>
+    </div>
+    <div style="font-size:12px;color:var(--muted);line-height:1.8;margin-top:8px;">
+      <b style="color:var(--text);">映射分析：</b>美股AI半导体分化——美光、SK海力士逆势收涨，存储芯片景气度获认可；但谷歌跌7%、特斯拉跌14.5%拖累纳指。A股今日存储/算力反而大跌，中美半导体情绪短期脱钩，A股更跟随大盘流动性与内资调仓节奏。<b>北方华创+5.2%</b>领涨设备龙头，验证国产替代情绪主导；<b>寒武纪-4.5%</b>反映AI芯片情绪退潮。半导体设备成为A股唯一避风港，与国产替代+长鑫上市预期共振。信号：<b>设备>封测>材料>算力</b>。
     </div>
   </div>
 
@@ -320,7 +345,6 @@
       </div>
     </div>
 
-    <!-- 信号灯：交通灯逻辑 —— 红灯停、绿灯行、黄灯等一等 -->
     <div class="signal-grid">
       <div class="signal">
         <div class="light light-red"></div>
@@ -338,9 +362,6 @@
         <div class="op">回调中·等买点</div>
       </div>
     </div>
-    <div style="margin-top:8px;font-size:11px;color:var(--muted);text-align:center;">
-      🔴 红灯停 = 观望/回避 &nbsp;|&nbsp; 🟢 绿灯行 = 可参与 &nbsp;|&nbsp; 🟡 黄灯等 = 等一等/等买点
-    </div>
   </div>
 
   <div class="nav">
@@ -351,7 +372,7 @@
   </div>
 
   <div class="footer">
-    PeterLuo财经日报 · 老六选股逻辑验证框架 v1 · 情绪60%/数据40%<br>
+    PeterLuo财经日报 · 老六选股逻辑验证框架 v1.0 · 情绪60%/数据40%<br>
     数据时点已标注 · 美股沿用7/24凌晨收盘 · 港股数据待补<br>
     <span style="color:#ef4444;">仅供研究，不构成投资建议</span>
   </div>
