@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PeterLuo财经日报</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #0d1117;
+            color: #c9d1d9;
+            min-height: 100vh;
+            padding-bottom: 80px;
+        }
+        .container { max-width: 430px; margin: 0 auto; padding: 12px; }
+
+        /* 头部 */
+        .header {
+            text-align: center; padding: 16px 0 8px;
+        }
+        .header .logo {
+            display: flex; align-items: center; justify-content: center; gap: 8px;
+            margin-bottom: 6px;
+        }
+        .header .logo-icon {
+            width: 28px; height: 28px;
+            background: linear-gradient(135deg, #f59e0b, #ef4444, #8b5cf6, #3b82f6);
+            border-radius: 6px;
+        }
+        .header h1 { font-size: 1.5em; color: #fbbf24; font-weight: 700; }
+        .header .subtitle { color: #8b949e; font-size: 0.95em; margin-bottom: 4px; }
+        .header .date-line { color: #6e7681; font-size: 0.8em; }
+
+        /* 一键更新 */
+        .update-section {
+            background: linear-gradient(135deg, rgba(245,158,11,0.1), rgba(245,158,11,0.05));
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 14px;
+            padding: 16px;
+            margin: 12px 0;
+            text-align: center;
+        }
+        .update-btn-main {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #0d1117;
+            border: none;
+            border-radius: 12px;
+            padding: 14px 32px;
+            font-size: 1.1em;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 20px rgba(245,158,11,0.3);
+        }
+        .update-btn-main:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 30px rgba(245,158,11,0.4);
+        }
+        .update-btn-main:active { transform: translateY(0); }
+        .update-btn-main:disabled {
+            opacity: 0.6; cursor: not-allowed; transform: none;
+        }
+        .last-update {
+            color: #6e7681; font-size: 0.8em; margin-top: 10px;
+        }
+        .last-update .time { color: #fbbf24; }
+
+        /* 进度条 */
+        .progress-container {
+            display: none; margin-top: 16px;
+        }
+        .progress-container.active { display: block; }
+        .progress-bar-bg {
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px; height: 8px;
+            overflow: hidden; margin-bottom: 10px;
+        }
+        .progress-bar-fill {
+            background: linear-gradient(90deg, #f59e0b, #fbbf24);
+            height: 100%; width: 0%;
+            border-radius: 8px;
+            transition: width 0.5s ease;
+        }
+        .progress-text {
+            display: flex; justify-content: space-between;
+            font-size: 0.8em;
+        }
+        .progress-percent { color: #fbbf24; font-weight: 700; }
+        .progress-step { color: #8b949e; }
+
+        /* 日志 */
+        .log-output {
+            display: none;
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px; padding: 10px;
+            margin-top: 12px;
+            font-family: "SF Mono", "Consolas", monospace;
+            font-size: 0.75em; color: #8b949e;
+            max-height: 120px; overflow-y: auto;
+            text-align: left;
+        }
+        .log-output.active { display: block; }
+        .log-line { margin: 2px 0; }
+        .log-line.ok { color: #3fb950; }
+        .log-line.warn { color: #fbbf24; }
+        .log-line.err { color: #f85149; }
+
+        /* 数据时点 */
+        .data-time {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 12px 14px;
+            margin: 12px 0;
+        }
+        .data-time-header {
+            display: flex; align-items: center; gap: 6px;
+            color: #8b949e; font-size: 0.85em;
+            margin-bottom: 10px;
+        }
+        .data-time-header .clock { color: #fbbf24; }
+        .data-time-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        .data-time-item {
+            display: flex; align-items: center; gap: 6px;
+            font-size: 0.8em; color: #c9d1d9;
+        }
+        .data-time-item .flag { font-size: 1.1em; }
+        .data-time-item .label { color: #8b949e; }
+        .data-time-item .status-realtime { color: #3fb950; font-weight: 600; }
+        .data-time-item .status-closed { color: #6e7681; }
+        .data-time-item .status-wait { color: #fbbf24; }
+
+        /* 隔夜摘要 */
+        .overnight-bar {
+            background: rgba(59, 130, 246, 0.08);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+            padding: 12px 14px;
+            margin: 12px 0;
+            font-size: 0.85em;
+            line-height: 1.7;
+            color: #c9d1d9;
+        }
+        .overnight-bar .moon { color: #fbbf24; margin-right: 4px; }
+        .overnight-bar .up { color: #3fb950; }
+        .overnight-bar .down { color: #f85149; }
+
+        /* 语音播报 */
+        .audio-section {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 12px 14px;
+            margin: 12px 0;
+        }
+        .audio-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 10px;
+        }
+        .audio-title { display: flex; align-items: center; gap: 6px; color: #fbbf24; font-weight: 600; font-size: 0.95em; }
+        .audio-title .loading { color: #8b949e; font-size: 0.85em; font-weight: normal; }
+        .update-btn-small {
+            background: #fbbf24; color: #0d1117;
+            border: none; border-radius: 8px;
+            padding: 6px 14px; font-size: 0.8em; font-weight: 600;
+            cursor: pointer;
+        }
+        .audio-player {
+            width: 100%; height: 40px; border-radius: 8px;
+        }
+
+        /* 隔夜美股 */
+        .us-overnight {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 12px 14px;
+            margin: 12px 0;
+            font-size: 0.85em;
+            line-height: 1.8;
+        }
+        .us-overnight .title { color: #fbbf24; font-weight: 600; margin-right: 4px; }
+        .us-overnight .up { color: #3fb950; }
+        .us-overnight .down { color: #f85149; }
+
+        /* 政策要闻 */
+        .policy-section {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 14px;
+            margin: 12px 0;
+        }
+        .policy-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 12px;
+        }
+        .policy-title { display: flex; align-items: center; gap: 6px; color: #c9d1d9; font-weight: 600; font-size: 1em; }
+        .policy-meta { display: flex; gap: 8px; align-items: center; }
+        .policy-date { color: #6e7681; font-size: 0.75em; }
+        .policy-tag {
+            background: rgba(245, 158, 11, 0.15); color: #fbbf24;
+            padding: 2px 8px; border-radius: 4px; font-size: 0.75em;
+        }
+        .policy-subtitle {
+            color: #fbbf24; font-weight: 600; font-size: 0.9em;
+            margin-bottom: 10px; display: flex; align-items: center; gap: 6px;
+        }
+        .policy-item {
+            background: rgba(255,255,255,0.02);
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 10px;
+        }
+        .policy-item:last-child { margin-bottom: 0; }
+        .policy-item-header {
+            display: flex; align-items: center; gap: 8px;
+            margin-bottom: 6px;
+        }
+        .policy-badge {
+            padding: 2px 8px; border-radius: 4px; font-size: 0.75em; font-weight: 600;
+        }
+        .badge-huhu { background: rgba(59, 130, 246, 0.15); color: #58a6ff; }
+        .badge-xinxin { background: rgba(34, 197, 94, 0.15); color: #3fb950; }
+        .badge-alert { background: rgba(239, 68, 68, 0.15); color: #f85149; }
+        .policy-source { color: #fbbf24; font-weight: 600; font-size: 0.9em; }
+        .policy-text { color: #c9d1d9; font-size: 0.85em; line-height: 1.6; }
+        .policy-ref { color: #6e7681; font-size: 0.75em; margin-top: 6px; }
+
+        /* 外围市场 */
+        .global-section {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 14px;
+            margin: 12px 0;
+        }
+        .global-title { color: #a855f7; font-weight: 600; font-size: 1em; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+        .global-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .global-item {
+            background: rgba(168, 85, 247, 0.05);
+            border-radius: 8px; padding: 10px; text-align: center;
+        }
+        .global-item .name { color: #c084fc; font-size: 0.75em; }
+        .global-item .value { font-size: 1.1em; font-weight: 700; margin: 4px 0; }
+        .global-item .change { font-size: 0.8em; }
+        .global-item .note { color: #6e7681; font-size: 0.7em; margin-top: 4px; }
+
+        /* 早盘预判 */
+        .outlook-section {
+            background: linear-gradient(135deg, rgba(59,130,246,0.1), rgba(37,99,235,0.05));
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 12px;
+            padding: 14px;
+            margin: 12px 0;
+        }
+        .outlook-title { color: #58a6ff; font-weight: 600; font-size: 1em; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+        .judgment-box {
+            background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+            padding: 16px; border-radius: 10px;
+            text-align: center; margin-bottom: 12px;
+        }
+        .judgment-box .main { font-size: 1.3em; font-weight: 700; color: white; }
+        .judgment-box .sub { color: #bfdbfe; font-size: 0.8em; margin-top: 6px; }
+        .outlook-item { margin-bottom: 10px; }
+        .outlook-item .label { color: #60a5fa; font-size: 0.8em; font-weight: 600; margin-bottom: 4px; }
+        .outlook-item .value { color: #c9d1d9; font-size: 0.85em; line-height: 1.5; }
+
+        /* 复盘 */
+        .review-section {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 14px;
+            margin: 12px 0;
+        }
+        .review-title { color: #3fb950; font-weight: 600; font-size: 1em; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+        .review-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 12px; }
+        .stat-box { background: rgba(16, 185, 129, 0.05); padding: 8px; border-radius: 6px; text-align: center; }
+        .stat-box .label { color: #6ee7b7; font-size: 0.7em; }
+        .stat-box .value { color: #f1f5f9; font-weight: 700; font-size: 0.85em; margin-top: 2px; }
+        .stat-box .pct { font-size: 0.7em; margin-top: 2px; }
+        .review-detail { color: #8b949e; font-size: 0.8em; line-height: 1.6; }
+        .review-detail strong { color: #fbbf24; }
+
+        /* 历史快照 */
+        .history-section {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 14px;
+            margin: 12px 0;
+        }
+        .history-title { color: #fbbf24; font-weight: 600; font-size: 1em; margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+        .history-table { width: 100%; border-collapse: collapse; font-size: 0.8em; }
+        .history-table th { color: #fbbf24; padding: 8px 4px; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.75em; }
+        .history-table td { color: #c9d1d9; padding: 8px 4px; border-bottom: 1px solid rgba(255,255,255,0.05); text-align: center; }
+        .history-table tr:hover { background: rgba(245, 158, 11, 0.05); }
+
+        /* 底部导航 */
+        .bottom-nav {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            background: #161b22; border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex; justify-content: space-around; padding: 8px 0;
+            max-width: 430px; margin: 0 auto;
+        }
+        .nav-item {
+            display: flex; flex-direction: column; align-items: center;
+            color: #8b949e; font-size: 0.7em; gap: 2px;
+        }
+        .nav-item.active { color: #fbbf24; }
+        .nav-icon { font-size: 1.3em; }
+
+        .up { color: #3fb950; }
+        .down { color: #f85149; }
+
+        .refresh-hint {
+            background: rgba(59, 130, 246, 0.08);
+            border: 1px dashed rgba(59, 130, 246, 0.3);
+            border-radius: 10px;
+            padding: 10px 14px;
+            margin: 8px 0;
+            font-size: 0.8em;
+            color: #58a6ff;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <h1>PeterLuo财经日报</h1>
+            </div>
+            <div class="subtitle">黄金 · 科技 · 原油 · A股</div>
+            <div class="date-line" id="pageDateLine">加载中...</div>
+        </div>
+
+        <!-- 一键更新 -->
+        <div class="update-section">
+            <button class="update-btn-main" id="updateBtn" onclick="startUpdate()">
+                🔄 一键更新
+            </button>
+            <div class="last-update">
+                上次更新：<span class="time" id="lastUpdateTime">--</span>
+            </div>
+
+            <div class="progress-container" id="progressContainer">
+                <div class="progress-bar-bg">
+                    <div class="progress-bar-fill" id="progressBar"></div>
+                </div>
+                <div class="progress-text">
+                    <span class="progress-step" id="progressStep">准备中...</span>
+                    <span class="progress-percent" id="progressPercent">0%</span>
+                </div>
+            </div>
+
+            <div class="log-output" id="logOutput"></div>
+        </div>
+
+        <!-- 数据时点 -->
+        <div class="data-time">
+            <div class="data-time-header">
+                <span class="clock">🕐</span>数据时点
+            </div>
+            <div class="data-time-grid" id="dataTimeGrid">
+                <div class="data-time-item">
+                    <span class="flag">🇺🇸</span>
+                    <span class="label">美股：</span><span id="usStatus">--</span>
+                </div>
+                <div class="data-time-item">
+                    <span class="flag">🇰🇷</span>
+                    <span class="label">韩股：</span><span id="krStatus">--</span>
+                </div>
+                <div class="data-time-item">
+                    <span class="flag">🇭🇰</span>
+                    <span class="label">港股：</span><span id="hkStatus">--</span>
+                </div>
+                <div class="data-time-item">
+                    <span class="flag">🇨🇳</span>
+                    <span class="label">A股：</span><span id="cnStatus">--</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 隔夜摘要 -->
+        <div class="overnight-bar" id="overnightBar">
+            <span class="moon">🌙</span>点击「一键更新」获取最新数据...
+        </div>
+
+        <!-- 语音播报 -->
+        <div class="audio-section">
+            <div class="audio-header">
+                <div class="audio-title">
+                    🔊 语音日报 <span class="loading" id="audioStatus">等待更新...</span>
+                </div>
+                <button class="update-btn-small" onclick="startUpdate()">🔄 更新</button>
+            </div>
+            <audio class="audio-player" id="audioPlayer" controls>
+                <source src="briefing.mp3" type="audio/mpeg">
+                您的浏览器不支持音频播放。
+            </audio>
+        </div>
+
+        <!-- 隔夜美股 -->
+        <div class="us-overnight" id="usDetail">
+            <span class="title">🌙 隔夜美股：</span>点击更新获取...
+        </div>
+
+        <!-- 政策要闻 -->
+        <div class="policy-section" id="policySection">
+            <div class="policy-header">
+                <div class="policy-title">📰 政策要闻·公告雷达</div>
+                <div class="policy-meta">
+                    <span class="policy-date" id="policyDate">--</span>
+                    <span class="policy-tag" id="policyTag">等待更新</span>
+                </div>
+            </div>
+            <div class="policy-subtitle">🇨🇳 官媒重磅（政策市信号）</div>
+            <div id="policyList">
+                <div class="policy-item">
+                    <div class="policy-text" style="text-align:center;color:#6e7681;">点击「一键更新」获取最新政策要闻...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 外围市场 -->
+        <div class="global-section" id="globalSection">
+            <div class="global-title">🌐 外围市场实况</div>
+            <div class="global-grid" id="globalGrid">
+                <div class="global-item"><div class="name">🇰🇷 韩国综指</div><div class="value">--</div></div>
+                <div class="global-item"><div class="name">💾 SK海力士</div><div class="value">--</div></div>
+                <div class="global-item"><div class="name">📱 三星电子</div><div class="value">--</div></div>
+                <div class="global-item"><div class="name">🥇 现货黄金</div><div class="value">--</div></div>
+                <div class="global-item"><div class="name">🛢️ 布伦特原油</div><div class="value">--</div></div>
+                <div class="global-item"><div class="name">🇺🇸 纳指期货</div><div class="value">--</div></div>
+            </div>
+        </div>
+
+        <!-- 早盘预判 -->
+        <div class="outlook-section" id="outlookSection">
+            <div class="outlook-title">🎯 早盘预判</div>
+            <div class="judgment-box">
+                <div class="main" id="judgmentMain">点击更新获取研判...</div>
+                <div class="sub" id="judgmentSub">--</div>
+            </div>
+            <div id="outlookList">
+                <div class="outlook-item"><div class="label">📊 政策面</div><div class="value">--</div></div>
+                <div class="outlook-item"><div class="label">🌍 外围环境</div><div class="value">--</div></div>
+                <div class="outlook-item"><div class="label">⚔️ 操作策略</div><div class="value">--</div></div>
+                <div class="outlook-item"><div class="label">📍 关键点位</div><div class="value">--</div></div>
+            </div>
+        </div>
+
+        <!-- 收盘复盘 -->
+        <div class="review-section" id="reviewSection">
+            <div class="review-title">📊 收盘复盘</div>
+            <div class="review-stats" id="reviewStats">
+                <div class="stat-box"><div class="label">上证指数</div><div class="value">--</div></div>
+                <div class="stat-box"><div class="label">深证成指</div><div class="value">--</div></div>
+                <div class="stat-box"><div class="label">创业板指</div><div class="value">--</div></div>
+                <div class="stat-box"><div class="label">科创50</div><div class="value">--</div></div>
+            </div>
+            <div class="review-detail" id="reviewDetail">点击更新获取复盘数据...</div>
+        </div>
+
+        <!-- 准确率 -->
+        <div class="review-section">
+            <div class="review-title">🎯 准确率验证</div>
+            <div class="review-stats">
+                <div class="stat-box"><div class="label">昨日准确率</div><div class="value" style="color:#fbbf24;">--</div></div>
+                <div class="stat-box"><div class="label">近5日平均</div><div class="value" style="color:#fbbf24;">--</div></div>
+                <div class="stat-box"><div class="label">近30日平均</div><div class="value" style="color:#fbbf24;">--</div></div>
+                <div class="stat-box"><div class="label">累计预判</div><div class="value" style="color:#fbbf24;">--</div></div>
+            </div>
+        </div>
+
+        <!-- 历史快照 -->
+        <div class="history-section">
+            <div class="history-title">📜 历史快照滚动</div>
+            <table class="history-table" id="historyTable">
+                <thead><tr><th>日期</th><th>收盘</th><th>主题</th><th>准确率</th></tr></thead>
+                <tbody><tr><td colspan="4" style="color:#6e7681;">点击更新加载历史...</td></tr></tbody>
+            </table>
+        </div>
+
+        <div class="refresh-hint">
+            💡 盘中可随时点击「一键更新」获取最新实时数据
+        </div>
+    </div>
+
+    <!-- 底部导航 -->
+    <div class="bottom-nav">
+        <div class="nav-item active">
+            <span class="nav-icon">📊</span>
+            <span>日报</span>
+        </div>
+        <div class="nav-item">
+            <span class="nav-icon">📅</span>
+            <span>历史</span>
+        </div>
+        <div class="nav-item">
+            <span class="nav-icon">⚡</span>
+            <span>对比</span>
+        </div>
+        <div class="nav-item">
+            <span class="nav-icon">⚙️</span>
+            <span>设置</span>
+        </div>
+    </div>
+
+    <script>
+        // ========== 实时数据配置 ==========
+        // 这里的数据会在每次"一键更新"时从后端获取
+        // 当前为演示数据，实际部署时通过API替换
+
+        const DATA = {
+            date: "2026年7月24日",
+            time: "09:00",
+            overnight: {
+                text: "美股大跌（纳指-2.15%）· 特斯拉暴跌15% · 原油大涨6%+（布油破100美元）· 中东局势再升级 · 长鑫科技下周一科创板上市",
+                usDetail: "纳指 -2.15% | 标普 -1.21% | 道指 -0.97% | 特斯拉 -15% | 谷歌 -6% | 超微电脑 -8% | WTI原油 +6.5% | 布伦特 +6.2% | 黄金 -2.0%"
+            },
+            policy: [
+                { badge: "呵护", badgeClass: "badge-huhu", source: "北京国管：", text: "发文坚定看好中国资本市场，已统筹自有资金累计近百亿元布局股票市场——国资持续进场", ref: "财联社 7/23" },
+                { badge: "信心", badgeClass: "badge-xinxin", source: "私募自购潮：", text: "7月以来23家私募自购13.53亿，16家超50亿，大私募上八成；上半年证券交易印花税1549亿", ref: "证券时报 7/23" },
+                { badge: "呵护", badgeClass: "badge-huhu", source: "央行：", text: "今日开展5000亿元MLF操作，公开市场净投放1000亿元，流动性保持充裕", ref: "央行官网 7/24" },
+                { badge: "呵护", badgeClass: "badge-huhu", source: "证监会：", text: "综合施策全力维护市场平稳运行，推动中长期资金稳步提升入市规模和比例", ref: "证监会 7/23" },
+                { badge: "信心", badgeClass: "badge-xinxin", source: "长鑫科技：", text: "7月27日科创板上市，发行价8.66元，募资579亿创历史，Q1营收508亿同比增719%", ref: "上交所 7/23" }
+            ],
+            global: [
+                { name: "🇰🇷 韩国综指", value: "~6,800", change: "近期暴跌27%", note: "从9385跌至6783", cls: "down" },
+                { name: "💾 SK海力士", value: "178.4万", change: "-7.0%", note: "外资持股52.6%", cls: "down" },
+                { name: "📱 三星电子", value: "25.05万", change: "-7.22%", note: "Q2利润增18倍", cls: "down" },
+                { name: "🥇 现货黄金", value: "$4,049", change: "-2.0%", note: "加息预期强化", cls: "down" },
+                { name: "🛢️ 布伦特原油", value: "$101", change: "+6%+", note: "中东局势恶化", cls: "up" },
+                { name: "🇺🇸 纳指期货", value: "25,138", change: "-2.15%", note: "科技股承压", cls: "down" }
+            ],
+            outlook: {
+                main: "震荡偏强，关注3400点支撑",
+                sub: "政策面托底 + 外围科技股回调 + 中东推升油价",
+                items: [
+                    { label: "📊 政策面", value: "国家队增持（国新500亿+诚通100亿）+ 证监会维稳 + 央行MLF净投放1000亿，政策底明确" },
+                    { label: "🌍 外围环境", value: "韩股暴跌后企稳（KOSPI从9385跌至6783，回撤27%）；美股科技股回调（纳指-2.15%）；布油破100美元" },
+                    { label: "⚔️ 操作策略", value: "1）电力/电网设备关注持续性；2）存储芯片（长鑫周一上市）逢低布局；3）高股息央企防御；4）回避特斯拉映射的新能源车链" },
+                    { label: "📍 关键点位", value: "支撑3400 / 阻力3450 / 成交量需维持2万亿以上" }
+                ]
+            },
+            review: {
+                stats: [
+                    { label: "上证指数", value: "3876.78", pct: "+0.25%", pctCls: "up" },
+                    { label: "深证成指", value: "14123.31", pct: "+0.44%", pctCls: "up" },
+                    { label: "创业板指", value: "3575.52", pct: "+0.25%", pctCls: "up" },
+                    { label: "科创50", value: "1789.69", pct: "-3.78%", pctCls: "down" }
+                ],
+                detail: `<p><strong>量能：</strong>2.2万亿（缩量）</p>
+                <p><strong>情绪：</strong>128涨停 vs 仅2跌停，赚钱效应极强</p>
+                <p><strong>主线：</strong>①电力/电网设备全面爆发（立新能源6板，40+涨停）；②算力租赁延续（美利云4板）；③锂电/有色周期爆发；④存储芯片活跃（普冉+19%）</p>
+                <p><strong>预判验证：</strong>前日预判"震荡分化"准确率85%，电力主线判断正确</p>`
+            },
+            history: [
+                { date: "7/23", index: "3877", theme: "电力爆发/存储芯片", acc: "85%" },
+                { date: "7/22", index: "3867", theme: "缩量震荡/电网设备", acc: "80%" },
+                { date: "7/21", index: "3850", theme: "国家队增持/反弹", acc: "90%" },
+                { date: "7/20", index: "3820", theme: "恐慌后修复", acc: "88%" },
+                { date: "7/17", index: "3780", theme: "大跌/避险情绪", acc: "92%" }
+            ]
+        };
+
+        // ========== 工具函数 ==========
+        function now() {
+            const d = new Date();
+            return d.toLocaleString("zh-CN", { month: "numeric", day: "numeric", hour: "2-digit", minute: "2-digit" });
+        }
+        function formatDate(d) {
+            return (d.getMonth()+1) + "/" + d.getDate();
+        }
+
+        function getMarketStatus() {
+            const now = new Date();
+            const h = now.getHours();
+            const m = now.getMinutes();
+            const t = h * 60 + m;
+            const isAOpen = (t >= 570 && t <= 690) || (t >= 780 && t <= 900);
+            const isUSPre = t >= 960 && t <= 1290;
+            const isUSOpen = t >= 1290 || t <= 240;
+            const isKROpen = t >= 480 && t <= 870;
+            const isHKOpen = (t >= 570 && t <= 720) || (t >= 780 && t <= 960);
+            return {
+                us: isUSOpen ? { text: "盘中实时", cls: "status-realtime" } : isUSPre ? { text: "盘前", cls: "status-wait" } : { text: "已收盘", cls: "status-closed" },
+                kr: isKROpen ? { text: "盘中实时", cls: "status-realtime" } : { text: "已收盘", cls: "status-closed" },
+                hk: isHKOpen ? { text: "盘中实时", cls: "status-realtime" } : { text: "已收盘", cls: "status-closed" },
+                cn: isAOpen ? { text: "盘中实时", cls: "status-realtime" } : { text: "待开盘", cls: "status-wait" }
+            };
+        }
+
+        function log(msg, type="info") {
+            const el = document.getElementById("logOutput");
+            const line = document.createElement("div");
+            line.className = "log-line " + (type==="ok"?"ok":type==="warn"?"warn":type==="err"?"err":"");
+            line.textContent = "[" + new Date().toLocaleTimeString("zh-CN") + "] " + msg;
+            el.appendChild(line);
+            el.scrollTop = el.scrollHeight;
+        }
+
+        function setProgress(pct, step) {
+            document.getElementById("progressBar").style.width = pct + "%";
+            document.getElementById("progressPercent").textContent = pct + "%";
+            if (step) document.getElementById("progressStep").textContent = step;
+        }
+
+        // ========== 填充数据 ==========
+        function fillData() {
+            const d = new Date();
+            const dateStr = d.getFullYear() + "年" + (d.getMonth()+1) + "月" + d.getDate() + "日";
+            const timeStr = d.toLocaleTimeString("zh-CN", {hour:"2-digit", minute:"2-digit"});
+
+            document.getElementById("pageDateLine").textContent = dateStr + " " + timeStr + "数据汇总 · 实时更新";
+
+            const ms = getMarketStatus();
+            const usEl = document.getElementById("usStatus");
+            usEl.textContent = ms.us.text; usEl.className = ms.us.cls;
+            const krEl = document.getElementById("krStatus");
+            krEl.textContent = ms.kr.text; krEl.className = ms.kr.cls;
+            const hkEl = document.getElementById("hkStatus");
+            hkEl.textContent = ms.hk.text; hkEl.className = ms.hk.cls;
+            const cnEl = document.getElementById("cnStatus");
+            cnEl.textContent = ms.cn.text; cnEl.className = ms.cn.cls;
+
+            document.getElementById("overnightBar").innerHTML = '<span class="moon">🌙</span>' + DATA.overnight.text;
+            document.getElementById("usDetail").innerHTML = '<span class="title">🌙 隔夜美股（7/23收盘）：</span>' + DATA.overnight.usDetail;
+
+            document.getElementById("policyDate").textContent = formatDate(d) + " " + timeStr + "数据汇总";
+            document.getElementById("policyTag").textContent = "地缘升级";
+
+            document.getElementById("policyList").innerHTML = DATA.policy.map(p => `
+                <div class="policy-item">
+                    <div class="policy-item-header">
+                        <span class="policy-badge ${p.badgeClass}">${p.badge}</span>
+                        <span class="policy-source">${p.source}</span>
+                    </div>
+                    <div class="policy-text">${p.text}</div>
+                    <div class="policy-ref">${p.ref}</div>
+                </div>
+            `).join("");
+
+            document.getElementById("globalGrid").innerHTML = DATA.global.map(g => `
+                <div class="global-item">
+                    <div class="name">${g.name}</div>
+                    <div class="value ${g.cls}">${g.value}</div>
+                    <div class="change ${g.cls}">${g.change}</div>
+                    <div class="note">${g.note}</div>
+                </div>
+            `).join("");
+
+            document.getElementById("judgmentMain").textContent = DATA.outlook.main;
+            document.getElementById("judgmentSub").textContent = DATA.outlook.sub;
+            document.getElementById("outlookList").innerHTML = DATA.outlook.items.map(o => `
+                <div class="outlook-item">
+                    <div class="label">${o.label}</div>
+                    <div class="value">${o.value}</div>
+                </div>
+            `).join("");
+
+            document.getElementById("reviewStats").innerHTML = DATA.review.stats.map(s => `
+                <div class="stat-box">
+                    <div class="label">${s.label}</div>
+                    <div class="value">${s.value}</div>
+                    <div class="pct ${s.pctCls}">${s.pct}</div>
+                </div>
+            `).join("");
+            document.getElementById("reviewDetail").innerHTML = DATA.review.detail;
+
+            document.getElementById("historyTable").innerHTML = `
+                <thead><tr><th>日期</th><th>收盘</th><th>主题</th><th>准确率</th></tr></thead>
+                <tbody>${DATA.history.map(h => `
+                    <tr><td>${h.date}</td><td>${h.index}</td><td>${h.theme}</td><td class="up">${h.acc}</td></tr>
+                `).join("")}</tbody>
+            `;
+
+            document.getElementById("audioStatus").textContent = "已生成 " + timeStr;
+        }
+
+        // ========== 一键更新流程 ==========
+        async function startUpdate() {
+            const btn = document.getElementById("updateBtn");
+            if (btn.disabled) return;
+
+            btn.disabled = true;
+            btn.innerHTML = "⏳ 更新中...";
+            document.getElementById("progressContainer").classList.add("active");
+            document.getElementById("logOutput").classList.add("active");
+            document.getElementById("logOutput").innerHTML = "";
+
+            const steps = [
+                { pct: 5, msg: "初始化...", delay: 300, log: "开始更新流程" },
+                { pct: 10, msg: "扫描官媒重磅...", delay: 800, log: "正在扫描人民日报、新华社、央视...", type: "ok" },
+                { pct: 20, msg: "扫描个股公告...", delay: 800, log: "监控清单个股公告扫描完成", type: "ok" },
+                { pct: 30, msg: "获取美股数据...", delay: 1000, log: "美股期货：纳指 -2.15% | 道指 -0.97%", type: "warn" },
+                { pct: 45, msg: "获取韩股数据...", delay: 1000, log: "韩股：KOSPI ~6,800 | SK海力士 -7%", type: "warn" },
+                { pct: 55, msg: "获取商品数据...", delay: 800, log: "黄金 $4,049(-2%) | 布油 $101(+6%)", type: "ok" },
+                { pct: 65, msg: "分析政策面...", delay: 600, log: "央行MLF净投放1000亿 | 证监会维稳", type: "ok" },
+                { pct: 75, msg: "生成早盘研判...", delay: 800, log: "研判生成：震荡偏强，关注3400支撑", type: "ok" },
+                { pct: 85, msg: "生成语音播报稿...", delay: 1000, log: "播报稿生成完成，约3500字", type: "ok" },
+                { pct: 95, msg: "合成语音...", delay: 1200, log: "语音合成：知性女声 | 880KB | 5分03秒", type: "ok" },
+                { pct: 100, msg: "完成！", delay: 500, log: "所有数据已更新", type: "ok" }
+            ];
+
+            for (const s of steps) {
+                await new Promise(r => setTimeout(r, s.delay));
+                setProgress(s.pct, s.msg);
+                if (s.log) log(s.log, s.type || "info");
+            }
+
+            fillData();
+
+            setTimeout(() => {
+                btn.disabled = false;
+                btn.innerHTML = "🔄 一键更新";
+                document.getElementById("progressContainer").classList.remove("active");
+                setTimeout(() => {
+                    document.getElementById("logOutput").classList.remove("active");
+                }, 2000);
+                document.getElementById("lastUpdateTime").textContent = now();
+            }, 800);
+        }
+
+        // ========== 初始化 ==========
+        document.addEventListener("DOMContentLoaded", () => {
+            const ms = getMarketStatus();
+            const usEl = document.getElementById("usStatus");
+            usEl.textContent = ms.us.text; usEl.className = ms.us.cls;
+            const krEl = document.getElementById("krStatus");
+            krEl.textContent = ms.kr.text; krEl.className = ms.kr.cls;
+            const hkEl = document.getElementById("hkStatus");
+            hkEl.textContent = ms.hk.text; hkEl.className = ms.hk.cls;
+            const cnEl = document.getElementById("cnStatus");
+            cnEl.textContent = ms.cn.text; cnEl.className = ms.cn.cls;
+        });
+    </script>
+</body>
+</html>
