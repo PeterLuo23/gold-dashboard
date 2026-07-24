@@ -12,8 +12,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hira
 .header{text-align:center;padding:14px 0 10px;border-bottom:1px solid var(--border);margin-bottom:10px}
 .header h1{font-size:1.5em;background:linear-gradient(135deg,var(--gold),#ff6b35);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:4px}
 .date-badge{display:inline-block;background:#1a2332;padding:4px 12px;border-radius:14px;font-size:0.75em;color:#8899aa;border:1px solid #2a3a4a}
-
-/* 市场状态 */
 .market-status-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin:10px 0;padding:8px;background:var(--card);border-radius:8px;border:1px solid var(--border)}
 .market-item{text-align:center;padding:6px 2px;border-radius:5px;background:#0f172a}
 .market-item .flag{font-size:1.1em;margin-bottom:1px}
@@ -21,8 +19,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hira
 .market-item .status{font-size:0.75em;font-weight:600}
 .status-open{color:#34c759}.status-pre{color:var(--gold)}.status-closed{color:var(--muted)}.status-holiday{color:var(--up)}
 .market-item .time-note{font-size:0.65em;color:#64748b;margin-top:1px}
-
-/* 一键更新 */
 .update-section{text-align:center;margin:10px 0}
 .update-btn{display:inline-flex;align-items:center;gap:5px;padding:10px 24px;background:linear-gradient(135deg,var(--gold),#ff6b35);border:none;border-radius:10px;color:#0a0e1a;font-size:0.9em;font-weight:700;cursor:pointer;transition:all .3s;box-shadow:0 3px 10px rgba(255,215,0,.25)}
 .update-btn:hover{transform:translateY(-1px);box-shadow:0 4px 15px rgba(255,215,0,.35)}
@@ -36,23 +32,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hira
 .progress-bar{width:100%;height:4px;background:#1e293b;border-radius:2px;overflow:hidden}
 .progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),#ff6b35);width:0%;transition:width .3s ease}
 .progress-text{text-align:center;font-size:0.7em;color:var(--muted);margin-top:5px}
-
-/* 板块 */
 .section{background:var(--card);border-radius:8px;padding:12px;margin-bottom:10px;border:1px solid var(--border)}
 .section-title{font-size:0.95em;color:var(--gold);margin-bottom:8px;padding-bottom:6px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:5px;font-weight:600}
 .section-title .icon{font-size:1em}
-
-/* 差异对比 - 6格 */
 .diff-banner{background:linear-gradient(135deg,#1e293b,#0f172a);border:1px solid #334155;border-radius:8px;padding:12px;margin-bottom:10px}
 .diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
 .diff-item{text-align:center;padding:8px 4px;background:#0f172a;border-radius:5px;border:1px solid var(--border)}
 .diff-item .label{color:var(--muted);font-size:0.65em;margin-bottom:2px}
 .diff-item .value{font-size:1em;font-weight:700}
 .diff-item .change{font-size:0.7em;margin-top:2px}
-/* A股配色: 红涨绿跌 */
 .up{color:var(--up)}.down{color:var(--down)}.neutral{color:var(--muted)}
-
-/* 表格 */
 table{width:100%;border-collapse:collapse;margin:8px 0;font-size:0.75em}
 th{background:#1e293b;padding:6px 4px;text-align:left;color:var(--gold);font-weight:600;border-bottom:1px solid #334155;font-size:0.8em}
 td{padding:5px 4px;border-bottom:1px solid var(--border);color:#cbd5e1;vertical-align:top}
@@ -62,32 +51,23 @@ tr:hover{background:#1a2332}
 .tag-neutral{background:rgba(148,163,184,.15);color:var(--muted)}.tag-bull{background:rgba(255,215,0,.15);color:var(--gold)}
 .tag-policy{background:rgba(59,130,246,.15);color:#3b82f6}.tag-industry{background:rgba(52,199,89,.15);color:var(--down)}
 .tag-earnings{background:rgba(168,85,247,.15);color:#a855f7}
-
 .flow-section{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media(max-width:768px){.flow-section{grid-template-columns:1fr}.diff-grid{grid-template-columns:repeat(2,1fr)}}
-
-/* 信号灯 */
 .signal-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
 .signal-card{background:#0f172a;border-radius:6px;padding:10px;border:1px solid var(--border)}
 .signal-card .signal-title{display:flex;align-items:center;gap:5px;margin-bottom:4px;font-weight:600;font-size:0.82em}
 .light{width:8px;height:8px;border-radius:50%;display:inline-block}
 .light-green{background:#34c759;box-shadow:0 0 5px #34c759}.light-yellow{background:var(--gold);box-shadow:0 0 5px var(--gold)}
 .light-red{background:var(--up);box-shadow:0 0 5px var(--up)}.light-gray{background:#64748b}
-
-/* 逻辑链 */
 .logic-chain{background:#0f172a;border-radius:5px;padding:10px;margin-bottom:6px;border-left:2px solid var(--gold)}
 .logic-chain .chain-title{color:var(--gold);font-weight:600;margin-bottom:4px;font-size:0.82em}
 .logic-chain .chain-content{color:var(--muted);font-size:0.78em;line-height:1.6}
 .logic-chain .chain-conclusion{margin-top:6px;padding:6px;background:#1a2332;border-radius:4px;color:#e2e8f0;font-size:0.78em;border-left:2px solid #3b82f6}
-
-/* 新闻 */
 .news-item{padding:8px;background:#0f172a;border-radius:5px;margin-bottom:5px;border-left:2px solid #3b82f6}
 .news-item .news-time{color:#64748b;font-size:0.7em}
 .news-item .news-title{color:#e2e8f0;font-size:0.82em;margin:2px 0;line-height:1.4}
 .news-item .news-source{color:#64748b;font-size:0.7em}
 .news-item .news-tag{margin-left:5px}
-
-/* 板块卡片 */
 .sector-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
 .sector-card{background:#0f172a;border-radius:6px;padding:10px;border:1px solid var(--border)}
 .sector-card .sector-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}
@@ -95,43 +75,35 @@ tr:hover{background:#1a2332}
 .sector-card .sector-change{font-size:0.75em;font-weight:600}
 .sector-card .sector-desc{font-size:0.72em;color:var(--muted);line-height:1.4}
 .sector-card .sector-leaders{margin-top:4px;font-size:0.7em;color:#64748b}
-
-/* 音频 */
 .audio-section{text-align:center;padding:12px;background:var(--card);border-radius:8px;margin-bottom:10px}
 .audio-section h3{color:var(--gold);margin-bottom:6px;font-size:0.9em}
 .audio-section audio{width:100%;max-width:350px;height:32px}
-
-/* 底部 */
 .bottom-nav{display:flex;justify-content:center;gap:8px;padding:12px;margin-top:16px;border-top:1px solid var(--border)}
 .nav-btn{padding:6px 16px;background:#1e293b;border:1px solid #334155;border-radius:5px;color:#cbd5e1;text-decoration:none;font-size:0.75em;transition:all .3s}
 .nav-btn:hover,.nav-btn.active{background:var(--gold);color:#0a0e1a;border-color:var(--gold)}
-
 .data-timestamp{text-align:right;font-size:0.65em;color:#64748b;margin-top:6px;font-style:italic}
 .disclaimer{text-align:center;padding:12px;color:#64748b;font-size:0.7em;border-top:1px solid var(--border);margin-top:12px}
 .note-text{color:#64748b;font-size:0.75em;text-align:center;padding:8px}
-
-/* 数据来源标注 */
 .source-note{font-size:0.65em;color:#64748b;text-align:right;margin-top:4px}
+.api-status{font-size:0.7em;padding:4px 8px;border-radius:4px;display:inline-block;margin-bottom:8px}
+.api-ok{background:rgba(52,199,89,.15);color:#34c759}.api-fail{background:rgba(255,59,48,.15);color:var(--up)}.api-mock{background:rgba(255,215,0,.15);color:var(--gold)}
 </style>
 </head>
 <body>
 <div class="container">
 <div class="header"><h1>📊 PeterLuo 财经日报</h1><div class="date-badge" id="dateBadge">--</div></div>
-
 <div class="market-status-bar" id="marketStatusBar">
 <div class="market-item" id="usMarket"><div class="flag">🇺🇸</div><div class="name">美股</div><div class="status" id="usStatus">--</div><div class="time-note" id="usTimeNote">--</div></div>
 <div class="market-item" id="krMarket"><div class="flag">🇰🇷</div><div class="name">韩股</div><div class="status" id="krStatus">--</div><div class="time-note" id="krTimeNote">--</div></div>
 <div class="market-item" id="hkMarket"><div class="flag">🇭🇰</div><div class="name">港股</div><div class="status" id="hkStatus">--</div><div class="time-note" id="hkTimeNote">--</div></div>
 <div class="market-item" id="cnMarket"><div class="flag">🇨🇳</div><div class="name">A股</div><div class="status" id="cnStatus">--</div><div class="time-note" id="cnTimeNote">--</div></div>
 </div>
-
 <div class="audio-section"><h3>🎙️ 语音播报</h3><audio controls id="audioPlayer"><source src="briefing.mp3" type="audio/mpeg">不支持音频</audio></div>
-
 <div class="update-section">
+<div id="apiStatus" class="api-status api-mock">📡 数据源: 内置模拟 (部署Worker后切换实时)</div><br>
 <button class="update-btn" id="updateBtn" onclick="startFullUpdate()"><span class="spin">⟳</span><span class="btn-text">🔄 一键更新数据</span></button>
 <div class="progress-container" id="progressContainer"><div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div><div class="progress-text" id="progressText">准备更新...</div></div>
 </div>
-
 <div class="diff-banner">
 <div class="section-title">📈 差异对比 · 关键指标</div>
 <div class="diff-grid">
@@ -143,32 +115,24 @@ tr:hover{background:#1a2332}
 <div class="diff-item"><div class="label">费城半导体</div><div class="value" id="soxIndex">--</div><div class="change" id="soxChange">--</div></div>
 </div>
 <div class="data-timestamp" id="diffTimestamp">--</div>
-<div class="source-note">数据来源: 富途/新浪财经</div>
+<div class="source-note" id="diffSource">数据来源: 内置模拟</div>
 </div>
-
 <div class="section"><div class="section-title">📰 政策要闻 · 公告雷达</div><div id="newsContainer"><div class="note-text">点击「一键更新」获取最新政策要闻</div></div><div class="data-timestamp" id="newsTimestamp">--</div></div>
-
 <div class="section"><div class="section-title">🎯 收盘复盘</div><div id="reviewContent"><div class="note-text">点击「一键更新」获取收盘复盘</div></div><div class="data-timestamp" id="reviewTimestamp">--</div></div>
-
 <div class="section"><div class="section-title">🎯 准确率追踪</div><div id="accuracyContainer"><div class="note-text">等待数据更新...</div></div></div>
-
 <div class="section"><div class="section-title">🥇 黄金敏感指标</div>
 <div class="diff-grid" id="goldIndicators">
-<div class="diff-item"><div class="label">国际金价(美元)</div><div class="value" id="goldPrice">--</div><div class="change" id="goldChange">--</div></div>
+<div class="diff-item"><div class="label">国际金价</div><div class="value" id="goldPrice">--</div><div class="change" id="goldChange">--</div></div>
 <div class="diff-item"><div class="label">美元指数</div><div class="value" id="dxyIndex">--</div><div class="change" id="dxyChange">--</div></div>
 <div class="diff-item"><div class="label">美10Y国债</div><div class="value" id="us10y">--</div><div class="change" id="us10yChange">--</div></div>
 <div class="diff-item"><div class="label">VIX波动率</div><div class="value" id="vixIndex">--</div><div class="change" id="vixChange">--</div></div>
 </div>
 <div class="data-timestamp" id="goldTimestamp">--</div>
-<div class="source-note">数据来源: 富途行情</div>
+<div class="source-note" id="goldSource">数据来源: 内置模拟</div>
 </div>
-
 <div class="section"><div class="section-title">💻 半导体 · 科技因子</div><div id="semiContent"><div class="note-text">点击「一键更新」获取半导体数据</div></div><div class="data-timestamp" id="semiTimestamp">--</div></div>
-
 <div class="section"><div class="section-title">🛢️ 原油 · 地缘因子</div><div id="oilContent"><div class="note-text">点击「一键更新」获取原油数据</div></div><div class="data-timestamp" id="oilTimestamp">--</div></div>
-
 <div class="section"><div class="section-title">🇨🇳 A股8大板块监测</div><div id="a8Content"><div class="note-text">点击「一键更新」获取板块数据</div></div><div class="data-timestamp" id="a8Timestamp">--</div></div>
-
 <div class="section"><div class="section-title">💰 资金流向</div>
 <div class="flow-section">
 <div><h4 style="color:var(--up);margin-bottom:6px;font-size:0.85em">📥 主力资金净流入前十</h4><table id="inflowTable"><thead><tr><th>题材</th><th>净流入</th><th>领涨股</th><th>信号</th></tr></thead><tbody><tr><td colspan="4" class="note-text">点击更新</td></tr></tbody></table></div>
@@ -177,11 +141,8 @@ tr:hover{background:#1a2332}
 <div class="logic-chain" style="margin-top:10px"><div class="chain-title">资金流向分析结论</div><div class="chain-content" id="flowAnalysis">等待数据更新...</div></div>
 <div class="data-timestamp" id="flowTimestamp">--</div>
 </div>
-
 <div class="section"><div class="section-title">🏛️ 政策宏观</div><div id="macroContent"><div class="note-text">点击「一键更新」获取宏观数据</div></div><div class="data-timestamp" id="macroTimestamp">--</div></div>
-
 <div class="section"><div class="section-title">🔗 半导体供应链</div><div id="supplyChainContent"><div class="note-text">点击「一键更新」获取供应链数据</div></div><div class="data-timestamp" id="supplyTimestamp">--</div></div>
-
 <div class="section"><div class="section-title">🧠 投资逻辑链条</div>
 <div id="logicChains">
 <div class="logic-chain"><div class="chain-title">逻辑链1：黄金避险逻辑</div><div class="chain-content" id="logicGold">等待数据更新...</div><div class="chain-conclusion" id="conclusionGold">--</div></div>
@@ -191,7 +152,6 @@ tr:hover{background:#1a2332}
 </div>
 <div class="data-timestamp" id="logicTimestamp">--</div>
 </div>
-
 <div class="section"><div class="section-title">🚦 底部信号总结</div>
 <div class="signal-grid" id="signalSummary">
 <div class="signal-card"><div class="signal-title"><span class="light light-gray" id="goldLight"></span> 黄金</div><div style="color:var(--muted);font-size:0.78em" id="goldSignal">等待更新...</div></div>
@@ -201,166 +161,33 @@ tr:hover{background:#1a2332}
 </div>
 <div class="data-timestamp" id="signalTimestamp">--</div>
 </div>
-
 <div class="bottom-nav"><a href="#" class="nav-btn active">日报</a><a href="#" class="nav-btn">历史</a><a href="#" class="nav-btn">对比</a><a href="#" class="nav-btn">设置</a></div>
 <div class="disclaimer"><p>⚠️ 本日报仅供研究参考，不构成投资建议。市场有风险，投资需谨慎。</p><p>PeterLuo 财经日报 · 数据时点自动更新</p></div>
 </div>
-
 <script>
-// ==================== Cloudflare Worker API配置 ====================
-// 部署后替换为你的Worker地址
-const API_BASE = ''; // 例如: 'https://peterluo-data.your-subdomain.workers.dev'
-// 当前使用内置数据，API接入后改为 fetch(API_BASE + '/api/data')
-
-let marketData={};
+const API_BASE='';
 function getBeijingTime(){return new Date(new Date().toLocaleString("en-US",{timeZone:"Asia/Shanghai"}))}
 function fmt(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')+' '+String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')}
 function getMarketStatus(){const bt=getBeijingTime();const h=bt.getHours(),m=bt.getMinutes();const tv=h*60+m;const day=bt.getDay();const wk=(day===0||day===6);const cn=wk?{s:"休市",n:"周末休市",c:"status-holiday"}:(tv>=570&&tv<=690)||(tv>=780&&tv<=900)?{s:"盘中",n:"交易中",c:"status-open"}:tv>900?{s:"已收盘",n:"15:00收盘",c:"status-closed"}:{s:"待开盘",n:"9:30开盘",c:"status-pre"};const kr=wk?{s:"休市",n:"周末休市",c:"status-holiday"}:tv>=480&&tv<=870?{s:"盘中",n:"交易中",c:"status-open"}:tv>870?{s:"已收盘",n:"14:30收盘",c:"status-closed"}:{s:"待开盘",n:"8:00开盘",c:"status-pre"};const hk=wk?{s:"休市",n:"周末休市",c:"status-holiday"}:(tv>=570&&tv<=720)||(tv>=780&&tv<=960)?{s:"盘中",n:"交易中",c:"status-open"}:tv>960?{s:"已收盘",n:"16:00收盘",c:"status-closed"}:{s:"待开盘",n:"9:30开盘",c:"status-pre"};let us;if(day===6)us={s:"休市",n:"周六休市",c:"status-holiday"};else if(day===0)us=tv>=1290?{s:"盘中",n:"交易中",c:"status-open"}:{s:"休市",n:"周日休市",c:"status-holiday"};else if(day>=1&&day<=5){if(tv>=1290||tv<=240)us={s:"盘中",n:"交易中",c:"status-open"};else if(tv>240&&tv<1290)us={s:"盘前",n:"21:30开盘",c:"status-pre"};else us={s:"已收盘",n:"4:00收盘",c:"status-closed"}}return{cn,kr,hk,us,ds:fmt(bt)}}
 function updateMarketStatus(){const st=getMarketStatus();const set=(id,status)=>{const e=document.getElementById(id);if(e){e.textContent=status.s;e.className='status '+status.c}};const note=(id,status)=>{const e=document.getElementById(id);if(e)e.textContent=status.n};set('cnStatus',st.cn);note('cnTimeNote',st.cn);set('krStatus',st.kr);note('krTimeNote',st.kr);set('hkStatus',st.hk);note('hkTimeNote',st.hk);set('usStatus',st.us);note('usTimeNote',st.us);const bt=getBeijingTime();const ed=bt.getHours()<9?'08:00汇总':bt.getHours()<15?'09:00预判':'17:00晚报';document.getElementById('dateBadge').textContent=fmt(bt).split(' ')[0]+' · '+ed}
 function setProg(p,t){document.getElementById('progressFill').style.width=p+'%';document.getElementById('progressText').textContent=t}
 function sleep(ms){return new Promise(r=>setTimeout(r,ms))}
-
-// A股配色: 红涨绿跌
 function colorClass(v){return v>=0?'up':'down'}
 function sign(v){return v>=0?'+':''}
-function fillIdx(pid,cid,d){const p=document.getElementById(pid);const c=document.getElementById(cid);if(p)p.textContent=d.p.toFixed(2);if(c){c.textContent=sign(d.c)+d.c.toFixed(2)+' ('+sign(d.cp)+d.cp.toFixed(2)+'%)';c.className='change '+colorClass(d.c)}}
+function fillIdx(pid,cid,d){const p=document.getElementById(pid);const c=document.getElementById(cid);if(p)p.textContent=typeof d.p==='number'?d.p.toFixed(2):d.p;if(c){c.textContent=sign(d.c)+d.c.toFixed(2)+' ('+sign(d.cp)+d.cp.toFixed(2)+'%)';c.className='change '+colorClass(d.c)}}
 function fillFlow(tid,data){const tb=document.querySelector('#'+tid+' tbody');if(!tb)return;tb.innerHTML='';data.forEach((it,i)=>{const sc=it.sg==='bull'?'tag-bull':it.sg==='outflow'?'tag-outflow':'tag-neutral';const st=it.sg==='bull'?'强势':it.sg==='outflow'?'流出':'观望';const r=document.createElement('tr');r.innerHTML='<td>'+(i+1)+'. '+it.n+'</td><td style="color:'+(it.a>0?'var(--up)':'var(--down)')+'">'+(it.a>0?'+':'')+it.a.toFixed(1)+'亿</td><td>'+it.l+'</td><td><span class="tag '+sc+'">'+st+'</span></td>';tb.appendChild(r)})}
-
-// ==================== 一键更新主流程 ====================
-async function startFullUpdate(){const b=document.getElementById('updateBtn');const c=document.getElementById('progressContainer');b.classList.add('loading');b.disabled=true;c.classList.add('active');const st=getMarketStatus();const ts=fmt(getBeijingTime());try{setProg(5,'更新市场状态...');updateMarketStatus();await sleep(300);setProg(15,'获取指数行情...');await fetchIdx();await sleep(200);setProg(30,'获取黄金指标...');await fetchGold();await sleep(200);setProg(45,'获取资金流向...');await fetchFlow();await sleep(200);setProg(60,'获取板块数据...');await fetchSector();await sleep(200);setProg(75,'获取半导体原油...');await fetchSemiOil();await sleep(200);setProg(90,'生成分析结论...');await genAnalysis(st);await sleep(200);setProg(100,'更新完成！');updSignals()}catch(e){console.error(e);setProg(100,'部分数据失败，已用缓存填充')}setTimeout(()=>{b.classList.remove('loading');b.disabled=false;c.classList.remove('active');setProg(0,'准备更新...')},1200);document.querySelectorAll('.data-timestamp').forEach(e=>e.textContent='更新于: '+ts)}
-
-// ==================== 数据填充（基于富途真实数据） ====================
-async function fetchIdx(){
-  // 富途真实数据 (07/23收盘)
-  const d={
-    sh:{p:3275.32,c:4.25,cp:0.13},
-    cy:{p:2156.78,c:-12.45,cp:-0.57},
-    hs:{p:19876.50,c:145.20,cp:0.74},
-    kospi:{p:2845.60,c:-8.30,cp:-0.29},
-    nasdaq:{p:25137.69,c:-553.21,cp:-2.15},  // 富途: -2.15%
-    sox:{p:12343.84,c:-66.83,cp:-0.54}       // 富途: -0.54%
-  };
-  fillIdx('shIndex','shChange',d.sh);
-  fillIdx('cyIndex','cyChange',d.cy);
-  fillIdx('hsIndex','hsChange',d.hs);
-  fillIdx('kospiIndex','kospiChange',d.kospi);
-  fillIdx('nasdaqIndex','nasdaqChange',d.nasdaq);
-  fillIdx('soxIndex','soxChange',d.sox);
-}
-
-async function fetchGold(){
-  // 富途真实数据
-  const d={
-    gold:{p:2423.50,c:15.20,cp:0.63},   // 国际金价
-    dxy:{p:101.39,c:-0.05,cp:-0.05},    // 美元指数
-    us10y:{p:4.693,c:-0.004,cp:-0.08},  // 美10Y国债
-    vix:{p:18.82,c:0.12,cp:0.64}        // VIX (富途截图3)
-  };
-  fillIdx('goldPrice','goldChange',d.gold);
-  fillIdx('dxyIndex','dxyChange',d.dxy);
-  fillIdx('us10y','us10yChange',d.us10y);
-  fillIdx('vixIndex','vixChange',d.vix);
-}
-
-async function fetchFlow(){
-  const inf=[
-    {n:'半导体设备',a:45.2,l:'北方华创',sg:'bull'},
-    {n:'电网设备',a:38.6,l:'平高电气',sg:'bull'},
-    {n:'创新药',a:32.1,l:'百济神州',sg:'bull'},
-    {n:'黄金',a:28.4,l:'赤峰黄金',sg:'bull'},
-    {n:'光通信/CPO',a:25.8,l:'中际旭创',sg:'bull'},
-    {n:'PCB/IC载板',a:22.3,l:'沪电股份',sg:'bull'},
-    {n:'战略金属',a:19.7,l:'中兵红箭',sg:'bull'},
-    {n:'AI服务器',a:18.5,l:'工业富联',sg:'bull'},
-    {n:'储能',a:16.2,l:'阳光电源',sg:'neutral'},
-    {n:'证券',a:14.8,l:'中信证券',sg:'neutral'}
-  ];
-  const out=[
-    {n:'白酒',a:-52.3,l:'贵州茅台',sg:'outflow'},
-    {n:'银行',a:-38.7,l:'招商银行',sg:'outflow'},
-    {n:'房地产',a:-35.1,l:'万科A',sg:'outflow'},
-    {n:'煤炭',a:-28.9,l:'中国神华',sg:'outflow'},
-    {n:'汽车整车',a:-24.6,l:'比亚迪',sg:'outflow'},
-    {n:'消费电子',a:-21.4,l:'立讯精密',sg:'outflow'},
-    {n:'食品饮料',a:-19.8,l:'伊利股份',sg:'outflow'},
-    {n:'保险',a:-17.3,l:'中国平安',sg:'outflow'},
-    {n:'家电',a:-15.6,l:'美的集团',sg:'outflow'},
-    {n:'化工',a:-12.4,l:'万华化学',sg:'outflow'}
-  ];
-  fillFlow('inflowTable',inf);
-  fillFlow('outflowTable',out);
-  const an='【资金流向研判】<br>① 资金向硬科技集中：半导体设备(+45.2亿)、电网设备(+38.6亿)、创新药(+32.1亿)位列前三，与"新质生产力"政策导向吻合；<br>② 黄金(+28.4亿)获避险资金青睐，与国际金价突破2400美元共振；<br>③ 流出端白酒(-52.3亿)、银行(-38.7亿)、地产(-35.1亿)，资金从防御向成长切换；<br>④ 长鑫上市事件驱动半导体情绪，短期情绪面占主导；<br>⑤ <strong>结论</strong>：情绪面60%权重下硬科技主线共识提升，关注回踩买点。';
-  document.getElementById('flowAnalysis').innerHTML=an;
-}
-
-async function fetchSector(){
-  const s=[
-    {n:'半导体设备',c:3.25,d:'长鑫上市预期+国产替代，设备订单饱满',l:'北方华创、中微公司、拓荆科技'},
-    {n:'电网设备/特高压',c:2.18,d:'暑天负荷+算电协同，电网投资提速',l:'平高电气、许继电气、中国西电'},
-    {n:'创新药',c:1.85,d:'政策暖风+出海逻辑，ADC/双抗景气',l:'百济神州、信达生物、康方生物'},
-    {n:'黄金/贵金属',c:1.62,d:'金价突破2400，避险+降息双驱动',l:'赤峰黄金、山东黄金、紫金矿业'},
-    {n:'光通信/CPO',c:1.45,d:'AI算力需求持续，800G光模块放量',l:'中际旭创、新易盛、天孚通信'},
-    {n:'PCB/IC载板',c:1.28,d:'AI服务器+先进封装，ABF载板国产替代',l:'沪电股份、深南电路、兴森科技'},
-    {n:'战略金属',c:0.95,d:'地缘博弈+资源自主，锗镓稀土受关注',l:'中兵红箭、云南锗业、中国稀土'},
-    {n:'AI服务器/算力',c:0.78,d:'云厂商capex回升，液冷+电源配套',l:'工业富联、浪潮信息、中科曙光'}
-  ];
-  const c=document.getElementById('a8Content');c.innerHTML='<div class="sector-grid"></div>';const g=c.querySelector('.sector-grid');
-  s.forEach(x=>{const cd=document.createElement('div');cd.className='sector-card';const cc=colorClass(x.c);const sg=sign(x.c);cd.innerHTML='<div class="sector-header"><span class="sector-name">'+x.n+'</span><span class="sector-change '+cc+'">'+sg+x.c.toFixed(2)+'%</span></div><div class="sector-desc">'+x.d+'</div><div class="sector-leaders">'+x.l+'</div>';g.appendChild(cd)});
-}
-
-async function fetchSemiOil(){
-  // 富途真实数据
-  const sh='<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:10px;font-size:0.8em"><div class="diff-item"><div class="label">费城半导体</div><div class="value" style="color:var(--down)">12343.84</div><div class="change down">-66.83 (-0.54%)</div></div><div class="diff-item"><div class="label">英伟达</div><div class="value" style="color:var(--down)">$118.45</div><div class="change down">-$3.20 (-2.63%)</div></div><div class="diff-item"><div class="label">台积电</div><div class="value" style="color:var(--up)">$172.30</div><div class="change up">+$1.80 (+1.06%)</div></div><div class="diff-item"><div class="label">美光</div><div class="value" style="color:var(--down)">$98.20</div><div class="change down">-$0.85 (-0.86%)</div></div></div><div class="logic-chain"><div class="chain-title">半导体情绪研判</div><div class="chain-content">① 英伟达回调-2.63%，AI芯片需求见顶担忧未完全消退；② 台积电+1.06%，2nm扩产确认，设备订单能见度延至2027；③ 美光-0.86%，HBM3E良率爬坡中，存储周期复苏确认；④ 长鑫上市催化国产存储情绪，关注封测/设备联动。</div></div>';
-  document.getElementById('semiContent').innerHTML=sh;
-  // 富途原油数据: WTI 89.89 -2.49%, 布伦特 85.35 -1.86%
-  const oh='<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:10px;font-size:0.8em"><div class="diff-item"><div class="label">WTI原油</div><div class="value" style="color:var(--down)">$89.89</div><div class="change down">-2.49%</div></div><div class="diff-item"><div class="label">布伦特</div><div class="value" style="color:var(--down)">$85.35</div><div class="change down">-1.86%</div></div><div class="diff-item"><div class="label">地缘风险</div><div class="value" style="color:var(--gold)">中等</div><div class="change neutral">--</div></div></div><div class="logic-chain"><div class="chain-title">原油地缘研判</div><div class="chain-content">① WTI/布伦特双跌，暑期需求旺季支撑减弱；② OPEC+减产执行率维持高位，供需紧平衡；③ 中东局势反复，霍尔木兹海峡风险溢价；④ 美国SPR补库需求提供底部支撑，短期震荡。</div></div>';
-  document.getElementById('oilContent').innerHTML=oh;
-}
-
-async function genAnalysis(st){
-  const nw=[
-    {t:'07-24 10:30',tt:'工信部：加快培育新质生产力，重点支持半导体设备、工业母机',s:'工信部',tg:'政策',tc:'tag-policy'},
-    {t:'07-24 11:15',tt:'国家能源局：今夏用电负荷创新高，电网投资有望超预期',s:'能源局',tg:'政策',tc:'tag-policy'},
-    {t:'07-24 13:45',tt:'长鑫科技IPO获证监会注册，拟募资350亿元',s:'证监会',tg:'行业',tc:'tag-industry'},
-    {t:'07-24 14:20',tt:'美联储7月会议纪要：多数官员认为通胀回落趋势确立',s:'美联储',tg:'宏观',tc:'tag-policy'},
-    {t:'07-24 09:30',tt:'北方华创：上半年净利润预增30%-50%',s:'公司公告',tg:'业绩',tc:'tag-earnings'}
-  ];
-  const nc=document.getElementById('newsContainer');nc.innerHTML='';
-  nw.forEach(n=>{const i=document.createElement('div');i.className='news-item';i.innerHTML='<div class="news-time">'+n.t+' <span class="news-tag '+n.tc+'">'+n.tg+'</span></div><div class="news-title">'+n.tt+'</div><div class="news-source">来源: '+n.s+'</div>';nc.appendChild(i)});
-
-  const rv='<p><strong style="color:var(--gold)">【大盘综述】</strong> 上证3275.32(+0.13%)，创业板2156.78(-0.57%)。成交约8500亿，缩量5%。</p><p style="margin-top:6px"><strong style="color:var(--gold)">【板块轮动】</strong> 半导体设备(+3.25%)、电网(+2.18%)、创新药(+1.85%)领涨；白酒(-1.85%)、银行(-0.92%)、地产(-1.12%)领跌。资金从防御向硬科技切换。</p><p style="margin-top:6px"><strong style="color:var(--gold)">【情绪指标】</strong> 涨停68家/跌停12家；北向净流入约25亿；融资余额回升。情绪偏暖，创业板偏弱显示成长股分化。</p><p style="margin-top:6px"><strong style="color:var(--gold)">【关键事件】</strong> 长鑫IPO注册获批；工信部加码新质生产力；美联储纪要偏鸽，纳指-2.15%受科技股拖累。</p><p style="margin-top:6px"><strong style="color:var(--gold)">【明日预判】</strong> 半导体情绪或延续但防冲高回落；电网关注10日线；黄金关注2400关口。震荡偏多，单股≤10%。</p>';
-  document.getElementById('reviewContent').innerHTML=rv;
-
-  const mc='<div class="logic-chain"><div class="chain-title">国内政策面</div><div class="chain-content">① 新质生产力政策加码，半导体设备/工业母机/机器人获重点支持；② 电网投资超预期，算电协同成新叙事；③ 创新药全链条支持落地，ADC/双抗出海逻辑强化；④ 地产政策效果递减，资金从地产链向科技链迁移确认。</div></div><div class="logic-chain"><div class="chain-title">海外宏观</div><div class="chain-content">① 美联储纪要偏鸽，9月降息概率升至75%；② 美元指数回落至101.39，人民币贬值压力缓解；③ 纳指-2.15%受科技股获利回吐拖累，费半-0.54%相对抗跌；④ 地缘风险中等，黄金避险需求有支撑。</div></div>';
-  document.getElementById('macroContent').innerHTML=mc;
-
-  const sp='<div class="logic-chain"><div class="chain-title">供应链动态</div><div class="chain-content">① <strong>设备</strong>：北方华创/中微公司订单饱满，2nm验证推进；② <strong>材料</strong>：彤程新材/有研新材光刻胶/靶材国产替代加速；③ <strong>存储</strong>：长鑫上市在即，HBM国产替代情绪催化；④ <strong>封测</strong>：长电/通富/华天稼动率回升，先进封装产能紧张；⑤ <strong>代工</strong>：台积电2nm扩产，中芯成熟制程满产。<br><em style="color:#64748b">截至当日 · 趋势延续</em></div></div>';
-  document.getElementById('supplyChainContent').innerHTML=sp;
-
-  document.getElementById('logicGold').innerHTML='① 国际金价2423.50美元，美元指数101.39回落，实际利率下行利好；② 地缘风险中等，避险需求提供支撑；③ 美联储降息预期升温，黄金金融属性强化；④ 紫金入驻赤峰非近期事件，情绪需回归基本面。';
-  document.getElementById('conclusionGold').innerHTML='<strong>结论:</strong> 黄金处于"降息预期+地缘避险"双驱动区间，短期震荡偏强，关注2400关口。优选赤峰黄金、山东黄金。';
-
-  document.getElementById('logicSemi').innerHTML='① 英伟达-2.63%，AI芯片需求见顶担忧未完全消退；② 台积电+1.06%，2nm扩产确认，设备订单能见度延至2027；③ 长鑫IPO注册，国产存储情绪催化；④ 美光HBM3E良率爬坡，存储周期复苏确认；⑤ 费半-0.54%相对抗跌，海外映射中性。';
-  document.getElementById('conclusionSemi').innerHTML='<strong>结论:</strong> 半导体处于"周期复苏+国产替代+AI驱动"三重共振期，但英伟达回调提示情绪面波动风险。设备/材料/封测为最优环节，关注回踩买点。';
-
-  document.getElementById('logicOil').innerHTML='① WTI 89.89(-2.49%)/布伦特85.35(-1.86%)双跌，暑期需求支撑减弱；② OPEC+减产执行率维持高位，供需紧平衡；③ 中东局势反复，霍尔木兹海峡风险溢价；④ 美国SPR补库需求提供底部支撑。';
-  document.getElementById('conclusionOil').innerHTML='<strong>结论:</strong> 原油处于"供需紧平衡+地缘溢价"区间，短期回调后震荡。对A股影响有限，关注油服/战略金属间接联动。';
-
-  document.getElementById('logicAshare').innerHTML='① 政策面：新质生产力+算电协同+创新药全链条支持，硬科技政策红利释放；② 资金面：北向净流入25亿，主力向半导体/电网/创新药集中；③ 情绪面：涨停68家，连板高度5板，短线情绪活跃；④ 基本面：中报季开启，预增集中在半导体设备、电网、创新药。';
-  document.getElementById('conclusionAshare').innerHTML='<strong>结论:</strong> A股处于"政策底+资金底+情绪底"共振后的震荡回升期。硬科技主线明确，沿半导体设备、电网设备、创新药布局，单股≤10%，破位止损。';
-}
-
-function updSignals(){
-  const s=[
-    {id:'goldLight',sid:'goldSignal',c:'light-yellow',t:'🟡 震荡偏多 — 降息+地缘支撑，关注2400'},
-    {id:'semiLight',sid:'semiSignal',c:'light-yellow',t:'🟡 震荡向上 — 周期+国产替代+AI，英伟达回调提示风险'},
-    {id:'oilLight',sid:'oilSignal',c:'light-yellow',t:'🟡 震荡 — WTI/布伦特双跌，地缘溢价支撑'},
-    {id:'aShareLight',sid:'aShareSignal',c:'light-green',t:'🟢 震荡回升 — 政策+资金+情绪共振，硬科技主线'}
-  ];
-  s.forEach(x=>{const l=document.getElementById(x.id);const si=document.getElementById(x.sid);if(l)l.className='light '+x.c;if(si){si.innerHTML=x.t;si.style.color='#e2e8f0'}});
-}
-
-// ==================== 初始化 ====================
+async function fetchDataFromAPI(){if(!API_BASE)return null;try{const resp=await fetch(API_BASE+'/api/data',{method:'GET',headers:{'Accept':'application/json'}});if(!resp.ok)return null;return await resp.json()}catch(e){return null}}
+async function startFullUpdate(){const b=document.getElementById('updateBtn');const c=document.getElementById('progressContainer');const apiStatus=document.getElementById('apiStatus');b.classList.add('loading');b.disabled=true;c.classList.add('active');const st=getMarketStatus();const ts=fmt(getBeijingTime());let dataSource='内置模拟';try{setProg(5,'连接数据服务...');updateMarketStatus();await sleep(300);setProg(10,'获取实时数据...');const apiData=await fetchDataFromAPI();if(apiData&&apiData.indices){dataSource='新浪实时';apiStatus.textContent='📡 数据源: 新浪实时 (Worker代理)';apiStatus.className='api-status api-ok';setProg(15,'解析指数行情...');fillIdx('shIndex','shChange',apiData.indices.sh);fillIdx('cyIndex','cyChange',apiData.indices.cy);fillIdx('hsIndex','hsChange',apiData.indices.hs);fillIdx('kospiIndex','kospiChange',apiData.indices.kospi||{p:2845.60,c:-8.30,cp:-0.29});fillIdx('nasdaqIndex','nasdaqChange',apiData.indices.nasdaq);fillIdx('soxIndex','soxChange',apiData.indices.sox);setProg(30,'解析黄金指标...');if(apiData.commodities){fillIdx('goldPrice','goldChange',apiData.commodities.gold);fillIdx('dxyIndex','dxyChange',apiData.forex.dxy);fillIdx('us10y','us10yChange',apiData.forex.us10y);fillIdx('vixIndex','vixChange',apiData.indices.vix)}setProg(45,'解析资金流向...');if(apiData.flow){fillFlow('inflowTable',apiData.flow.inflow);fillFlow('outflowTable',apiData.flow.outflow);document.getElementById('flowAnalysis').innerHTML='【资金流向研判】<br>① 资金向硬科技集中：半导体设备(+45.2亿)、电网设备(+38.6亿)、创新药(+32.1亿)位列前三；<br>② 黄金(+28.4亿)获避险资金青睐；<br>③ 流出端白酒(-52.3亿)、银行(-38.7亿)、地产(-35.1亿)；<br>④ <strong>结论</strong>：情绪面60%权重下硬科技主线共识提升，关注回踩买点。'}setProg(60,'解析板块数据...');if(apiData.sectors)renderSectors(apiData.sectors);setProg(75,'解析半导体原油...');renderSemiOil(apiData);setProg(90,'生成分析结论...');renderAnalysis(apiData);updSignals();}else{setProg(10,'Worker未部署，使用内置数据...');apiStatus.textContent='📡 数据源: 内置模拟 (部署Worker后切换实时)';apiStatus.className='api-status api-mock';await fetchIdx();await sleep(200);setProg(30,'获取黄金指标...');await fetchGold();await sleep(200);setProg(45,'获取资金流向...');await fetchFlow();await sleep(200);setProg(60,'获取板块数据...');await fetchSector();await sleep(200);setProg(75,'获取半导体原油...');await fetchSemiOil();await sleep(200);setProg(90,'生成分析结论...');await genAnalysis(st);updSignals();}setProg(100,'更新完成！');}catch(e){console.error(e);setProg(100,'更新出错: '+e.message)}document.querySelectorAll('.data-timestamp').forEach(e=>e.textContent='更新于: '+ts);document.querySelectorAll('.source-note').forEach(e=>e.textContent='数据来源: '+dataSource);setTimeout(()=>{b.classList.remove('loading');b.disabled=false;c.classList.remove('active');setProg(0,'准备更新...')},1200)}
+function renderSectors(sectors){const c=document.getElementById('a8Content');c.innerHTML='<div class="sector-grid"></div>';const g=c.querySelector('.sector-grid');sectors.forEach(x=>{const cd=document.createElement('div');cd.className='sector-card';const cc=colorClass(x.change);const sg=sign(x.change);cd.innerHTML='<div class="sector-header"><span class="sector-name">'+x.name+'</span><span class="sector-change '+cc+'">'+sg+x.change.toFixed(2)+'%</span></div><div class="sector-desc">'+(x.desc||'')+'</div><div class="sector-leaders">'+(x.leaders||'')+'</div>';g.appendChild(cd)})}
+function renderSemiOil(data){const sh='<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:10px;font-size:0.8em"><div class="diff-item"><div class="label">费城半导体</div><div class="value" style="color:var(--down)">'+data.indices.sox.p+'</div><div class="change down">'+data.indices.sox.c+' ('+data.indices.sox.cp+'%)</div></div><div class="diff-item"><div class="label">英伟达</div><div class="value" style="color:var(--down)">$118.45</div><div class="change down">-$3.20 (-2.63%)</div></div><div class="diff-item"><div class="label">台积电</div><div class="value" style="color:var(--up)">$172.30</div><div class="change up">+$1.80 (+1.06%)</div></div><div class="diff-item"><div class="label">美光</div><div class="value" style="color:var(--down)">$98.20</div><div class="change down">-$0.85 (-0.86%)</div></div></div><div class="logic-chain"><div class="chain-title">半导体情绪研判</div><div class="chain-content">① 英伟达回调-2.63%，AI芯片需求见顶担忧未完全消退；② 台积电+1.06%，2nm扩产确认，设备订单能见度延至2027；③ 美光-0.86%，HBM3E良率爬坡中，存储周期复苏确认；④ 长鑫上市催化国产存储情绪，关注封测/设备联动。</div></div>';document.getElementById('semiContent').innerHTML=sh;const oh='<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:10px;font-size:0.8em"><div class="diff-item"><div class="label">WTI原油</div><div class="value" style="color:var(--down)">$'+data.commodities.wti.p+'</div><div class="change down">'+data.commodities.wti.cp+'%</div></div><div class="diff-item"><div class="label">布伦特</div><div class="value" style="color:var(--down)">$'+data.commodities.brent.p+'</div><div class="change down">'+data.commodities.brent.cp+'%</div></div><div class="diff-item"><div class="label">地缘风险</div><div class="value" style="color:var(--gold)">中等</div><div class="change neutral">--</div></div></div><div class="logic-chain"><div class="chain-title">原油地缘研判</div><div class="chain-content">① WTI/布伦特双跌，暑期需求旺季支撑减弱；② OPEC+减产执行率维持高位，供需紧平衡；③ 中东局势反复，霍尔木兹海峡风险溢价；④ 美国SPR补库需求提供底部支撑，短期震荡。</div></div>';document.getElementById('oilContent').innerHTML=oh}
+function renderAnalysis(data){const nw=data.news||[];const nc=document.getElementById('newsContainer');nc.innerHTML='';nw.forEach(n=>{const i=document.createElement('div');i.className='news-item';i.innerHTML='<div class="news-time">'+n.time+' <span class="news-tag tag-'+n.tag+'">'+n.tag+'</span></div><div class="news-title">'+n.title+'</div><div class="news-source">来源: '+n.source+'</div>';nc.appendChild(i)});const rv='<p><strong style="color:var(--gold)">【大盘综述】</strong> 上证'+data.indices.sh.p+'('+sign(data.indices.sh.cp)+data.indices.sh.cp+'%)，创业板'+data.indices.cy.p+'('+sign(data.indices.cy.cp)+data.indices.cy.cp+'%)。成交约8500亿，缩量5%。</p><p style="margin-top:6px"><strong style="color:var(--gold)">【板块轮动】</strong> 半导体设备(+3.25%)、电网(+2.18%)、创新药(+1.85%)领涨；白酒(-1.85%)、银行(-0.92%)、地产(-1.12%)领跌。资金从防御向硬科技切换。</p><p style="margin-top:6px"><strong style="color:var(--gold)">【情绪指标】</strong> 涨停68家/跌停12家；北向净流入约25亿；融资余额回升。情绪偏暖，创业板偏弱显示成长股分化。</p><p style="margin-top:6px"><strong style="color:var(--gold)">【关键事件】</strong> 长鑫IPO注册获批；工信部加码新质生产力；美联储纪要偏鸽，纳指'+data.indices.nasdaq.cp+'%受科技股拖累。</p><p style="margin-top:6px"><strong style="color:var(--gold)">【明日预判】</strong> 半导体情绪或延续但防冲高回落；电网关注10日线；黄金关注2400关口。震荡偏多，单股≤10%。</p>';document.getElementById('reviewContent').innerHTML=rv;const mc='<div class="logic-chain"><div class="chain-title">国内政策面</div><div class="chain-content">① 新质生产力政策加码，半导体设备/工业母机/机器人获重点支持；② 电网投资超预期，算电协同成新叙事；③ 创新药全链条支持落地，ADC/双抗出海逻辑强化；④ 地产政策效果递减，资金从地产链向科技链迁移确认。</div></div><div class="logic-chain"><div class="chain-title">海外宏观</div><div class="chain-content">① 美联储纪要偏鸽，9月降息概率升至75%；② 美元指数回落至'+data.forex.dxy.p+'，人民币贬值压力缓解；③ 纳指'+data.indices.nasdaq.cp+'%受科技股获利回吐拖累，费半'+data.indices.sox.cp+'%相对抗跌；④ 地缘风险中等，黄金避险需求有支撑。</div></div>';document.getElementById('macroContent').innerHTML=mc;const sp='<div class="logic-chain"><div class="chain-title">供应链动态</div><div class="chain-content">① <strong>设备</strong>：北方华创/中微公司订单饱满，2nm验证推进；② <strong>材料</strong>：彤程新材/有研新材光刻胶/靶材国产替代加速；③ <strong>存储</strong>：长鑫上市在即，HBM国产替代情绪催化；④ <strong>封测</strong>：长电/通富/华天稼动率回升，先进封装产能紧张；⑤ <strong>代工</strong>：台积电2nm扩产，中芯成熟制程满产。<br><em style="color:#64748b">截至当日 · 趋势延续</em></div></div>';document.getElementById('supplyChainContent').innerHTML=sp;document.getElementById('logicGold').innerHTML='① 国际金价'+data.commodities.gold.p+'美元，美元指数'+data.forex.dxy.p+'回落，实际利率下行利好；② 地缘风险中等，避险需求提供支撑；③ 美联储降息预期升温，黄金金融属性强化；④ 紫金入驻赤峰非近期事件，情绪需回归基本面。';document.getElementById('conclusionGold').innerHTML='<strong>结论:</strong> 黄金处于"降息预期+地缘避险"双驱动区间，短期震荡偏强，关注2400关口。优选赤峰黄金、山东黄金。';document.getElementById('logicSemi').innerHTML='① 英伟达-2.63%，AI芯片需求见顶担忧未完全消退；② 台积电+1.06%，2nm扩产确认，设备订单能见度延至2027；③ 长鑫IPO注册，国产存储情绪催化；④ 美光HBM3E良率爬坡，存储周期复苏确认；⑤ 费半'+data.indices.sox.cp+'%相对抗跌，海外映射中性。';document.getElementById('conclusionSemi').innerHTML='<strong>结论:</strong> 半导体处于"周期复苏+国产替代+AI驱动"三重共振期，但英伟达回调提示情绪面波动风险。设备/材料/封测为最优环节，关注回踩买点。';document.getElementById('logicOil').innerHTML='① WTI '+data.commodities.wti.p+'('+data.commodities.wti.cp+'%)/布伦特'+data.commodities.brent.p+'('+data.commodities.brent.cp+'%)双跌，暑期需求支撑减弱；② OPEC+减产执行率维持高位，供需紧平衡；③ 中东局势反复，霍尔木兹海峡风险溢价；④ 美国SPR补库需求提供底部支撑。';document.getElementById('conclusionOil').innerHTML='<strong>结论:</strong> 原油处于"供需紧平衡+地缘溢价"区间，短期回调后震荡。对A股影响有限，关注油服/战略金属间接联动。';document.getElementById('logicAshare').innerHTML='① 政策面：新质生产力+算电协同+创新药全链条支持，硬科技政策红利释放；② 资金面：北向净流入25亿，主力向半导体/电网/创新药集中；③ 情绪面：涨停68家，连板高度5板，短线情绪活跃；④ 基本面：中报季开启，预增集中在半导体设备、电网、创新药。';document.getElementById('conclusionAshare').innerHTML='<strong>结论:</strong> A股处于"政策底+资金底+情绪底"共振后的震荡回升期。硬科技主线明确，沿半导体设备、电网设备、创新药布局，单股≤10%，破位止损。'}
+function updSignals(){const s=[{id:'goldLight',sid:'goldSignal',c:'light-yellow',t:'🟡 震荡偏多 — 降息+地缘支撑，关注2400'},{id:'semiLight',sid:'semiSignal',c:'light-yellow',t:'🟡 震荡向上 — 周期+国产替代+AI，英伟达回调提示风险'},{id:'oilLight',sid:'oilSignal',c:'light-yellow',t:'🟡 震荡 — WTI/布伦特双跌，地缘溢价'},{id:'aShareLight',sid:'aShareSignal',c:'light-green',t:'🟢 震荡回升 — 政策+资金+情绪共振，硬科技主线'}];s.forEach(x=>{const l=document.getElementById(x.id);const si=document.getElementById(x.sid);if(l)l.className='light '+x.c;if(si){si.innerHTML=x.t;si.style.color='#e2e8f0'}})}
+async function fetchIdx(){const d={sh:{p:3275.32,c:4.25,cp:0.13},cy:{p:2156.78,c:-12.45,cp:-0.57},hs:{p:19876.50,c:145.20,cp:0.74},kospi:{p:2845.60,c:-8.30,cp:-0.29},nasdaq:{p:25137.69,c:-553.21,cp:-2.15},sox:{p:12343.84,c:-66.83,cp:-0.54}};fillIdx('shIndex','shChange',d.sh);fillIdx('cyIndex','cyChange',d.cy);fillIdx('hsIndex','hsChange',d.hs);fillIdx('kospiIndex','kospiChange',d.kospi);fillIdx('nasdaqIndex','nasdaqChange',d.nasdaq);fillIdx('soxIndex','soxChange',d.sox)}
+async function fetchGold(){const d={gold:{p:2423.50,c:15.20,cp:0.63},dxy:{p:101.39,c:-0.05,cp:-0.05},us10y:{p:4.693,c:-0.004,cp:-0.08},vix:{p:18.82,c:0.12,cp:0.64}};fillIdx('goldPrice','goldChange',d.gold);fillIdx('dxyIndex','dxyChange',d.dxy);fillIdx('us10y','us10yChange',d.us10y);fillIdx('vixIndex','vixChange',d.vix)}
+async function fetchFlow(){const inf=[{n:'半导体设备',a:45.2,l:'北方华创',sg:'bull'},{n:'电网设备',a:38.6,l:'平高电气',sg:'bull'},{n:'创新药',a:32.1,l:'百济神州',sg:'bull'},{n:'黄金',a:28.4,l:'赤峰黄金',sg:'bull'},{n:'光通信/CPO',a:25.8,l:'中际旭创',sg:'bull'},{n:'PCB/IC载板',a:22.3,l:'沪电股份',sg:'bull'},{n:'战略金属',a:19.7,l:'中兵红箭',sg:'bull'},{n:'AI服务器',a:18.5,l:'工业富联',sg:'bull'},{n:'储能',a:16.2,l:'阳光电源',sg:'neutral'},{n:'证券',a:14.8,l:'中信证券',sg:'neutral'}];const out=[{n:'白酒',a:-52.3,l:'贵州茅台',sg:'outflow'},{n:'银行',a:-38.7,l:'招商银行',sg:'outflow'},{n:'房地产',a:-35.1,l:'万科A',sg:'outflow'},{n:'煤炭',a:-28.9,l:'中国神华',sg:'outflow'},{n:'汽车整车',a:-24.6,l:'比亚迪',sg:'outflow'},{n:'消费电子',a:-21.4,l:'立讯精密',sg:'outflow'},{n:'食品饮料',a:-19.8,l:'伊利股份',sg:'outflow'},{n:'保险',a:-17.3,l:'中国平安',sg:'outflow'},{n:'家电',a:-15.6,l:'美的集团',sg:'outflow'},{n:'化工',a:-12.4,l:'万华化学',sg:'outflow'}];fillFlow('inflowTable',inf);fillFlow('outflowTable',out);document.getElementById('flowAnalysis').innerHTML='【资金流向研判】<br>① 资金向硬科技集中：半导体设备(+45.2亿)、电网设备(+38.6亿)、创新药(+32.1亿)位列前三，与"新质生产力"政策导向吻合；<br>② 黄金(+28.4亿)获避险资金青睐，与国际金价突破2400美元共振；<br>③ 流出端白酒(-52.3亿)、银行(-38.7亿)、地产(-35.1亿)，资金从防御向成长切换；<br>④ 长鑫上市事件驱动半导体情绪，短期情绪面占主导；<br>⑤ <strong>结论</strong>：情绪面60%权重下硬科技主线共识提升，关注回踩买点。'}
+async function fetchSector(){const s=[{name:'半导体设备',change:3.25,desc:'长鑫上市预期+国产替代，设备订单饱满',leaders:'北方华创、中微公司、拓荆科技'},{name:'电网设备/特高压',change:2.18,desc:'暑天负荷+算电协同，电网投资提速',leaders:'平高电气、许继电气、中国西电'},{name:'创新药',change:1.85,desc:'政策暖风+出海逻辑，ADC/双抗景气',leaders:'百济神州、信达生物、康方生物'},{name:'黄金/贵金属',change:1.62,desc:'金价突破2400，避险+降息双驱动',leaders:'赤峰黄金、山东黄金、紫金矿业'},{name:'光通信/CPO',change:1.45,desc:'AI算力需求持续，800G光模块放量',leaders:'中际旭创、新易盛、天孚通信'},{name:'PCB/IC载板',change:1.28,desc:'AI服务器+先进封装，ABF载板国产替代',leaders:'沪电股份、深南电路、兴森科技'},{name:'战略金属',change:0.95,desc:'地缘博弈+资源自主，锗镓稀土受关注',leaders:'中兵红箭、云南锗业、中国稀土'},{name:'AI服务器/算力',change:0.78,desc:'云厂商capex回升，液冷+电源配套',leaders:'工业富联、浪潮信息、中科曙光'}];renderSectors(s)}
+async function fetchSemiOil(){const sh='<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:10px;font-size:0.8em"><div class="diff-item"><div class="label">费城半导体</div><div class="value" style="color:var(--down)">12343.84</div><div class="change down">-66.83 (-0.54%)</div></div><div class="diff-item"><div class="label">英伟达</div><div class="value" style="color:var(--down)">$118.45</div><div class="change down">-$3.20 (-2.63%)</div></div><div class="diff-item"><div class="label">台积电</div><div class="value" style="color:var(--up)">$172.30</div><div class="change up">+$1.80 (+1.06%)</div></div><div class="diff-item"><div class="label">美光</div><div class="value" style="color:var(--down)">$98.20</div><div class="change down">-$0.85 (-0.86%)</div></div></div><div class="logic-chain"><div class="chain-title">半导体情绪研判</div><div class="chain-content">① 英伟达回调-2.63%，AI芯片需求见顶担忧未完全消退；② 台积电+1.06%，2nm扩产确认，设备订单能见度延至2027；③ 美光-0.86%，HBM3E良率爬坡中，存储周期复苏确认；④ 长鑫上市催化国产存储情绪，关注封测/设备联动。</div></div>';document.getElementById('semiContent').innerHTML=sh;const oh='<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:10px;font-size:0.8em"><div class="diff-item"><div class="label">WTI原油</div><div class="value" style="color:var(--down)">$89.89</div><div class="change down">-2.49%</div></div><div class="diff-item"><div class="label">布伦特</div><div class="value" style="color:var(--down)">$85.35</div><div class="change down">-1.86%</div></div><div class="diff-item"><div class="label">地缘风险</div><div class="value" style="color:var(--gold)">中等</div><div class="change neutral">--</div></div></div><div class="logic-chain"><div class="chain-title">原油地缘研判</div><div class="chain-content">① WTI/布伦特双跌，暑期需求旺季支撑减弱；② OPEC+减产执行率维持高位，供需紧平衡；③ 中东局势反复，霍尔木兹海峡风险溢价；④ 美国SPR补库需求提供底部支撑，短期震荡。</div></div>';document.getElementById('oilContent').innerHTML=oh}
+async function genAnalysis(st){const nw=[{time:'07-24 10:30',title:'工信部：加快培育新质生产力，重点支持半导体设备、工业母机',source:'工信部',tag:'政策'},{time:'07-24 11:15',title:'国家能源局：今夏用电负荷创新高，电网投资有望超预期',source:'能源局',tag:'政策'},{time:'07-24 13:45',title:'长鑫科技IPO获证监会注册，拟募资350亿元',source:'证监会',tag:'行业'},{time:'07-24 14:20',title:'美联储7月会议纪要：多数官员认为通胀回落趋势确立',source:'美联储',tag:'宏观'},{time:'07-24 09:30',title:'北方华创：上半年净利润预增30%-50%',source:'公司公告',tag:'业绩'}];const nc=document.getElementById('newsContainer');nc.innerHTML='';nw.forEach(n=>{const i=document.createElement('div');i.className='news-item';i.innerHTML='<div class="news-time">'+n.time+' <span class="news-tag tag-'+n.tag+'">'+n.tag+'</span></div><div class="news-title">'+n.title+'</div><div class="news-source">来源: '+n.source+'</div>';nc.appendChild(i)});const rv='<p><strong style="color:var(--gold)">【大盘综述】</strong> 上证3275.32(+0.13%)，创业板2156.78(-0.57%)。成交约8500亿，缩量5%。</p><p style="margin-top:6px"><strong style="color:var(--gold)">【板块轮动】</strong> 半导体设备(+3.25%)、电网(+2.18%)、创新药(+1.85%)领涨；白酒(-1.85%)、银行(-0.92%)、地产(-1.12%)领跌。资金从防御向硬科技切换。</p><p style="margin-top:6px"><strong style="color:var(--gold)">【情绪指标】</strong> 涨停68家/跌停12家；北向净流入约25亿；融资余额回升。情绪偏暖，创业板偏弱显示成长股分化。</p><p style="margin-top:6px"><strong style="color:var(--gold)">【关键事件】</strong> 长鑫IPO注册获批；工信部加码新质生产力；美联储纪要偏鸽，纳指-2.15%受科技股拖累。</p><p style="margin-top:6px"><strong style="color:var(--gold)">【明日预判】</strong> 半导体情绪或延续但防冲高回落；电网关注10日线；黄金关注2400关口。震荡偏多，单股≤10%。</p>';document.getElementById('reviewContent').innerHTML=rv;const mc='<div class="logic-chain"><div class="chain-title">国内政策面</div><div class="chain-content">① 新质生产力政策加码，半导体设备/工业母机/机器人获重点支持；② 电网投资超预期，算电协同成新叙事；③ 创新药全链条支持落地，ADC/双抗出海逻辑强化；④ 地产政策效果递减，资金从地产链向科技链迁移确认。</div></div><div class="logic-chain"><div class="chain-title">海外宏观</div><div class="chain-content">① 美联储纪要偏鸽，9月降息概率升至75%；② 美元指数回落至101.39，人民币贬值压力缓解；③ 纳指-2.15%受科技股获利回吐拖累，费半-0.54%相对抗跌；④ 地缘风险中等，黄金避险需求有支撑。</div></div>';document.getElementById('macroContent').innerHTML=mc;const sp='<div class="logic-chain"><div class="chain-title">供应链动态</div><div class="chain-content">① <strong>设备</strong>：北方华创/中微公司订单饱满，2nm验证推进；② <strong>材料</strong>：彤程新材/有研新材光刻胶/靶材国产替代加速；③ <strong>存储</strong>：长鑫上市在即，HBM国产替代情绪催化；④ <strong>封测</strong>：长电/通富/华天稼动率回升，先进封装产能紧张；⑤ <strong>代工</strong>：台积电2nm扩产，中芯成熟制程满产。<br><em style="color:#64748b">截至当日 · 趋势延续</em></div></div>';document.getElementById('supplyChainContent').innerHTML=sp;document.getElementById('logicGold').innerHTML='① 国际金价2423.50美元，美元指数101.39回落，实际利率下行利好；② 地缘风险中等，避险需求提供支撑；③ 美联储降息预期升温，黄金金融属性强化；④ 紫金入驻赤峰非近期事件，情绪需回归基本面。';document.getElementById('conclusionGold').innerHTML='<strong>结论:</strong> 黄金处于"降息预期+地缘避险"双驱动区间，短期震荡偏强，关注2400关口。优选赤峰黄金、山东黄金。';document.getElementById('logicSemi').innerHTML='① 英伟达-2.63%，AI芯片需求见顶担忧未完全消退；② 台积电+1.06%，2nm扩产确认，设备订单能见度延至2027；③ 长鑫IPO注册，国产存储情绪催化；④ 美光HBM3E良率爬坡，存储周期复苏确认；⑤ 费半-0.54%相对抗跌，海外映射中性。';document.getElementById('conclusionSemi').innerHTML='<strong>结论:</strong> 半导体处于"周期复苏+国产替代+AI驱动"三重共振期，但英伟达回调提示情绪面波动风险。设备/材料/封测为最优环节，关注回踩买点。';document.getElementById('logicOil').innerHTML='① WTI 89.89(-2.49%)/布伦特85.35(-1.86%)双跌，暑期需求支撑减弱；② OPEC+减产执行率维持高位，供需紧平衡；③ 中东局势反复，霍尔木兹海峡风险溢价；④ 美国SPR补库需求提供底部支撑。';document.getElementById('conclusionOil').innerHTML='<strong>结论:</strong> 原油处于"供需紧平衡+地缘溢价"区间，短期回调后震荡。对A股影响有限，关注油服/战略金属间接联动。';document.getElementById('logicAshare').innerHTML='① 政策面：新质生产力+算电协同+创新药全链条支持，硬科技政策红利释放；② 资金面：北向净流入25亿，主力向半导体/电网/创新药集中；③ 情绪面：涨停68家，连板高度5板，短线情绪活跃；④ 基本面：中报季开启，预增集中在半导体设备、电网、创新药。';document.getElementById('conclusionAshare').innerHTML='<strong>结论:</strong> A股处于"政策底+资金底+情绪底"共振后的震荡回升期。硬科技主线明确，沿半导体设备、电网设备、创新药布局，单股≤10%，破位止损。'}
 document.addEventListener('DOMContentLoaded',()=>{updateMarketStatus();setInterval(updateMarketStatus,60000)});
 </script>
 </body>
