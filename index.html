@@ -285,7 +285,7 @@
         .review-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-bottom: 12px; }
         .stat-box { background: rgba(16, 185, 129, 0.05); padding: 8px; border-radius: 6px; text-align: center; }
         .stat-box .label { color: #6ee7b7; font-size: 0.7em; }
-        .stat-box .value { color: #f1f5f9; font-weight: 700; font-size: 0.85em; margin-top: 2px; }
+        .stat-box .value { font-weight: 700; font-size: 0.85em; margin-top: 2px; }
         .stat-box .pct { font-size: 0.7em; margin-top: 2px; }
         .review-detail { color: #8b949e; font-size: 0.8em; line-height: 1.6; }
         .review-detail strong { color: #fbbf24; }
@@ -744,7 +744,10 @@
             hkEl.textContent = ms.hk.text; hkEl.className = ms.hk.cls;
             const cnEl = document.getElementById("cnStatus");
             cnEl.textContent = ms.cn.text; cnEl.className = ms.cn.cls;
-        });
+        
+            // 初始加载数据
+            fillData();
+            document.getElementById("lastUpdateTime").textContent = now();});
     </script>
 
 <!-- BUILD: 20260724_135048 -->
