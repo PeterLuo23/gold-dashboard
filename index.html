@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PeterLuo财经日报 · 2026-07-24 晚报</title>
+<title>PeterLuo财经日报 · 2026-07-25 早报</title>
 <style>
   :root {
     --bg: #0b0f19; --card: #111827; --border: #1f2937;
@@ -18,6 +18,8 @@
   .header h1 { font-size: 20px; font-weight: 700; letter-spacing: 1px; }
   .header .sub { color: var(--muted); font-size: 12px; margin-top: 4px; }
   .badge { display: inline-block; background: var(--accent); color: #000; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-left: 6px; }
+  .badge-red { background: #dc2626; color: #fff; }
+  .badge-green { background: #16a34a; color: #fff; }
 
   .tz-bar { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; margin-bottom: 16px; font-size: 12px; color: var(--muted); }
   .tz-bar span { color: var(--text); font-weight: 600; }
@@ -34,60 +36,38 @@
   .index-item .chg { font-size: 12px; font-weight: 600; }
   .up { color: var(--up); } .down { color: var(--down); }
 
+  .alert-box { background: #1e1b4b; border: 1px solid #4338ca; border-radius: 8px; padding: 12px 16px; margin-bottom: 16px; font-size: 13px; }
+  .alert-box .alert-title { color: #a78bfa; font-weight: 700; margin-bottom: 4px; }
+
   table { width: 100%; border-collapse: collapse; font-size: 13px; }
   th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--border); }
   th { color: var(--muted); font-weight: 600; font-size: 12px; background: #0f172a; }
   tr:last-child td { border-bottom: none; }
   .num { font-family: "SF Mono", Monaco, monospace; text-align: right; }
-  .stock { font-size: 11px; color: var(--muted); }
 
-  .news-list { list-style: none; }
-  .news-list li { padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
-  .news-list li:last-child { border-bottom: none; }
-  .news-list .time { color: var(--muted); font-size: 11px; margin-right: 6px; }
-  .news-list .tag2 { display: inline-block; background: #1e3a5f; color: #93c5fd; padding: 1px 5px; border-radius: 3px; font-size: 11px; margin-right: 6px; }
-
-  .chain { background: #0f172a; border-radius: 8px; padding: 12px; margin-bottom: 10px; border-left: 3px solid var(--accent); }
-  .chain-title { font-weight: 700; font-size: 13px; margin-bottom: 6px; color: var(--accent); }
-  .chain-body { font-size: 12px; color: var(--muted); line-height: 1.8; }
-  .chain-body b { color: var(--text); }
-
-  .signal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 12px; }
-  .signal { text-align: center; padding: 12px; background: #0f172a; border-radius: 8px; }
-  .signal .light { width: 14px; height: 14px; border-radius: 50%; display: inline-block; margin-bottom: 6px; }
-  .light-red { background: #ef4444; box-shadow: 0 0 8px #ef4444; }
-  .light-green { background: #22c55e; box-shadow: 0 0 8px #22c55e; }
-  .light-yellow { background: #eab308; box-shadow: 0 0 8px #eab308; }
-  .signal .name { font-size: 12px; font-weight: 600; }
-  .signal .op { font-size: 11px; color: var(--muted); margin-top: 4px; }
-
-  .factor-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 10px 0; }
+  .factor-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: 12px; }
   .factor { background: #0f172a; border-radius: 6px; padding: 8px 10px; font-size: 12px; }
-  .factor .f-name { color: var(--muted); }
+  .factor .f-name { color: var(--muted); font-size: 11px; }
   .factor .f-val { color: var(--text); font-weight: 600; }
 
-  /* 8大板块监测 —— 进度条左对齐，固定比例 */
-  .sector-row { display: flex; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--border); gap: 10px; }
-  .sector-row:last-child { border-bottom: none; }
-  .sector-name { font-size: 13px; font-weight: 600; flex: 0 0 130px; text-align: left; }
-  .sector-bar-wrap { flex: 1; height: 8px; background: #1f2937; border-radius: 4px; overflow: hidden; }
-  .sector-bar-inner { height: 100%; border-radius: 4px; }
-  .sector-pct { font-size: 12px; font-weight: 700; flex: 0 0 60px; text-align: right; }
+  .logic-chain { background: #0f172a; border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 0 6px 6px 0; margin-bottom: 10px; font-size: 13px; }
+  .logic-chain .chain-title { font-weight: 700; color: var(--accent); margin-bottom: 4px; }
 
-  .nav { display: flex; justify-content: center; gap: 16px; padding: 16px; border-top: 1px solid var(--border); margin-top: 16px; }
-  .nav a { color: var(--muted); text-decoration: none; font-size: 13px; }
-  .nav a.active { color: var(--accent); font-weight: 700; }
+  .signal-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 10px; }
+  .signal-table th { background: #1e293b; }
+  .signal-table td, .signal-table th { padding: 6px 8px; text-align: center; border: 1px solid var(--border); }
+  .light-red { color: #ef4444; font-weight: 700; }
+  .light-yellow { color: #f59e0b; font-weight: 700; }
+  .light-green { color: #22c55e; font-weight: 700; }
 
-  .footer { text-align: center; color: var(--muted); font-size: 11px; padding: 20px 0; }
+  .footer { text-align: center; color: var(--muted); font-size: 11px; padding: 20px 0; border-top: 1px solid var(--border); margin-top: 20px; }
+  .nav { display: flex; justify-content: center; gap: 20px; margin-top: 12px; }
+  .nav a { color: var(--muted); text-decoration: none; font-size: 12px; }
+  .nav a:hover { color: var(--accent); }
 
-  .note { font-size: 11px; color: #6b7280; margin-top: 10px; font-style: italic; line-height: 1.6; padding: 8px; background: #0f172a; border-radius: 6px; }
-
-  @media (max-width: 640px) {
-    .index-grid { grid-template-columns: repeat(3, 1fr); }
-    .signal-grid { grid-template-columns: repeat(3, 1fr); }
-    .factor-grid { grid-template-columns: repeat(2, 1fr); }
-    .sector-name { flex: 0 0 110px; font-size: 12px; }
-    th, td { padding: 6px 8px; font-size: 12px; }
+  @media (max-width: 600px) {
+    .index-grid { grid-template-columns: repeat(2, 1fr); }
+    .factor-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -95,290 +75,193 @@
 <div class="container">
 
   <div class="header">
-    <h1>📰 PeterLuo 财经日报</h1>
-    <div class="sub">2026年7月24日 <span class="badge">17:00晚报</span> · 老六选股逻辑验证框架 v1.0</div>
+    <h1>PeterLuo 财经日报 <span class="badge">早报</span></h1>
+    <div class="sub">2026年7月25日 星期六 09:02 | 数据截止：美股7/24收盘 · 黄金实时</div>
+  </div>
+
+  <div class="alert-box">
+    <div class="alert-title">⚠️ 今日市场状态</div>
+    <div>🇨🇳 A股 <b>休市</b>（周六） | 🇰🇷 韩股 <b>休市</b>（周六） | 🇭🇰 港股 <b>休市</b>（周六） | 🇺🇸 美股 <b>7/24已收盘</b>（周五）</div>
   </div>
 
   <div class="tz-bar">
-    <span class="tag">🇺🇸 美股</span><span>7/24 开盘中（北京时间21:30–04:00）</span> &nbsp;|&nbsp;
-    <span class="tag">🇰🇷 韩股</span><span>7/24 15:00已收盘</span> &nbsp;|&nbsp;
-    <span class="tag">🇭🇰 港股</span><span>7/24 16:00已收盘</span> &nbsp;|&nbsp;
-    <span class="tag">🇨🇳 A股</span><span>7/24 15:00已收盘</span> &nbsp;|&nbsp;
-    <span class="tag">🌏 黄金</span><span>7/24 22:46实时</span>
+    <span class="tag">🇺🇸 美股</span><span>7/24 04:00已收盘</span> &nbsp;|&nbsp;
+    <span class="tag">🇰🇷 韩股</span><span>7/24 15:00已收盘 · 今日休市</span> &nbsp;|&nbsp;
+    <span class="tag">🇭🇰 港股</span><span>7/24 16:00已收盘 · 今日休市</span> &nbsp;|&nbsp;
+    <span class="tag">🇨🇳 A股</span><span>7/24 15:00已收盘 · 今日休市</span> &nbsp;|&nbsp;
+    <span class="tag">🌏 黄金</span><span>7/25 09:02实时</span>
   </div>
 
+  <!-- 美股收盘 -->
   <div class="card">
-    <div class="card-title"><span class="icon">📡</span> 政策要闻 · 公告雷达</div>
-    <ul class="news-list">
-      <li><span class="tag2">公告</span><span class="time">7/24 18:15</span>东方电子公告：计划以自有资金投资24.7亿元用于智慧能源创新产业园项目建设。</li>
-      <li><span class="tag2">业绩</span><span class="time">7/24 18:14</span>源杰科技披露业绩预告：2026上半年预计营收9-9.5亿元，同比+339%~364%；净利润6-6.5亿元，同比+1197%~1305%。</li>
-      <li><span class="tag2">产业</span><span class="time">7/24 18:14</span>半导体设备逆势大涨：光力科技20CM涨停，至纯科技涨停，拓荆科技、芯碁微装、中科飞测跟涨。</li>
-      <li><span class="tag2">订单</span><span class="time">7/24</span>云南锗业控股子公司签订5.7亿元至8.55亿元供货协议。</li>
-      <li><span class="tag2">医疗</span><span class="time">7/24</span>精锋医疗完成对昊动力投资，增强"AI+手术机器人"智能化手术领域实力。</li>
-    </ul>
-  </div>
-
-  <div class="card" style="border-left: 3px solid var(--purple);">
-    <div class="card-title"><span class="icon">🔥</span> 差异对比 · 核心矛盾</div>
-    <div style="font-size:13px;line-height:2;color:var(--muted);">
-      <b style="color:var(--text);">① 半导体内部极致分化：</b>设备+3.18%、封测+1.87%强势，但材料-0.32%、算力-3.14%暴跌——资金在半导体产业链内做"硬切软"。<br>
-      <b style="color:var(--text);">② 资金逆势吸筹：</b>大基金、半导体、海思等硬科技板块获主力净流入，但AIDC、机器人、储能等被大幅抛售，说明主力在借大盘调整向国产替代核心集中。<br>
-      <b style="color:var(--text);">③ 美股映射背离：</b>美光+3%、SK海力士+2.5%收涨，但A股存储/算力反而大跌，中美半导体情绪短期脱钩。
-    </div>
-  </div>
-
-  <div class="card">
-    <div class="card-title"><span class="icon">📊</span> A股收盘复盘（7/24全天）</div>
+    <div class="card-title"><span class="icon">🇺🇸</span> 美股收盘（7月24日周五）</div>
     <div class="index-grid">
       <div class="index-item">
-        <div class="name">上证指数</div>
-        <div class="val down">3814.20</div>
-        <div class="chg down">-62.58 / -1.61%</div>
+        <div class="name">道琼斯</div>
+        <div class="val down">51,711.65</div>
+        <div class="chg down">-0.97%</div>
       </div>
       <div class="index-item">
-        <div class="name">深证成指</div>
-        <div class="val down">13777.68</div>
-        <div class="chg down">-348.63 / -2.47%</div>
+        <div class="name">标普500</div>
+        <div class="val down">7,408.30</div>
+        <div class="chg down">-1.21%</div>
       </div>
       <div class="index-item">
-        <div class="name">创业板指</div>
-        <div class="val down">3480.87</div>
-        <div class="chg down">-94.65 / -2.65%</div>
+        <div class="name">纳斯达克</div>
+        <div class="val down">25,137.69</div>
+        <div class="chg down">-2.15%</div>
       </div>
     </div>
-    <div style="margin-top:12px;font-size:12px;color:var(--muted);text-align:center;">
-      两市成交额 <b style="color:var(--text);">1.94万亿</b>（较上日缩量约2650亿） | 涨跌比 555:4940（普跌） | 大盘资金净流入 <b class="down">-902.90亿</b>
+    <div style="font-size:12px;color:var(--muted);margin-top:10px;">
+      <b style="color:var(--text);">核心驱动：</b>中东冲突升级引发避险抛售，科技股领跌。七巨头市值一夜蒸发近8000亿美元。VIX恐慌指数预计大幅攀升。
     </div>
   </div>
 
-  <!-- 资金流向板块 -->
+  <!-- 黄金敏感指标 -->
   <div class="card">
-    <div class="card-title"><span class="icon">💰</span> 资金流向 · 7/24全天（同花顺板块口径）</div>
-
-    <div style="font-size:12px;font-weight:700;color:var(--up);margin-bottom:8px;">▲ 板块净流入前十</div>
-    <table>
-      <tr><th>板块</th><th class="num">净流入</th><th class="num">涨幅</th><th>代表个股</th></tr>
-      <tr><td>大基金</td><td class="num up">+46.76亿</td><td class="num up">+0.59%</td><td class="stock">中微公司、北方华创</td></tr>
-      <tr><td>半导体</td><td class="num up">+40.99亿</td><td class="num down">-0.10%</td><td class="stock">通富微电+24.25亿</td></tr>
-      <tr><td>海思</td><td class="num up">+26.56亿</td><td class="num down">-2.11%</td><td class="stock">深圳华强</td></tr>
-      <tr><td>先进封</td><td class="num up">+17.54亿</td><td class="num down">-0.80%</td><td class="stock">通富微电、华天科技</td></tr>
-      <tr><td>三代半</td><td class="num up">+16.59亿</td><td class="num down">-1.44%</td><td class="stock">三安光电</td></tr>
-      <tr><td>中芯</td><td class="num up">+15.69亿</td><td class="num up">+0.30%</td><td class="stock">中芯国际</td></tr>
-      <tr><td>传感器</td><td class="num up">+14.72亿</td><td class="num down">-2.07%</td><td class="stock">—</td></tr>
-      <tr><td>车芯片</td><td class="num up">+14.44亿</td><td class="num down">-1.14%</td><td class="stock">—</td></tr>
-      <tr><td>存储</td><td class="num up">+11.50亿</td><td class="num down">-0.59%</td><td class="stock">兆易创新</td></tr>
-      <tr><td>氟化工</td><td class="num up">+11.20亿</td><td class="num down">-1.19%</td><td class="stock">巨化股份</td></tr>
-    </table>
-
-    <div style="font-size:12px;font-weight:700;color:var(--down);margin:16px 0 8px;">▼ 板块净流出前十</div>
-    <table>
-      <tr><th>板块</th><th class="num">净流出</th><th class="num">跌幅</th><th>代表个股</th></tr>
-      <tr><td>AIDC</td><td class="num down">-209.03亿</td><td class="num down">-3.02%</td><td class="stock">润泽科技、数据港</td></tr>
-      <tr><td>机器人</td><td class="num down">-165.09亿</td><td class="num down">-2.62%</td><td class="stock">巨轮智能、埃斯顿</td></tr>
-      <tr><td>储能</td><td class="num down">-160.45亿</td><td class="num down">-2.86%</td><td class="stock">阳光电源、宁德时代</td></tr>
-      <tr><td>5G</td><td class="num down">-159.61亿</td><td class="num down">-2.66%</td><td class="stock">中兴通讯</td></tr>
-      <tr><td>DS</td><td class="num down">-152.42亿</td><td class="num down">-3.18%</td><td class="stock">—</td></tr>
-      <tr><td>新能源</td><td class="num down">-142.90亿</td><td class="num down">-2.48%</td><td class="stock">比亚迪、隆基绿能</td></tr>
-      <tr><td>算力</td><td class="num down">-127.15亿</td><td class="num down">-3.14%</td><td class="stock">德明利-16.60亿</td></tr>
-      <tr><td>AI应用</td><td class="num down">-124.94亿</td><td class="num down">-3.35%</td><td class="stock">昆仑万维</td></tr>
-      <tr><td>风电</td><td class="num down">-118.19亿</td><td class="num down">-3.29%</td><td class="stock">金风科技</td></tr>
-      <tr><td>CPO</td><td class="num down">-105.71亿</td><td class="num down">-2.35%</td><td class="stock">中际旭创、新易盛</td></tr>
-    </table>
-
-    <div class="note">
-      数据来源：同花顺7月24日板块资金（用户截图）。已剔除泛概念（融资融券、沪股通、国企改革、地域类、指数类等），仅保留明确板块。名称简写：大基金=国家大基金持股，先进封=先进封装，三代半=第三代半导体，车芯片=汽车芯片，存储=存储芯片，DS=DeepSeek，新能源=新能源汽车，算力=东数西算，AI应用=AI应用端。代表个股为板块内资金异动典型标的，"—"表示暂无精确数据。
-    </div>
-    <div style="margin-top:12px;padding:10px;background:#0f172a;border-radius:6px;font-size:12px;color:var(--muted);line-height:1.8;">
-      <b style="color:var(--text);">板块分析结论：</b>今日大盘资金净流出<b>902.90亿</b>，超大单+大单合计净流出超770亿，但小单净流入660亿，典型<b>机构减仓、散户接盘</b>结构。从同花顺板块口径看，资金呈现<b>极端分化</b>：硬科技（大基金+46.76亿、半导体+40.99亿、海思+26.56亿）成为唯一避风港，而AIDC（-209亿）、机器人（-165亿）、储能（-160亿）、5G（-159亿）、DS（-152亿）被大幅抛售。这说明资金正在从<b>泛AI应用/基础设施向国产替代硬制造切换</b>，与长鑫上市预期+国产替代逻辑共振。<br><br>
-      <b style="color:var(--text);">个股资金流向监控（单列）：</b><br>
-      <span class="up">▲ 通富微电 +24.25亿（爆拉涨停，封测龙头）</span> | 
-      <span class="up">▲ 华天科技 +6.93亿（封测）</span> | 
-      <span class="up">▲ 中微公司 +流入居前</span><br>
-      <span class="down">▼ 德明利 -16.60亿（存储芯片出逃）</span> | 
-      <span class="down">▼ 紫金矿业 -14.35亿（黄金股兑现）</span> | 
-      <span class="down">▼ 东方财富 -16.10亿（金融科技）</span> | 
-      <span class="down">▼ 同花顺 -7.04亿</span> | 
-      <span class="down">▼ 京东方A -6.0亿+</span> | 
-      <span class="down">▼ 工业富联 -流出居前</span>
-    </div>
-  </div>
-
-  <!-- A股8大板块监测 —— 进度条左对齐，按比例缩放 -->
-  <div class="card">
-    <div class="card-title"><span class="icon">🎯</span> A股8大板块监测（7/24收盘）</div>
-    <div class="sector-row">
-      <span class="sector-name">半导体设备</span>
-      <div class="sector-bar-wrap"><div class="sector-bar-inner" style="width:100%;background:var(--up);"></div></div>
-      <span class="sector-pct up">+3.18%</span>
-    </div>
-    <div class="sector-row">
-      <span class="sector-name">集成电路封测</span>
-      <div class="sector-bar-wrap"><div class="sector-bar-inner" style="width:58.8%;background:var(--up);"></div></div>
-      <span class="sector-pct up">+1.87%</span>
-    </div>
-    <div class="sector-row">
-      <span class="sector-name">地面兵装/军工</span>
-      <div class="sector-bar-wrap"><div class="sector-bar-inner" style="width:66.0%;background:var(--up);"></div></div>
-      <span class="sector-pct up">+2.10%</span>
-    </div>
-    <div class="sector-row">
-      <span class="sector-name">半导体</span>
-      <div class="sector-bar-wrap"><div class="sector-bar-inner" style="width:0.3%;background:var(--down);"></div></div>
-      <span class="sector-pct down">-0.01%</span>
-    </div>
-    <div class="sector-row">
-      <span class="sector-name">半导体材料</span>
-      <div class="sector-bar-wrap"><div class="sector-bar-inner" style="width:10.1%;background:var(--down);"></div></div>
-      <span class="sector-pct down">-0.32%</span>
-    </div>
-    <div class="sector-row">
-      <span class="sector-name">电网设备(特高压)</span>
-      <div class="sector-bar-wrap"><div class="sector-bar-inner" style="width:95.6%;background:var(--down);"></div></div>
-      <span class="sector-pct down">-3.04%</span>
-    </div>
-    <div class="sector-row">
-      <span class="sector-name">算力/东数西算</span>
-      <div class="sector-bar-wrap"><div class="sector-bar-inner" style="width:98.7%;background:var(--down);"></div></div>
-      <span class="sector-pct down">-3.14%</span>
-    </div>
-    <div class="sector-row">
-      <span class="sector-name">智能电网</span>
-      <div class="sector-bar-wrap"><div class="sector-bar-inner" style="width:78.6%;background:var(--down);"></div></div>
-      <span class="sector-pct down">-2.5%</span>
-    </div>
-  </div>
-
-  <!-- 黄金敏感指标 —— 补回关键因子 -->
-  <div class="card">
-    <div class="card-title"><span class="icon">🥇</span> 黄金敏感指标（7/24 22:46）</div>
+    <div class="card-title"><span class="icon">🥇</span> 黄金敏感指标（7/25 09:02）</div>
     <div class="index-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom:12px;">
       <div class="index-item">
         <div class="name">现货黄金</div>
-        <div class="val" style="color:var(--gold);">4060.75</div>
-        <div class="chg up">+11.18 / +0.28%</div>
+        <div class="val" style="color:var(--gold);">~4,000</div>
+        <div class="chg down">单日暴跌逾100美元</div>
       </div>
       <div class="index-item">
         <div class="name">国内金价（上金所）</div>
-        <div class="val" style="color:var(--gold);">883.0</div>
-        <div class="chg" style="color:var(--muted);">元/克（Au99.99）</div>
+        <div class="val" style="color:var(--gold);">~870</div>
+        <div class="chg down">元/克（沪金7/24跌超2%）</div>
       </div>
     </div>
     <div class="factor-grid">
-      <div class="factor"><span class="f-name">美元指数</span><br><span class="f-val">~104.2（强势压制金价）</span></div>
-      <div class="factor"><span class="f-name">恐慌指数VIX</span><br><span class="f-val">~18.5（地缘风险溢价）</span></div>
-      <div class="factor"><span class="f-name">美元-黄金相关性</span><br><span class="f-val">负相关（美元强→黄金弱）</span></div>
-      <div class="factor"><span class="f-name">地缘因子</span><br><span class="f-val">俄乌/中东（避险支撑）</span></div>
+      <div class="factor"><span class="f-name">美元指数</span><br><span class="f-val">101.39（7/24收盘）</span></div>
+      <div class="factor"><span class="f-name">美联储9月加息预期</span><br><span class="f-val">概率83%（CME数据）</span></div>
+      <div class="factor"><span class="f-name">布伦特原油</span><br><span class="f-val">突破100美元/桶</span></div>
+      <div class="factor"><span class="f-name">地缘因子</span><br><span class="f-val">中东冲突升级（避险失效）</span></div>
     </div>
-    <div style="font-size:12px;color:var(--muted);line-height:1.8;margin-top:8px;">
-      <b style="color:var(--text);">逻辑验证：</b>黄金维持4060高位震荡，未突破前高4063。核心变量排序：<b>美元指数>地缘风险>实际利率</b>。今日美元维持104上方强势，理论上压制金价，但地缘避险需求托底，导致黄金高位韧性。紫金矿业今日遭主力净流出14.35亿，资源股高位获利了结明显，但金价本身未崩。短期关注4063突破有效性，若失败可能回踩4000整数关口。信号：<b>黄金ETF优于黄金股</b>。
+    <div style="font-size:12px;color:var(--muted);line-height:1.8;margin-top:10px;">
+      <b style="color:var(--text);">逻辑验证：</b>黄金遭遇三重压力——①美联储9月加息预期升温（概率83%），美元走强；②布伦特原油突破100美元/桶，通胀担忧加剧；③中东冲突升级但黄金未获避险支撑，反而因流动性危机被抛售。技术面跌破关键枢轴位4076美元，RSI走弱。短期关注4000美元心理关口能否守住，若失守可能下探3975美元。信号：<b>黄金ETF暂避锋芒，等待企稳信号</b>。
     </div>
   </div>
 
+  <!-- 原油·地缘因子 -->
   <div class="card">
-    <div class="card-title"><span class="icon">🛢️</span> 原油 · 地缘因子（7/24）</div>
-    <div class="index-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom:12px;">
+    <div class="card-title"><span class="icon">🛢️</span> 原油·地缘因子（7/24）</div>
+    <div class="index-grid" style="grid-template-columns: repeat(2, 1fr);">
       <div class="index-item">
         <div class="name">WTI原油</div>
-        <div class="val down">91.15</div>
-        <div class="chg down">-1.13%</div>
+        <div class="val up">~96</div>
+        <div class="chg up">+4%+（国内期货）</div>
       </div>
       <div class="index-item">
         <div class="name">布伦特原油</div>
-        <div class="val down">93.29</div>
-        <div class="chg down">-1.03%</div>
+        <div class="val up">100.69</div>
+        <div class="chg up">突破100美元</div>
       </div>
     </div>
-    <div style="font-size:12px;color:var(--muted);line-height:1.8;">
-      <b style="color:var(--text);">地缘逻辑：</b>油价小幅回落，市场对需求前景谨慎。俄乌和谈反复、OPEC+增产预期压制油价。布伦特失守94关口，短期或维持92-95区间震荡。对A股能源/化工板块影响中性偏空。
+    <div style="font-size:12px;color:var(--muted);margin-top:10px;">
+      <b style="color:var(--text);">逻辑链条：</b>中东冲突升级 → 原油供应担忧 → 油价突破100美元 → 通胀预期升温 → 美联储鹰派预期强化 → 黄金被抛售+美股承压。油价与黄金的负相关阶段性失效，共同受加息预期压制。
     </div>
   </div>
 
-  <!-- 半导体·科技因子 —— 补全映射追踪 -->
+  <!-- 半导体·科技因子 -->
   <div class="card">
     <div class="card-title"><span class="icon">💻</span> 半导体·科技因子（7/24）</div>
-    <div style="font-size:12px;font-weight:700;color:var(--muted);margin-bottom:8px;">情绪60% / 数据40% · 老六选股逻辑验证框架</div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px;">
-      <div class="index-item" style="padding:10px 4px;"><div class="name">纳指</div><div class="val down">-2.15%</div></div>
-      <div class="index-item" style="padding:10px 4px;"><div class="name">美光</div><div class="val up">+3.0%</div></div>
-      <div class="index-item" style="padding:10px 4px;"><div class="name">SK海力士</div><div class="val up">+2.5%</div></div>
-      <div class="index-item" style="padding:10px 4px;"><div class="name">谷歌</div><div class="val down">-7.0%</div></div>
-    </div>
-    <div class="factor-grid">
-      <div class="factor"><span class="f-name">美股·美光</span><br><span class="f-val">+3.0%（存储景气）</span></div>
-      <div class="factor"><span class="f-name">美股·英伟达</span><br><span class="f-val">-2.5%（AI芯片）</span></div>
-      <div class="factor"><span class="f-name">韩股·SK海力士</span><br><span class="f-val">+2.5%（HBM龙头）</span></div>
-      <div class="factor"><span class="f-name">韩股·三星电子</span><br><span class="f-val">-1.2%（存储/代工）</span></div>
-      <div class="factor"><span class="f-name">韩指·KOSPI</span><br><span class="f-val">-1.8%（整体承压）</span></div>
-      <div class="factor"><span class="f-name">A股·寒武纪</span><br><span class="f-val">-4.5%（AI芯片情绪）</span></div>
-      <div class="factor"><span class="f-name">港股·中芯国际</span><br><span class="f-val">+0.8%（代工龙头）</span></div>
-      <div class="factor"><span class="f-name">A股·北方华创</span><br><span class="f-val">+5.2%（设备龙头）</span></div>
-    </div>
-    <div style="font-size:12px;color:var(--muted);line-height:1.8;margin-top:8px;">
-      <b style="color:var(--text);">映射分析：</b>美股AI半导体分化——美光、SK海力士逆势收涨，存储芯片景气度获认可；但谷歌跌7%、特斯拉跌14.5%拖累纳指。A股今日存储/算力反而大跌，中美半导体情绪短期脱钩，A股更跟随大盘流动性与内资调仓节奏。<b>北方华创+5.2%</b>领涨设备龙头，验证国产替代情绪主导；<b>寒武纪-4.5%</b>反映AI芯片情绪退潮。半导体设备成为A股唯一避风港，与国产替代+长鑫上市预期共振。信号：<b>设备>封测>材料>算力</b>。
+    <div style="font-size:13px;color:var(--muted);line-height:1.8;">
+      <b style="color:var(--text);">美股科技股：</b>纳指大跌2.15%，七巨头市值蒸发近8000亿美元。半导体板块受AI交易可持续性质疑+地缘风险双重打压。<br><br>
+      <b style="color:var(--text);">A股半导体（7/24）：</b>半导体设备逆势大涨，光力科技20CM涨停，至纯科技涨停，拓荆科技、芯碁微装、中科飞测跟涨。长鑫科技7月27日（下周一）上市，资金提前布局存储/封测产业链。<br><br>
+      <b style="color:var(--text);">关键事件：</b>①长鑫科技7/27上市，关注受益标的；②高盛报告质疑AI交易可持续性，阶梯一/二基础设施公司承压；③中东冲突或影响全球芯片供应链。
     </div>
   </div>
 
+  <!-- 早盘预判 -->
   <div class="card">
-    <div class="card-title"><span class="icon">⛓️</span> 投资逻辑链条 · 信号总结</div>
-
-    <div class="chain">
-      <div class="chain-title">链条1：黄金避险线</div>
-      <div class="chain-body">
-        地缘风险（俄乌/中东）→ 美元波动 → 金价4060高位震荡。今日紫金矿业遭14亿抛售，<b>资源股与金价背离</b>，说明资金在黄金股上兑现利润，而非看空黄金本身。信号：<b>持有黄金ETF优于黄金股</b>。
-      </div>
+    <div class="card-title"><span class="icon">🔮</span> 早盘预判（下周一7/27）</div>
+    <div class="logic-chain">
+      <div class="chain-title">逻辑链条1：黄金→资源股</div>
+      黄金单日暴跌100美元+沪金跌超2% → 紫金矿业、赤峰黄金等黄金股周一承压 → 但中东冲突若周末升级，可能低开高走 → <b>观望为主，不急于抄底</b>
     </div>
-
-    <div class="chain">
-      <div class="chain-title">链条2：半导体国产替代线</div>
-      <div class="chain-body">
-        长鑫科技即将上市 → 设备/封测/材料情绪预热。今日设备+3.18%、封测+1.87%验证资金在<b>打提前量</b>。但算力-3.14%被抛弃，说明资金从"AI概念"向"硬制造"切换。信号：<b>设备>封测>材料>算力</b>。
-      </div>
+    <div class="logic-chain">
+      <div class="chain-title">逻辑链条2：原油→通胀→加息</div>
+      原油突破100美元 → 通胀担忧 → 美联储鹰派 → 全球风险资产承压 → A股高估值科技股承压 → <b>低估值防御板块（电力、电网、中药）相对抗跌</b>
     </div>
-
-    <div class="chain">
-      <div class="chain-title">链条3：电网设备·算电协同线</div>
-      <div class="chain-body">
-        暑天电量负荷大增+算电协同逻辑仍在，但电网设备今日特高压-3.04%深度回调。昨日电力股40+涨停后今日分化，<b>高潮次日不接盘</b>。信号：<b>等10/20日线回踩，不追高</b>。
-      </div>
+    <div class="logic-chain">
+      <div class="chain-title">逻辑链条3：长鑫上市→存储/封测</div>
+      长鑫科技7/27上市 → 资金聚焦存储芯片、先进封测 → 华天科技、通富微电、长电科技受益 → <b>周一关注封测板块资金动向</b>
     </div>
-
-    <div class="chain">
-      <div class="chain-title">链条4：大盘流动性线</div>
-      <div class="chain-body">
-        成交额1.94万亿缩量2650亿+大盘资金净流出902.90亿+<b>超大单净流出425亿</b>。机构在减仓，散户小单净流入660亿接盘。这种结构下，<b>大盘短期仍有下探3800支撑的可能</b>。信号：<b>控仓6成以内，单股≤10%</b>。
-      </div>
-    </div>
-
-    <div class="signal-grid">
-      <div class="signal">
-        <div class="light light-red"></div>
-        <div class="name">黄金</div>
-        <div class="op">高位震荡·观望</div>
-      </div>
-      <div class="signal">
-        <div class="light light-green"></div>
-        <div class="name">半导体设备</div>
-        <div class="op">逆势强势·可参与</div>
-      </div>
-      <div class="signal">
-        <div class="light light-yellow"></div>
-        <div class="name">算力/电网</div>
-        <div class="op">回调中·等买点</div>
-      </div>
+    <div class="logic-chain">
+      <div class="chain-title">逻辑链条4：美股大跌→A股低开</div>
+      纳指跌2.15%+七巨头暴跌 → 亚太情绪承压 → A股周一大概率低开 → <b>关注低开后的承接力度，10点定方向</b>
     </div>
   </div>
 
-  <div class="nav">
-    <a href="#" class="active">日报</a>
-    <a href="#">历史</a>
-    <a href="#">对比</a>
-    <a href="#">设置</a>
+  <!-- 信号总结表 -->
+  <div class="card">
+    <div class="card-title"><span class="icon">📊</span> 信号总结表</div>
+    <table class="signal-table">
+      <tr>
+        <th>资产</th>
+        <th>信号</th>
+        <th>操作建议</th>
+      </tr>
+      <tr>
+        <td>黄金</td>
+        <td class="light-red">🔴 暴跌</td>
+        <td>观望，等4000支撑确认</td>
+      </tr>
+      <tr>
+        <td>原油</td>
+        <td class="light-red">🔴 突破100</td>
+        <td>通胀预期升温，利空风险资产</td>
+      </tr>
+      <tr>
+        <td>美股</td>
+        <td class="light-red">🔴 大跌</td>
+        <td>科技股回避，等企稳</td>
+      </tr>
+      <tr>
+        <td>A股半导体</td>
+        <td class="light-yellow">🟡 分化</td>
+        <td>长鑫上市催化，关注封测</td>
+      </tr>
+      <tr>
+        <td>电力/电网</td>
+        <td class="light-green">🟢 防御</td>
+        <td>低估值+夏季用电高峰，抗跌</td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- 政策要闻 -->
+  <div class="card">
+    <div class="card-title"><span class="icon">📰</span> 政策要闻·公告雷达</div>
+    <ul style="list-style:none;font-size:13px;">
+      <li style="padding:8px 0;border-bottom:1px solid var(--border);"><span style="color:var(--muted);font-size:11px;">7/24</span> <b>东方电子</b>：计划以自有资金投资24.7亿元用于智慧能源创新产业园项目建设。</li>
+      <li style="padding:8px 0;border-bottom:1px solid var(--border);"><span style="color:var(--muted);font-size:11px;">7/24</span> <b>添芯科技</b>：披露业绩预告，2026上半年预计营收9-9.5亿元，同比+339%~364%；净利润6-6.5亿元，同比+1197%~1305%。</li>
+      <li style="padding:8px 0;border-bottom:1px solid var(--border);"><span style="color:var(--muted);font-size:11px;">7/24</span> <b>云南锗业</b>：控股子公司签订5.7亿元至8.55亿元大单。</li>
+      <li style="padding:8px 0;"><span style="color:var(--muted);font-size:11px;">7/27</span> <b>长鑫科技</b>：科创板上市，关注存储/封测产业链受益标的。</li>
+    </ul>
+  </div>
+
+  <!-- 投资逻辑链条 -->
+  <div class="card">
+    <div class="card-title"><span class="icon">🔗</span> 投资逻辑链条</div>
+    <div style="font-size:12px;color:var(--muted);line-height:1.8;">
+      <b style="color:var(--text);">链条1（黄金）：</b>美联储加息预期↑ → 美元↑ → 黄金↓ → 黄金股↓ → <b>观望</b><br>
+      <b style="color:var(--text);">链条2（原油）：</b>中东冲突↑ → 原油↑ → 通胀↑ → 加息预期↑ → 风险资产↓ → <b>防御</b><br>
+      <b style="color:var(--text);">链条3（半导体）：</b>长鑫上市 → 存储芯片↑ → 封测↑ → 设备材料↑ → <b>关注</b><br>
+      <b style="color:var(--text);">链条4（电力）：</b>夏季高温 → 用电负荷↑ → 算电协同↑ → 电网设备↑ → <b>持有</b>
+    </div>
   </div>
 
   <div class="footer">
-    PeterLuo财经日报 · 老六选股逻辑验证框架 v1.0 · 情绪60%/数据40%<br>
-    数据时点已标注 · 美股沿用7/24凌晨收盘 · 港股数据待补<br>
-    <span style="color:#ef4444;">仅供研究，不构成投资建议</span>
+    <div>PeterLuo财经日报 · 老六选股逻辑验证框架 · 仅供研究，不构成投资建议</div>
+    <div class="nav">
+      <a href="https://peterluo23.github.io/gold-dashboard/">日报首页</a>
+      <a href="#">历史</a>
+      <a href="#">对比</a>
+      <a href="#">设置</a>
+    </div>
+    <div style="margin-top:8px;">数据时点：美股7/24收盘 · 黄金7/25 09:02 · A股/韩股/港股今日休市</div>
   </div>
 
 </div>
