@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PeterLuo财经日报 · 2026-07-27 盘前报</title>
+<title>PeterLuo财经日报 · 2026-07-27 收盘晚报</title>
 <style>
 :root{--bg:#0a0e17;--card:#111827;--border:#1f2937;--text:#e5e7eb;--muted:#9ca3af;--gold:#fbbf24;--red:#ef4444;--green:#22c55e;--blue:#3b82f6;--purple:#a855f7;--cyan:#06b6d4}
 *{margin:0;padding:0;box-sizing:border-box}
@@ -57,63 +57,136 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 .neutral{color:var(--muted)}
 
 .pill{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:20px;font-size:0.8rem;background:var(--bg);border:1px solid var(--border)}
+
+.highlight-box{background:rgba(251,191,36,0.05);border:1px solid rgba(251,191,36,0.2);border-radius:10px;padding:12px;margin-top:10px;font-size:0.85rem}
+
+.changxin-box{background:linear-gradient(135deg,rgba(168,85,247,0.1),rgba(6,182,212,0.1));border:1px solid rgba(168,85,247,0.3);border-radius:12px;padding:16px;margin-bottom:16px}
+.changxin-box .title{font-size:1.1rem;font-weight:700;color:var(--purple);margin-bottom:10px}
 </style>
 </head>
 <body>
 
 <div class="header">
   <h1>📰 PeterLuo 财经日报</h1>
-  <div class="date">2026年7月27日 · 周一 · 09:00 盘前预判版 <span class="badge badge-gold">早报</span></div>
+  <div class="date">2026年7月27日 · 周一 · 17:00 收盘晚报 <span class="badge badge-gold">晚报</span></div>
 </div>
 
 <!-- 数据时点条 -->
 <div class="data-timebar">
   <div class="label">📡 数据时点</div>
   <div class="items">
-    <div class="item"><span class="flag">🇺🇸</span>美股 07/24 收盘 <span class="badge badge-blue">已收盘</span></div>
-    <div class="item"><span class="flag">🇰🇷</span>韩股 07/27 开盘 <span class="badge badge-green">已更新</span></div>
+    <div class="item"><span class="flag">🇺🇸</span>美股 07/24 收盘 <span class="badge badge-blue">沿用</span></div>
+    <div class="item"><span class="flag">🇰🇷</span>韩股 07/27 收盘 <span class="badge badge-green">已更新</span></div>
     <div class="item"><span class="flag">🇭🇰</span>港股 07/25 收盘 <span class="badge badge-blue">沿用</span></div>
-    <div class="item"><span class="flag">🇨🇳</span>A股 07/27 盘前 <span class="badge badge-gold">待开盘</span></div>
+    <div class="item"><span class="flag">🇨🇳</span>A股 07/27 收盘 <span class="badge badge-green">已更新</span></div>
     <div class="item"><span class="flag">🟡</span>黄金 07/27 现货 <span class="badge badge-green">实时</span></div>
     <div class="item"><span class="flag">🛢️</span>原油 07/25 收盘 <span class="badge badge-blue">沿用</span></div>
   </div>
 </div>
 
-<!-- 政策要闻·公告雷达 -->
-<div class="card">
-  <div class="card-title"><span class="icon">📢</span>政策要闻 · 公告雷达</div>
-  <div class="news-item"><span class="tag tag-event">IPO</span><strong>长鑫科技（688825）今日科创板上市</strong>：发行价8.66元，发行市值5792亿元，上半年净利润500-570亿元（同比+2244%），前5日无涨跌幅限制。野村证券给予116元目标价。</div>
-  <div class="news-item"><span class="tag tag-policy">美联储</span><strong>7月30日（本周三）美联储利率决议</strong>：当前维持利率不变概率约61-75%，市场关注是否释放鹰派信号。德意志银行此前预测年内或加息50bp。</div>
-  <div class="news-item"><span class="tag tag-event">科技</span><strong>英伟达首批美国制造GB300芯片下线</strong>：台积电亚利桑那工厂4nm芯片已出厂，CoWoS先进封装为最后一步国产化。</div>
-  <div class="news-item"><span class="tag tag-risk">地缘</span><strong>特朗普暂停对伊朗空袭</strong>：结束连续13天打击，但胡塞武装48小时内袭击三艘沙特油轮，红海航运风险仍存。</div>
-  <div class="news-item"><span class="tag tag-policy">宏观</span><strong>宁德时代推出A股最大规模回购计划</strong>：拟斥资超200亿元回购股份，提振新能源板块情绪。</div>
-</div>
-
-<!-- 差异对比横幅 -->
-<div class="banner">
-  <div class="banner-title">⚡ 差异对比 · 关键信号</div>
-  <div style="margin-top:8px">
-    <span class="pill">🇺🇸美股存储大跌 <span class="down">↘</span></span>
-    <span class="pill">🇰🇷韩股半导体反弹 <span class="up">↗</span></span>
-    <span class="pill">🟡黄金高位震荡 <span class="neutral">→</span></span>
-    <span class="pill">🛢️原油地缘溢价 <span class="up">↗</span></span>
+<!-- 长鑫科技专题 -->
+<div class="changxin-box">
+  <div class="title">👑 长鑫科技（688825）上市首日 · 创A股历史</div>
+  <div class="grid-2">
+    <div>
+      <div class="metric"><span class="name">发行价</span><span class="value">8.66元</span></div>
+      <div class="metric"><span class="name">开盘价</span><span class="value up">49.50元 (+471.59%)</span></div>
+      <div class="metric"><span class="name">盘中最高</span><span class="value up">55.03元 (+535.45%)</span></div>
+      <div class="metric"><span class="name">午盘收</span><span class="value up">54.65元 (+531.06%)</span></div>
+    </div>
+    <div>
+      <div class="metric"><span class="name">全天成交额</span><span class="value" style="color:var(--gold)">1221亿元 · 历史第一</span></div>
+      <div class="metric"><span class="name">换手率</span><span class="value">58.06%</span></div>
+      <div class="metric"><span class="name">总市值</span><span class="value" style="color:var(--purple)">3.655万亿 · A股一哥</span></div>
+      <div class="metric"><span class="name">中一签盈利</span><span class="value up">约2.3万元</span></div>
+    </div>
   </div>
-  <div style="margin-top:10px;color:var(--muted);font-size:0.85rem">
-    核心矛盾：美股存储芯片周五崩盘（费半-4.25%） vs 韩股周一开盘半导体强势反弹（三星+3%，海力士+2%）。长鑫科技今日上市为A股半导体提供独立情绪锚点，短期或走出与美股脱钩行情。
+  <div style="margin-top:10px;font-size:0.85rem;color:var(--muted)">
+    创A股多项纪录：①首只单日成交破千亿个股 ②科创板史上最大IPO（募资579亿） ③开盘即超3万亿市值 ④超过英特尔市值（4656亿美元≈3.15万亿人民币）。30家战略股东含阿里、美团、小米。预计9月纳入科创50，12月纳入沪深300。
   </div>
 </div>
 
-<!-- 早盘预判 -->
+<!-- 收盘复盘 -->
 <div class="card">
-  <div class="card-title"><span class="icon">🎯</span>早盘预判（09:00前）</div>
-  <div style="font-size:0.9rem;color:var(--muted);margin-bottom:12px">基于美股收盘+韩股开盘+盘前政策综合推演</div>
-  <div class="metric"><span class="name">大盘情绪</span><span class="value" style="color:var(--gold)">谨慎偏暖</span></div>
-  <div class="metric"><span class="name">上证指数</span><span class="value neutral">预计小幅高开或平开，关注量能能否放大</span></div>
-  <div class="metric"><span class="name">主线方向</span><span class="value" style="color:var(--purple)">半导体存储 > 电力设备 > 黄金</span></div>
-  <div class="metric"><span class="name">风险提示</span><span class="value" style="color:var(--red)">长鑫科技上市抽血效应、美股科技股回调传导</span></div>
-  <div style="margin-top:12px;padding:10px;background:rgba(251,191,36,0.05);border-radius:8px;font-size:0.85rem;color:var(--muted)">
-    <strong style="color:var(--gold)">操作提示：</strong>长鑫科技上市首日不设涨跌幅，存储板块情绪将被激活。但流通盘仅约45亿股（占比6.7%），警惕剧烈波动。电力设备（电网/特高压）受国际变量影响小，回调后或迎配置窗口。黄金高位震荡，关注美联储决议前资金避险动向。
+  <div class="card-title"><span class="icon">📊</span>收盘复盘（准确率验证）</div>
+  <div style="font-size:0.9rem;color:var(--muted);margin-bottom:12px">早报预判 vs 实际走势</div>
+  <table class="signal-table">
+    <tr><th>预判项</th><th>早报预判</th><th>实际结果</th><th>验证</th></tr>
+    <tr><td>大盘情绪</td><td>谨慎偏暖</td><td>三大指数集体收涨，近5000股上涨</td><td><span class="badge badge-green">✓ 正确</span></td></tr>
+    <tr><td>主线方向</td><td>半导体存储 > 电力设备 > 黄金</td><td>半导体吸金622亿居首，元件/电池跟进</td><td><span class="badge badge-green">✓ 正确</span></td></tr>
+    <tr><td>长鑫科技</td><td>情绪激活，警惕剧烈波动</td><td>暴涨531%，成交破千亿，交易卡顿</td><td><span class="badge badge-green">✓ 正确</span></td></tr>
+    <tr><td>半导体链</td><td>设备/封测/材料受益</td><td>半导体整体+2.2%，但存储分化（兆易跌停）</td><td><span class="badge badge-blue">△ 部分正确</span></td></tr>
+  </table>
+  <div style="margin-top:10px;font-size:0.85rem;color:var(--muted)">
+    <strong style="color:var(--gold)">准确率：</strong>今日早报核心预判方向正确，长鑫科技上市效应与半导体主线判断命中。偏差在于存储板块内部分化剧烈——长鑫科技虹吸效应导致其他存储股（兆易创新、华虹宏力）资金被抽血下跌。
   </div>
+</div>
+
+<!-- 大盘概览 -->
+<div class="card">
+  <div class="card-title"><span class="icon">📈</span>A股大盘概览 · 07/27全天</div>
+  <div class="grid-2">
+    <div>
+      <div class="metric"><span class="name">上证指数</span><span class="value up">3858.25 +1.15%</span></div>
+      <div class="metric"><span class="name">深证成指</span><span class="value up">14148.73 +2.72%</span></div>
+      <div class="metric"><span class="name">创业板指</span><span class="value up">+1.55%（午盘）</span></div>
+      <div class="metric"><span class="name">科创50</span><span class="value up">低开高走，存储分化</span></div>
+    </div>
+    <div>
+      <div class="metric"><span class="name">沪深两市成交额</span><span class="value">约2.08万亿元</span></div>
+      <div class="metric"><span class="name">上涨个股</span><span class="value up">~4900只</span></div>
+      <div class="metric"><span class="name">下跌个股</span><span class="value down">~280只</span></div>
+      <div class="metric"><span class="name">主力资金</span><span class="value up">净流入 +908亿</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- 资金流向板块 -->
+<div class="card">
+  <div class="card-title"><span class="icon">💰</span>资金流向 · 07/27全天</div>
+  <div style="font-size:0.85rem;color:var(--muted);margin-bottom:10px">数据来源：东方财富 · 主力资金口径</div>
+  <div class="grid-2">
+    <div>
+      <div style="font-weight:700;color:var(--red);margin-bottom:8px">🔥 净流入前十板块</div>
+      <div class="metric"><span class="name">1. 半导体</span><span class="value up">+622.67亿 (+2.20%)</span></div>
+      <div class="metric"><span class="name">2. 元件</span><span class="value up">+63.91亿 (+5.28%)</span></div>
+      <div class="metric"><span class="name">3. 玻璃玻纤</span><span class="value up">+36.65亿 (+5.83%)</span></div>
+      <div class="metric"><span class="name">4. 电池</span><span class="value up">+29.68亿 (+4.82%)</span></div>
+      <div class="metric"><span class="name">5. 通用设备</span><span class="value up">+19.01亿 (+3.64%)</span></div>
+      <div class="metric"><span class="name">6. 电子化学品</span><span class="value up">+18.33亿 (+4.72%)</span></div>
+      <div class="metric"><span class="name">7. 专用设备</span><span class="value up">+15.04亿 (+2.96%)</span></div>
+      <div class="metric"><span class="name">8. 通信设备</span><span class="value up">+13.00亿 (+3.00%)</span></div>
+      <div class="metric"><span class="name">9. 光学光电子</span><span class="value up">+12.46亿 (+3.38%)</span></div>
+      <div class="metric"><span class="name">10. 工程咨询服务</span><span class="value up">+9.38亿 (+3.28%)</span></div>
+    </div>
+    <div>
+      <div style="font-weight:700;color:var(--green);margin-bottom:8px">💧 净流出板块（防御性调仓）</div>
+      <div class="metric"><span class="name">计算机设备</span><span class="value down">-7.21亿</span></div>
+      <div class="metric"><span class="name">IT服务</span><span class="value down">-5.39亿</span></div>
+      <div class="metric"><span class="name">通信设备（部分）</span><span class="value down">-2.65亿</span></div>
+      <div class="metric"><span class="name">通信服务</span><span class="value down">-2.51亿</span></div>
+      <div class="metric"><span class="name">化学原料</span><span class="value down">-2.49亿</span></div>
+      <div style="margin-top:12px;padding:10px;background:rgba(34,197,94,0.05);border-radius:8px;font-size:0.8rem;color:var(--muted)">
+        <strong style="color:var(--green)">结论：</strong>今日资金呈现"弃防就攻"特征，从低弹性红利资产向高成长科技板块迁移。半导体板块单日吸金622亿，创近期纪录，验证国产替代+存储周期见底逻辑。电池/元件跟进，新能源赛道内部轮动。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- A股8大板块 -->
+<div class="card">
+  <div class="card-title"><span class="icon">🎯</span>A股 8大板块监测 · 07/27收盘</div>
+  <table class="signal-table">
+    <tr><th>板块</th><th>情绪</th><th>资金</th><th>核心标的</th><th>逻辑</th></tr>
+    <tr><td>半导体·存储</td><td><span class="up">🔥🔥🔥</span></td><td>+622亿</td><td>长鑫科技(+531%)、成都华微</td><td>长鑫上市虹吸，设备材料受益</td></tr>
+    <tr><td>元件·PCB</td><td><span class="up">🔥🔥</span></td><td>+64亿</td><td>贤丰控股涨停</td><td>英伟达GB300下线催化</td></tr>
+    <tr><td>电池·新能源</td><td><span class="up">🔥🔥</span></td><td>+30亿</td><td>圣阳股份、万里股份涨停</td><td>宁德时代回购提振</td></tr>
+    <tr><td>玻璃玻纤</td><td><span class="up">🔥</span></td><td>+37亿</td><td>宏和科技、国际复材</td><td>顺周期补涨</td></tr>
+    <tr><td>算力·AI基础设施</td><td><span class="up">🔥</span></td><td>+13亿</td><td>宁波建工涨停、亚康股份+17%</td><td>算力租赁午后拉升</td></tr>
+    <tr><td>创新药</td><td><span class="neutral">→</span></td><td>温和流入</td><td>哈三联4天3板</td><td>政策友好，防御属性</td></tr>
+    <tr><td>黄金·贵金属</td><td><span class="down">↘</span></td><td>流出</td><td>板块回调</td><td>特朗普暂停伊朗空袭缓和地缘</td></tr>
+    <tr><td>商业航天</td><td><span class="down">↘</span></td><td>流出</td><td>情绪退潮</td><td>巨力索具等监控中</td></tr>
+  </table>
 </div>
 
 <div class="grid-2">
@@ -122,90 +195,63 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
     <div class="card-title"><span class="icon">🟡</span>黄金敏感指标</div>
     <div class="metric"><span class="name">现货黄金</span><span class="value" style="color:var(--gold)">$4,053/oz</span></div>
     <div class="metric"><span class="name">1年涨幅</span><span class="value up">+21.5%</span></div>
-    <div class="metric"><span class="name">汇丰预测</span><span class="value">2026均价$4,560</span></div>
-    <div class="metric"><span class="name">核心驱动</span><span class="value">地缘避险+美元走弱预期</span></div>
-    <div style="margin-top:8px;font-size:0.8rem;color:var(--muted)">特朗普暂停伊朗空袭短期缓和地缘，但胡塞武装袭船+美联储决议前不确定性支撑金价高位。</div>
+    <div class="metric"><span class="name">今日A股黄金板块</span><span class="value down">回调</span></div>
+    <div class="metric"><span class="name">核心变量</span><span class="value">美联储7/30决议前避险</span></div>
+    <div style="margin-top:8px;font-size:0.8rem;color:var(--muted)">特朗普暂停伊朗空袭短期缓和地缘，黄金板块今日承压。但胡塞武装袭船+美联储决议前不确定性仍在，高位震荡格局未改。</div>
   </div>
 
   <!-- 原油·地缘因子 -->
   <div class="card">
     <div class="card-title"><span class="icon">🛢️</span>原油·地缘因子</div>
-    <div class="metric"><span class="name">布伦特原油</span><span class="value" style="color:var(--gold)">~$82-100区间</span></div>
-    <div class="metric"><span class="name">EIA预测</span><span class="value">2026均价$82/桶</span></div>
-    <div class="metric"><span class="name">地缘风险</span><span class="value up">红海航运中断</span></div>
-    <div class="metric"><span class="name">高盛观点</span><span class="value">极端情景或破$120</span></div>
-    <div style="margin-top:8px;font-size:0.8rem;color:var(--muted)">胡塞武装对沙特油轮实施海上禁运，短期油价承压上行。但EIA大幅下调明年预期至$65，供需博弈加剧。</div>
+    <div class="metric"><span class="name">WTI原油</span><span class="value down">盘中重挫8%后收窄</span></div>
+    <div class="metric"><span class="name">布伦特</span><span class="value">~$82-100区间</span></div>
+    <div class="metric"><span class="name">地缘风险</span><span class="value up">红海航运中断持续</span></div>
+    <div class="metric"><span class="name">A股油气板块</span><span class="value down">领跌（中曼石油跌停）</span></div>
+    <div style="margin-top:8px;font-size:0.8rem;color:var(--muted)">WTI盘中一度跌8%，A股油气开采板块低开低走。EIA下调明年预期至$65，供需博弈加剧。</div>
   </div>
 </div>
 
 <!-- 半导体·科技因子 -->
 <div class="card">
-  <div class="card-title"><span class="icon">💻</span>半导体·科技因子</div>
+  <div class="card-title"><span class="icon">💻</span>半导体·科技因子 · 关键分化</div>
   <div class="grid-2" style="margin-top:8px">
     <div>
-      <div style="font-weight:700;color:var(--purple);margin-bottom:6px">🇺🇸 美股映射（07/24收盘）</div>
-      <div class="metric"><span class="name">费城半导体</span><span class="value down">-4.25%</span></div>
-      <div class="metric"><span class="name">闪迪</span><span class="value down">-10%+</span></div>
-      <div class="metric"><span class="name">SK海力士(ADR)</span><span class="value down">-8%+</span></div>
-      <div class="metric"><span class="name">美光科技</span><span class="value down">-6%+</span></div>
-      <div class="metric"><span class="name">苹果</span><span class="value up">+3.5%</span></div>
+      <div style="font-weight:700;color:var(--purple);margin-bottom:6px">🚀 强势方向</div>
+      <div class="metric"><span class="name">长鑫科技</span><span class="value up">+531%</span></div>
+      <div class="metric"><span class="name">成都华微</span><span class="value up">涨停</span></div>
+      <div class="metric"><span class="name">至纯科技</span><span class="value up">领涨半导体</span></div>
+      <div class="metric"><span class="name">半导体设备</span><span class="value up">资金大幅流入</span></div>
     </div>
     <div>
-      <div style="font-weight:700;color:var(--cyan);margin-bottom:6px">🇰🇷 韩股开盘（07/27）</div>
-      <div class="metric"><span class="name">KOSPI</span><span class="value up">+1.1%</span></div>
-      <div class="metric"><span class="name">三星电子</span><span class="value up">+3%</span></div>
-      <div class="metric"><span class="name">SK海力士</span><span class="value up">+2%</span></div>
-      <div style="margin-top:10px;font-size:0.8rem;color:var(--muted)">韩股半导体反弹，与美股周五下跌形成背离，显示亚洲资金对存储周期拐点的信心。</div>
+      <div style="font-weight:700;color:var(--red);margin-bottom:6px">📉 弱势方向（抽血效应）</div>
+      <div class="metric"><span class="name">兆易创新</span><span class="value down">触及跌停（后收窄）</span></div>
+      <div class="metric"><span class="name">华虹宏力</span><span class="value down">跌超10%</span></div>
+      <div class="metric"><span class="name">全志科技</span><span class="value down">跌超10%</span></div>
+      <div class="metric"><span class="name">佰维存储</span><span class="value down">跌幅居前</span></div>
     </div>
   </div>
-  <div style="margin-top:12px;padding:10px;background:rgba(168,85,247,0.05);border-radius:8px;font-size:0.85rem">
-    <strong style="color:var(--purple)">长鑫科技上市链：</strong>设备（北方华创/中微/拓荆/盛美）→材料（彤程/安集/沪硅）→封测（通富/长电/华天）→模组（深科技/澜起）。今日重点关注设备与封测端情绪传导。
-  </div>
-</div>
-
-<!-- A股8大板块 -->
-<div class="card">
-  <div class="card-title"><span class="icon">📊</span>A股 8大板块监测</div>
-  <table class="signal-table">
-    <tr><th>板块</th><th>情绪</th><th>资金</th><th>逻辑</th></tr>
-    <tr><td>半导体·存储</td><td><span class="up">🔥🔥🔥</span></td><td>待收盘</td><td>长鑫上市催化，设备材料受益</td></tr>
-    <tr><td>电力设备·电网</td><td><span class="up">🔥🔥</span></td><td>待收盘</td><td>回调后配置窗口，受国际变量影响小</td></tr>
-    <tr><td>黄金·贵金属</td><td><span class="neutral">🔥</span></td><td>待收盘</td><td>高位震荡，美联储决议前避险</td></tr>
-    <tr><td>算力·AI基础设施</td><td><span class="neutral">🔥</span></td><td>待收盘</td><td>英伟达GB300下线，液冷/电源跟进</td></tr>
-    <tr><td>创新药</td><td><span class="neutral">→</span></td><td>待收盘</td><td>政策友好，防御属性</td></tr>
-    <tr><td>新能源·储能</td><td><span class="neutral">→</span></td><td>待收盘</td><td>宁德时代回购提振，光伏待出清</td></tr>
-    <tr><td>战略金属</td><td><span class="up">🔥</span></td><td>待收盘</td><td>地缘+供给约束，稀土/小金属活跃</td></tr>
-    <tr><td>商业航天</td><td><span class="down">↘</span></td><td>待收盘</td><td>情绪退潮，巨力索具等监控</td></tr>
-  </table>
-  <div style="margin-top:8px;font-size:0.8rem;color:var(--muted)">注：资金流向待17:00收盘后更新为全天数据。</div>
-</div>
-
-<!-- 资金流向板块 -->
-<div class="card">
-  <div class="card-title"><span class="icon">💰</span>资金流向（待17:00收盘更新）</div>
-  <div style="text-align:center;padding:20px;color:var(--muted);font-size:0.9rem">
-    <div style="font-size:2rem;margin-bottom:8px">⏳</div>
-    <div>07/27 全天资金流向数据尚未产生</div>
-    <div style="font-size:0.8rem;margin-top:4px">将于今日17:00收盘后更新净流入/流出前十板块</div>
+  <div style="margin-top:12px;padding:10px;background:rgba(239,68,68,0.05);border-radius:8px;font-size:0.85rem;color:var(--muted)">
+    <strong style="color:var(--red)">分化解读：</strong>长鑫科技上市首日虹吸效应显著——全天成交1221亿，占两市总成交约6%。资金集中追捧"国产DRAM独苗"，导致其他存储芯片股资金被抽血。兆易创新作为A股存储龙头，盘中触及跌停，反映市场对"长鑫替代逻辑"的重新定价。短期存储板块内部分化或将持续。
   </div>
 </div>
 
 <!-- 政策宏观 -->
 <div class="card">
   <div class="card-title"><span class="icon">🏛️</span>政策宏观</div>
-  <div class="news-item"><span class="tag tag-policy">国内</span>国务院批复《扩大消费"十五五"规划》，培育消费新增长点，关注低估值消费板块。</div>
-  <div class="news-item"><span class="tag tag-policy">货币</span>央行逆回购操作维持流动性合理充裕，短期资金面平稳。</div>
-  <div class="news-item"><span class="tag tag-policy">产业</span>工信部持续推进半导体设备国产化替代，长鑫科技上市为国产DRAM产业链注入强心剂。</div>
-  <div class="news-item"><span class="tag tag-policy">国际</span>美联储7/30利率决议前，全球资金趋于谨慎。印尼央行行长预计美联储2026Q4加息。</div>
+  <div class="news-item"><span class="tag tag-policy">国内</span><strong>长鑫科技上市</strong>：科创板史上最大IPO，标志国产存储芯片进入资本市场新阶段，设备/材料/封测产业链受益。</div>
+  <div class="news-item"><span class="tag tag-policy">产业</span><strong>宁德时代史上最大回购</strong>：拟斥资超200亿元回购，开盘大涨近4%，提振新能源赛道情绪。</div>
+  <div class="news-item"><span class="tag tag-event">科技</span><strong>英伟达GB300美国制造下线</strong>：台积电亚利桑那4nm芯片出厂，CoWoS先进封装为最后一步国产化。</div>
+  <div class="news-item"><span class="tag tag-risk">地缘</span><strong>特朗普暂停伊朗空袭</strong>：结束连续13天打击，但胡塞武装48小时内袭击三艘沙特油轮。</div>
+  <div class="news-item"><span class="tag tag-policy">货币</span><strong>美联储7/30利率决议</strong>：维持不变概率61-75%，全球资金趋于谨慎。</div>
 </div>
 
 <!-- 半导体供应链 -->
 <div class="card">
-  <div class="card-title"><span class="icon">🔗</span>半导体供应链 · 截至当日·趋势延续</div>
+  <div class="card-title"><span class="icon">🔗</span>半导体供应链 · 长鑫上市链更新</div>
   <div style="font-size:0.9rem">
-    <div style="margin-bottom:10px"><strong style="color:var(--purple)">DRAM国产化：</strong>长鑫科技全球市占率7.67%（全球第四、中国第一），IDM模式覆盖设计+制造+封测。IPO募资579亿，设备采购占比最大。</div>
-    <div style="margin-bottom:10px"><strong style="color:var(--cyan)">设备导入窗口：</strong>2026-2027年为国产设备导入关键期，北方华创（刻蚀/PVD/清洗）、中微公司（深孔刻蚀）、拓荆科技（PECVD/ALD）、盛美上海（清洗）为核心供应商。</div>
-    <div><strong style="color:var(--gold)">HBM/先进存储：</strong>长鑫科技已批量导入17nm及HBM产线，关注通富微电、长电科技、华天科技封测端受益。</div>
+    <div style="margin-bottom:10px"><strong style="color:var(--purple)">长鑫科技产业链：</strong>设备（北方华创/中微/拓荆/盛美）→材料（彤程/安集/沪硅）→封测（通富/长电/华天）→模组（深科技/澜起）。今日设备端资金流入最为显著。</div>
+    <div style="margin-bottom:10px"><strong style="color:var(--cyan)">指数纳入预期：</strong>华创证券预计长鑫科技有望于9月纳入科创50，明年12月纳入沪深300。被动资金配置将带来持续增量。</div>
+    <div><strong style="color:var(--gold)">全球格局：</strong>长鑫科技市值3.655万亿，超过英特尔（3.15万亿人民币），成为全球市值最高存储芯片公司。全球DRAM市场格局：三星(43%)、SK海力士(28%)、美光(22%)、长鑫(7.67%)。</div>
   </div>
 </div>
 
@@ -214,13 +260,14 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
   <div class="card-title"><span class="icon">🧭</span>投资逻辑链条 · 信号总结</div>
   <table class="signal-table">
     <tr><th>链条</th><th>影响因素</th><th>当前状态</th><th>操作信号</th></tr>
-    <tr><td>黄金</td><td>地缘+美元+美联储</td><td>高位震荡</td><td><span class="badge badge-blue">持有观察</span></td></tr>
-    <tr><td>半导体</td><td>长鑫上市+国产替代+韩股映射</td><td>情绪激活</td><td><span class="badge badge-green">重点关注</span></td></tr>
-    <tr><td>原油</td><td>地缘+OPEC+需求预期</td><td>上行风险</td><td><span class="badge badge-blue">跟踪</span></td></tr>
-    <tr><td>电力设备</td><td>政策+算电协同+回调到位</td><td>配置窗口</td><td><span class="badge badge-green">逢低布局</span></td></tr>
+    <tr><td>黄金</td><td>地缘缓和+美联储决议前</td><td>高位震荡，板块回调</td><td><span class="badge badge-blue">持有观察</span></td></tr>
+    <tr><td>半导体</td><td>长鑫上市+国产替代+资金虹吸</td><td>设备材料强，存储分化</td><td><span class="badge badge-green">聚焦设备/材料</span></td></tr>
+    <tr><td>原油</td><td>地缘+需求预期下调</td><td>WTI盘中重挫8%</td><td><span class="badge badge-blue">跟踪</span></td></tr>
+    <tr><td>电池/新能源</td><td>宁德时代回购+政策</td><td>资金回流，4股涨停</td><td><span class="badge badge-green">逢低关注</span></td></tr>
+    <tr><td>算力租赁</td><td>英伟达GB300+政策</td><td>午后拉升</td><td><span class="badge badge-blue">跟踪</span></td></tr>
   </table>
-  <div style="margin-top:12px;padding:10px;background:rgba(34,197,94,0.05);border-radius:8px;font-size:0.85rem;color:var(--muted)">
-    <strong style="color:var(--green)">底部信号：</strong>韩股半导体反弹与美股背离，说明亚洲资金对存储周期见底有信心；长鑫科技业绩暴增验证国产替代逻辑；电力设备板块回调充分，国际变量影响小。今日优先关注半导体设备/封测+电网设备两大方向。
+  <div class="highlight-box">
+    <strong style="color:var(--gold)">明日关键：</strong>①美联储7/30利率决议（周三凌晨）②长鑫科技上市第二日波动（前5日无涨跌幅限制）③半导体板块分化是否延续。建议关注半导体设备（北方华创/中微/拓荆）+ 电力设备（回调后配置窗口）两大方向。
   </div>
 </div>
 
@@ -234,7 +281,7 @@ body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSy
 
 <div class="footer">
   PeterLuo财经日报 · 数据仅供参考，不构成投资建议<br>
-  更新时间：2026-07-27 09:27 CST · 下次更新：17:00 收盘晚报
+  更新时间：2026-07-27 17:22 CST · 下次更新：明日08:00早报
 </div>
 
 </body>
