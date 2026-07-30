@@ -34,19 +34,17 @@ table{width:100%;border-collapse:collapse;font-size:0.85rem;margin:10px 0}
 th{text-align:left;padding:8px;color:var(--muted);font-weight:600;border-bottom:1px solid var(--border)}
 td{padding:8px;border-bottom:1px solid rgba(255,255,255,0.05)}
 .conclusion{background:rgba(245,158,11,0.08);border-left:3px solid var(--accent);padding:12px;border-radius:0 8px 8px 0;margin-top:12px;font-size:0.9rem}
-.audio-bar{background:var(--card);border-radius:8px;padding:12px 16px;margin-bottom:20px;display:flex;align-items:center;gap:12px;border:1px solid var(--border)}
-.audio-bar button{background:var(--accent);border:none;color:#000;padding:8px 16px;border-radius:6px;font-weight:600;cursor:pointer}
-.footer{text-align:center;color:var(--muted);font-size:0.8rem;padding:24px 0;border-top:1px solid var(--border);margin-top:20px}
 .nav{display:flex;gap:12px;justify-content:center;margin-bottom:20px}
 .nav a{color:var(--muted);text-decoration:none;font-size:0.85rem;padding:6px 12px;border-radius:6px;background:var(--card)}
 .nav a.active{color:var(--accent);background:rgba(245,158,11,0.1)}
+.footer{text-align:center;color:var(--muted);font-size:0.8rem;padding:24px 0;border-top:1px solid var(--border);margin-top:20px}
 </style>
 </head>
 <body>
 
 <div class="header">
   <h1>📰 PeterLuo 财经日报</h1>
-  <div class="date">2026年7月30日 星期四 · 08:10 早报版 <span class="badge badge-early">数据汇总</span></div>
+  <div class="date">2026年7月30日 星期四 · 08:28 早报版 <span class="badge badge-early">数据已修正</span></div>
 </div>
 
 <div class="nav">
@@ -57,14 +55,22 @@ td{padding:8px;border-bottom:1px solid rgba(255,255,255,0.05)}
 </div>
 
 <div class="timestamp-bar">
-  <strong>📡 数据时点：</strong> 🇺🇸 美股 7/29 收盘 &nbsp;|&nbsp; 🇰🇷 韩股 7/30 开盘前 &nbsp;|&nbsp; 🇭🇰 港股 7/29 收盘 &nbsp;|&nbsp; 🇨🇳 A股 7/30 盘前
+  <strong>📡 数据时点：</strong> 🇺🇸 美股 7/29 收盘 &nbsp;|&nbsp; 🇰🇷 韩股 7/30 开盘 +0.21% &nbsp;|&nbsp; 🇭🇰 港股 7/29 收盘 &nbsp;|&nbsp; 🇨🇳 A股 7/29 收盘
+</div>
+
+<!-- 修正声明 -->
+<div class="card" style="border-left:3px solid var(--red);">
+  <h2>⚠️ 数据修正说明</h2>
+  <p>① <strong>长鑫科技（688825）已于7月27日上市</strong>，开盘49.5元涨471%，收盘49元涨466%，市值3.28万亿登顶A股，单日成交1411亿元创历史纪录。此前早报误写为"即将挂牌"，已修正。</p>
+  <p style="margin-top:8px">② <strong>美股7/29收盘</strong>实际为道指-2.19%、纳指-1.74%、标普-1.52%，科技股全面重挫。此前误用前一日数据，已修正。</p>
+  <p style="margin-top:8px">③ <strong>原油</strong>以财联社7/29收盘为准：WTI跌5.82%报77.80美元，布伦特跌6.02%报80.70美元。</p>
 </div>
 
 <!-- 政策要闻 -->
 <div class="card">
   <h2>📢 政策要闻·公告雷达</h2>
   <p><span class="tag tag-gold">央行</span> 7/29-7/31每日开展6000亿元隔夜逆回购，采用固定利率、数量招标，短期流动性充裕。</p>
-  <p style="margin-top:8px"><span class="tag tag-blue">产业</span> 长鑫科技（688825）7/16完成申购，预计7月下旬挂牌科创板，募资295亿元扩产17nm DRAM及HBM。</p>
+  <p style="margin-top:8px"><span class="tag tag-blue">产业</span> <strong>长鑫科技（688825）7月27日已挂牌科创板</strong>，首日涨466%，市值3.28万亿登顶A股。7月28日美股存储股集体承压：SK海力士跌7.47%、美光跌2.25%、闪迪跌11.02%。</p>
   <p style="margin-top:8px"><span class="tag tag-green">电力</span> 国家电网明确"十五五"固定资产投资规划达4万亿元，较"十四五"提升40%，算力基建配套电力需求持续加码。</p>
   <p style="margin-top:8px"><span class="tag tag-red">宏观</span> A股交易新规已正式施行：主板ST股涨跌幅提至10%，盘后固定价格交易扩展。</p>
 </div>
@@ -75,43 +81,43 @@ td{padding:8px;border-bottom:1px solid rgba(255,255,255,0.05)}
   <div class="data-grid">
     <div class="data-item">
       <div class="label">道指 7/29</div>
-      <div class="value up">+1.03%</div>
+      <div class="value down">51594.14<br>-2.19%</div>
     </div>
     <div class="data-item">
       <div class="label">纳指 7/29</div>
-      <div class="value down">-0.22%</div>
+      <div class="value down">24442.94<br>-1.74%</div>
     </div>
     <div class="data-item">
       <div class="label">标普500 7/29</div>
-      <div class="value up">+0.21%</div>
+      <div class="value down">7316.15<br>-1.52%</div>
     </div>
     <div class="data-item">
       <div class="label">费半指数 7/29</div>
-      <div class="value down">-4.00%</div>
+      <div class="value down">10447.49<br>-5.33%</div>
     </div>
     <div class="data-item">
-      <div class="label">中概金龙</div>
-      <div class="value up">+1.08%</div>
+      <div class="label">VIX恐慌</div>
+      <div class="value up">20.66<br>+13.45%</div>
     </div>
     <div class="data-item">
       <div class="label">WTI原油</div>
-      <div class="value down">-5.82%</div>
+      <div class="value down">77.80<br>-5.82%</div>
     </div>
   </div>
   <div class="conclusion">
-    <strong>核心差异：</strong> 美股"旧经济"道指强势（+1.03%），科技股继续承压——费城半导体指数跌4%，美光跌近9%、AMD跌8%、闪迪跌超14%。板块轮动持续：资金从半导体向传统蓝筹迁移。中概股逆势收涨+1.08%，与美股科技形成劈叉。原油大跌近6%，地缘溢价回吐。
+    <strong>核心差异：</strong> 美股三大指数全线收跌，科技股领跌——道指跌超2%，纳指跌1.74%，费半暴跌5.33%。VIX大涨13%显示恐慌升温。中概股相对抗跌（金龙指数+1.08%）。原油大跌近6%，地缘溢价持续回吐。黄金微涨+0.19%至4074美元，避险属性温和显现。
   </div>
 </div>
 
 <!-- 早盘预判 -->
 <div class="card">
   <h2>🌅 早盘预判（09:00前）</h2>
-  <p><span class="tag tag-red">半导体</span> 海外映射偏空：费半跌4%、美光/AMD/闪迪重挫，SK海力士Q2业绩不及预期（营业利润60.54万亿 vs 预期64.22万亿），虽计划扩产HBM4，但短期情绪承压。A股半导体材料/设备/存储今日大概率低开承压，关注长鑫上市预期的对冲力度。</p>
-  <p style="margin-top:10px"><span class="tag tag-green">电力·电网</span> 独立逻辑，受国际变量影响小。国家电网4万亿"十五五"规划+算力基建用电需求双重支撑。7/23板块资金净流入45.12亿元居首，29股涨停。若半导体回调资金流出，电网设备可能承接轮动。</p>
-  <p style="margin-top:10px"><span class="tag tag-gold">黄金</span> COMEX黄金跌1.18%报4028.8美元，原油大跌5.8%，避险资产同步回调。地缘风险（伊朗/霍尔木兹）未消除，但短期情绪降温。黄金股今日或跟跌，关注赤峰黄金等核心标的回踩支撑。</p>
-  <p style="margin-top:10px"><span class="tag tag-blue">算力基建</span> 谷歌上调2026年资本开支至1950-2050亿美元，2027年继续扩张。AI算力需求长期趋势未改，但短期股价已透支预期。关注高低切：变压器、电源管理、液冷散热等低位环节。</p>
+  <p><span class="tag tag-red">半导体</span> 海外映射极度偏空：费半跌5.33%、美光-9.94%、应用材料-8.40%、闪迪-7.32%。SK海力士Q2业绩虽创历史新高（营业利润60.54万亿韩元，同比+557%），但低于市场共识（64.1万亿），财报后股价一度跌近20%。<strong>长鑫7/27已上市并登顶A股市值第一，国产替代情绪已部分兑现。</strong>今日A股半导体材料/设备/存储大概率低开承压，关注是否有独立逻辑支撑。</p>
+  <p style="margin-top:10px"><span class="tag tag-green">电力·电网</span> 独立逻辑，受国际变量影响小。国家电网"十五五"4万亿投资+算力基建配套用电需求。7/23板块资金净流入45.12亿元居首，29股涨停。若半导体资金流出，电网设备可能承接轮动。A股7/29科创50独跌-0.87%，创业板涨+1.55%，风格已现分化。</p>
+  <p style="margin-top:10px"><span class="tag tag-gold">黄金</span> 黄金/美元4074.05 +0.19%，VIX大涨13%，避险情绪温和升温。但原油大跌5.8%压制通胀预期。地缘风险（伊朗/霍尔木兹）未完全消除。黄金股今日或分化，关注赤峰黄金等核心标的独立走势。</p>
+  <p style="margin-top:10px"><span class="tag tag-blue">算力基建</span> 谷歌上调2026年资本开支至1950-2050亿美元，2027年继续扩张。但A股光模块/CPO/服务器前期涨幅过大，面临回撤。高低切方向：变压器、电源管理、液冷散热（含培育钻石/金刚石散热）。</p>
   <div class="conclusion">
-    <strong>今日预判：</strong> A股大概率低开震荡。半导体受海外映射拖累；电力/电网/能源金属有望承接轮动。策略上：半导体不追高，等长鑫挂牌情绪催化；电网设备若回踩5日线可低吸；黄金观望等企稳。总仓控制在60%以内，单股≤10%。
+    <strong>今日预判：</strong> A股大概率低开震荡。半导体受海外映射+长鑫情绪兑现双重拖累；电力/电网/能源金属有望承接轮动。策略上：半导体不追高，等企稳信号；电网设备若回踩5日线可低吸；黄金观望。总仓控制在60%以内，单股≤10%。
   </div>
 </div>
 
@@ -120,14 +126,14 @@ td{padding:8px;border-bottom:1px solid rgba(255,255,255,0.05)}
   <h2>🥇 黄金敏感指标</h2>
   <div class="data-grid">
     <div class="data-item">
-      <div class="label">COMEX黄金</div>
-      <div class="value down">4028.8</div>
-      <div class="label" style="font-size:0.7rem">-1.18%</div>
+      <div class="label">黄金/美元</div>
+      <div class="value up">4074.05</div>
+      <div class="label" style="font-size:0.7rem">+0.19%</div>
     </div>
     <div class="data-item">
       <div class="label">美元指数</div>
-      <div class="value">~101.1</div>
-      <div class="label" style="font-size:0.7rem">企稳</div>
+      <div class="value">100.891</div>
+      <div class="label" style="font-size:0.7rem">+0.07%</div>
     </div>
     <div class="data-item">
       <div class="label">WTI原油</div>
@@ -139,10 +145,20 @@ td{padding:8px;border-bottom:1px solid rgba(255,255,255,0.05)}
       <div class="value down">80.70</div>
       <div class="label" style="font-size:0.7rem">-6.02%</div>
     </div>
+    <div class="data-item">
+      <div class="label">VIX</div>
+      <div class="value up">20.66</div>
+      <div class="label" style="font-size:0.7rem">+13.45%</div>
+    </div>
+    <div class="data-item">
+      <div class="label">美10Y国债</div>
+      <div class="value">4.683%</div>
+      <div class="label" style="font-size:0.7rem">+0.18%</div>
+    </div>
   </div>
-  <p>地缘风险：伊朗表态未介入曼德海峡问题，土耳其与伊拉克签署能源合作协议。霍尔木兹通航量下降风险仍存，但短期溢价大幅回吐。</p>
+  <p>地缘风险：伊朗表态未介入曼德海峡问题，土耳其与伊拉克签署能源合作协议。霍尔木兹通航量下降风险仍存，但短期溢价大幅回吐。VIX大涨13%反映美股恐慌情绪升温，黄金温和受益。</p>
   <div class="conclusion">
-    <strong>黄金信号：</strong> 🟡 观望。金价跌破4050美元，短期技术面走弱。地缘未完全解除，但美元企稳+原油大跌压制避险需求。等回踩3950-4000支撑区再评估。黄金股（赤峰黄金）同步观望，不急于抄底。
+    <strong>黄金信号：</strong> 🟡 观望。金价4074美元微涨，VIX飙升提供避险支撑，但原油大跌压制通胀预期。地缘未完全解除，黄金中长期逻辑仍在。黄金股（赤峰黄金）关注是否独立走强。
   </div>
 </div>
 
@@ -151,17 +167,19 @@ td{padding:8px;border-bottom:1px solid rgba(255,255,255,0.05)}
   <h2>💻 半导体·科技因子</h2>
   <table>
     <tr><th>标的</th><th>7/29收盘</th><th>涨跌</th><th>信号</th></tr>
-    <tr><td>费城半导体指数</td><td>—</td><td class="down">-4.00%</td><td><span class="tag tag-red">破位</span></td></tr>
-    <tr><td>英伟达</td><td>—</td><td class="up">+0.25%</td><td><span class="tag tag-green">抗跌</span></td></tr>
-    <tr><td>美光科技</td><td>—</td><td class="down">-9%</td><td><span class="tag tag-red">重挫</span></td></tr>
-    <tr><td>AMD</td><td>—</td><td class="down">-8%</td><td><span class="tag tag-red">重挫</span></td></tr>
-    <tr><td>台积电</td><td>—</td><td class="down">-3.67%</td><td><span class="tag tag-red">走弱</span></td></tr>
-    <tr><td>SK海力士(美股)</td><td>—</td><td class="down">-9%</td><td><span class="tag tag-red">业绩miss</span></td></tr>
-    <tr><td>闪迪</td><td>—</td><td class="down">-14%</td><td><span class="tag tag-red">腰斩边缘</span></td></tr>
+    <tr><td>费城半导体指数</td><td>10447.49</td><td class="down">-5.33%</td><td><span class="tag tag-red">暴跌</span></td></tr>
+    <tr><td>英伟达</td><td>190.01</td><td class="down">-3.55%</td><td><span class="tag tag-red">走弱</span></td></tr>
+    <tr><td>美光科技</td><td>739.00</td><td class="down">-9.94%</td><td><span class="tag tag-red">重挫</span></td></tr>
+    <tr><td>应用材料</td><td>436.45</td><td class="down">-8.40%</td><td><span class="tag tag-red">重挫</span></td></tr>
+    <tr><td>闪迪</td><td>1015.89</td><td class="down">-7.32%</td><td><span class="tag tag-red">大跌</span></td></tr>
+    <tr><td>存储概念</td><td>8773.28</td><td class="down">-5.29%</td><td><span class="tag tag-red">板块崩</span></td></tr>
+    <tr><td>SK海力士(美股)</td><td>126.79</td><td class="down">-2.60%</td><td><span class="tag tag-red">业绩miss</span></td></tr>
+    <tr><td>中韩半导体ETF</td><td>4.587</td><td class="down">-1.92%</td><td><span class="tag tag-red">跟跌</span></td></tr>
   </table>
-  <p><strong>SK海力士Q2要点：</strong> 营业利润60.54万亿韩元（低于预期64.22万亿），收入79万亿韩元（低于预期84万亿）。但DRAM ASP环比涨30%，NAND ASP环比涨50-55%。计划下半年大幅扩充HBM4产能，与10家大客户签订LTA长期协议。Q3 DRAM出货量预计环比+10%。</p>
+  <p><strong>SK海力士Q2要点（7/29公布）：</strong> 营收79.32万亿韩元（同比+257%，环比+51%），营业利润60.54万亿韩元（同比+557%，环比+61%），净利润93.92万亿韩元，营业利润率76%。但低于市场共识预期（营收84.1万亿/营业利润64.1万亿），收入miss约5.7%、利润miss约5.5%。财报后股价一度跌近20%。HBM4已开始出货，下半年全面爬坡；与约10家核心客户签订长期供应协议（LTA）。</p>
+  <p style="margin-top:8px"><strong>长鑫科技（688825）7/27上市：</strong> 开盘49.5元涨471.59%，收盘49元涨465.82%，市值3.28万亿元超越工商银行登顶A股榜首，单日成交额1411亿元创A股历史纪录。国产DRAM龙头正式登陆，对产业链（设备/材料/封测）的拉动从预期进入兑现阶段。</p>
   <div class="conclusion">
-    <strong>半导体信号：</strong> 🔴 短期承压。存储业绩miss+股价重挫，A股存储/HBM/设备今日情绪偏空。但长鑫7月下旬挂牌（688825）是国产替代情绪催化剂，可能对冲部分跌幅。策略：观望为主，等长鑫挂牌后再评估方向。中韩半导体ETF可逢低定投，不追跌。
+    <strong>半导体信号：</strong> 🔴 短期承压。存储业绩miss+长鑫情绪兑现+美股科技股暴跌三重压力。A股半导体今日低开概率极大。但长鑫上市为国产链提供了估值锚点，中长期国产替代逻辑未变。策略：今日不抄底，观望等企稳。中韩半导体ETF暂停定投，等止跌信号。
   </div>
 </div>
 
@@ -179,17 +197,17 @@ td{padding:8px;border-bottom:1px solid rgba(255,255,255,0.05)}
 <div class="card">
   <h2>🇨🇳 A股重点板块</h2>
   <h3>🔋 电网设备（重点关注）</h3>
-  <p>7/23资金净流入45.12亿元居所有行业首位，板块大涨6.65%，29股涨停。国家电网"十五五"4万亿投资+算力基建配套用电需求，订单确定性极强。电网设备ETF月内获约8亿元净流入。</p>
+  <p>7/23资金净流入45.12亿元居所有行业首位，板块大涨6.65%，29股涨停。国家电网"十五五"4万亿投资+算力基建配套用电需求，订单确定性极强。A股7/29科创50独跌-0.87%，创业板涨+1.55%，风格切换已现。若半导体资金流出，电网设备可能承接轮动。</p>
   <p><strong>核心标的：</strong> 平高电气、许继电气、中国西电、国电南瑞。关注回踩5/10日线低吸机会。</p>
 
   <h3>🔌 算力基础设施（高低切）</h3>
   <p>谷歌上调资本开支至1950-2050亿美元，2027年继续扩张。但A股光模块/CPO/服务器前期涨幅过大，面临回撤。高低切方向：变压器（顺钠股份、伊戈尔）、电源管理、液冷散热（含培育钻石/金刚石散热）。</p>
 
   <h3>💾 半导体材料/设备（承压）</h3>
-  <p>受海外映射拖累，今日低开概率大。但长鑫即将挂牌，国产替代情绪有望对冲。核心标的：北方华创（长鑫头号设备商）、拓荆科技、华海清科、中微公司、彤程新材、有研新材。</p>
+  <p>受海外映射+长鑫情绪兑现双重拖累，今日低开概率极大。但长鑫上市为国产链提供估值锚点，中长期逻辑未变。核心标的：北方华创（长鑫头号设备商）、拓荆科技、华海清科、中微公司、彤程新材、有研新材。</p>
 
-  <h3>🥇 黄金/战略金属（回调）</h3>
-  <p>金价跌破4030美元，黄金股短期承压。战略金属（稀土/钨/锑）受国际定价+国内政策双驱动，关注中国稀土、厦门钨业。</p>
+  <h3>🥇 黄金/战略金属（分化）</h3>
+  <p>金价4074美元微涨，VIX飙升13%提供避险支撑。战略金属（稀土/钨/锑）受国际定价+国内政策双驱动，关注中国稀土、厦门钨业。</p>
 
   <h3>🚗 能源金属/新能源（轮动）</h3>
   <p>能源金属7/23资金净流入15.72亿元，大涨6.53%。电网+储能+虚拟电厂联动，关注甘肃能源、大型储能受益股。</p>
@@ -197,8 +215,8 @@ td{padding:8px;border-bottom:1px solid rgba(255,255,255,0.05)}
 
 <!-- 资金流向 -->
 <div class="card">
-  <h2>💰 资金流向板块（7/29全天·沿用最近收盘）</h2>
-  <p style="color:var(--muted);font-size:0.8rem">注：7/29 A股收盘数据待17:00晚报刷新，以下为7/23最近有效数据参考</p>
+  <h2>💰 资金流向板块（7/29全天·A股实际收盘）</h2>
+  <p style="color:var(--muted);font-size:0.8rem">A股7/29：沪指+0.40%，深成指+1.10%，创业板+1.55%，科创50-0.87%。两市成交约2.03万亿。</p>
   <table>
     <tr><th>流入板块</th><th>净流入额</th><th>信号</th></tr>
     <tr><td>电网设备</td><td class="up">+45.12亿</td><td><span class="tag tag-green">强势</span></td></tr>
@@ -211,7 +229,7 @@ td{padding:8px;border-bottom:1px solid rgba(255,255,255,0.05)}
     <tr><td>化学制药</td><td class="down">-9.1亿</td><td><span class="tag tag-red">承压</span></td></tr>
   </table>
   <div class="conclusion">
-    <strong>资金逻辑：</strong> 7/23市场呈现新能源/周期/军工多赛道共振，科技赛道独涨格局被打破。资金从高位科技股向低位电网/新能源/周期轮动。今日预判：半导体资金可能流出，电网设备若回踩仍是资金布局方向。
+    <strong>资金逻辑：</strong> 7/29 A股呈现"科创跌、创业板涨"的分化格局，风格切换明显。资金从高位科技股向低位电网/新能源/周期轮动。今日预判：半导体资金可能加速流出，电网设备若回踩仍是资金布局方向。
   </div>
 </div>
 
@@ -219,13 +237,13 @@ td{padding:8px;border-bottom:1px solid rgba(255,255,255,0.05)}
 <div class="card">
   <h2>🔗 投资逻辑链条</h2>
   <p><strong>链条1：AI算力→电力需求→电网升级</strong></p>
-  <p>谷歌/微软/亚马逊资本开支持续上调→数据中心用电量暴增→国家电网4万亿"十五五"投资→特高压/智能配网/变压器/电源管理订单放量。逻辑未变，股价位置高低切。</p>
-  <p style="margin-top:10px"><strong>链条2：国产存储→长鑫上市→设备材料封测</strong></p>
-  <p>长鑫7月下旬挂牌（688825）→295亿募资220亿买设备→北方华创/拓荆/华海清科/中微公司订单确定性。短期受海外存储业绩miss拖累，但国产替代是独立逻辑。</p>
-  <p style="margin-top:10px"><strong>链条3：地缘缓和→原油大跌→通胀预期下行</strong></p>
-  <p>伊朗局势缓和+霍尔木兹通航量下降→原油一周跌15%→通胀预期降温→美联储降息空间打开。利好成长股估值，但短期油价暴跌利空油气股。</p>
-  <p style="margin-top:10px"><strong>链条4：美元企稳→黄金回调→避险资产洗牌</strong></p>
-  <p>美元指数101附近企稳→黄金跌破4050→资金从黄金向权益资产迁移。地缘风险未完全解除，黄金中长期逻辑仍在，短期等企稳信号。</p>
+  <p>谷歌/微软/亚马逊资本开支持续上调→数据中心用电量暴增→国家电网4万亿"十五五"投资→特高压/智能配网/变压器/电源管理订单放量。逻辑未变，股价位置高低切。A股7/29科创50独跌、创业板涨，风格切换已确认。</p>
+  <p style="margin-top:10px"><strong>链条2：长鑫上市→国产存储估值锚点→设备材料封测</strong></p>
+  <p>长鑫7/27上市，首日涨466%，市值3.28万亿登顶A股→为国产DRAM提供估值锚点→北方华创/拓荆/华海清科/中微公司订单确定性。但短期情绪已兑现，美股存储因业绩miss暴跌，A股半导体今日承压。</p>
+  <p style="margin-top:10px"><strong>链条3：SK海力士业绩miss→存储周期担忧→全球半导体估值下修</strong></p>
+  <p>SK海力士Q2营业利润60.54万亿（低于预期64.1万亿）→财报后股价一度跌20%→市场质疑存储超级周期持续性→费半跌5.33%→A股半导体映射承压。核心矛盾：业绩创历史新高，但股价跌，说明市场定价的是未来预期而非过去业绩。</p>
+  <p style="margin-top:10px"><strong>链条4：地缘缓和→原油大跌→通胀预期下行→降息空间打开</strong></p>
+  <p>伊朗局势缓和+霍尔木兹通航量下降→原油一周跌15%→通胀预期降温→美联储降息空间打开。利好成长股估值，但短期油价暴跌利空油气股。美10Y国债4.683%微涨，市场仍在博弈。</p>
 </div>
 
 <!-- 底部信号总结 -->
@@ -233,8 +251,8 @@ td{padding:8px;border-bottom:1px solid rgba(255,255,255,0.05)}
   <h2>🚦 底部信号总结表</h2>
   <table>
     <tr><th>板块</th><th>信号</th><th>灯色</th><th>操作建议</th></tr>
-    <tr><td>黄金</td><td>跌破4050，美元企稳</td><td><span class="tag tag-red">🔴 观望</span></td><td>等3950-4000支撑确认</td></tr>
-    <tr><td>半导体</td><td>费半跌4%，业绩miss</td><td><span class="tag tag-red">🔴 承压</span></td><td>长鑫挂牌前观望，不追跌</td></tr>
+    <tr><td>黄金</td><td>4074微涨，VIX+13%</td><td><span class="tag tag-gold">🟡 观望</span></td><td>避险温和升温，不追</td></tr>
+    <tr><td>半导体</td><td>费半-5.33%，业绩miss，长鑫兑现</td><td><span class="tag tag-red">🔴 承压</span></td><td>今日不抄底，等企稳</td></tr>
     <tr><td>电网设备</td><td>资金流入45亿，政策4万亿</td><td><span class="tag tag-green">🟢 关注</span></td><td>回踩5/10日线低吸</td></tr>
     <tr><td>原油/旧能源</td><td>布伦特跌破80</td><td><span class="tag tag-red">🔴 回避</span></td><td>油气股短期不碰</td></tr>
     <tr><td>算力基建</td><td>谷歌上调capex</td><td><span class="tag tag-gold">🟡 高低切</span></td><td>弃高就低，转向变压器/电源</td></tr>
@@ -242,7 +260,7 @@ td{padding:8px;border-bottom:1px solid rgba(255,255,255,0.05)}
 </div>
 
 <div class="footer">
-  <p> PeterLuo 财经日报 · 早报版 | 数据截止 2026-07-30 08:10</p>
+  <p> PeterLuo 财经日报 · 早报版 | 数据截止 2026-07-30 08:28（已修正）</p>
   <p style="margin-top:4px">仅供参考，不构成投资建议。股市有风险，投资需谨慎。</p>
 </div>
 
