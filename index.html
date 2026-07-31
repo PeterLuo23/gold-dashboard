@@ -3,21 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PeterLuo财经日报 · 2026年7月31日 收盘晚报</title>
+<title>老六选股逻辑验证框架 · 2026年7月31日 收盘版</title>
 <style>
 :root{--bg:#0a0e17;--card:#111827;--card2:#1a2332;--accent:#f59e0b;--accent2:#10b981;--accent3:#ef4444;--text:#e5e7eb;--text2:#9ca3af;--border:#1f2937;}
 *{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans SC",sans-serif;}
 body{background:var(--bg);color:var(--text);line-height:1.6;}
 .container{max-width:900px;margin:0 auto;padding:16px;}
 .header{text-align:center;padding:20px 0;border-bottom:1px solid var(--border);margin-bottom:16px;}
-.header h1{font-size:22px;color:var(--accent);letter-spacing:1px;}
+.header h1{font-size:20px;color:var(--accent);letter-spacing:1px;}
 .header .sub{color:var(--text2);font-size:13px;margin-top:4px;}
 .badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;margin-left:6px;}
 .badge-new{background:#dc2626;color:#fff;}
-.badge-upd{background:#059669;color:#fff;}
-.badge-hold{background:#4b5563;color:#fff;}
-.dateline{background:var(--card2);padding:10px 14px;border-radius:8px;font-size:12px;color:var(--text2);margin-bottom:16px;border-left:3px solid var(--accent);}
-.dateline strong{color:var(--text);}
 .card{background:var(--card);border-radius:12px;padding:16px;margin-bottom:16px;border:1px solid var(--border);}
 .card h2{font-size:15px;color:var(--accent);margin-bottom:12px;display:flex;align-items:center;gap:6px;}
 .card h2::before{content:"";display:inline-block;width:4px;height:16px;background:var(--accent);border-radius:2px;}
@@ -32,7 +28,7 @@ body{background:var(--bg);color:var(--text);line-height:1.6;}
 .table th,.table td{padding:8px 6px;text-align:left;border-bottom:1px solid var(--border);}
 .table th{color:var(--text2);font-weight:500;background:var(--card2);}
 .table td{color:var(--text);}
-.table .num{text-align:right;font-variant-numeric:tabular-nums;}
+.table .num{text-align:center;font-variant-numeric:tabular-nums;}
 .table .up{color:#ef4444;}
 .table .down{color:#10b981;}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
@@ -44,15 +40,10 @@ body{background:var(--bg);color:var(--text);line-height:1.6;}
 .tag-red{background:rgba(239,68,68,0.15);color:#ef4444;}
 .tag-green{background:rgba(16,185,129,0.15);color:#10b981;}
 .tag-amber{background:rgba(245,158,11,0.15);color:#f59e0b;}
-.signal-box{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;}
-.signal-item{background:var(--card2);padding:8px 12px;border-radius:8px;font-size:12px;flex:1;min-width:120px;text-align:center;}
-.signal-item .label{color:var(--text2);font-size:11px;}
-.signal-item .status{font-weight:700;margin-top:2px;}
-.footer-nav{display:flex;gap:8px;justify-content:center;padding:16px 0;border-top:1px solid var(--border);margin-top:16px;}
-.footer-nav a{color:var(--text2);text-decoration:none;font-size:12px;padding:6px 14px;background:var(--card2);border-radius:20px;}
-.footer-nav a.active{color:var(--accent);background:rgba(245,158,11,0.1);}
-.audio-box{text-align:center;padding:12px;background:var(--card2);border-radius:8px;margin-bottom:16px;}
-.audio-box a{color:var(--accent);text-decoration:none;font-size:13px;}
+.score-box{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;}
+.score-item{background:var(--card2);padding:8px 12px;border-radius:8px;font-size:12px;flex:1;min-width:100px;text-align:center;}
+.score-item .label{color:var(--text2);font-size:11px;}
+.score-item .status{font-weight:700;margin-top:2px;}
 @media(max-width:600px){.grid2,.grid3{grid-template-columns:1fr;}}
 </style>
 </head>
@@ -60,262 +51,151 @@ body{background:var(--bg);color:var(--text);line-height:1.6;}
 <div class="container">
 
 <div class="header">
-<h1>📰 PeterLuo 财经日报</h1>
-<div class="sub">2026年7月31日 · 收盘晚报版 <span class="badge badge-new">17:00更新</span></div>
+<h1>🎯 老六选股逻辑验证框架</h1>
+<div class="sub">2026年7月31日 收盘版 · 下周方向及个股顺位 <span class="badge badge-new">框架扫描</span></div>
 </div>
 
-<div class="dateline">
-<strong>📊 数据时点</strong><br>
-🇨🇳 A股：7月31日 15:00收盘 &nbsp;|&nbsp; 🇭🇰 港股：7月31日 16:00收盘 &nbsp;|&nbsp; 🇰🇷 韩股：7月31日 14:30收盘<br>
-🇺🇸 美股：7月30日收盘（纳指-1.5%，半导体指数重挫5%）· 盘前截至晚报时点：待更新 <span class="badge badge-hold">待明早08:00刷新</span>
-</div>
-
-<div class="audio-box">
-🔊 <a href="briefing.mp3">收听今日收盘语音播报（4-5分钟）</a>
-</div>
-
-<!-- 政策要闻·公告雷达 -->
 <div class="card">
-<h2>📡 政策要闻 · 公告雷达</h2>
-<ul>
-<li><span class="highlight2">【重磅政策定调】</span>重要会议召开，重申<strong>更加积极的财政政策和适度宽松的货币政策</strong>，并强调深化资本市场投融资综合改革，提升资本市场韧性和信心。政策底信号明确。</li>
-<li><span class="highlight">【中际旭创港股上市】</span>全球光模块龙头中际旭创港股上市首日破发，A股H股同步下挫，新易盛7/30收跌近12%，主力资金净流出超32亿元。</li>
-<li><span class="highlight3">【AI资本开支焦虑】</span>谷歌母公司Alphabet Q2现金流上市以来首次转负，同时上调全年资本支出预期，股价次日跌7.59%。市场对AI大厂大规模资本开支是否能带来等价现金流回报产生担忧。</li>
-<li><span class="highlight">【美国对华关税】</span>美国7月24日宣布对华加征12.5%关税，外围贸易环境不确定性仍高。</li>
-</ul>
-</div>
-
-<!-- 差异对比横幅 -->
-<div class="card">
-<h2>⚖️ 差异对比 · 关键信号</h2>
+<h2>📊 六层权重综合评分</h2>
 <div class="grid3">
 <div class="stat-box">
-<div class="val" style="color:#10b981;">7/31科技</div>
-<div class="lbl">半导体/元件/通信<br>大幅反弹，资金回流</div>
+<div class="val" style="color:#f59e0b;">7.8/10</div>
+<div class="lbl">综合评分<br>情绪60%+数据40%</div>
 </div>
 <div class="stat-box">
-<div class="val" style="color:#ef4444;">7/30科技</div>
-<div class="lbl">半导体/电子化学品<br>集体重挫，资金出逃</div>
+<div class="val" style="color:#10b981;">7.67/10</div>
+<div class="lbl">情绪面60%<br>宏观+板块+个股</div>
 </div>
 <div class="stat-box">
-<div class="val" style="color:#f59e0b;">银行防御</div>
-<div class="lbl">银行板块转弱<br>农业银行跌超4%</div>
+<div class="val" style="color:#10b981;">8.0/10</div>
+<div class="lbl">数据面40%<br>资金+技术+基本面</div>
 </div>
 </div>
-<p style="margin-top:10px;font-size:12px;">核心矛盾：7/30科技股暴跌（创业板指-3.97%）→ 7/31政策底信号+超跌反弹 → 科技板块暴力修复（半导体+4.21%、元件+4.50%），但银行防御板块反而走弱。资金从防御向成长切换，风格逆转。</p>
+<p style="margin-top:10px;font-size:12px;"><strong>评分逻辑：</strong>国内政策底确认（+）对冲美联储鹰派（-）；AI应用端高低切确认+算力租赁持续活跃+资金大举回流（+）；但存储芯片炸板分歧+炸板率49%高位（-）。整体情绪面偏强，数据面资金真实流入支撑。</p>
 </div>
 
-<!-- 收盘复盘 -->
 <div class="card">
-<h2>📈 收盘复盘 · 7/31全天</h2>
-<div class="grid3">
-<div class="stat-box">
-<div class="val" style="color:#10b981;">3832.26</div>
-<div class="lbl">上证指数<br><span class="down">+0.72%</span> (+27.57)</div>
-</div>
-<div class="stat-box">
-<div class="val" style="color:#10b981;">13578.93</div>
-<div class="lbl">深证成指<br><span class="down">+2.21%</span> (+293.13)</div>
-</div>
-<div class="stat-box">
-<div class="val" style="color:#10b981;">~3400+</div>
-<div class="lbl">创业板指<br><span class="down">+5%+</span> (午盘+5.04%)</div>
-</div>
-</div>
-<p style="margin-top:10px;"><strong>成交额：</strong>上证<strong>1.19万亿</strong> + 深证<strong>1.35万亿</strong> = 约<strong>2.54万亿</strong>，较昨日2.34万亿明显放量。</p>
-<p><strong>主力资金：</strong>今日主力净流入<strong>+625.36亿</strong>（主力净比2.46%），超大单净流入<strong>+699.94亿</strong>（净比2.75%），机构资金大举回流。</p>
-<p><strong>涨跌分布：</strong>上证涨1886/平71/跌392；深证涨2559/平51/跌316。全市场超4500只个股上涨，普涨格局。</p>
-<p><strong>核心驱动：</strong></p>
+<h2>🔍 六层框架逐层扫描</h2>
+
+<h3>① 宏观情绪前沿（15%）——有没有水？ <span class="tag tag-green">评分: 7/10</span></h3>
 <ul>
-<li>① <strong>政策底信号</strong>：重要会议定调更加积极财政+适度宽松货币，直接提振市场风险偏好；</li>
-<li>② <strong>科技股暴力修复</strong>：昨日半导体/元件/通信设备暴跌后，今日资金大举回流——半导体净流入94.97亿、元件89.36亿、通信设备53.07亿，板块涨幅4%+；</li>
-<li>③ <strong>AI应用端爆发</strong>：中文在线、荣信文化、蓝色光标、易点天下20cm涨停，Shopify业绩超预期催化AI应用端；</li>
-<li>④ <strong>算力租赁持续活跃</strong>：美利云、云赛智联、宏景科技、利通电子等多股涨停；</li>
-<li>⑤ <strong>银行防御转弱</strong>：农业银行、中国银行、工商银行跌超3%，资金从防御向成长切换。</li>
+<li><strong>美联储：</strong>7/30维持3.5%-3.75%不变，但3位票委要求加息25bp，9月加息概率59-63%。鹰派压制全球流动性。<span class="highlight3">偏空</span></li>
+<li><strong>国内政策：</strong>重要会议定调"更加积极财政+适度宽松货币"，政策底确认。<span class="highlight2">偏多</span></li>
+<li><strong>地缘：</strong>美伊暂停空袭但设时限，风险暂缓未消除。<span class="highlight">中性</span></li>
+<li><strong>AI产业催化：</strong>微软Azure收入同比+43%股价暴涨15.5%（创美股史上最大单日市值增长）；中国模型全球份额63.5%超美国；人工智能法立法加速；算力网"十五五"新增投资4万亿。<span class="highlight2">强烈偏多</span></li>
+<li><strong>汇率/美元：</strong>美元指数跌0.5%至100.9，黄金涨0.5%至4068。<span class="highlight">中性偏多</span></li>
 </ul>
-<p><strong>准确率验证（7/30预判 vs 7/31实际）：</strong></p>
-<table class="table">
-<tr><th>预判方向</th><th>实际走势</th><th>验证结果</th></tr>
-<tr><td>市场进入技术修复周期</td><td>三大指数全线反弹，科技领涨</td><td><span class="tag tag-green">命中</span></td></tr>
-<tr><td>超跌反弹一触即发</td><td>创业板指涨5%+，半导体+4.21%</td><td><span class="tag tag-green">命中</span></td></tr>
-<tr><td>关注科技修复机会</td><td>半导体/元件/通信资金大幅回流</td><td><span class="tag tag-green">命中</span></td></tr>
-<tr><td>银行防御属性</td><td>银行板块转弱，资金流出</td><td><span class="tag tag-red">偏误</span></td></tr>
-</table>
-</div>
 
-<!-- 黄金敏感指标 -->
-<div class="card">
-<h2>🥇 黄金敏感指标</h2>
-<div class="grid2">
-<div class="stat-box">
-<div class="val" style="color:#f59e0b;">~$4,050</div>
-<div class="lbl">COMEX黄金期货<br>震荡（盘前口径）</div>
-</div>
-<div class="stat-box">
-<div class="val" style="color:#10b981;">$4,050</div>
-<div class="lbl">关键支撑位<br>心理关口 intact</div>
-</div>
-</div>
-<p style="margin-top:10px;"><strong>逻辑链条：</strong>地缘缓和（美伊暂停空袭）→ 避险溢价回落；但美联储降息预期+美元走势支撑金价。黄金与美元、原油走势脱敏，独立逻辑强化。4050支撑有效。</p>
-<p><strong>信号总结：</strong><span class="tag tag-amber">🟡 观望</span> 4050支撑有效则持有，跌破4000考虑减仓，突破4080打开上行空间。</p>
-</div>
-
-<!-- 半导体·科技因子 -->
-<div class="card">
-<h2>💻 半导体 · 科技因子</h2>
-<p><strong>今日大逆转：</strong>半导体板块从昨日净流出437亿、集体重挫，今日转为净流入<strong>94.97亿</strong>，板块涨<strong>4.21%</strong>。元件板块净流入89.36亿，涨4.50%。通信设备净流入53.07亿，涨3.85%。</p>
-<p><strong>个股表现：</strong>盛景微、盛剑科技涨停；生益电子涨19.62%，盛科通信涨14.81%，芯原股份涨13.39%，源杰科技涨14.08%。存储芯片早盘高开但兆易创新、德明利炸板，显示分歧仍在。</p>
-<p><strong>AI应用端：</strong>中文在线、荣信文化、蓝色光标、易点天下20cm涨停，昆仑万维、天龙集团、值得买、因赛集团涨超10%。Shopify业绩超预期催化，AI应用端与硬件端出现<strong>高低切</strong>迹象。</p>
-<p><strong>算力租赁：</strong>美利云、云赛智联、宏景科技、利通电子涨停，资金持续流入。</p>
-<p><strong>中际旭创港股：</strong>上市首日破发，A股H股同步下挫。光模块板块过去一年涨幅积累较大，浮盈筹码多，资本面对市场动态可能形成多杀多。</p>
-<p><strong>信号总结：</strong><span class="tag tag-green">🟢 修复</span> 科技股暴力修复，但存储芯片分歧仍在（炸板），关注AI应用端高低切持续性。</p>
-</div>
-
-<!-- 原油·地缘因子 -->
-<div class="card">
-<h2>🛢️ 原油 · 地缘因子</h2>
-<div class="grid2">
-<div class="stat-box">
-<div class="val" style="color:#f59e0b;">震荡</div>
-<div class="lbl">美油/布油<br>地缘缓和后回落</div>
-</div>
-<div class="stat-box">
-<div class="val" style="color:#f59e0b;">$80-85</div>
-<div class="lbl">WTI支撑/布油支撑<br>心理关口区</div>
-</div>
-</div>
-<p style="margin-top:10px;"><strong>逻辑链条：</strong>特朗普宣布暂停对伊朗空袭 → 中东供应风险溢价消退 → 油价回落。但特朗普设谈判时限，地缘风险未根除。</p>
-<p><strong>关联影响：</strong>油价回落利好航空、化工等下游；石油石化、煤炭板块今日资金流出。</p>
-<p><strong>信号总结：</strong><span class="tag tag-amber">🟡 震荡偏弱</span> 短期受地缘缓和压制，80美元以下是中长期布局区。</p>
-</div>
-
-<!-- A股8大板块 -->
-<div class="card">
-<h2>📊 A股八大板块扫描</h2>
-<table class="table">
-<tr><th>板块</th><th>今日表现</th><th>资金流向</th><th>核心逻辑</th></tr>
-<tr><td><strong>大半导体硬科技</strong></td><td class="down">半导体+4.21%</td><td class="down">净流入94.97亿</td><td>政策底+超跌修复，存储芯片分歧（炸板）</td></tr>
-<tr><td><strong>算力基础设施</strong></td><td class="down">元件+4.50%</td><td class="down">净流入89.36亿</td><td>CPO/光模块暴力修复，中际旭创港股破发拖累</td></tr>
-<tr><td><strong>创新药</strong></td><td>震荡</td><td>中性</td><td>跟随大盘反弹，无独立催化</td></tr>
-<tr><td><strong>大金融</strong></td><td class="up">银行-3%+</td><td class="up">净流出</td><td>防御资金向成长切换，银行转弱</td></tr>
-<tr><td><strong>新能源</strong></td><td>震荡</td><td>中性</td><td>宁德时代回购注销提振，但板块整体跟涨有限</td></tr>
-<tr><td><strong>S.电网设备/特高压</strong></td><td>分化</td><td>中性</td><td>前期涨幅较大，资金向科技切换</td></tr>
-<tr><td><strong>S.储能/虚拟电厂</strong></td><td>震荡</td><td>中性</td><td>跟随新能源板块，无独立催化</td></tr>
-<tr><td><strong>战略金属/黄金</strong></td><td>小金属+2.96%</td><td class="down">净流入22亿</td><td>工业金属跟随科技反弹，黄金韧性足</td></tr>
-</table>
-<p style="margin-top:8px;font-size:12px;"><strong>新增异动：</strong>AI应用端全线爆发，中文在线、荣信文化、蓝色光标、易点天下20cm涨停——Shopify业绩超预期催化，AI应用端与硬件端高低切启动。算力租赁美利云、云赛智联、宏景科技、利通电子涨停。</p>
-</div>
-
-<!-- 资金流向 -->
-<div class="card">
-<h2>💰 资金流向 · 7/31全天</h2>
-<h3>▎主力资金净流入前十板块</h3>
-<table class="table">
-<tr><th>排名</th><th>板块</th><th class="num">净流入(亿)</th><th>涨幅</th><th>信号</th></tr>
-<tr><td>1</td><td>半导体</td><td class="num highlight2">+94.97</td><td class="down">+4.21%</td><td><span class="tag tag-green">超跌修复</span></td></tr>
-<tr><td>2</td><td>元件</td><td class="num highlight2">+89.36</td><td class="down">+4.50%</td><td><span class="tag tag-green">暴力反弹</span></td></tr>
-<tr><td>3</td><td>通信设备</td><td class="num highlight2">+53.07</td><td class="down">+3.85%</td><td><span class="tag tag-green">CPO修复</span></td></tr>
-<tr><td>4</td><td>软件开发</td><td class="num highlight2">+46.18</td><td class="down">+6.15%</td><td><span class="tag tag-green">AI应用</span></td></tr>
-<tr><td>5</td><td>广告营销</td><td class="num highlight2">+45.76</td><td class="down">+6.99%</td><td><span class="tag tag-green">AI应用</span></td></tr>
-<tr><td>6</td><td>IT服务Ⅱ</td><td class="num highlight2">+32.03</td><td class="down">+6.16%</td><td><span class="tag tag-green">算力租赁</span></td></tr>
-<tr><td>7</td><td>通用设备</td><td class="num highlight2">+29.03</td><td class="down">+3.67%</td><td><span class="tag tag-amber">机器人</span></td></tr>
-<tr><td>8</td><td>工程咨询服务Ⅱ</td><td class="num highlight2">+24.52</td><td class="down">+3.42%</td><td><span class="tag tag-amber">基建</span></td></tr>
-<tr><td>9</td><td>小金属</td><td class="num highlight2">+22.06</td><td class="down">+2.96%</td><td><span class="tag tag-amber">资源</span></td></tr>
-<tr><td>10</td><td>工业金属</td><td class="num highlight2">+21.44</td><td class="down">+2.00%</td><td><span class="tag tag-amber">资源</span></td></tr>
-</table>
-<h3>▎主力资金净流出板块</h3>
-<table class="table">
-<tr><th>板块</th><th class="num">净流出</th><th>信号</th></tr>
-<tr><td>银行</td><td class="num highlight3">-净流出</td><td><span class="tag tag-red">防御切换</span></td></tr>
-<tr><td>保险</td><td class="num highlight3">-净流出</td><td><span class="tag tag-red">大金融</span></td></tr>
-<tr><td>油气开采</td><td class="num highlight3">-净流出</td><td><span class="tag tag-red">地缘缓和</span></td></tr>
-</table>
-<h3>▎连板梯队 · 7/31</h3>
-<table class="table">
-<tr><th>连板数</th><th>个股</th><th>板块</th></tr>
-<tr><td>9连板</td><td>爱丽家居</td><td>家居</td></tr>
-<tr><td>5连板</td><td>传智教育</td><td>教育</td></tr>
-<tr><td>4连板</td><td>一鸣食品</td><td>食品</td></tr>
-<tr><td>3连板</td><td>高争民爆</td><td>化工</td></tr>
-<tr><td>2连板</td><td>中国宝安、神雾节能、双星新材、普联软件、泛微网络、税友股份</td><td>多板块</td></tr>
-</table>
-<p style="margin-top:10px;"><strong>分析结论：</strong>今日资金呈现极端<strong>"低切高"</strong>特征——从昨日防御（银行）向科技成长（半导体/元件/AI应用）大迁移。主力净流入625亿、超大单净流入699亿，显示机构主导调仓。AI应用端（广告营销+45.76亿、软件开发+46.18亿）获资金大举关注，AI内部从硬件向应用的<strong>高低切</strong>确认启动。存储芯片早盘高开炸板（兆易创新、德明利），显示硬件端分歧仍在。</p>
-</div>
-
-<!-- 政策宏观 -->
-<div class="card">
-<h2>🏛️ 政策宏观</h2>
+<h3>② 板块情绪风向（25%）——水流向哪？ <span class="tag tag-green">评分: 8/10</span></h3>
 <ul>
-<li><strong>政策底确认：</strong>重要会议召开，重申更加积极的财政政策和适度宽松的货币政策，强调深化资本市场投融资综合改革，提升资本市场韧性和信心。</li>
-<li><strong>AI资本开支焦虑：</strong>谷歌母公司Alphabet Q2现金流上市以来首次转负，同时上调全年资本支出预期，股价跌7.59%。市场对AI大厂资本开支变现能力产生担忧。</li>
-<li><strong>中际旭创港股上市：</strong>全球光模块龙头港股上市首日破发，A股H股同步下挫，光模块板块多杀多风险显现。</li>
-<li><strong>美国对华关税：</strong>美国7月24日宣布对华加征12.5%关税，外围贸易环境不确定性仍高。</li>
+<li><strong>AI应用端：</strong>广告营销+6.99%、软件开发+6.15%，20cm涨停潮（中文在线/蓝色光标/易点天下/昆仑万维/福昕软件），Shopify+微软Azure业绩催化，高低切确认。<span class="highlight2">强多头</span></li>
+<li><strong>算力租赁：</strong>美利云/云赛智联/宏景科技/利通电子涨停，"十五五"算力网4万亿投资，Q1市场规模680亿同比+62%。<span class="highlight2">强多头</span></li>
+<li><strong>半导体：</strong>+4.21%修复，但存储芯片炸板（兆易创新/德明利），中际旭创港股破发，分歧明显。<span class="highlight">中性</span></li>
+<li><strong>银行防御：</strong>跌超3%，资金从防御向成长切换确认。<span class="highlight3">空头</span></li>
+<li><strong>黄金：</strong>韧性足，4050支撑有效，央行连续20个月增持。<span class="highlight">中性偏多</span></li>
+</ul>
+
+<h3>③ 个股情绪信号（20%）——哪条鱼受追捧？ <span class="tag tag-green">评分: 8/10</span></h3>
+<ul>
+<li><strong>连板高度：</strong>爱丽家居9连板、传智教育5连板、一鸣食品4连板——情绪高温。<span class="highlight2">偏多</span></li>
+<li><strong>20cm涨停潮：</strong>AI应用端8+只个股20cm，蓝色光标获107万手封单（15.43亿），封单量巨大。<span class="highlight2">强烈偏多</span></li>
+<li><strong>算力租赁涨停梯队：</strong>美利云/云赛智联/宏景科技/利通电子/东阳光/浙文互联——板块效应强。<span class="highlight2">偏多</span></li>
+<li><strong>存储芯片炸板：</strong>兆易创新/德明利高开低走——硬件端情绪分歧。<span class="highlight3">偏空</span></li>
+<li><strong>炸板率49%：</strong>高位分歧大，追涨风险高。<span class="highlight3">警示</span></li>
+</ul>
+
+<h3>④ 资金面数据（15%）——谁真金白银买？ <span class="tag tag-green">评分: 9/10</span></h3>
+<ul>
+<li><strong>主力净流入：</strong>+625.36亿，超大单+699.94亿——机构主导大举回流。<span class="highlight2">强烈偏多</span></li>
+<li><strong>科技成长资金：</strong>半导体+94.97亿、元件+89.36亿、通信设备+53.07亿、软件开发+46.18亿、广告营销+45.76亿——资金集中度高。<span class="highlight2">强烈偏多</span></li>
+<li><strong>防御资金流出：</strong>银行/保险/油气开采净流出——风格切换确认。<span class="highlight2">偏多（成长）</span></li>
+<li><strong>个股资金：</strong>蓝色光标超大单净买入明显增加；长源东谷连续龙虎榜游资+外资净买入。<span class="highlight2">偏多</span></li>
+</ul>
+
+<h3>⑤ 技术面变量（15%）——什么时候动手？ <span class="tag tag-amber">评分: 7/10</span></h3>
+<ul>
+<li><strong>指数位置：</strong>沪指3832（年线之上），深成指13578，创业板指+5%+——V型修复确认短期底部。<span class="highlight2">偏多</span></li>
+<li><strong>成交量：</strong>2.54万亿，较昨日放量——健康。<span class="highlight2">偏多</span></li>
+<li><strong>均线系统：</strong>昨日暴跌破多条均线，今日暴力修复——5/10/20日线可能仍处粘合/发散状态，需观察后续是否形成标准多头排列。<span class="highlight">中性</span></li>
+<li><strong>炸板率49%：</strong>高位分歧大，追涨易被套。<span class="highlight3">偏空</span></li>
+<li><strong>米斯特策略：</strong>昨日暴跌今日反包，属于"急跌慢涨为洗盘"特征，但需确认是否回踩均线低吸机会。当前多数科技股刚经历暴跌，均线尚未理顺，标准五线多头排列标的较少。<span class="highlight">中性偏多</span></li>
+</ul>
+
+<h3>⑥ 基本面质地（10%）——有没有底？ <span class="tag tag-green">评分: 8/10</span></h3>
+<ul>
+<li><strong>蓝色光标：</strong>2025年扭亏为盈归母净利2.25亿（扣非+180%），2026Q1营收净利均+30%+，合同负债+173.51%，AI收入超37亿同比+2倍，出海营收564亿占比82%。<span class="highlight2">质地优秀</span></li>
+<li><strong>中文在线：</strong>AI短剧批量上线降本75%，年化产能3000部，出海500+部，560万+数字内容储备。<span class="highlight2">质地优秀</span></li>
+<li><strong>赤峰黄金：</strong>2026H1归母净利17-17.8亿（+54%~61%），黄金销售均价同比+43%；紫金矿业入主赋能，SND项目资源量增143%至260吨。<span class="highlight2">质地优秀</span></li>
+<li><strong>长源东谷：</strong>2025业绩+2026Q1盈利均达标，股份回购+资产重组推进，柴油发动机核心零部件主业。<span class="highlight2">质地良好</span></li>
+<li><strong>谷歌Alphabet：</strong>Q2现金流转负——AI资本开支焦虑，对硬件端形成压制。<span class="highlight3">偏空（硬件端）</span></li>
 </ul>
 </div>
 
-<!-- 半导体供应链 -->
 <div class="card">
-<h2>🔗 半导体供应链</h2>
-<p><strong>截至当日·趋势修复：</strong></p>
-<ul>
-<li><strong>存储芯片：</strong>早盘大幅高开（兆易创新、德明利竞价一字涨停），但随后炸板，显示资金对存储竞争格局仍有分歧。长鑫科技上市后改写DRAM竞争格局，短期情绪复杂。</li>
-<li><strong>光模块/CPO：</strong>中际旭创港股上市首日破发，A股H股同步下挫。新易盛7/30收跌近12%，主力资金净流出超32亿元。光模块板块过去一年涨幅积累大，浮盈筹码多，多杀多风险。</li>
-<li><strong>AI芯片/设备：</strong>生益电子涨19.62%，盛科通信涨14.81%，芯原股份涨13.39%。国产替代逻辑 intact，政策底提振信心。</li>
-<li><strong>AI应用端：</strong>中文在线、荣信文化、蓝色光标、易点天下20cm涨停，Shopify业绩超预期催化，AI应用端与硬件端高低切启动。</li>
-</ul>
-<p><strong>本周关注：</strong>SK海力士、美光科技财报，存储行业资本开支指引是核心变量。</p>
+<h2>🎯 下周方向判定及顺位</h2>
+
+<h3>方向一：AI应用端（首选·高低切确认） <span class="tag tag-green">🟢 绿灯</span></h3>
+<p><strong>逻辑：</strong>Shopify业绩超预期+微软Azure收入+43%催化，AI应用端从硬件端高低切确认。广告营销/软件开发资金大举流入，20cm涨停潮，人工智能法立法加速。中国模型全球份额63.5%超美国，应用端商业化落地加速。</p>
+<p><strong>风险：</strong>短期情绪过热，炸板率49%，追涨易被套。需等分化后回踩低吸。</p>
+
+<h3>方向二：算力租赁（次选·政策+业绩双驱动） <span class="tag tag-green">🟢 绿灯</span></h3>
+<p><strong>逻辑：</strong>"十五五"算力网新增直接投资4万亿，Q1市场规模680亿同比+62%，全年预估2600亿。商业闭环形成，多股涨停，资金持续流入。</p>
+<p><strong>风险：</strong>部分标的涨幅已大，需精选低位未启动标的。</p>
+
+<h3>方向三：黄金股（防御配置·业绩+资源双支撑） <span class="tag tag-amber">🟡 黄灯</span></h3>
+<p><strong>逻辑：</strong>赤峰黄金业绩强劲（H1+54%~61%），紫金矿业入主赋能，SND项目资源量增143%。央行连续20个月增持黄金，4050支撑有效。美联储鹰派但黄金脱敏。</p>
+<p><strong>风险：</strong>地缘缓和压制避险溢价，短期震荡。</p>
+
+<h3>方向四：半导体设备/材料（观察·国产替代） <span class="tag tag-amber">🟡 黄灯</span></h3>
+<p><strong>逻辑：</strong>国产DUV光刻机小批量产，长鑫扩产设备采购50亿美元，国产替代逻辑 intact。但存储芯片分歧（炸板），需等SK海力士/美光财报验证。</p>
+<p><strong>风险：</strong>存储竞争加剧+美股映射，短期回避存储，关注设备/材料错杀机会。</p>
+
+<h3>方向五：电网设备/电力（低吸·回调到位） <span class="tag tag-amber">🟡 黄灯</span></h3>
+<p><strong>逻辑：</strong>特高压招标超预期（前三批已超2025全年），行业景气度高。前期涨幅大，资金向科技切换后回调，10/20日线支撑可低吸。</p>
+<p><strong>风险：</strong>短期资金流出，需等均线支撑确认。</p>
 </div>
 
-<!-- 投资逻辑链条+信号总结 -->
 <div class="card">
-<h2>🎯 投资逻辑链条 & 信号总结</h2>
-
-<h3>逻辑链①：A股政策底 — 政策定调 vs 市场信心</h3>
-<p>重要会议定调更加积极财政+适度宽松货币 → 政策底确认 → 市场风险偏好提升 → 资金从防御（银行）向成长（科技）切换。<strong>结论：</strong>政策底已现，但市场底需确认。关注后续是否有持续政策落地（降准降息、财政发力）。</p>
-<div class="signal-box">
-<div class="signal-item"><div class="label">A股政策底</div><div class="status" style="color:#10b981;">🟢 确认</div></div>
-</div>
-
-<h3>逻辑链②：科技股 — 超跌修复 vs 基本面验证</h3>
-<p>昨日科技股暴跌（创业板指-3.97%）→ 今日政策底+超跌反弹 → 半导体/元件/通信暴力修复。但存储芯片炸板、光模块龙头港股破发 → 基本面分歧仍在。<strong>结论：</strong>短期修复行情，但存储/CPO需等业绩验证（SK海力士/美光财报）。AI应用端高低切确认，关注持续性。</p>
-<div class="signal-box">
-<div class="signal-item"><div class="label">半导体</div><div class="status" style="color:#f59e0b;">🟡 修复中</div></div>
-</div>
-
-<h3>逻辑链③：AI产业链 — 硬件退潮 vs 应用崛起</h3>
-<p>谷歌Alphabet现金流转负+上调资本开支 → 市场对AI硬件投资回报率担忧 → 资金从硬件（CPO/服务器/存储）向应用（广告营销/软件开发/算力租赁）切换。<strong>结论：</strong>AI应用端高低切确认启动，Shopify业绩催化，关注应用端持续性。</p>
-<div class="signal-box">
-<div class="signal-item"><div class="label">AI应用</div><div class="status" style="color:#10b981;">🟢 启动</div></div>
-</div>
-
-<h3>逻辑链④：风格切换 — 防御退潮 vs 成长回归</h3>
-<p>昨日银行/白酒防御走强 → 今日政策底确认 → 资金从防御向成长大迁移 → 银行跌超3%、科技涨4%+。<strong>结论：</strong>风格切换确认，短期成长占优，但需警惕政策预期落空后的反复。</p>
-<div class="signal-box">
-<div class="signal-item"><div class="label">A股风格</div><div class="status" style="color:#10b981;">🟢 成长回归</div></div>
-</div>
-
-<h3>📋 底部信号总结表</h3>
+<h2>📋 个股顺位表（米斯特策略+塞蕾妮蒂策略）</h2>
 <table class="table">
-<tr><th>资产</th><th>灯号</th><th>操作建议</th><th>关键价位/条件</th></tr>
-<tr><td>黄金</td><td><span class="tag tag-amber">🟡 黄灯</span></td><td>持有观望</td><td>支撑4050/4000，阻力4080</td></tr>
-<tr><td>半导体</td><td><span class="tag tag-amber">🟡 黄灯</span></td><td>修复中，不追高</td><td>等存储业绩验证</td></tr>
-<tr><td>AI应用</td><td><span class="tag tag-green">🟢 绿灯</span></td><td>关注高低切</td><td>Shopify催化持续性</td></tr>
-<tr><td>光模块/CPO</td><td><span class="tag tag-red">🔴 红灯</span></td><td>回避，多杀多</td><td>中际旭创港股破发</td></tr>
-<tr><td>算力租赁</td><td><span class="tag tag-green">🟢 绿灯</span></td><td>持续活跃</td><td>美利云/云赛智联</td></tr>
-<tr><td>银行</td><td><span class="tag tag-red">🔴 红灯</span></td><td>防御退潮</td><td>资金向成长切换</td></tr>
+<tr><th>顺位</th><th>个股</th><th>子分类归属</th><th>塞蕾妮蒂质地</th><th>米斯特买点</th><th>情绪评分</th><th>数据评分</th><th>综合</th></tr>
+<tr><td>1</td><td>蓝色光标</td><td>三、Ai应用/具身</td><td>★★★★☆<br>扭亏为盈，AI收入+2倍，出海占比82%，合同负债+173%</td><td>🟡 观察<br>今日20cm涨停，炸板率49%高位，等分化回踩5/10日线低吸，不追涨</td><td>9/10</td><td>9/10</td><td><span class="tag tag-green">9.0</span></td></tr>
+<tr><td>2</td><td>中文在线</td><td>三、Ai应用/具身</td><td>★★★★☆<br>AI短剧降本75%，年化产能3000部，出海500+部，IP储备560万+</td><td>🟡 观察<br>今日20cm涨停，短期过热，等回踩10日线确认支撑</td><td>9/10</td><td>8/10</td><td><span class="tag tag-green">8.6</span></td></tr>
+<tr><td>3</td><td>美利云</td><td>二、数据中心/AIDC<br>（算力租赁）</td><td>★★★☆☆<br>算力租赁核心标的，国资背景，但业绩波动较大</td><td>🟡 观察<br>今日涨停，算力租赁龙头，等分化后回踩5日线低吸</td><td>8/10</td><td>8/10</td><td><span class="tag tag-green">8.2</span></td></tr>
+<tr><td>4</td><td>云赛智联</td><td>二、数据中心/AIDC<br>（算力租赁）</td><td>★★★★☆<br>上海国资云龙头，算力租赁+数据要素双轮驱动，业绩稳健</td><td>🟡 观察<br>今日涨停，等回踩10日线或平台支撑低吸</td><td>8/10</td><td>8/10</td><td><span class="tag tag-green">8.2</span></td></tr>
+<tr><td>5</td><td>赤峰黄金</td><td>六、黄金白银</td><td>★★★★★<br>H1净利+54%~61%，紫金入主赋能，SND资源量增143%至260吨，全球6座矿山</td><td>🟢 可布局<br>4050黄金支撑有效，股价回调至20日线附近或平台支撑可低吸，止损设破20日线3日不回</td><td>7/10</td><td>8/10</td><td><span class="tag tag-amber">7.6</span></td></tr>
+<tr><td>6</td><td>长源东谷</td><td>六、智能驾驶/车路云<br>（汽车零部件）</td><td>★★★★☆<br>2025业绩+2026Q1盈利均达标，股份回购+资产重组，柴油发动机核心零部件</td><td>🟡 观察<br>连续龙虎榜游资+外资净买入，今日涨停，等回踩5日线或10日线低吸</td><td>8/10</td><td>7/10</td><td><span class="tag tag-amber">7.6</span></td></tr>
+<tr><td>7</td><td>昆仑万维</td><td>三、Ai应用/具身</td><td>★★★☆☆<br>AI大模型+游戏双主业，海外业务占比高，但盈利波动大</td><td>🟡 观察<br>今日20cm涨停，AI应用端情绪标的，等分化回踩</td><td>8/10</td><td>7/10</td><td><span class="tag tag-amber">7.4</span></td></tr>
+<tr><td>8</td><td>易点天下</td><td>三、Ai应用/具身</td><td>★★★☆☆<br>AI营销出海，业绩增速较快，但估值偏高</td><td>🟡 观察<br>今日20cm涨停，等回踩支撑</td><td>8/10</td><td>7/10</td><td><span class="tag tag-amber">7.4</span></td></td></tr>
+<tr><td>9</td><td>宏景科技</td><td>二、数据中心/AIDC<br>（算力租赁）</td><td>★★★☆☆<br>算力租赁新锐，弹性大，但业绩基数小</td><td>🟡 观察<br>今日涨停，等分化回踩</td><td>7/10</td><td>7/10</td><td><span class="tag tag-amber">7.2</span></td></tr>
+<tr><td>10</td><td>平高电气</td><td>六、S.特高压/电网设备</td><td>★★★★☆<br>特高压核心设备商，国网招标受益，业绩稳健增长</td><td>🟢 可布局<br>电网设备回调至10/20日线附近，若获支撑可低吸，止损设破20日线3日不回</td><td>6/10</td><td>7/10</td><td><span class="tag tag-amber">6.8</span></td></tr>
 </table>
+<p style="margin-top:10px;font-size:12px;"><strong>评分说明：</strong>情绪评分=宏观+板块+个股情绪综合；数据评分=资金+技术+基本面综合；综合=情绪*0.6+数据*0.4。米斯特买点🟢表示当前可布局/回踩到位，🟡表示需等分化回踩，🔴表示回避。</p>
 </div>
 
-<!-- 底部导航 -->
-<div class="footer-nav">
-<a href="index.html" class="active">📰 日报</a>
-<a href="history.html">📚 历史</a>
-<a href="compare.html">⚖️ 对比</a>
-<a href="settings.html">⚙️ 设置</a>
+<div class="card">
+<h2>⚠️ 下周操作纪律</h2>
+<ul>
+<li><strong>① 只做多头：</strong>年线之上且5/10/20三线多头或箱体突破未主升。当前多数AI应用端标的刚经历V型修复，均线尚未理顺，需等回踩确认支撑。</li>
+<li><strong>② 先算退路：</strong>下单前白纸黑字写清支撑线与止损位。AI应用端标的止损设今日涨停价下方3%或5日线下方2%；黄金股止损设20日线下方3%。</li>
+<li><strong>③ 破位砍仓：</strong>只看收盘价，短线跌破≥3%且放量50%以上、波段≥5%且放量为真破位。连续3日收盘在支撑下方无条件清仓。</li>
+<li><strong>④ 单股轻仓：</strong>单股≤10%，总仓≤60%。AI应用端情绪过热，仓位控制在5-8%。</li>
+<li><strong>⑤ 买前三问：</strong>支撑止损在哪？是否符合选股标准？是否超仓位限制？缺一勾禁止下单。</li>
+<li><strong>⑥ 机械执行：</strong>纪律靠一万次重复形成肌肉记忆。今日涨停潮后，周一若高开不追，等分化回踩。</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>📝 核心结论</h2>
+<p><strong>综合评分7.8/10，情绪面偏强，数据面资金真实流入支撑。</strong></p>
+<p><strong>下周首选方向：AI应用端（高低切确认）+ 算力租赁（政策+业绩双驱动）。</strong>但需警惕短期过热，等分化回踩5/10日线低吸，不追涨。</p>
+<p><strong>防御配置：黄金股（赤峰黄金）。</strong>4050支撑有效，业绩强劲，回踩20日线可布局。</p>
+<p><strong>观察方向：半导体设备/材料（等SK海力士/美光财报验证）+ 电网设备（等10/20日线支撑确认）。</strong></p>
+<p><strong>回避方向：存储芯片（炸板分歧）、光模块/CPO（中际旭创港股破发+多杀多）、银行防御（资金流出）。</strong></p>
 </div>
 
 <div style="text-align:center;padding:16px 0;font-size:11px;color:var(--text2);">
-PeterLuo财经日报 · 数据仅供参考，不构成投资建议 · 2026.07.31 17:00
+老六选股逻辑验证框架 · 仅供研究，不构成投资建议 · 2026.07.31
 </div>
 
 </div>
