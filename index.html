@@ -3,371 +3,283 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>同花顺自选股·塞蕾妮蒂质地筛选+米斯特策略排序 · 2026年7月31日</title>
+<title>PeterLuo财经日报 · 2026-08-01</title>
 <style>
-:root{--bg:#0a0e17;--card:#111827;--card2:#1a2332;--accent:#f59e0b;--accent2:#10b981;--accent3:#ef4444;--text:#e5e7eb;--text2:#9ca3af;--border:#1f2937;}
-*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans SC",sans-serif;}
-body{background:var(--bg);color:var(--text);line-height:1.6;}
-.container{max-width:900px;margin:0 auto;padding:16px;}
-.header{text-align:center;padding:20px 0;border-bottom:1px solid var(--border);margin-bottom:16px;}
-.header h1{font-size:18px;color:var(--accent);letter-spacing:1px;}
-.header .sub{color:var(--text2);font-size:12px;margin-top:4px;}
-.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;margin-left:6px;}
-.badge-new{background:#dc2626;color:#fff;}
-.card{background:var(--card);border-radius:12px;padding:16px;margin-bottom:16px;border:1px solid var(--border);}
-.card h2{font-size:15px;color:var(--accent);margin-bottom:12px;display:flex;align-items:center;gap:6px;}
-.card h2::before{content:"";display:inline-block;width:4px;height:16px;background:var(--accent);border-radius:2px;}
-.card h3{font-size:13px;color:var(--text2);margin:10px 0 6px;}
-.card p,.card li{font-size:13px;color:var(--text2);margin-bottom:6px;}
-.card ul{padding-left:18px;}
-.card li{margin-bottom:4px;}
-.highlight{color:var(--accent);font-weight:600;}
-.highlight2{color:var(--accent2);font-weight:600;}
-.highlight3{color:var(--accent3);font-weight:600;}
-.table{width:100%;border-collapse:collapse;font-size:11px;margin-top:8px;}
-.table th,.table td{padding:6px 4px;text-align:left;border-bottom:1px solid var(--border);vertical-align:top;}
-.table th{color:var(--text2);font-weight:500;background:var(--card2);font-size:11px;}
-.table td{color:var(--text);font-size:11px;}
-.table .num{text-align:center;font-variant-numeric:tabular-nums;}
-.table .up{color:#ef4444;}
-.table .down{color:#10b981;}
-.tag{display:inline-block;padding:1px 5px;border-radius:4px;font-size:10px;margin-right:3px;}
-.tag-red{background:rgba(239,68,68,0.15);color:#ef4444;}
-.tag-green{background:rgba(16,185,129,0.15);color:#10b981;}
-.tag-amber{background:rgba(245,158,11,0.15);color:#f59e0b;}
-.tag-gray{background:rgba(75,85,99,0.15);color:#9ca3af;}
-.star{color:var(--accent);font-size:11px;}
-@media(max-width:600px){.table{font-size:10px;}.table th,.table td{padding:4px 2px;}}
+:root{--bg:#0b0f19;--card:#121929;--text:#e2e8f0;--muted:#94a3b8;--up:#ff4d4f;--down:#00b578;--gold:#f59e0b;--accent:#3b82f6;--border:#1e293b;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.6;padding:16px;max-width:720px;margin:0 auto}
+.date-badge{display:inline-block;background:var(--accent);color:#fff;padding:4px 12px;border-radius:4px;font-size:12px;font-weight:600;margin-bottom:12px}
+.data-bar{background:var(--card);border:1px solid var(--border);border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:13px;color:var(--muted)}
+.data-bar .market{display:flex;flex-wrap:wrap;gap:8px 16px}
+.data-bar .market span{white-space:nowrap}
+.data-bar .market .label{color:var(--muted)}
+.data-bar .market .val{font-weight:600;color:var(--text)}
+.data-bar .market .up{color:var(--up)}
+.data-bar .market .down{color:var(--down)}
+h2{font-size:18px;font-weight:700;margin:24px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--border);display:flex;align-items:center;gap:8px}
+h2 .icon{font-size:20px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:16px}
+.card h3{font-size:15px;font-weight:600;margin-bottom:10px;color:var(--gold)}
+.card p,.card li{font-size:14px;color:var(--muted);margin-bottom:6px}
+.card ul{padding-left:18px}
+.card ul li{margin-bottom:6px}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+th,td{padding:10px 8px;text-align:left;border-bottom:1px solid var(--border)}
+th{font-weight:600;color:var(--text);background:rgba(30,41,59,.5)}
+td{color:var(--muted)}
+.up-text{color:var(--up);font-weight:600}
+.down-text{color:var(--down);font-weight:600}
+.signal-box{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+.signal{background:rgba(30,41,59,.6);border:1px solid var(--border);border-radius:8px;padding:10px 14px;flex:1;min-width:140px;text-align:center}
+.signal .name{font-size:12px;color:var(--muted);margin-bottom:4px}
+.signal .state{font-size:14px;font-weight:700}
+.state-red{color:var(--up)}
+.state-green{color:var(--down)}
+.state-yellow{color:var(--gold)}
+.nav{display:flex;gap:8px;justify-content:center;margin-top:24px;padding-top:16px;border-top:1px solid var(--border)}
+.nav a{color:var(--muted);text-decoration:none;font-size:13px;padding:6px 12px;border-radius:6px;background:var(--card);border:1px solid var(--border)}
+.nav a.active{color:#fff;background:var(--accent);border-color:var(--accent)}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:4px;background:rgba(59,130,246,.15);color:var(--accent);margin-right:6px}
+.tag-red{background:rgba(239,68,68,.15);color:var(--up)}
+.tag-green{background:rgba(34,197,94,.15);color:var(--down)}
+.tag-gold{background:rgba(245,158,11,.15);color:var(--gold)}
+.note{font-size:12px;color:var(--muted);margin-top:8px;padding:10px;background:rgba(30,41,59,.4);border-radius:6px;border-left:3px solid var(--accent)}
+.diff-banner{background:linear-gradient(90deg,rgba(59,130,246,.1),rgba(245,158,11,.1));border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:16px;font-size:13px}
+.diff-banner .row{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.diff-banner .item{text-align:center;flex:1;min-width:100px}
+.diff-banner .num{font-size:18px;font-weight:700}
 </style>
 </head>
 <body>
-<div class="container">
 
-<div class="header">
-<h1>🎯 同花顺自选股 · 塞蕾妮蒂质地筛选+米斯特策略排序</h1>
-<div class="sub">分组：宇.具身/Ai应用 · 2026年7月31日 收盘版 <span class="badge badge-new">自选股扫描</span></div>
+<div class="date-badge">📅 2026-08-01 星期六 · 08:00数据汇总版</div>
+
+<div class="data-bar">
+<div class="market">
+<span><span class="label">🇺🇸 美股</span> <span class="val">7/31收盘</span></span>
+<span><span class="label">🇨🇳 A股</span> <span class="val" style="color:var(--gold)">休市</span></span>
+<span><span class="label">🇭🇰 港股</span> <span class="val" style="color:var(--gold)">休市</span></span>
+<span><span class="label">🇰🇷 韩股</span> <span class="val">7/31收盘</span></span>
+<span><span class="label">🛢️ 原油</span> <span class="val">7/31收盘</span></span>
+<span><span class="label">🪙 黄金</span> <span class="val">7/31收盘</span></span>
+</div>
 </div>
 
+<!-- 差异对比横幅 -->
+<div class="diff-banner">
+<div class="row">
+<div class="item"><div style="color:var(--muted);font-size:12px">标普500</div><div class="num" style="color:var(--up)">+0.70%</div></div>
+<div class="item"><div style="color:var(--muted);font-size:12px">纳指100</div><div class="num" style="color:var(--up)">+0.60%</div></div>
+<div class="item"><div style="color:var(--muted);font-size:12px">WTI原油</div><div class="num" style="color:var(--up)">+3.84%</div></div>
+<div class="item"><div style="color:var(--muted);font-size:12px">黄金期货</div><div class="num" style="color:var(--down)">-1.49%</div></div>
+<div class="item"><div style="color:var(--muted);font-size:12px">美元指数</div><div class="num" style="color:var(--down)">-0.18%</div></div>
+<div class="item"><div style="color:var(--muted);font-size:12px">VIX</div><div class="num" style="color:var(--down)">-6.44%</div></div>
+</div>
+</div>
+
+<!-- 政策要闻·公告雷达 -->
+<h2><span class="icon">📡</span>政策要闻·公告雷达</h2>
 <div class="card">
-<h2>📋 个股质地筛选总表</h2>
-<table class="table">
-<tr>
-<th>顺位</th>
-<th>个股</th>
-<th>代码</th>
-<th>子分类归属</th>
-<th>塞蕾妮蒂<br>质地</th>
-<th>核心财务/质地要点</th>
-<th>米斯特<br>买点</th>
-<th>今日<br>涨幅</th>
-<th>综合<br>判定</th>
-</tr>
+<h3>🚨 地缘冲突升级：特朗普下令对伊朗新一轮袭击</h3>
+<p>财联社8月1日讯，美国官员称特朗普已下令对伊朗发动新一轮袭击，目的是迫使德黑兰投降。<span class="tag-red">最早本周末开始</span>，并持续数天。美方一直在围绕打击伊朗能源设施的选项进行筹划，但担心伊朗报复海湾能源设施。特朗普称将"非常猛烈地打击他们"。</p>
+</div>
+<div class="card">
+<h3>🏦 美联储7月FOMC：9:3维持利率不变，10年来首次3张反对票</h3>
+<p>7月29日美联储维持联邦基金利率3.50%-3.75%不变，但<span class="tag-red">3位地区联储主席投反对票</span>（哈马克、卡什卡利、洛根），均主张加息25bp，为2016年来首次。沃什延续鹰派表态："不会犹豫行动"。CME FedWatch显示9月加息25bp概率约60%。</p>
+</div>
+<div class="card">
+<h3>📉 中国7月官方PMI降至49.2%，时隔4个月重回收缩区间</h3>
+<p>国家统计局7月31日公布，7月制造业PMI 49.2（前值50.3），非制造业49.0，综合PMI 49.3。生产指数49.9、新订单48.5均落入收缩区间，主要受高温暴雨极端天气及生产淡季影响。<span class="tag">高技术制造业PMI 53.3%</span>仍保持扩张。</p>
+</div>
+<div class="card">
+<h3>☁️ 亚马逊AWS营收同比+36.7%达422亿美元，盘后暴涨15%</h3>
+<p>亚马逊Q2财报超预期，AWS创2021年以来最快增速，盘后一度涨超10%，收盘涨15.32%创2012年来最大单日涨幅。微软涨3.02%，<span class="tag-gold">微软+亚马逊7月市值合计增长超1万亿美元</span>。苹果因财报瑕疵大跌7.35%。</p>
+</div>
 
-<tr>
-<td class="num">1</td>
-<td>税友股份</td>
-<td class="num">603171</td>
-<td>三、Ai应用/具身<br>(财税AI/SaaS)</td>
-<td class="num"><span class="star">★★★★☆</span><br>7.8</td>
-<td>2025营收20.54亿(+5.57%)，归母净利1.36亿(+21%)；2026Q1营收4.88亿(+8.67%)，净利0.31亿(+26%)。AI产品回款4.21亿(+60%)，付费用户815万(+15%)，毛利率57.3%。数智财税+数字政务双壁垒，金税四期受益。</td>
-<td>🟢 <strong>可布局</strong><br>业绩稳健+AI商业化落地，等回踩5/10日线低吸，止损破20日线3日不回</td>
-<td class="down">+10.01%</td>
-<td><span class="tag tag-green">首选</span></td>
-</tr>
-
-<tr>
-<td class="num">2</td>
-<td>宝信软件</td>
-<td class="num">600845</td>
-<td>二、数据中心/AIDC<br>+三、Ai应用/具身</td>
-<td class="num"><span class="star">★★★★☆</span><br>7.5</td>
-<td>2025营收109.72亿(-19.59%)，归母净利13.05亿(-42.4%)，受钢铁周期拖累；2026Q1营收26.44亿(+4.17%)，净利3.81亿(-14.25%)，降幅收窄。IDC业务+2.98%，宝之云华北交付，AI算力中心+智能体1000+，PLC/机器人突破。预测2026净利16.67亿(+25%)。</td>
-<td>🟡 <strong>观察</strong><br>钢铁周期底部+IDC/AI拐点，等回踩10/20日线或平台支撑，止损破20日线3日不回</td>
-<td class="down">+5.99%</td>
-<td><span class="tag tag-green">次选</span></td>
-</tr>
-
-<tr>
-<td class="num">3</td>
-<td>云赛智联</td>
-<td class="num">600602</td>
-<td>二、数据中心/AIDC<br>(算力租赁/国资云)</td>
-<td class="num"><span class="star">★★★★☆</span><br>7.2</td>
-<td>上海国资云龙头，算力租赁+数据要素双轮驱动。业绩稳健，国资背景深厚。今日缩量涨停(量比0.90)，筹码锁定较好。</td>
-<td>🟡 <strong>观察</strong><br>算力租赁核心标的，今日缩量涨停，等分化回踩5日线低吸，止损破10日线3日不回</td>
-<td class="down">+9.99%</td>
-<td><span class="tag tag-amber">观察</span></td>
-</tr>
-
-<tr>
-<td class="num">4</td>
-<td>汇川技术</td>
-<td class="num">300124</td>
-<td>六、智能驾驶/车路云<br>(工业自动化/机器人)</td>
-<td class="num"><span class="star">★★★★☆</span><br>7.0</td>
-<td>工业自动化龙头，伺服系统/变频器国内市占率第一。业绩稳健增长，机器人业务放量。今日仅+0.87%，相对滞涨，机构重仓。</td>
-<td>🟢 <strong>可布局</strong><br>工业自动化龙头，业绩稳健，今日滞涨，回踩10/20日线可低吸，止损破20日线3日不回</td>
-<td class="down">+0.87%</td>
-<td><span class="tag tag-green">可布局</span></td>
-</tr>
-
-<tr>
-<td class="num">5</td>
-<td>用友网络</td>
-<td class="num">600588</td>
-<td>三、Ai应用/具身<br>(企业AI/SaaS)</td>
-<td class="num"><span class="star">★★★☆☆</span><br>6.5</td>
-<td>2025营收91.82亿(+0.32%)，归母净利-13.89亿；2026Q1营收14.59亿(+5.9%)，净利-7.23亿(减亏1.79%)。AI业务1.37亿，BIP收入5.54亿(+26.8%)。毛利率44.72%(+5.66pct)。预测2026年扭亏(归母净利0.87亿)。订阅转型中，亏损收窄。</td>
-<td>🟡 <strong>观察</strong><br>ERP龙头+AI商业化初期，亏损收窄但尚未盈利，等回踩10/20日线或平台支撑，止损破平台低点-3%</td>
-<td class="down">+10.03%</td>
-<td><span class="tag tag-amber">观察</span></td>
-</tr>
-
-<tr>
-<td class="num">6</td>
-<td>润建股份</td>
-<td class="num">002929</td>
-<td>二、数据中心/AIDC<br>(算力租赁/通信网络)</td>
-<td class="num"><span class="star">★★★☆☆</span><br>6.0</td>
-<td>2025营收103.49亿(+12.5%)，归母净利3791万(-84.62%)；2026Q1营收18.20亿(-23.49%)，净利1260万(-81.82%)。算力网络收入+50%+，在手订单230亿。预测2026净利3.85亿(+915%)。业绩大幅下滑但算力业务高增，订单充裕。</td>
-<td>🟡 <strong>观察</strong><br>算力业务高增+在手订单230亿，但业绩大幅下滑，等回踩10/20日线确认支撑，止损破20日线3日不回</td>
-<td class="down">+10.00%</td>
-<td><span class="tag tag-amber">观察</span></td>
-</tr>
-
-<tr>
-<td class="num">7</td>
-<td>九安医疗</td>
-<td class="num">002432</td>
-<td>三、Ai应用/具身<br>(AI医疗/投资)</td>
-<td class="num"><span class="star">★★★☆☆</span><br>6.0</td>
-<td>2025年净利润22.67亿(+35.84%)，2026Q1净利2.94亿(+10.23%)。预计2026H1净利28-34亿(+204%~269%)，主要来自科创投资收益。现金超200亿，间接持股Kimi、沐曦、智谱AI。投资属性强，业绩波动大，非经常性损益主导。</td>
-<td>🟡 <strong>观察</strong><br>现金充裕+AI投资概念，但业绩波动大，等回踩5/10日线低吸，止损破10日线3日不回</td>
-<td class="down">+9.99%</td>
-<td><span class="tag tag-amber">观察</span></td>
-</tr>
-
-<tr>
-<td class="num">8</td>
-<td>掌阅科技</td>
-<td class="num">603533</td>
-<td>三、Ai应用/具身<br>(AI短剧/IP)</td>
-<td class="num"><span class="star">★★★☆☆</span><br>5.8</td>
-<td>2026Q1营收7.94亿(+23.52%)，归母净利-3372万(亏损收窄)。2026H1业绩预告预亏，高强度投入周期。战略转向AI短剧，泡漫平台，IP储备丰富。持续亏损，盈利遥遥无期。</td>
-<td>🟡 <strong>观察</strong><br>IP储备+AI短剧概念，但持续亏损，等回踩平台支撑或20日线，止损破平台低点-3%</td>
-<td class="down">+9.98%</td>
-<td><span class="tag tag-amber">观察</span></td>
-</tr>
-
-<tr>
-<td class="num">9</td>
-<td>浙文互联</td>
-<td class="num">600986</td>
-<td>三、Ai应用/具身<br>(数字营销)</td>
-<td class="num"><span class="star">★★☆☆☆</span><br>5.5</td>
-<td>数字营销标的，今日涨停9.99%(量比1.81)。财务数据待核实，数字营销行业竞争激烈，毛利率普遍偏低。</td>
-<td>🟡 <strong>观察</strong><br>数字营销+AI概念，财务待核实，等分化回踩5日线，止损破5日线3日不回</td>
-<td class="down">+9.99%</td>
-<td><span class="tag tag-amber">观察</span></td>
-</tr>
-
-<tr>
-<td class="num">10</td>
-<td>三维通信</td>
-<td class="num">002115</td>
-<td>二、光通信/CPO<br>或二、数据中心/AIDC</td>
-<td class="num"><span class="star">★★☆☆☆</span><br>5.5</td>
-<td>通信设备标的，今日涨停9.99%(量比1.98)。财务数据待核实，通信设备行业竞争激烈，需核实业绩拐点。</td>
-<td>🟡 <strong>观察</strong><br>通信设备+算力概念，财务待核实，等分化回踩5日线，止损破5日线3日不回</td>
-<td class="down">+9.99%</td>
-<td><span class="tag tag-amber">观察</span></td>
-</tr>
-
-<tr>
-<td class="num">11</td>
-<td>证通电子</td>
-<td class="num">002197</td>
-<td>二、数据中心/AIDC<br>(金融科技基础设施)</td>
-<td class="num"><span class="star">★★☆☆☆</span><br>5.0</td>
-<td>金融科技/电子支付标的，今日涨停9.98%(量比0.98，缩量涨停)。财务数据待核实，历史有业绩波动。</td>
-<td>🟡 <strong>观察</strong><br>金融科技+算力概念，财务待核实，缩量涨停筹码锁定，等分化回踩，止损破5日线3日不回</td>
-<td class="down">+9.98%</td>
-<td><span class="tag tag-amber">观察</span></td>
-</tr>
-
-<tr>
-<td class="num">12</td>
-<td>天娱数科</td>
-<td class="num">002354</td>
-<td>三、Ai应用/具身<br>(数字娱乐/AI)</td>
-<td class="num"><span class="star">★★☆☆☆</span><br>5.0</td>
-<td>数字娱乐/AI标的，今日涨停9.97%(量比1.01)。历史有ST经历，财务数据待核实，质地存疑。</td>
-<td>🔴 <strong>回避</strong><br>历史ST+财务待核实，情绪炒作标的，不参与</td>
-<td class="down">+9.97%</td>
-<td><span class="tag tag-red">回避</span></td>
-</tr>
-
-<tr>
-<td class="num">13</td>
-<td>岩山科技</td>
-<td class="num">002195</td>
-<td>六、智能驾驶/车路云<br>或三、Ai应用/具身</td>
-<td class="num"><span class="star">★★☆☆☆</span><br>4.8</td>
-<td>2026Q1营收1.64亿(-0.92%)，归母净利2107万(-33.24%)，扣非1629万(-41.97%)。商誉9.09亿。2025前三季度归母净利1.83亿(+331%)主要依赖投资收益。业绩下滑，依赖投资收益，商誉高。</td>
-<td>🔴 <strong>回避</strong><br>业绩下滑+商誉9亿+依赖投资收益，不参与</td>
-<td class="down">+3.03%</td>
-<td><span class="tag tag-red">回避</span></td>
-</tr>
-
-<tr>
-<td class="num">14</td>
-<td>视觉中国</td>
-<td class="num">000681</td>
-<td>三、Ai应用/具身<br>(AI内容/版权)</td>
-<td class="num"><span class="star">★★☆☆☆</span><br>4.5</td>
-<td>2026Q1营收1.85亿(-2.15%)，归母净利2.39亿(+1240%)——但扣非仅1353万(-17.32%)。净利润暴增来自非经常性损益(投资收益)。ROIC仅2.55%，历史资本回报能力弱。营运资本连续三年为负。盈利质量极差。</td>
-<td>🔴 <strong>回避</strong><br>盈利质量极差，非经常性损益主导利润，不参与</td>
-<td class="down">+7.29%</td>
-<td><span class="tag tag-red">回避</span></td>
-</tr>
-
-<tr>
-<td class="num">15</td>
-<td>引力传媒</td>
-<td class="num">603598</td>
-<td>三、Ai应用/具身<br>(AI营销)</td>
-<td class="num"><span class="star">★★☆☆☆</span><br>4.0</td>
-<td>2026Q1营收22.22亿(+11.67%)，归母净利1038万(+37.73%)。但资产负债率90.71%，毛利率仅3.19%。毛利率极低，资产负债率极高，质地差。</td>
-<td>🔴 <strong>回避</strong><br>毛利率3.19%+资产负债率90.71%，质地差，不参与</td>
-<td class="down">+9.99%</td>
-<td><span class="tag tag-red">回避</span></td>
-</tr>
-
-<tr>
-<td class="num">16</td>
-<td>德才股份</td>
-<td class="num">605287</td>
-<td>六、民生消费<br>(建筑装饰)</td>
-<td class="num"><span class="star">★★☆☆☆</span><br>4.0</td>
-<td>建筑装饰标的，今日涨停10.01%(量比0.91，缩量涨停)。受地产周期影响大，财务数据待核实，行业景气度下行。</td>
-<td>🔴 <strong>回避</strong><br>地产周期下行+建筑装饰行业承压，财务待核实，不参与</td>
-<td class="down">+10.01%</td>
-<td><span class="tag tag-red">回避</span></td>
-</tr>
-
-<tr>
-<td class="num">—</td>
-<td>利欧股份</td>
-<td class="num">002131</td>
-<td>三、Ai应用/具身<br>(AI营销/液冷)</td>
-<td class="num"><span class="star">★☆☆☆☆</span><br>2.0</td>
-<td>2025年业绩下修80%：从预告1.9-2.5亿修正为3000-4500万。2026Q1营收51亿(+7.18%)，净利3126万(-71%)，扣非-3630万。实控人王相荣被立案调查。经营现金流连续四年为负。业绩爆雷+治理风险。</td>
-<td>🔴 <strong>删除</strong><br>业绩爆雷+实控人被查+信披违规，一票否决</td>
-<td class="down">+9.91%</td>
-<td><span class="tag tag-red">删除</span></td>
-</tr>
-
-<tr>
-<td class="num">—</td>
-<td>欢瑞世纪</td>
-<td class="num">000892</td>
-<td>三、Ai应用/具身<br>(影视IP)</td>
-<td class="num"><span class="star">★☆☆☆☆</span><br>1.5</td>
-<td>2026Q1营收8018万(-6.27%)，归母净利-3992万(-880.7%)。近三年净经营利润持续为负，累计亏损9.15亿。现金流极差(货币资金/流动负债49.24%，近3年经营性现金流均值/流动负债-3.77%)。影视行业寒冬。</td>
-<td>🔴 <strong>删除</strong><br>持续巨额亏损+现金流极差+行业寒冬，一票否决</td>
-<td class="down">+10.15%</td>
-<td><span class="tag tag-red">删除</span></td>
-</tr>
-
-<tr>
-<td class="num">—</td>
-<td>恒银科技</td>
-<td class="num">603106</td>
-<td>三、Ai应用/具身<br>(金融科技)</td>
-<td class="num"><span class="star">★☆☆☆☆</span><br>1.5</td>
-<td>2025年营收3.63亿(-16.96%)，净利3116万(-22.33%)；2026Q1营收5665万(-39.76%)，净利284.6万(-46.78%)。银行ATM机加速退场(每天消失154台)，行业萎缩。2亿信托理财踩雷获112套抵债房产。高管减持。</td>
-<td>🔴 <strong>删除</strong><br>行业衰退(ATM退场)+业绩暴跌+信托踩雷，一票否决</td>
-<td class="down">+10.01%</td>
-<td><span class="tag tag-red">删除</span></td>
-</tr>
-
+<!-- 黄金敏感指标 -->
+<h2><span class="icon">🪙</span>黄金敏感指标</h2>
+<div class="card">
+<div class="table-wrap">
+<table>
+<tr><th>指标</th><th>收盘价</th><th>涨跌</th><th>信号</th></tr>
+<tr><td>黄金期货主连(GC)</td><td>4098.6</td><td class="down-text">-1.49%</td><td><span class="tag">震荡回调</span></td></tr>
+<tr><td>白银期货主连(SI)</td><td>57.775</td><td class="down-text">-2.10%</td><td><span class="tag">跟随黄金</span></td></tr>
+<tr><td>费城金银指数(.XAU)</td><td>307.90</td><td class="down-text">-3.16%</td><td><span class="tag-red">偏弱</span></td></tr>
+<tr><td>美元/黄金</td><td>0.0002473</td><td class="up-text">+1.45%</td><td><span class="tag">美元反弹</span></td></tr>
+<tr><td>黄金/美元</td><td>4044.27</td><td class="down-text">-1.43%</td><td><span class="tag">同向回落</span></td></tr>
+<tr><td>美10年期国债收益率</td><td>4.739%</td><td class="up-text">+1.36%</td><td><span class="tag-red">利率上行</span></td></tr>
+<tr><td>美元指数</td><td>99.803</td><td class="down-text">-0.18%</td><td><span class="tag">跌破100</span></td></tr>
+<tr><td>铜期货主连(HG)</td><td>6.5075</td><td class="up-text">+0.51%</td><td><span class="tag">工业需求</span></td></tr>
 </table>
-<p style="margin-top:10px;font-size:12px;color:var(--text2);"><strong>说明：</strong>顺位按塞蕾妮蒂质地评分+米斯特买点可行性综合排序。🟢可布局=质地优秀+买点到位；🟡观察=质地中等或买点未到位；🔴回避/删除=质地差或有重大劣迹。今日AI应用端集体涨停，炸板率49%，短期情绪过热，周一若高开不追，等分化回踩5/10日线低吸。</p>
+</div>
+<div class="note">
+<b>逻辑链条：</b>美联储3张反对票强化鹰派预期→美债收益率上行→美元在100关口下方弱势震荡→黄金承压回调至4098美元。中东局势（特朗普下令新一轮袭击）提供地缘避险支撑，但市场目前更定价利率风险。铜价微涨反映工业需求韧性。黄金短期处于"利率压制+地缘支撑"的震荡格局，关注本周末美伊冲突是否实质升级。
+</div>
+</div>
+
+<!-- 半导体·科技因子 -->
+<h2><span class="icon">💻</span>半导体·科技因子</h2>
+<div class="card">
+<div class="table-wrap">
+<table>
+<tr><th>标的</th><th>收盘价</th><th>涨跌</th><th>盘后</th></tr>
+<tr><td>费城半导体指数(.SOX)</td><td>11311.08</td><td class="up-text">+0.07%</td><td>-</td></tr>
+<tr><td>英伟达(NVDA)</td><td>200.750</td><td class="up-text">+2.93%</td><td>198.98 <span class="down-text">-0.88%</span></td></tr>
+<tr><td>美光科技(MU)</td><td>823.030</td><td class="down-text">-5.90%</td><td>812.465 <span class="down-text">-1.28%</span></td></tr>
+<tr><td>闪迪(SNDK)</td><td>1214.830</td><td class="down-text">-5.09%</td><td>1205.00 <span class="down-text">-0.81%</span></td></tr>
+<tr><td>SK海力士(美股ADR)</td><td>143.730</td><td class="down-text">-3.54%</td><td>142.597 <span class="down-text">-0.79%</span></td></tr>
+<tr><td>西部数据(WDC)</td><td>544.840</td><td class="up-text">+2.21%</td><td>537.00 <span class="down-text">-1.44%</span></td></tr>
+<tr><td>应用材料(AMAT)</td><td>507.670</td><td class="up-text">+1.18%</td><td>507.00 <span class="down-text">-0.13%</span></td></tr>
+<tr><td>博通(AVGO)</td><td>389.280</td><td class="up-text">+0.37%</td><td>-</td></tr>
+<tr><td>苹果(AAPL)</td><td>308.910</td><td class="down-text">-7.35%</td><td>307.355 <span class="down-text">-0.50%</span></td></tr>
+<tr><td>微软(MSFT)</td><td>-</td><td class="up-text">+3.02%</td><td>-</td></tr>
+<tr><td>亚马逊(AMZN)</td><td>-</td><td class="up-text">+15.32%</td><td>-</td></tr>
+<tr><td>Meta(META)</td><td>556.710</td><td class="up-text">+3.28%</td><td>553.224 <span class="down-text">-0.63%</span></td></tr>
+<tr><td>谷歌-A(GOOGL)</td><td>-</td><td class="up-text">+6.73%</td><td>-</td></tr>
+<tr><td>特斯拉(TSLA)</td><td>311.210</td><td class="up-text">+0.76%</td><td>309.31 <span class="down-text">-0.61%</span></td></tr>
+</table>
+</div>
+<div class="note">
+<b>逻辑链条：</b>亚马逊AWS超预期增长验证AI算力需求韧性→微软/谷歌跟涨→但存储股（美光、闪迪）逆势大跌，反映市场对HBM4量产放缓及通用DRAM供需再平衡的担忧。苹果因财报瑕疵跌7.35%拖累消费电子情绪。费城半导体指数仅微涨0.07%，显示板块内部分化剧烈：云厂商资本开支确定性（亚马逊+微软） vs 存储周期疑虑（美光+闪迪）。英伟达盘后转跌，市场等待其财报指引。
+</div>
+</div>
+
+<!-- 亚太映射 -->
+<div class="card">
+<h3>🌏 亚太市场映射</h3>
+<div class="table-wrap">
+<table>
+<tr><th>标的</th><th>收盘价</th><th>涨跌</th></tr>
+<tr><td>韩国综合指数(KOSPI)</td><td>6595.45</td><td class="up-text">+17.91%</td></tr>
+<tr><td>SK海力士(韩股)</td><td>171800</td><td class="up-text">+29.95%</td></tr>
+<tr><td>三星电子(韩股)</td><td>262500</td><td class="up-text">+26.81%</td></tr>
+<tr><td>中韩半导体ETF(513310)</td><td>4.600</td><td class="up-text">+6.93%</td></tr>
+<tr><td>恒生科技指数</td><td>4829.22</td><td class="up-text">+0.53%</td></tr>
+<tr><td>恒生指数</td><td>25884.43</td><td class="up-text">+0.10%</td></tr>
+<tr><td>中芯国际(港股)</td><td>63.250</td><td class="up-text">+2.02%</td></tr>
+<tr><td>国企指数</td><td>8612.15</td><td class="down-text">-0.38%</td></tr>
+</table>
+</div>
+<div class="note">
+<b>逻辑链条：</b>韩股在经历过7月多次熔断暴跌后（杠杆ETF去杠杆），周五出现极端反弹，SK海力士+29.95%、三星+26.81%，带动KOSPI暴涨17.91%。这属于<strong>暴跌后的技术性暴力修复</strong>，而非基本面突变。中韩半导体ETF跟涨6.93%。港股相对冷静，恒生科技仅+0.53%，中芯国际+2.02%，显示A/H股对海外存储波动已部分脱敏，更关注国产替代内生逻辑。
+</div>
+</div>
+
+<!-- 原油·地缘因子 -->
+<h2><span class="icon">🛢️</span>原油·地缘因子</h2>
+<div class="card">
+<div class="table-wrap">
+<table>
+<tr><th>指标</th><th>收盘价</th><th>涨跌</th><th>信号</th></tr>
+<tr><td>WTI原油期货主连</td><td>86.80</td><td class="up-text">+3.84%</td><td><span class="tag-red">地缘溢价</span></td></tr>
+<tr><td>布伦特原油(现金)</td><td>83.55</td><td class="up-text">+2.23%</td><td><span class="tag">跟随上涨</span></td></tr>
+</table>
+</div>
+<div class="note">
+<b>逻辑链条：</b>7月29日伊朗直接导弹袭击约旦境内美军基地→WTI单日暴涨6.56%→30日技术性回调→31日再涨3.84%收86.80美元。当前油价完全由地缘事件驱动，基本面供需数据退居其次。特朗普下令新一轮袭击（最早本周末）→市场重新定价伊朗能源设施受袭风险→油价维持高波动。若周末袭击落实且伊朗报复海湾设施，WTI可能冲击90美元；若外交斡旋重启，溢价将快速回吐。
+</div>
+</div>
+
+<!-- A股8大板块 -->
+<h2><span class="icon">🇨🇳</span>A股8大板块</h2>
+<div class="card">
+<p style="text-align:center;color:var(--gold);font-size:16px;font-weight:600">📌 8月1日（周六）A股/港股/北向资金休市</p>
+<p style="text-align:center;color:var(--muted);font-size:13px">以下板块为趋势跟踪与周末预判，无实时成交数据</p>
+<div style="margin-top:12px">
+<p><span class="tag">大半导体硬科技</span> 韩股存储暴力反弹，但美股存储分化（美光跌/西数涨），A股存储板块周一或高开但需防冲高回落。设备/材料国产替代逻辑不受海外存储周期波动影响，中线逻辑 intact。</p>
+<p><span class="tag">算力基础设施</span> 亚马逊AWS+36.7%验证云资本开支强度，光通信/CPO、AI服务器、液冷等A股映射标的受益。英伟达盘后转跌，短期或压制GPU链情绪。</p>
+<p><span class="tag">创新药</span> 独立赛道，受宏观流动性影响大于地缘。美联储鹰派分歧对创新药估值有压制，但中报业绩窗口期，有业绩支撑的CXO/研发外包相对抗跌。</p>
+<p><span class="tag">大金融</span> 7月PMI回落至收缩区间，政策宽松预期升温。证券板块关注周末是否有降准/降息信号；保险中报季，负债端改善+资产端利率上行双刃剑。</p>
+<p><span class="tag">新能源</span> 能源金属跟随铜价微涨，新能源材料关注固态电池技术突破进展。光伏/储能受国内装机数据驱动，与海外地缘关联度低。</p>
+<p><span class="tag">S.特高压/电网设备</span> 十五五电网建设持续加码，独立政策驱动。暑期用电负荷+算电协同逻辑仍在，板块防御属性强。</p>
+<p><span class="tag">S.储能/虚拟电厂</span> 与电网设备联动，高温用电高峰支撑短期情绪。关注政策面是否有新型电力系统配套文件出台。</p>
+<p><span class="tag">黄金白银/战略金属</span> 黄金回调至4098美元，中东局势提供底部支撑。若周末美伊冲突升级，周一黄金股高开；若缓和，则跟随期货回落。</p>
+</div>
+</div>
+
+<!-- 资金流向板块 -->
+<h2><span class="icon">💰</span>资金流向板块</h2>
+<div class="card">
+<p style="text-align:center;color:var(--gold);font-size:14px;font-weight:600">📌 8月1日 A股/港股休市，无全天资金流向数据</p>
+<p style="text-align:center;color:var(--muted);font-size:13px">以下为7月31日（周五）A股收盘后资金流向回顾</p>
+<div class="note" style="margin-top:12px">
+<b>7月31日回顾：</b>周四A股指数修复普涨，AI硬件/半导体/存储领涨。周五（7月31日）A股延续震荡，资金从高位科技股向低位防御板块轮动。半导体板块内部分化：设备/材料获主力净流入，封测/存储部分个股资金净流出。电力设备（特高压/电网）持续获资金青睐，验证"算电协同+十五五电网"双逻辑。黄金股随期货回调遭抛售。
+</div>
+</div>
+
+<!-- 政策宏观 -->
+<h2><span class="icon">🏛️</span>政策宏观</h2>
+<div class="card">
+<ul>
+<li><b>美联储：</b>7月FOMC 9:3维持利率不变，3张反对票主张加息25bp。沃什拒绝给出前瞻指引，市场需从数据中自行判断路径。9月加息概率升至60%。</li>
+<li><b>中国PMI：</b>7月官方制造业PMI 49.2%，时隔4个月重回荣枯线下方。高温暴雨+生产淡季是主因，但新订单指数大幅回落2.7个百分点至48.5%显示内需疲软。政策宽松窗口或打开。</li>
+<li><b>中东局势：</b>特朗普下令对伊朗新一轮袭击，最早本周末开始。美伊冲突从"代理人模式"升级为直接军事对抗，全球能源市场面临供应中断风险。</li>
+<li><b>韩国监管：</b>韩国金融委员会7月16日出台7项监管措施，暂停新单股杠杆ETF发行，参与门槛提至3000万韩元。7月28日KOSPI第八次熔断后，周五出现暴力反弹，杠杆出清后的技术性修复。</li>
+</ul>
+</div>
+
+<!-- 半导体供应链 -->
+<h2><span class="icon">🔗</span>半导体供应链</h2>
+<div class="card">
+<p><span class="tag-gold">截至当日·趋势延续</span></p>
+<ul>
+<li><b>HBM/先进存储：</b>SK海力士放缓HBM4量产扩张、转向通用DRAM的消息（7月中旬）仍压制市场对高端AI存储的乐观预期。但三星预计存储供需紧张持续至2028年，日本铠侠预计Q2 NAND涨价。多空博弈激烈。</li>
+<li><b>国产替代：</b>长鑫存储上市在即，上游设备/材料/特气供应商（太极实业、彤程新材、华特气体等）受益确定性高。A股半导体设备龙头（北方华创、中微公司等）与海外存储周期脱钩，跟随国产产线扩产节奏。</li>
+<li><b>云厂商资本开支：</b>亚马逊AWS营收+36.7%创2021年来最快增速，微软持续加码AI基础设施。云资本开支是AI算力产业链的"压舱石"，光模块/服务器/液冷/PCB持续受益。</li>
+<li><b>苹果链：</b>苹果跌7.35%，财报瑕疵引发对消费电子复苏力度的质疑。A股苹果供应链（立讯精密、歌尔股份等）周一承压。</li>
+</ul>
+</div>
+
+<!-- 投资逻辑链条与信号总结 -->
+<h2><span class="icon">🎯</span>投资逻辑链条 & 底部信号总结</h2>
+<div class="card">
+<h3>逻辑链条1：地缘冲突→能源价格→通胀预期→美联储政策</h3>
+<p>美伊直接军事对抗升级→油价暴涨→美国通胀预期复燃→美联储3位票委主张加息→美债收益率上行→黄金短期承压、美元跌破100。若周末袭击导致伊朗封锁霍尔木兹海峡，油价冲击100美元，美联储鹰派压力倍增，全球风险资产承压。</p>
+
+<h3 style="margin-top:14px">逻辑链条2：云厂商财报→AI资本开支→算力产业链景气度</h3>
+<p>亚马逊AWS+36.7%/微软持续加码→云资本开支确定性高→光模块/CPO/AI服务器/液冷/PCB需求刚性。但存储股（美光/闪迪）因HBM4放缓预期逆势大跌，显示AI算力链内部从"全面普涨"进入"结构性分化"阶段，只有绑定云厂商 capex 的环节才享确定性溢价。</p>
+
+<h3 style="margin-top:14px">逻辑链条3：韩国杠杆出清→存储股暴力反弹→A股存储映射</h3>
+<p>韩国KOSPI 7月8次熔断→单股杠杆ETF暂停发行+央行加息→杠杆盘强制平仓→周五SK海力士+29.95%暴力反弹。这是典型的杠杆踩踏后的技术性修复，非基本面反转。A股存储板块周一或受情绪带动高开，但老六纪律：高开不封板先卖一半，防冲高回落。</p>
+
+<h3 style="margin-top:14px">逻辑链条4：中国PMI回落→政策宽松预期→大金融/基建/地产链</h3>
+<p>7月PMI 49.2%+综合PMI 49.3%→经济放缓信号明确→货币政策宽松（降准/降息）概率上升→证券/保险/银行+基建（特高压/电网）+地产链受益。但地产基本面仍弱，政策刺激力度和传导效率存疑，优先选有订单支撑的电网设备而非纯预期博弈的地产。</p>
 </div>
 
 <div class="card">
-<h2>🎯 塞蕾妮蒂策略·四层评分细则（重点个股）</h2>
-
-<h3>🥇 税友股份（603171）— 首选</h3>
-<p><strong>子分类归属：</strong>三、Ai应用/具身（财税AI/SaaS）</p>
-<p><strong>塞蕾妮蒂四层评分：趋势8/瓶颈8/关键公司8/估值7 = 综合7.8</strong></p>
-<ul>
-<li><strong>① 趋势：</strong>金税四期建设+AI产业化落地，数智财税与数字政务双轮驱动。AI产品回款4.21亿(+60%)，商业化加速。</li>
-<li><strong>② 瓶颈：</strong>财税SaaS领域壁垒高，亿企赢平台活跃企业用户1180万(+10%)，付费用户815万(+15%)，生态机构伙伴5.2万家(+19%)。</li>
-<li><strong>③ 关键公司：</strong>数智财税+数字政务双重核心壁垒，金税四期核心供应商。合同负债8.05亿(+21%)，订单饱满。</li>
-<li><strong>④ 估值：</strong>2025年归母净利1.36亿(+21%)，2026Q1净利0.31亿(+26%)。预测2026-2028年归母净利2.74/4.05/4.80亿。PE 135倍偏高，但业绩增速快，SaaS估值溢价合理。</li>
-</ul>
-
-<h3>🥈 宝信软件（600845）— 次选</h3>
-<p><strong>子分类归属：</strong>二、数据中心/AIDC + 三、Ai应用/具身（工业AI）</p>
-<p><strong>塞蕾妮蒂四层评分：趋势7/瓶颈7/关键公司8/估值7 = 综合7.5</strong></p>
-<ul>
-<li><strong>① 趋势：</strong>钢铁信息化龙头+IDC+AI+PLC+机器人多轮驱动。宝武融合并购下信息化升级需求持续释放。</li>
-<li><strong>② 瓶颈：</strong>钢铁行业工业软件龙头，IDC资源禀赋独特（宝之云），国产PLC替代突破核心技术。</li>
-<li><strong>③ 关键公司：</strong>国内钢铁行业规模最大AI算力中心运营商，智能体1000+，PLC替代能力超60%。</li>
-<li><strong>④ 估值：</strong>2025年受钢铁周期拖累业绩下滑，但2026Q1降幅收窄(+4.17%)。预测2026净利16.67亿(+25%)，PE约39倍。钢铁周期底部+新业务放量，估值合理。</li>
-</ul>
-
-<h3>🥉 云赛智联（600602）— 观察</h3>
-<p><strong>子分类归属：</strong>二、数据中心/AIDC（算力租赁/国资云）</p>
-<p><strong>塞蕾妮蒂四层评分：趋势8/瓶颈7/关键公司7/估值6 = 综合7.2</strong></p>
-<ul>
-<li><strong>① 趋势：</strong>"十五五"算力网新增投资4万亿，算力租赁Q1市场规模680亿(+62%)。上海国资云龙头直接受益。</li>
-<li><strong>② 瓶颈：</strong>上海国资背景，算力资源获取+客户基础优势。</li>
-<li><strong>③ 关键公司：</strong>上海国资云核心平台，算力租赁+数据要素双轮驱动。</li>
-<li><strong>④ 估值：</strong>业绩稳健但估值偏高，需核实最新财报。今日缩量涨停(量比0.90)，筹码锁定好。</li>
-</ul>
+<h3>📊 底部信号总结表</h3>
+<div class="table-wrap">
+<table>
+<tr><th>资产</th><th>灯号</th><th>操作</th><th>核心依据</th></tr>
+<tr><td>黄金</td><td><span class="up-text">🟡 黄灯</span></td><td>观望</td><td>利率压制+地缘支撑，震荡格局，等周末美伊局势明朗</td></tr>
+<tr><td>半导体设备/材料</td><td><span class="up-text">🟢 绿灯</span></td><td>持有/回踩低吸</td><td>国产替代+长鑫上市催化，与海外存储周期脱钩</td></tr>
+<tr><td>存储（A股）</td><td><span class="up-text">🟡 黄灯</span></td><td>高开减仓</td><td>韩股暴力反弹带动情绪，但美股存储分化，防冲高回落</td></tr>
+<tr><td>光通信/CPO</td><td><span class="up-text">🟢 绿灯</span></td><td>持有</td><td>AWS财报验证云capex确定性，业绩支撑强</td></tr>
+<tr><td>原油</td><td><span class="up-text">🔴 红灯</span></td><td>不追</td><td>纯地缘溢价驱动，事件博弈属性强，波动极大</td></tr>
+<tr><td>电网设备</td><td><span class="up-text">🟢 绿灯</span></td><td>持有</td><td>十五五政策+算电协同+暑期用电，三重逻辑 intact</td></tr>
+<tr><td>证券</td><td><span class="up-text">🟡 黄灯</span></td><td>等政策确认</td><td>PMI回落打开宽松窗口，但需等降准/降息落地信号</td></tr>
+</table>
+</div>
 </div>
 
+<!-- 准确率验证 -->
+<h2><span class="icon">📈</span>准确率验证</h2>
 <div class="card">
-<h2>⚠️ 删除标的·一票否决</h2>
-
-<h3>❌ 利欧股份（002131）— 删除</h3>
-<p><strong>重大劣迹：</strong>2025年业绩下修80%(预告1.9-2.5亿修正为3000-4500万)；2026Q1扣非-3630万；实控人王相荣因短线交易被立案调查；经营现金流连续四年为负；前期概念炒作(液冷/AI短剧/SpaceX)无实质业绩支撑。<strong>塞蕾妮蒂一票否决：删除。</strong></p>
-
-<h3>❌ 欢瑞世纪（000892）— 删除</h3>
-<p><strong>重大劣迹：</strong>2026Q1归母净利-3992万(-880.7%)；近三年累计亏损9.15亿；现金流极差(货币资金/流动负债49.24%，近3年经营性现金流均值/流动负债-3.77%)；影视行业寒冬。<strong>塞蕾妮蒂一票否决：删除。</strong></p>
-
-<h3>❌ 恒银科技（603106）— 删除</h3>
-<p><strong>重大劣迹：</strong>银行ATM机加速退场(每天消失154台)，行业衰退；2026Q1营收-39.76%，净利-46.78%；2亿信托理财踩雷获112套抵债房产；高管减持。<strong>塞蕾妮蒂一票否决：删除。</strong></p>
+<p><b>7月31日预判回顾：</b>预判"美股存储分化、云厂商财报定方向"基本准确。亚马逊+微软大涨验证云capex逻辑，美光/闪迪大跌验证存储周期疑虑。但韩股暴力反弹幅度超预期，属于极端情绪修复，非模型可预测范围。</p>
+<p style="margin-top:8px"><b>8月1日准确率：</b>待周一A股开盘验证（休市日无实盘记录）</p>
 </div>
 
-<div class="card">
-<h2>📐 米斯特策略·操作要点</h2>
-<ul>
-<li><strong>① 只做多头：</strong>年线之上且5/10/20三线多头或箱体突破未主升。当前多数AI应用端标的刚经历V型修复，均线尚未理顺，需等回踩确认支撑。</li>
-<li><strong>② 先算退路：</strong>下单前白纸黑字写清支撑线与止损位。税友股份止损设今日涨停价下方3%或5日线下方2%；宝信软件止损设20日线下方3%。</li>
-<li><strong>③ 破位砍仓：</strong>只看收盘价，短线跌破≥3%且放量50%以上、波段≥5%且放量为真破位。连续3日收盘在支撑下方无条件清仓。</li>
-<li><strong>④ 单股轻仓：</strong>单股≤10%，总仓≤60%。AI应用端情绪过热，仓位控制在5-8%。</li>
-<li><strong>⑤ 买前三问：</strong>支撑止损在哪？是否符合选股标准？是否超仓位限制？缺一勾禁止下单。</li>
-<li><strong>⑥ 机械执行：</strong>纪律靠一万次重复形成肌肉记忆。今日涨停潮后，周一若高开不追，等分化回踩。</li>
-</ul>
+<div class="nav">
+<a href="#" class="active">日报</a>
+<a href="#">历史</a>
+<a href="#">对比</a>
+<a href="#">设置</a>
 </div>
 
-<div class="card">
-<h2>📝 核心结论</h2>
-<p><strong>同花顺自选股"宇.具身/Ai应用"分组扫描结果：</strong></p>
-<p><strong>首选（可布局）：</strong>税友股份（财税AI/SaaS，业绩稳健+AI商业化落地）、汇川技术（工业自动化龙头，业绩稳健+相对滞涨）。</p>
-<p><strong>次选（观察）：</strong>宝信软件（钢铁信息化+IDC/AI拐点，业绩降幅收窄）、云赛智联（国资云+算力租赁，缩量涨停筹码锁定）、用友网络（ERP龙头+AI商业化初期，亏损收窄）、润建股份（算力业务高增+在手订单230亿，但业绩大幅下滑）、九安医疗（现金充裕+AI投资，但业绩波动大）、掌阅科技（IP储备+AI短剧，但持续亏损）。</p>
-<p><strong>回避（质地差）：</strong>岩山科技（业绩下滑+商誉9亿）、视觉中国（盈利质量极差+非经常性损益主导）、引力传媒（毛利率3.19%+资产负债率90.71%）、天娱数科（历史ST+财务待核实）、德才股份（地产周期下行+建筑装饰承压）、三维通信/浙文互联/证通电子（财务待核实，情绪炒作）。</p>
-<p><strong>删除（一票否决）：</strong>利欧股份（业绩爆雷+实控人被查）、欢瑞世纪（持续巨额亏损+现金流极差）、恒银科技（行业衰退+信托踩雷）。</p>
-<p><strong>操作要点：</strong>今日AI应用端集体涨停，炸板率49%，短期情绪过热。周一若高开不追，等分化回踩5/10日线低吸。优先布局质地优秀+买点到位的标的（税友股份、汇川技术），回避/删除质地差或有重大劣迹的标的。</p>
+<div style="text-align:center;color:var(--muted);font-size:12px;margin-top:20px;padding-bottom:20px">
+PeterLuo财经日报 · 数据时点详见顶部标注 · 仅供研究不构成投资建议
 </div>
 
-<div style="text-align:center;padding:16px 0;font-size:11px;color:var(--text2);">
-塞蕾妮蒂策略+米斯特策略 · 同花顺自选股扫描 · 仅供研究，不构成投资建议 · 2026.07.31
-</div>
-
-</div>
 </body>
 </html>
