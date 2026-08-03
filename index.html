@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PeterLuo财经日报 · 8月3日晚报</title>
 <style>
-:root{--bg:#0f172a;--card:#1e293b;--text:#e2e8f0;--muted:#94a3b8;--red:#ef4444;--green:#22c55e;--yellow:#eab308;--blue:#3b82f6;--purple:#a855f7;--orange:#f97316;--border:#334155;}
+:root{--bg:#0f172a;--card:#1e293b;--text:#e2e8f0;--muted:#94a3b8;--rise:#ef4444;--fall:#22c55e;--yellow:#eab308;--blue:#3b82f6;--purple:#a855f7;--orange:#f97316;--border:#334155;}
 *{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;}
 body{background:var(--bg);color:var(--text);line-height:1.6;}
 .container{max-width:800px;margin:0 auto;padding:16px;}
@@ -13,8 +13,8 @@ body{background:var(--bg);color:var(--text);line-height:1.6;}
 .data-time-bar{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 16px;margin-bottom:16px;font-size:13px;color:var(--muted);}
 .data-time-bar .market{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
 .data-time-bar .tag{background:rgba(59,130,246,0.15);color:var(--blue);padding:3px 10px;border-radius:6px;font-size:12px;white-space:nowrap;}
-.data-time-bar .tag.closed{background:rgba(239,68,68,0.15);color:var(--red);}
-.data-time-bar .tag.trading{background:rgba(34,197,94,0.15);color:var(--green);}
+.data-time-bar .tag.closed{background:rgba(239,68,68,0.15);color:var(--rise);}
+.data-time-bar .tag.trading{background:rgba(34,197,94,0.15);color:var(--fall);}
 .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;margin-bottom:16px;}
 .card h2{font-size:18px;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
 .card h2 .icon{font-size:20px;}
@@ -22,8 +22,8 @@ body{background:var(--bg);color:var(--text);line-height:1.6;}
 .news-item:last-child{border-bottom:none;}
 .news-item .time{color:var(--muted);font-size:12px;margin-right:8px;}
 .news-item .tag-pill{display:inline-block;font-size:11px;padding:2px 8px;border-radius:4px;margin-right:6px;}
-.tag-red{background:rgba(239,68,68,0.2);color:var(--red);}
-.tag-green{background:rgba(34,197,94,0.2);color:var(--green);}
+.tag-red{background:rgba(239,68,68,0.2);color:var(--rise);}
+.tag-green{background:rgba(34,197,94,0.2);color:var(--fall);}
 .tag-yellow{background:rgba(234,179,8,0.2);color:var(--yellow);}
 .tag-blue{background:rgba(59,130,246,0.2);color:var(--blue);}
 .banner{background:linear-gradient(135deg,#1e3a5f,#0f172a);border:1px solid var(--border);border-radius:16px;padding:20px;margin-bottom:16px;text-align:center;}
@@ -36,12 +36,14 @@ body{background:var(--bg);color:var(--text);line-height:1.6;}
 .table th{background:rgba(59,130,246,0.1);color:var(--blue);padding:10px 8px;text-align:left;font-weight:600;}
 .table td{padding:10px 8px;border-bottom:1px solid var(--border);}
 .table tr:last-child td{border-bottom:none;}
-.up{color:var(--red);}
-.down{color:var(--green);}
+/* 同花顺风格：红涨绿跌 */
+.up{color:var(--rise);}
+.down{color:var(--fall);}
+/* 信号灯系统：独立颜色，不受涨跌影响 */
 .signal{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;}
-.signal-red{background:rgba(239,68,68,0.15);color:var(--red);}
-.signal-green{background:rgba(34,197,94,0.15);color:var(--green);}
-.signal-yellow{background:rgba(234,179,8,0.15);color:var(--yellow);}
+.signal-red{background:rgba(239,68,68,0.15);color:#ef4444;}
+.signal-yellow{background:rgba(234,179,8,0.15);color:#eab308;}
+.signal-green{background:rgba(34,197,94,0.15);color:#22c55e;}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 @media(max-width:600px){.grid-2{grid-template-columns:1fr;}}
 .mini-card{background:rgba(255,255,255,0.03);border-radius:10px;padding:14px;}
@@ -143,7 +145,7 @@ body{background:var(--bg);color:var(--text);line-height:1.6;}
 <!-- 收盘复盘 -->
 <div class="card">
 <h2><span class="icon">📊</span>收盘复盘 & 准确率验证</h2>
-<div class="holiday-note">📌 A股/港股/韩股8月3日休市，以下为8月1日（周五）复盘数据</div>
+<div class="holiday-note">📌 A股8月3日休市，以下为8月1日（周五）复盘数据</div>
 
 <div class="section-title">A股8/1收盘概览</div>
 <div class="grid-2">
@@ -176,11 +178,11 @@ body{background:var(--bg);color:var(--text);line-height:1.6;}
 <div class="section-title">准确率验证（8/1预判 vs 实际）</div>
 <div class="accuracy-box">
 <div class="accuracy-item">
-<div class="score" style="color:var(--green);">✓</div>
+<div class="score" style="color:var(--fall);">✓</div>
 <div class="label">大盘方向<br/>预判震荡</div>
 </div>
 <div class="accuracy-item">
-<div class="score" style="color:var(--red);">✗</div>
+<div class="score" style="color:var(--rise);">✗</div>
 <div class="label">半导体<br/>跌幅超预期</div>
 </div>
 <div class="accuracy-item">
@@ -297,21 +299,21 @@ body{background:var(--bg);color:var(--text);line-height:1.6;}
 <div class="section-title">8/1题材主力资金净流入前十</div>
 <table class="table">
 <tr><th>排名</th><th>题材</th><th>净流入</th><th>领涨股</th><th>信号</th></tr>
-<tr><td>1</td><td>黄金概念</td><td>+12.8亿</td><td>赤峰黄金</td><td><span class="signal signal-green">🟢 避险流入</span></td></tr>
-<tr><td>2</td><td>电力</td><td>+8.5亿</td><td>长江电力</td><td><span class="signal signal-green">🟢 夏季高峰</span></td></tr>
-<tr><td>3</td><td>银行</td><td>+6.2亿</td><td>工商银行</td><td><span class="signal signal-yellow">🟡 防御</span></td></tr>
-<tr><td>4</td><td>中药</td><td>+4.1亿</td><td>片仔癀</td><td><span class="signal signal-yellow">🟡 防御</span></td></tr>
-<tr><td>5</td><td>高速公路</td><td>+3.3亿</td><td>粤高速A</td><td><span class="signal signal-yellow">🟡 高股息</span></td></tr>
+<tr><td>1</td><td>黄金概念</td><td class="up">+12.8亿</td><td>赤峰黄金</td><td><span class="signal signal-green">🟢 避险流入</span></td></tr>
+<tr><td>2</td><td>电力</td><td class="up">+8.5亿</td><td>长江电力</td><td><span class="signal signal-green">🟢 夏季高峰</span></td></tr>
+<tr><td>3</td><td>银行</td><td class="up">+6.2亿</td><td>工商银行</td><td><span class="signal signal-yellow">🟡 防御</span></td></tr>
+<tr><td>4</td><td>中药</td><td class="up">+4.1亿</td><td>片仔癀</td><td><span class="signal signal-yellow">🟡 防御</span></td></tr>
+<tr><td>5</td><td>高速公路</td><td class="up">+3.3亿</td><td>粤高速A</td><td><span class="signal signal-yellow">🟡 高股息</span></td></tr>
 </table>
 
 <div class="section-title">8/1行业主力资金净流出前十</div>
 <table class="table">
 <tr><th>排名</th><th>行业</th><th>净流出</th><th>领跌股</th><th>信号</th></tr>
-<tr><td>1</td><td>半导体</td><td>-68.5亿</td><td>中芯国际</td><td><span class="signal signal-red">🔴 大幅流出</span></td></tr>
-<tr><td>2</td><td>光通信/CPO</td><td>-42.3亿</td><td>中际旭创</td><td><span class="signal signal-red">🔴 机构调仓</span></td></tr>
-<tr><td>3</td><td>软件开发</td><td>-35.7亿</td><td>科大讯飞</td><td><span class="signal signal-red">🔴 情绪退潮</span></td></tr>
-<tr><td>4</td><td>汽车零部件</td><td>-28.4亿</td><td>比亚迪</td><td><span class="signal signal-red">🔴 减持</span></td></tr>
-<tr><td>5</td><td>光伏设备</td><td>-22.1亿</td><td>隆基绿能</td><td><span class="signal signal-red">🔴 持续失血</span></td></tr>
+<tr><td>1</td><td>半导体</td><td class="down">-68.5亿</td><td>中芯国际</td><td><span class="signal signal-red">🔴 大幅流出</span></td></tr>
+<tr><td>2</td><td>光通信/CPO</td><td class="down">-42.3亿</td><td>中际旭创</td><td><span class="signal signal-red">🔴 机构调仓</span></td></tr>
+<tr><td>3</td><td>软件开发</td><td class="down">-35.7亿</td><td>科大讯飞</td><td><span class="signal signal-red">🔴 情绪退潮</span></td></tr>
+<tr><td>4</td><td>汽车零部件</td><td class="down">-28.4亿</td><td>比亚迪</td><td><span class="signal signal-red">🔴 减持</span></td></tr>
+<tr><td>5</td><td>光伏设备</td><td class="down">-22.1亿</td><td>隆基绿能</td><td><span class="signal signal-red">🔴 持续失血</span></td></tr>
 </table>
 
 <div style="margin-top:14px;font-size:13px;color:var(--muted);">
@@ -322,16 +324,16 @@ body{background:var(--bg);color:var(--text);line-height:1.6;}
 <!-- 政策宏观 -->
 <div class="card">
 <h2><span class="icon">🏛️</span>政策宏观</h2>
-<div class="chain-box" style="border-left-color:var(--red);">
-<h4 style="color:var(--red);">🇺🇸 美国：衰退交易升温</h4>
+<div class="chain-box" style="border-left-color:var(--rise);">
+<h4 style="color:var(--rise);">🇺🇸 美国：衰退交易升温</h4>
 <p>7月非农新增11.4万（预期17.5万），失业率4.3%触发"萨姆规则"（连续3个月比12个月低点高0.5%即预示衰退）。9月降息50bp概率从20%跳升至60%。美债收益率暴跌，2Y/10Y利差倒挂收窄。美股周五暴跌后周日开盘反弹，但衰退叙事一旦确立，反弹或只是"死猫跳"。</p>
 </div>
 <div class="chain-box" style="border-left-color:var(--blue);">
 <h4 style="color:var(--blue);">🇨🇳 中国：宽松加码+消费刺激</h4>
 <p>央行7天逆回购利率降至1.70%，释放进一步宽松信号。国务院印发服务消费高质量发展意见，重点利好文旅、养老、教育。但7月PMI 49.4显示制造业仍处收缩区间，内需疲软待解。8月关注：政治局会议后续政策落地、LPR是否调降、地产政策是否加码。</p>
 </div>
-<div class="chain-box" style="border-left-color:var(--green);">
-<h4 style="color:var(--green);">🌏 全球：央行宽松周期开启</h4>
+<div class="chain-box" style="border-left-color:var(--fall);">
+<h4 style="color:var(--fall);">🌏 全球：央行宽松周期开启</h4>
 <p>英国央行8月1日降息25bp至5.0%，为2020年以来首次。美联储9月降息几乎确定，全球流动性拐点已现。但"降息≠牛市"——若降息伴随衰退，风险资产仍承压。历史规律：首次降息后3个月，美股平均下跌5-10%。</p>
 </div>
 </div>
@@ -386,7 +388,8 @@ body{background:var(--bg);color:var(--text);line-height:1.6;}
 <!-- 页脚 -->
 <div style="text-align:center;padding:20px 0;color:var(--muted);font-size:12px;">
 PeterLuo财经日报 · 数据截至北京时间8月3日22:43<br/>
-美股盘中数据实时变化，收盘后请关注次日早报更新
+美股盘中数据实时变化，收盘后请关注次日早报更新<br/>
+<span style="color:var(--rise);">红涨绿跌</span> · 信号灯独立体系
 </div>
 
 </div>
