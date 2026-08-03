@@ -31,6 +31,9 @@ th{color:var(--sub);font-weight:600;background:rgba(255,255,255,.02);}
 .nav a.active{color:var(--gold);border-color:var(--gold);}
 .highlight{background:rgba(245,158,11,.08);padding:12px;border-radius:8px;border-left:3px solid var(--gold);margin:8px 0;}
 .warning{background:rgba(239,68,68,.08);padding:12px;border-radius:8px;border-left:3px solid var(--red);margin:8px 0;}
+.tabs{display:flex;gap:4px;margin-bottom:12px;}
+.tab{padding:4px 10px;border-radius:4px;font-size:12px;background:rgba(255,255,255,.05);color:var(--sub);cursor:pointer;}
+.tab.active{background:rgba(59,130,246,.15);color:var(--blue);}
 </style>
 </head>
 <body>
@@ -45,7 +48,7 @@ th{color:var(--sub);font-weight:600;background:rgba(255,255,255,.02);}
 <span class="sub">🇭🇰 港股 · 8/3 已收盘</span>
 <span class="sub">🇨🇳 A股 · 8/3 15:00已收盘</span>
 </div>
-<div class="dateline">date-badge: 2026-08-03 17:00 晚报版</div>
+<div class="dateline">date-badge: 2026-08-03 17:00 晚报版 · 数据来源:同花顺</div>
 </div>
 
 <!-- 政策要闻·公告雷达 -->
@@ -65,9 +68,10 @@ th{color:var(--sub);font-weight:600;background:rgba(255,255,255,.02);}
 <h2>📊 差异对比横幅</h2>
 <table>
 <tr><th>市场</th><th>收盘/最新</th><th>涨跌</th><th>成交额/流向</th></tr>
-<tr><td>上证指数</td><td class="num">3809.66</td><td class="red">-0.59%</td><td class="num">9522亿</td></tr>
-<tr><td>深证成指</td><td class="num">13448.29</td><td class="red">-0.96%</td><td class="num">1.05万亿</td></tr>
-<tr><td>创业板指</td><td class="num">3302.55</td><td class="red">-1.24%</td><td class="sub">缩量</td></tr>
+<tr><td>上证指数</td><td class="num">3809.66</td><td class="red">-0.59%</td><td class="num red">-212.79亿</td></tr>
+<tr><td>深证成指</td><td class="num">13448.29</td><td class="red">-0.96%</td><td class="num red">-277.01亿</td></tr>
+<tr><td>创业板指</td><td class="num">3302.55</td><td class="red">-1.24%</td><td class="num red">-77.87亿</td></tr>
+<tr><td>两市合计</td><td class="sub">—</td><td class="sub">—</td><td class="num red">-489.80亿</td></tr>
 <tr><td>恒生指数</td><td class="sub">已收盘</td><td class="green">+0.96%</td><td class="sub">阿里+7%</td></tr>
 <tr><td>南向资金</td><td class="num">+110.31亿</td><td class="green">大幅流入</td><td class="sub">本月第1</td></tr>
 <tr><td>现货黄金</td><td class="num">4056.07</td><td class="green">+0.24%</td><td class="sub">8/3 16:29</td></tr>
@@ -82,7 +86,7 @@ th{color:var(--sub);font-weight:600;background:rgba(255,255,255,.02);}
 <div class="dateline">涨跌比 4005:1466 | 涨停83家 跌停9家 | 成交额20110亿（较前日-5488亿）</div>
 <p><b>情绪定性：</b>中性偏暖。个股涨多跌少，但指数收跌，呈<span class="gold">"缩量普涨、指数失真"</span>格局。微盘股与题材股活跃，机构重仓的科技蓝筹回调。</p>
 <p><b>连板生态：</b>最高6板传智教育（AI教育），5板一鸣食品（消费），4板高争民爆（并购重组）。晋级率偏低（二板15%、三板17%），炸板率17.58%，<span class="red">接力情绪一般，首板套利为主</span>。</p>
-<p><b>风格特征：</b>龙虎榜机构净卖4.41亿，游资净买9.84亿，量化基金高频出没。主力净流出418亿（超大单-285亿），而小单净流入393亿，<span class="red">典型机构抛、散户接</span>。</p>
+<p><b>风格特征：</b>龙虎榜机构净卖4.41亿，游资净买9.84亿，量化基金高频出没。两市主力净流出489.80亿（上证-212.79亿、深证-277.01亿、创业板-77.87亿），而小单净流入393亿，<span class="red">典型机构抛、散户接</span>。</p>
 <div class="warning">
 <b>准确率验证（7/31预判回顾）：</b><br>
 7/31预判"AI应用VS机器人切换，关注低位核电/电力/电网"→ 8/3核电/电力/电网全面爆发，AI应用分化（传智教育6板但后排掉队），机器人冲高回落。方向判断正确，个股晋级率低于预期。当前准确率累计：待更新。
@@ -92,41 +96,131 @@ th{color:var(--sub);font-weight:600;background:rgba(255,255,255,.02);}
 <!-- 💰 资金流向板块 -->
 <div class="card">
 <h2>💰 资金流向板块（8/3 全天）</h2>
-<h3>▸ 题材主力净流入 TOP10</h3>
+
+<h3>▸ 行业主力净流入 TOP10（今日）</h3>
 <table>
-<tr><th>排名</th><th>题材</th><th>净流入</th><th>领涨股</th><th>信号</th></tr>
-<tr><td>1</td><td>核能核电</td><td class="num green">+22.74亿</td><td>东方电气</td><td class="badge badge-green">政策强催化</td></tr>
-<tr><td>2</td><td>商业航天</td><td class="num green">+17.55亿</td><td>铖昌科技</td><td class="badge badge-green">事件驱动</td></tr>
-<tr><td>3</td><td>氢能源</td><td class="num green">+10.36亿</td><td>华电辽能</td><td class="badge badge-green">能源轮动</td></tr>
-<tr><td>4</td><td>绿色电力</td><td class="num green">+9.89亿</td><td>华电辽能</td><td class="badge badge-green">高温催化</td></tr>
-<tr><td>5</td><td>可控核聚变</td><td class="num green">+9.78亿</td><td>东方电气</td><td class="badge badge-blue">概念叠加</td></tr>
-<tr><td>6</td><td>反内卷概念</td><td class="num green">+8.10亿</td><td>通威股份</td><td class="badge badge-green">光伏反弹</td></tr>
-<tr><td>7</td><td>抽水蓄能</td><td class="num green">+7.65亿</td><td>东方电气</td><td class="badge badge-blue">储能配套</td></tr>
-<tr><td>8</td><td>东北振兴</td><td class="num green">+7.40亿</td><td>华电辽能</td><td class="badge badge-blue">地域概念</td></tr>
-<tr><td>9</td><td>水利建设</td><td class="num green">+5.42亿</td><td>西部材料</td><td class="badge badge-blue">基建</td></tr>
-<tr><td>10</td><td>机器人执行器</td><td class="num green">+5.27亿</td><td>绿的谐波</td><td class="badge badge-blue">宇树IPO</td></tr>
+<tr><th>排名</th><th>行业</th><th>净流入</th><th>涨幅</th></tr>
+<tr><td>1</td><td>通信设备</td><td class="num green">+16.51亿</td><td class="green">+1.55%</td></tr>
+<tr><td>2</td><td>电网设备</td><td class="num green">+16.35亿</td><td class="green">+3.52%</td></tr>
+<tr><td>3</td><td>电力</td><td class="num green">+15.82亿</td><td class="green">+2.28%</td></tr>
+<tr><td>4</td><td>自动化设备</td><td class="num green">+8.99亿</td><td class="green">+0.94%</td></tr>
+<tr><td>5</td><td>光伏设备</td><td class="num green">+7.83亿</td><td class="green">+2.91%</td></tr>
+<tr><td>6</td><td>通用设备</td><td class="num green">+6.82亿</td><td class="green">+1.75%</td></tr>
+<tr><td>7</td><td>小金属</td><td class="num green">+3.92亿</td><td class="green">+1.40%</td></tr>
+<tr><td>8</td><td>风电设备</td><td class="num green">+3.64亿</td><td class="green">+4.06%</td></tr>
+<tr><td>9</td><td>其他电源设备</td><td class="num green">+2.71亿</td><td class="green">+1.84%</td></tr>
+<tr><td>10</td><td>电机</td><td class="num green">+1.89亿</td><td class="green">+2.75%</td></tr>
 </table>
 
-<h3>▸ 申万行业主力净流入 TOP10</h3>
+<h3>▸ 行业主力净流入 TOP10（3日累计）</h3>
 <table>
-<tr><th>排名</th><th>行业</th><th>净流入</th><th>涨幅</th><th>最大个股</th></tr>
-<tr><td>1</td><td>电网设备</td><td class="num green">+16.31亿</td><td class="green">+3.59%</td><td>风范股份</td></tr>
-<tr><td>2</td><td>电力</td><td class="num green">+14.60亿</td><td class="green">+2.29%</td><td>华电辽能</td></tr>
-<tr><td>3</td><td>通信设备</td><td class="num green">+12.74亿</td><td class="green">+1.54%</td><td>天孚通信</td></tr>
-<tr><td>4</td><td>光伏设备</td><td class="num green">+8.47亿</td><td class="green">+2.93%</td><td>通威股份</td></tr>
-<tr><td>5</td><td>自动化设备</td><td class="num green">+7.84亿</td><td class="green">+0.95%</td><td>绿的谐波</td></tr>
-<tr><td>6</td><td>通用设备</td><td class="num green">+6.58亿</td><td class="green">+1.73%</td><td>—</td></tr>
-<tr><td>7</td><td>小金属</td><td class="num green">+5.63亿</td><td class="green">+1.47%</td><td>—</td></tr>
-<tr><td>8</td><td>风电设备</td><td class="num green">+4.53亿</td><td class="green">+4.01%</td><td>—</td></tr>
-<tr><td>9</td><td>其他电源设备Ⅱ</td><td class="num green">+2.95亿</td><td class="green">+1.51%</td><td>—</td></tr>
-<tr><td>10</td><td>航天装备Ⅱ</td><td class="num green">+2.39亿</td><td class="green">+3.55%</td><td>—</td></tr>
+<tr><th>排名</th><th>行业</th><th>净流入</th><th>涨幅</th></tr>
+<tr><td>1</td><td>文化传媒</td><td class="num green">+38.91亿</td><td class="green">+6.16%</td></tr>
+<tr><td>2</td><td>软件开发</td><td class="num green">+32.02亿</td><td class="green">+6.56%</td></tr>
+<tr><td>3</td><td>通用设备</td><td class="num green">+28.44亿</td><td class="green">+1.91%</td></tr>
+<tr><td>4</td><td>建筑装饰</td><td class="num green">+19.32亿</td><td class="green">+3.30%</td></tr>
+<tr><td>5</td><td>小金属</td><td class="num green">+17.11亿</td><td class="green">+1.09%</td></tr>
+<tr><td>6</td><td>IT服务</td><td class="num green">+16.93亿</td><td class="green">+5.52%</td></tr>
+<tr><td>7</td><td>贵金属</td><td class="num green">+13.89亿</td><td class="green">+2.48%</td></tr>
+<tr><td>8</td><td>汽车整车</td><td class="num green">+11.91亿</td><td class="green">+3.26%</td></tr>
+<tr><td>9</td><td>白酒</td><td class="num green">+11.76亿</td><td class="green">+4.30%</td></tr>
+<tr><td>10</td><td>电网设备</td><td class="num green">+9.29亿</td><td class="green">+3.04%</td></tr>
 </table>
 
-<h3>▸ 主力净流出方向（观察）</h3>
-<p class="sub">电子化学品、半导体、计算机、传媒板块跌幅居前。存储芯片领跌：兆易创新跌停，德明利-9.56%，普冉股份、香农芯创下挫。科技主线高位兑现明显。</p>
+<h3>▸ 行业主力净流入 TOP10（5日累计）</h3>
+<table>
+<tr><th>排名</th><th>行业</th><th>净流入</th><th>涨幅</th></tr>
+<tr><td>1</td><td>软件开发</td><td class="num green">+40.62亿</td><td class="green">+9.62%</td></tr>
+<tr><td>2</td><td>文化传媒</td><td class="num green">+35.87亿</td><td class="green">+9.39%</td></tr>
+<tr><td>3</td><td>白酒</td><td class="num green">+28.83亿</td><td class="green">+8.50%</td></tr>
+<tr><td>4</td><td>汽车整车</td><td class="num green">+27.84亿</td><td class="green">+8.56%</td></tr>
+<tr><td>5</td><td>通用设备</td><td class="num green">+14.72亿</td><td class="green">+1.23%</td></tr>
+<tr><td>6</td><td>银行</td><td class="num green">+14.69亿</td><td class="green">+2.44%</td></tr>
+<tr><td>7</td><td>建筑装饰</td><td class="num green">+13.80亿</td><td class="green">+4.51%</td></tr>
+<tr><td>8</td><td>电网设备</td><td class="num green">+9.56亿</td><td class="green">+3.96%</td></tr>
+<tr><td>9</td><td>贵金属</td><td class="num green">+9.37亿</td><td class="green">+2.87%</td></tr>
+<tr><td>10</td><td>教育</td><td class="num green">+5.54亿</td><td class="sub">—</td></tr>
+</table>
+
+<h3>▸ 概念主力净流入 TOP10（今日）</h3>
+<table>
+<tr><th>排名</th><th>概念</th><th>净流入</th><th>涨幅</th></tr>
+<tr><td>1</td><td>核电</td><td class="num green">+26.44亿</td><td class="green">+2.68%</td></tr>
+<tr><td>2</td><td>海工装备</td><td class="num green">+18.39亿</td><td class="green">+2.45%</td></tr>
+<tr><td>3</td><td>超超临界发电</td><td class="num green">+16.53亿</td><td class="green">+2.55%</td></tr>
+<tr><td>4</td><td>可控核聚变</td><td class="num green">+12.42亿</td><td class="green">+2.88%</td></tr>
+<tr><td>5</td><td>抽水蓄能</td><td class="num green">+11.58亿</td><td class="green">+2.78%</td></tr>
+<tr><td>6</td><td>航空发动机</td><td class="num green">+9.64亿</td><td class="green">+2.67%</td></tr>
+<tr><td>7</td><td>高端装备</td><td class="num green">+8.79亿</td><td class="sub">—</td></tr>
+<tr><td>8</td><td>柔性直流输电</td><td class="num green">+8.93亿</td><td class="sub">—</td></tr>
+<tr><td>9</td><td>新型工业化</td><td class="num green">+8.12亿</td><td class="sub">—</td></tr>
+<tr><td>10</td><td>BC电池</td><td class="num green">+7.48亿</td><td class="sub">—</td></tr>
+</table>
+
+<h3>▸ 概念主力净流入 TOP10（3日累计）</h3>
+<table>
+<tr><th>排名</th><th>概念</th><th>净流入</th><th>涨幅</th></tr>
+<tr><td>1</td><td>ChatGPT概念</td><td class="num green">+75.46亿</td><td class="green">+6.83%</td></tr>
+<tr><td>2</td><td>AI智能体</td><td class="num green">+75.43亿</td><td class="green">+5.02%</td></tr>
+<tr><td>3</td><td>AIGC概念</td><td class="num green">+74.71亿</td><td class="green">+5.64%</td></tr>
+<tr><td>4</td><td>AI应用</td><td class="num green">+68.86亿</td><td class="green">+5.14%</td></tr>
+<tr><td>5</td><td>虚拟数字人</td><td class="num green">+63.16亿</td><td class="green">+5.89%</td></tr>
+<tr><td>6</td><td>专精特新</td><td class="num green">+62.99亿</td><td class="green">+0.94%</td></tr>
+<tr><td>7</td><td>核电</td><td class="num green">+59.75亿</td><td class="green">+2.71%</td></tr>
+<tr><td>8</td><td>快手概念</td><td class="num green">+54.11亿</td><td class="green">+7.08%</td></tr>
+<tr><td>9</td><td>文化传媒概念</td><td class="num green">+53.22亿</td><td class="green">+4.62%</td></tr>
+<tr><td>10</td><td>小红书概念</td><td class="num green">+50.44亿</td><td class="green">+6.21%</td></tr>
+</table>
+
+<h3>▸ 概念主力净流入 TOP10（5日累计）</h3>
+<table>
+<tr><th>排名</th><th>概念</th><th>净流入</th><th>涨幅</th></tr>
+<tr><td>1</td><td>虚拟数字人</td><td class="num green">+66.69亿</td><td class="green">+8.45%</td></tr>
+<tr><td>2</td><td>ChatGPT概念</td><td class="num green">+63.45亿</td><td class="green">+8.62%</td></tr>
+<tr><td>3</td><td>文化传媒概念</td><td class="num green">+47.58亿</td><td class="green">+6.99%</td></tr>
+<tr><td>4</td><td>快手概念</td><td class="num green">+46.89亿</td><td class="green">+8.69%</td></tr>
+<tr><td>5</td><td>跨境支付(CIPS)</td><td class="num green">+36.97亿</td><td class="green">+8.65%</td></tr>
+<tr><td>6</td><td>AIGC概念</td><td class="num green">+36.24亿</td><td class="green">+7.33%</td></tr>
+<tr><td>7</td><td>鸿蒙概念</td><td class="num green">+34.36亿</td><td class="green">+6.75%</td></tr>
+<tr><td>8</td><td>白酒概念</td><td class="num green">+27.52亿</td><td class="green">+7.12%</td></tr>
+<tr><td>9</td><td>在线教育</td><td class="num green">+26.86亿</td><td class="green">+8.38%</td></tr>
+<tr><td>10</td><td>NFT概念</td><td class="num green">+25.86亿</td><td class="green">+9.05%</td></tr>
+</table>
+
+<h3>▸ 个股主力净流入 TOP（今日）</h3>
+<table>
+<tr><th>排名</th><th>个股</th><th>净流入</th><th>最新价</th><th>涨幅</th></tr>
+<tr><td>1</td><td>天孚通信</td><td class="num green">+11.74亿</td><td class="num">180.50</td><td class="green">+5.55%</td></tr>
+<tr><td>2</td><td>华电辽能</td><td class="num green">+10.23亿</td><td class="num">15.51</td><td class="green">+10.00%</td></tr>
+</table>
+
+<h3>▸ 暗盘榜 TOP20（今日）</h3>
+<table>
+<tr><th>排名</th><th>个股</th><th>涨幅</th><th>暗盘资金(万)</th><th>子分类归属</th></tr>
+<tr><td>1</td><td>百合花</td><td class="green">+10.00%</td><td class="num green">+38041</td><td>BD.半导体材料</td></tr>
+<tr><td>2</td><td>大唐发电</td><td class="green">+4.57%</td><td class="num green">+66066</td><td>ND.电力</td></tr>
+<tr><td>3</td><td>中国核建</td><td class="green">+10.05%</td><td class="num green">+17057</td><td>ND.能源/核电</td></tr>
+<tr><td>4</td><td>融发核电</td><td class="green">+9.93%</td><td class="num green">+11429</td><td>ND.能源/核电</td></tr>
+<tr><td>5</td><td>合锻智能</td><td class="green">+9.99%</td><td class="num green">+5762</td><td>ND.能源/核电</td></tr>
+<tr><td>6</td><td>美利云</td><td class="green">+10.01%</td><td class="num green">+20801</td><td>SJ.数据中心/AIDC</td></tr>
+<tr><td>7</td><td>利欧股份</td><td class="green">+10.09%</td><td class="num green">+78607</td><td>宇.AI应用/具身</td></tr>
+<tr><td>8</td><td>风华高科</td><td class="green">+5.29%</td><td class="num green">+100759</td><td>SJ.被动元件/MLCC</td></tr>
+<tr><td>9</td><td>中大力德</td><td class="green">+9.99%</td><td class="num green">+5837</td><td>宇.AI应用/具身</td></tr>
+<tr><td>10</td><td>埃斯顿</td><td class="green">+3.40%</td><td class="num green">+27292</td><td>宇.AI应用/具身</td></tr>
+<tr><td>11</td><td>泛微网络</td><td class="green">+6.07%</td><td class="num green">+25740</td><td>宇.AI应用/具身</td></tr>
+<tr><td>12</td><td>蓝色光标</td><td class="green">+2.58%</td><td class="num green">+126189</td><td>宇.AI应用/具身</td></tr>
+<tr><td>13</td><td>一鸣食品</td><td class="green">+10.02%</td><td class="num green">+7682</td><td>民生消费</td></tr>
+<tr><td>14</td><td>易点天下</td><td class="green">+6.07%</td><td class="num green">+34560</td><td>宇.AI应用/具身</td></tr>
+<tr><td>15</td><td>华电辽能</td><td class="green">+10.00%</td><td class="num green">+33269</td><td>ND.电力</td></tr>
+<tr><td>16</td><td>顺钠股份</td><td class="green">+9.99%</td><td class="num green">+12272</td><td>SJ.变压器/机房配电</td></tr>
+<tr><td>17</td><td>传智教育</td><td class="green">+9.99%</td><td class="num green">+718</td><td>宇.AI应用/具身</td></tr>
+<tr><td>18</td><td>卧龙电驱</td><td class="green">+8.90%</td><td class="num green">+32232</td><td>宇.AI应用/具身</td></tr>
+<tr><td>19</td><td>立新能源</td><td class="green">+3.16%</td><td class="num green">+14584</td><td>ND.储能/虚拟电厂</td></tr>
+<tr><td>20</td><td>中国西电</td><td class="green">+4.27%</td><td class="num green">+24852</td><td>ND.电网设备</td></tr>
+</table>
 
 <div class="highlight">
-<b>资金结论：</b>资金从半导体/存储等高位科技切向低位政策驱动（核电、电网、电力）与超跌（光伏、风电）。南向资金单日净流入110亿创本月新高，港股/A股联动回暖。整体为<span class="gold">存量轮动，非增量主升</span>。
+<b>资金结论：</b>资金从半导体/存储等高位科技切向低位政策驱动（核电→电网→电力→光伏）。3日/5日维度看，AI应用（ChatGPT/AI智能体/AIGC）资金沉淀深厚，但今日分化；核电/电力今日爆发。南向资金+110亿创本月新高。整体为<span class="gold">存量轮动，非增量主升</span>。暗盘榜中核电/电力/AI应用三分天下，风华高科暗盘资金超10亿居首（MLCC龙头）。
 </div>
 </div>
 
@@ -163,14 +257,14 @@ th{color:var(--sub);font-weight:600;background:rgba(255,255,255,.02);}
 <h2>🎢 A股8大板块轮动</h2>
 <table>
 <tr><th>板块</th><th>代表股</th><th>涨停/涨幅</th><th>驱动逻辑</th><th>强度</th></tr>
-<tr><td>AI应用</td><td>传智教育/恒银/天娱</td><td>6板/2板</td><td>OpenAI降价+海外云增长</td><td class="green">★★★☆</td></tr>
-<tr><td>核电</td><td>东方电气/江苏神通</td><td>批量首板</td><td>国常会核准8台机组</td><td class="green">★★★★</td></tr>
-<tr><td>电力/电网</td><td>华电辽能/风范股份</td><td>批量首板</td><td>高温负荷+特高压招标</td><td class="green">★★★★</td></tr>
-<tr><td>机器人</td><td>中大力德/瑞迪智驱</td><td>2板/首板</td><td>宇树IPO+谷歌模型</td><td class="green">★★★</td></tr>
-<tr><td>光伏</td><td>通威股份/福莱特</td><td>首板</td><td>反内卷价格合规</td><td class="green">★★★</td></tr>
-<tr><td>商业航天</td><td>神剑股份/通宇通讯</td><td>首板</td><td>板块轮动</td><td class="blue">★★☆</td></tr>
-<tr><td>大消费</td><td>一鸣食品/煌上煌</td><td>5板/首板</td><td>逆周期调节+内需</td><td class="green">★★★</td></tr>
-<tr><td>半导体</td><td>兆易创新/德明利</td><td>跌停</td><td>高位兑现+业绩分化</td><td class="red">★☆☆</td></tr>
+<tr><td>AI应用</td><td>传智教育/利欧/蓝色光标</td><td>6板/2板/+2.58%</td><td>OpenAI降价+5日资金沉淀</td><td class="green">★★★☆</td></tr>
+<tr><td>核电</td><td>中国核建/融发核电/合锻</td><td>批量首板</td><td>国常会核准8台机组</td><td class="green">★★★★</td></tr>
+<tr><td>电力/电网</td><td>华电辽能/大唐发电/中国西电</td><td>批量首板</td><td>高温负荷+特高压招标</td><td class="green">★★★★</td></tr>
+<tr><td>机器人</td><td>中大力德/埃斯顿/卧龙电驱</td><td>2板/+3.40%/+8.90%</td><td>宇树IPO+谷歌模型</td><td class="green">★★★</td></tr>
+<tr><td>光伏</td><td>通威股份/BC电池</td><td>首板</td><td>反内卷价格合规</td><td class="green">★★★</td></tr>
+<tr><td>商业航天</td><td>—</td><td>—</td><td>板块轮动</td><td class="blue">★★☆</td></tr>
+<tr><td>大消费</td><td>一鸣食品</td><td>5板</td><td>逆周期调节+内需</td><td class="green">★★★</td></tr>
+<tr><td>半导体</td><td>兆易创新/百合花</td><td>跌停/涨停</td><td>高位兑现/光刻胶补涨</td><td class="red">★☆☆</td></tr>
 </table>
 </div>
 
@@ -186,7 +280,7 @@ th{color:var(--sub);font-weight:600;background:rgba(255,255,255,.02);}
 <!-- 半导体供应链 -->
 <div class="card">
 <h2>🔗 半导体供应链</h2>
-<p class="sub">截至当日·趋势延续：存储芯片短期承压（兆易创新跌停），但长鑫存储产业链（太极实业、通富微电、深科技）中长期国产替代逻辑未变。光通信/CPO（天孚通信获11.87亿资金流入）受算力网4万亿催化，与存储形成跷跷板。</p>
+<p class="sub">截至当日·趋势延续：存储芯片短期承压（兆易创新跌停），但长鑫存储产业链（太极实业、通富微电、深科技）中长期国产替代逻辑未变。光通信/CPO（天孚通信获11.74亿资金流入）受算力网4万亿催化，与存储形成跷跷板。风华高科（MLCC龙头）暗盘资金超10亿，被动元件或迎补涨。</p>
 </div>
 
 <!-- 投资逻辑链条+信号总结 -->
@@ -198,6 +292,7 @@ th{color:var(--sub);font-weight:600;background:rgba(255,255,255,.02);}
 <tr><td>半导体</td><td>美股费半反弹 vs A股存储跌停</td><td>矛盾：内资兑现≠产业恶化</td><td class="badge badge-red">🔴 等企稳</td></tr>
 <tr><td>原油</td><td>地缘冲突持续 vs 油价大跌</td><td>矛盾：溢价已消化</td><td class="badge badge-red">🔴 空/观望</td></tr>
 <tr><td>电力/核电</td><td>政策+高温+资金三共振</td><td>互验：三重验证</td><td class="badge badge-green">🟢 可跟</td></tr>
+<tr><td>AI应用</td><td>5日资金沉淀深厚 vs 今日分化</td><td>互验：趋势在但需回踩</td><td class="badge badge-blue">🟡 等回踩</td></tr>
 </table>
 <div class="highlight">
 <b>底部信号总结：</b>缩量（2.01万亿）+机构卖散户买+科技主线调整，市场处于<b>轮动修复期而非主升浪</b>。老六策略：只做低位补涨（核电/电网/电力），回避高位科技（存储/半导体），单股≤10%，总仓≤60%，破位3日不回无条件止损。
