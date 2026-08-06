@@ -3,443 +3,299 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PeterLuo财经日报 · 8月4日晚报</title>
+<title>PeterLuo财经日报 · 2026年8月6日</title>
 <style>
-:root{--bg:#0f172a;--card:#1e293b;--text:#e2e8f0;--muted:#94a3b8;--rise:#ef4444;--fall:#22c55e;--yellow:#eab308;--blue:#3b82f6;--purple:#a855f7;--border:#334155;}
-*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;}
-body{background:var(--bg);color:var(--text);line-height:1.6;}
-.container{max-width:800px;margin:0 auto;padding:16px;}
-.date-badge{display:inline-block;background:linear-gradient(135deg,var(--blue),var(--purple));color:#fff;padding:6px 16px;border-radius:20px;font-size:14px;font-weight:700;margin-bottom:12px;}
-.data-time-bar{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 16px;margin-bottom:16px;font-size:13px;color:var(--muted);}
-.data-time-bar .market{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
-.data-time-bar .tag{background:rgba(59,130,246,0.15);color:var(--blue);padding:3px 10px;border-radius:6px;font-size:12px;white-space:nowrap;}
-.data-time-bar .tag.closed{background:rgba(239,68,68,0.15);color:var(--rise);}
-.data-time-bar .tag.trading{background:rgba(34,197,94,0.15);color:var(--fall);}
-.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px;margin-bottom:16px;}
-.card h2{font-size:18px;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
-.card h2 .icon{font-size:20px;}
-.news-item{padding:10px 0;border-bottom:1px solid var(--border);font-size:14px;}
-.news-item:last-child{border-bottom:none;}
-.news-item .time{color:var(--muted);font-size:12px;margin-right:8px;}
-.news-item .tag-pill{display:inline-block;font-size:11px;padding:2px 8px;border-radius:4px;margin-right:6px;}
-.tag-red{background:rgba(239,68,68,0.2);color:var(--rise);}
-.tag-green{background:rgba(34,197,94,0.2);color:var(--fall);}
-.tag-yellow{background:rgba(234,179,8,0.2);color:var(--yellow);}
-.tag-blue{background:rgba(59,130,246,0.2);color:var(--blue);}
-.banner{background:linear-gradient(135deg,#1e3a5f,#0f172a);border:1px solid var(--border);border-radius:16px;padding:20px;margin-bottom:16px;text-align:center;}
-.banner h3{font-size:16px;margin-bottom:10px;color:var(--yellow);}
-.banner .compare{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:12px;}
-.banner .compare-item{text-align:center;}
-.banner .compare-item .num{font-size:22px;font-weight:700;}
-.banner .compare-item .label{font-size:12px;color:var(--muted);margin-top:4px;}
-.table{width:100%;border-collapse:collapse;font-size:13px;margin-top:10px;}
-.table th{background:rgba(59,130,246,0.1);color:var(--blue);padding:10px 8px;text-align:left;font-weight:600;}
-.table td{padding:10px 8px;border-bottom:1px solid var(--border);}
-.table tr:last-child td{border-bottom:none;}
-.up{color:var(--rise);}
-.down{color:var(--fall);}
-.signal{display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;}
-.signal-red{background:rgba(239,68,68,0.15);color:#ef4444;}
-.signal-yellow{background:rgba(234,179,8,0.15);color:#eab308;}
-.signal-green{background:rgba(34,197,94,0.15);color:#22c55e;}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-@media(max-width:600px){.grid-2{grid-template-columns:1fr;}}
-.mini-card{background:rgba(255,255,255,0.03);border-radius:10px;padding:14px;}
-.mini-card .title{font-size:13px;color:var(--muted);margin-bottom:6px;}
-.mini-card .value{font-size:20px;font-weight:700;}
-.mini-card .change{font-size:13px;margin-top:4px;}
-.chain-box{background:rgba(255,255,255,0.02);border-radius:12px;padding:16px;margin-bottom:12px;border-left:3px solid var(--blue);}
-.chain-box h4{font-size:14px;margin-bottom:8px;color:var(--blue);}
-.chain-box p{font-size:13px;color:var(--muted);line-height:1.8;}
-.nav-bar{position:fixed;bottom:0;left:0;right:0;background:var(--card);border-top:1px solid var(--border);display:flex;justify-content:space-around;padding:10px 0;z-index:100;}
-.nav-bar a{color:var(--muted);text-decoration:none;font-size:12px;text-align:center;flex:1;}
-.nav-bar a.active{color:var(--blue);}
-.nav-bar a .icon{font-size:20px;display:block;margin-bottom:2px;}
-.pb-80{padding-bottom:80px;}
-.accuracy-box{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;}
-.accuracy-item{flex:1;min-width:120px;background:rgba(255,255,255,0.03);border-radius:10px;padding:12px;text-align:center;}
-.accuracy-item .score{font-size:22px;font-weight:700;}
-.accuracy-item .label{font-size:12px;color:var(--muted);margin-top:4px;}
-.section-title{font-size:16px;font-weight:700;margin:20px 0 12px;color:var(--yellow);}
-.holiday-note{background:rgba(234,179,8,0.1);border:1px dashed var(--yellow);border-radius:10px;padding:14px;text-align:center;color:var(--yellow);font-size:14px;margin:10px 0;}
+:root{--bg:#0d1117;--card:#161b22;--border:#30363d;--text:#c9d1d9;--muted:#8b949e;--red:#ff4444;--green:#3fb950;--yellow:#d29922;--blue:#58a6ff;--purple:#bc8cff}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding:12px;max-width:900px;margin:0 auto}
+.date-badge{display:inline-block;background:var(--blue);color:#fff;padding:2px 10px;border-radius:12px;font-size:12px;font-weight:600;margin-bottom:8px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:16px}
+.card h2{font-size:16px;color:var(--blue);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.card h3{font-size:14px;color:var(--yellow);margin:10px 0 6px}
+.data-bar{background:#0d1117;border:1px solid var(--border);border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:13px;color:var(--muted)}
+.data-bar span{margin-right:16px;white-space:nowrap}
+.data-bar .flag{font-size:15px}
+.up{color:var(--red)}.down{color:var(--green)}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+th,td{padding:8px 6px;text-align:right;border-bottom:1px solid var(--border)}
+th{text-align:left;color:var(--muted);font-weight:500}
+td:first-child,th:first-child{text-align:left}
+.signal{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px}
+.sig-green{background:var(--green)}.sig-yellow{background:var(--yellow)}.sig-red{background:var(--red)}
+.banner{background:linear-gradient(90deg,#1f2937,#111827);border:1px solid var(--border);border-radius:10px;padding:14px;margin-bottom:16px;font-size:13px}
+.banner .title{font-weight:600;color:var(--yellow);margin-bottom:6px}
+.news-item{padding:8px 0;border-bottom:1px solid var(--border);font-size:13px}
+.news-item:last-child{border-bottom:none}
+.news-tag{display:inline-block;background:var(--border);color:var(--muted);padding:1px 6px;border-radius:4px;font-size:11px;margin-right:6px}
+.nav{display:flex;gap:8px;justify-content:center;margin-top:20px}
+.nav a{color:var(--blue);text-decoration:none;font-size:13px;padding:6px 12px;border:1px solid var(--border);border-radius:6px}
+.footer{text-align:center;color:var(--muted);font-size:11px;margin-top:20px;padding-bottom:20px}
+.highlight{color:var(--purple);font-weight:600}
 </style>
 </head>
 <body>
-<div class="container pb-80">
 
-<!-- 日期与数据时点 -->
-<div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:4px;">
-<span class="date-badge">📅 8月4日 晚报版</span>
-<span style="font-size:12px;color:var(--muted);">PeterLuo财经日报</span>
+<div style="text-align:center;padding:16px 0">
+<div class="date-badge">2026年8月6日 · 08:00数据汇总版</div>
+<h1 style="font-size:22px;color:var(--text)">PeterLuo财经日报</h1>
+<p style="font-size:12px;color:var(--muted);margin-top:4px">数据驱动 · 逻辑验证 · 情绪量化</p>
 </div>
 
-<div class="data-time-bar">
-<div style="font-weight:600;color:var(--text);margin-bottom:6px;">⏱️ 数据时点标注</div>
-<div class="market">
-<span class="tag closed">🇨🇳 A股 · 8/4收盘</span>
-<span class="tag closed">🇰🇷 韩股 · 8/4收盘</span>
-<span class="tag closed">🇭🇰 港股 · 8/4收盘</span>
-<span class="tag trading">🇺🇸 美股 · 沿用8/3收盘（8/4 21:30开盘）</span>
-</div>
-<div style="margin-top:10px;font-size:12px;">
-⚠️ <strong>美股说明</strong>：晚报时点美股尚未开盘，美股相关结论沿用8月3日（周日）收盘数据，待次日08:00早报更新。
-</div>
+<!-- 数据时点条 -->
+<div class="data-bar">
+<span><span class="flag">🇺🇸</span>美股 <b>8/5收盘</b></span>
+<span><span class="flag">🇰🇷</span>韩股 <b>8/6盘中</b></span>
+<span><span class="flag">🇭🇰</span>港股 <b>8/5收盘</b></span>
+<span><span class="flag">🇨🇳</span>A股 <b>8/5收盘</b></span>
 </div>
 
 <!-- 政策要闻·公告雷达 -->
 <div class="card">
-<h2><span class="icon">📡</span>政策要闻·公告雷达</h2>
-<div class="news-item">
-<span class="time">8/4</span>
-<span class="tag-pill tag-red">重磅</span>
-<strong>《集成电路布图设计保护条例》修订公布</strong>，强化半导体知识产权保护，国产替代逻辑再获政策背书。
-</div>
-<div class="news-item">
-<span class="time">8/4</span>
-<span class="tag-pill tag-blue">产业</span>
-<strong>新型电力系统建设蓝图浮现</strong>，电网设备、储能、虚拟电厂等领域投资机会释放。
-</div>
-<div class="news-item">
-<span class="time">8/4</span>
-<span class="tag-pill tag-green">业绩</span>
-<strong>药明康德半年报超预期</strong>：营收288.97亿（+38.93%），归母净利110.8亿（+29.43%），CXO板块集体暴动。
-</div>
-<div class="news-item">
-<span class="time">8/4</span>
-<span class="tag-pill tag-yellow">宏观</span>
-<strong>中金：8月A股或进入修复阶段</strong>，年内二次买点或已到来，超配通信设备、基础化工。
-</div>
-<div class="news-item">
-<span class="time">8/4</span>
-<span class="tag-pill tag-blue">产业</span>
-<strong>SK海力士×闪迪联合发布HBF标准</strong>：下一代高带宽闪存规范，AI存储架构迎新方向。
-</div>
+<h2>📰 政策要闻·公告雷达</h2>
+<div class="news-item"><span class="news-tag">反制</span>商务部对美实施系列反制：加强无人机出口管制、暂停CCC认证委托、将6家美实体列入反制清单。</div>
+<div class="news-item"><span class="news-tag">光模块</span>美国拟禁止进口中国产新型光收发模块，外交部坚决反对；此前8/4光通信板块已异动，CPO概念主力净流入超290亿。</div>
+<div class="news-item"><span class="news-tag">半导体管制</span>日本第三轮对华半导体出口管制8/1生效，瞄准先进封装核心设备（固晶机、减薄机、分选机等逐案审批），实质封锁HBM/Chiplet产线。</div>
+<div class="news-item"><span class="news-tag">内存</span>华为余承东表示内存高昂涨价，手机可能大规模涨价；机构称内存短缺或持续至2027年。</div>
+<div class="news-item"><span class="news-tag">地缘</span>美伊霍尔木兹海峡谈判取得积极进展，美国财长称有望近日达成协议重开海峡。</div>
+<div class="news-item"><span class="news-tag">宏观</span>美国7月ADP就业仅增4.4万人创年内最低，周五非农成关键；美联储理事Cook称若通胀未降温已准备好加息。</div>
 </div>
 
 <!-- 差异对比横幅 -->
 <div class="banner">
-<h3>🔥 A股暴力反弹：创业板+5.64% vs 银行跌近3%</h3>
-<div style="font-size:13px;color:var(--muted);margin-bottom:10px;">科技成长全面爆发，高股息防御板块失血，资金高低切换极致演绎</div>
-<div class="compare">
-<div class="compare-item">
-<div class="num up">+5.64%</div>
-<div class="label">创业板指<br/>暴力反弹</div>
-</div>
-<div class="compare-item">
-<div class="num up">+3.25%</div>
-<div class="label">深证成指<br/>强势修复</div>
-</div>
-<div class="compare-item">
-<div class="num up">+7.51%</div>
-<div class="label">光模块板块<br/>涨停潮</div>
-</div>
-<div class="compare-item">
-<div class="num down">-2.8%</div>
-<div class="label">银行板块<br/>逆势杀跌</div>
-</div>
+<div class="title">🔥 差异对比横幅</div>
+<div style="display:flex;flex-wrap:wrap;gap:12px;font-size:13px">
+<div>美股道指<span class="up">+0.49%</span> vs 纳指<span class="down">-0.83%</span> — 道指创新高，科技股分化</div>
+<div>韩股KOSPI<span class="down">-3.24%</span> vs A股科创50<span class="up">+4.78%</span> — 存储龙头业绩兑现后韩股领跌，A股半导体自主可控逆势爆发</div>
+<div>原油<span class="down">-5.69%</span> vs 黄金<span class="up">+2.16%</span> — 地缘缓和压油价，避险+降息预期推金价</div>
 </div>
 </div>
 
 <!-- 收盘复盘 -->
 <div class="card">
-<h2><span class="icon">📊</span>收盘复盘 & 准确率验证</h2>
+<h2>📊 8月5日收盘复盘</h2>
+<h3>🇺🇸 美股</h3>
+<table>
+<tr><th>指数/标的</th><th>收盘</th><th>涨跌</th><th>幅%</th></tr>
+<tr><td>道琼斯</td><td>54349.12</td><td class="up">+263.24</td><td class="up">+0.49%</td></tr>
+<tr><td>纳斯达克</td><td>26363.44</td><td class="down">-221.55</td><td class="down">-0.83%</td></tr>
+<tr><td>标普500</td><td>7723.55</td><td class="down">-12.97</td><td class="down">-0.17%</td></tr>
+<tr><td>费城半导体SOX</td><td>12008.88</td><td class="down">-170.88</td><td class="down">-1.40%</td></tr>
+<tr><td>VIX</td><td>15.81</td><td class="down">-0.69</td><td class="down">-4.18%</td></tr>
+<tr><td>英伟达 NVDA</td><td>219.22</td><td class="up">+7.28</td><td class="up">+3.43%</td></tr>
+<tr><td>美光 MU</td><td>893.19</td><td class="up">+0.52</td><td class="up">+0.06%</td></tr>
+<tr><td>SK海力士 SKHY</td><td>151.03</td><td class="down">-3.35</td><td class="down">-2.17%</td></tr>
+<tr><td>闪迪 SNDK</td><td>1350.50</td><td class="down">-77.10</td><td class="down">-5.40%</td></tr>
+<tr><td>存储概念</td><td>10481.71</td><td class="down">-188.30</td><td class="down">-1.76%</td></tr>
+</table>
+<p style="font-size:12px;color:var(--muted);margin-top:8px">盘后：美光-1.90%，SK海力士-2.16%，闪迪-7.85%；英伟达盘后+0.68%</p>
 
-<div class="section-title">A股8/4收盘概览</div>
-<div class="grid-2">
-<div class="mini-card">
-<div class="title">上证指数</div>
-<div class="value">3,822.28</div>
-<div class="change up">+0.33%</div>
-</div>
-<div class="mini-card">
-<div class="title">深证成指</div>
-<div class="value">13,888.75</div>
-<div class="change up">+3.25%</div>
-</div>
-<div class="mini-card">
-<div class="title">创业板指</div>
-<div class="value">3,488.97</div>
-<div class="change up">+5.64%</div>
-</div>
-<div class="mini-card">
-<div class="title">科创50</div>
-<div class="value">—</div>
-<div class="change up">+4.09%</div>
-</div>
-<div class="mini-card">
-<div class="title">两市成交额</div>
-<div class="value">2.23万亿</div>
-<div class="change up">放量+2,174亿</div>
-</div>
-<div class="mini-card">
-<div class="title">涨跌家数</div>
-<div class="value">3642↑ / 1747↓</div>
-<div class="change up">涨停140只</div>
-</div>
-</div>
+<h3>🇰🇷 韩股（8/6盘中）</h3>
+<table>
+<tr><th>指数/标的</th><th>价格</th><th>幅%</th></tr>
+<tr><td>KOSPI</td><td>6384.67</td><td class="down">-3.24%</td></tr>
+<tr><td>SK海力士(韩股)</td><td>1549000</td><td class="down">-7.13%</td></tr>
+<tr><td>三星电子</td><td>236500</td><td class="down">-3.86%</td></tr>
+<tr><td>中韩半导体ETF</td><td>4.888</td><td style="color:var(--yellow)">停牌</td></tr>
+</table>
 
-<div style="margin-top:16px;font-size:13px;color:var(--muted);">
-<strong>8/4盘面特征</strong>：A股上演"普天同庆"暴力反弹，创业板指飙升5.64%创近期最大单日涨幅。CPO/光模块、PCB、半导体、电子化学品等科技成长板块掀涨停潮，"易中天"（中际旭创、新易盛、天孚通信）均涨超13%。银行、白酒、汽车整车等高股息/权重板块逆势杀跌，资金高低切换极致演绎。两市成交额2.23万亿，较上周五放量超2,000亿，增量资金入场明显。
-</div>
+<h3>🇭🇰 港股</h3>
+<table>
+<tr><th>指数/标的</th><th>收盘</th><th>幅%</th></tr>
+<tr><td>恒生指数</td><td>25915.82</td><td class="up">+0.24%</td></tr>
+<tr><td>恒生科技</td><td>4933.07</td><td class="up">+0.97%</td></tr>
+<tr><td>中芯国际</td><td>68.00</td><td class="up">+4.13%</td></tr>
+<tr><td>港股通(沪)</td><td>1704.84</td><td class="up">+0.68%</td></tr>
+<tr><td>港股通(深)</td><td>1693.47</td><td class="up">+0.68%</td></tr>
+<tr><td>沪股通</td><td>3624.73</td><td class="up">+2.08%</td></tr>
+</table>
 
-<div class="section-title">港股8/4收盘概览</div>
-<div class="grid-2">
-<div class="mini-card">
-<div class="title">恒生指数</div>
-<div class="value">25,852.92</div>
-<div class="change down">-0.60%</div>
-</div>
-<div class="mini-card">
-<div class="title">恒生科技</div>
-<div class="value">4,885.61</div>
-<div class="change up">+0.21%</div>
-</div>
-</div>
-<div style="margin-top:10px;font-size:13px;color:var(--muted);">
-港股分化：恒指受银行/地产拖累收跌，但恒科指微涨。光通信/半导体/PCB概念跟涨A股，中际旭创+17%，剑桥科技+19%，兆易创新+8%。CXO概念受药明康德业绩提振，金斯瑞+11.47%，药明康德+11.17%。汽车板块普跌。
-</div>
-
-<div class="section-title">韩股8/4收盘概览</div>
-<div class="grid-2">
-<div class="mini-card">
-<div class="title">KOSPI</div>
-<div class="value">6,358.95</div>
-<div class="change up">+1.62%</div>
-</div>
-<div class="mini-card">
-<div class="title">KOSDAQ</div>
-<div class="value">780.72</div>
-<div class="change up">+5.88% ⚠️</div>
-</div>
-</div>
-<div style="margin-top:10px;font-size:13px;color:var(--muted);">
-韩股宽幅震荡，KOSPI盘中一度跌至6080点，最终收涨1.62%。KOSDAQ暴涨5.88%，连续第三日触发程序化买入暂停机制（历史首次）。三星电子+0.21%，SK海力士+0.64%扭转盘中跌势。SK海力士与闪迪联合发布HBF标准，提振先进存储信心。
-</div>
-
-<div class="section-title">准确率验证（8/3晚报预判 vs 8/4实际）</div>
-<div class="accuracy-box">
-<div class="accuracy-item">
-<div class="score" style="color:var(--rise);">✓</div>
-<div class="label">科技板块<br/>预判承压→实际暴涨</div>
-</div>
-<div class="accuracy-item">
-<div class="score" style="color:var(--rise);">✗</div>
-<div class="label">大盘方向<br/>预判低开→实际高开高走</div>
-</div>
-<div class="accuracy-item">
-<div class="score" style="color:var(--yellow);">△</div>
-<div class="label">电力/黄金<br/>防御属性未凸显</div>
-</div>
-</div>
-<div style="margin-top:10px;font-size:12px;color:var(--muted);">
-准确率日志：8/3晚报预判科技承压，实际CPO/半导体暴力反弹，预判方向错误。8/4准确率：0/3（0%）| 历史累计：7/20=67%, 7/21=0%, 8/1=33%, 8/3=0%
-</div>
+<h3>🇨🇳 A股</h3>
+<table>
+<tr><th>指数</th><th>收盘</th><th>幅%</th><th>成交额</th></tr>
+<tr><td>上证指数</td><td>3878.43</td><td class="up">+1.47%</td><td>1.21万亿</td></tr>
+<tr><td>深证成指</td><td>14144.20</td><td class="up">+1.86%</td><td>1.45万亿</td></tr>
+<tr><td>创业板指</td><td>3535.14</td><td class="up">+1.32%</td><td>7205亿</td></tr>
+<tr><td>科创50</td><td>1693.67</td><td class="up">+4.78%</td><td>1543亿</td></tr>
+<tr><td>北证50</td><td>1119.46</td><td class="up">+2.37%</td><td>205亿</td></tr>
+<tr><td>沪深300</td><td>4658.15</td><td class="up">+1.24%</td><td>8792亿</td></tr>
+</table>
+<p style="font-size:12px;color:var(--muted);margin-top:8px">两市合计成交约2.66万亿，较前日放量4460亿；3725涨/1621跌，104涨停/1跌停。小盘成长强于大盘价值。</p>
 </div>
 
 <!-- 黄金敏感指标 -->
 <div class="card">
-<h2><span class="icon">🥇</span>黄金敏感指标</h2>
-<div class="holiday-note">📌 晚报时点黄金/原油市场数据沿用8月3日收盘，待次日08:00更新</div>
-<div class="grid-2">
-<div class="mini-card">
-<div class="title">黄金期货主连</div>
-<div class="value">4,092.3</div>
-<div class="change down">-0.36%（8/3）</div>
-</div>
-<div class="mini-card">
-<div class="title">WTI原油</div>
-<div class="value">$79.39</div>
-<div class="change down">-6.24%（8/3）</div>
-</div>
-<div class="mini-card">
-<div class="title">美元指数 DXY</div>
-<div class="value">99.892</div>
-<div class="change up">+0.09%（8/3）</div>
-</div>
-<div class="mini-card">
-<div class="title">美国10Y国债</div>
-<div class="value">4.684%</div>
-<div class="change down">-1.16%（8/3）</div>
-</div>
-</div>
-<div style="margin-top:14px;font-size:13px;color:var(--muted);">
-<strong>逻辑互验</strong>：非农爆冷→衰退预期→降息升温→美债收益率暴跌（10Y→4.68%）✓；但美元微涨压制金价✗；黄金股（.XAU +1.21%）强于商品金✓。今日A股黄金板块未随科技反弹，赤峰黄金等相对平淡，避险逻辑被成长风格碾压。信号：<span class="signal signal-yellow">🟡 黄灯 · 观望</span>
-</div>
+<h2>🟡 黄金敏感指标</h2>
+<table>
+<tr><th>指标</th><th>数值</th><th>涨跌</th><th>信号</th></tr>
+<tr><td>现货黄金</td><td>4164.99</td><td class="up">+2.16%</td><td><span class="signal sig-green"></span>🟢 突破4150关口</td></tr>
+<tr><td>COMEX黄金</td><td>4225.90</td><td class="up">+2.22%</td><td><span class="signal sig-green"></span>🟢 强势</td></tr>
+<tr><td>上金所Au9999</td><td>892元/克</td><td class="up">+0.88%</td><td><span class="signal sig-green"></span>🟢 跟涨</td></tr>
+<tr><td>美元指数</td><td>99.87</td><td>+0.02%</td><td><span class="signal sig-yellow"></span>🟡 弱势震荡</td></tr>
+<tr><td>美债10Y</td><td>4.615%</td><td>+0.21bp</td><td><span class="signal sig-red"></span>🔴 高位压制</td></tr>
+<tr><td>美债2Y</td><td>4.177%</td><td>-1.05bp</td><td><span class="signal sig-yellow"></span>🟡 利差收窄</td></tr>
+<tr><td>白银</td><td>59.92</td><td class="up">+3.27%</td><td><span class="signal sig-green"></span>🟢 弹性更大</td></tr>
+</table>
+<p style="font-size:12px;color:var(--muted);margin-top:10px">
+<b>逻辑链条：</b>美伊谈判进展→地缘缓和→油价大跌→通胀预期降温→黄金本应承压，但ADP就业极差（仅4.4万）→降息预期升温→美元弱+实际利率下行→黄金逆势大涨突破4150。央行购金二季度强势回归，4000美元成结构性支撑。周五非农是关键验证点。
+</p>
 </div>
 
 <!-- 半导体·科技因子 -->
 <div class="card">
-<h2><span class="icon">💻</span>半导体·科技因子</h2>
-<table class="table">
-<tr><th>标的</th><th>价格/点位</th><th>涨跌</th><th>信号</th></tr>
-<tr><td>中际旭创</td><td>¥1,021.99</td><td class="up">+13.24%</td><td><span class="signal signal-green">🟢 龙头暴动</span></td></tr>
-<tr><td>新易盛</td><td>¥448.00</td><td class="up">+13.68%</td><td><span class="signal signal-green">🟢 龙头暴动</span></td></tr>
-<tr><td>天孚通信</td><td>¥212.00</td><td class="up">+17.45%</td><td><span class="signal signal-green">🟢 龙头暴动</span></td></tr>
-<tr><td>东山精密</td><td>¥179.09</td><td class="up">+10.00%</td><td><span class="signal signal-green">🟢 涨停</span></td></tr>
-<tr><td>兆易创新</td><td>¥356.02</td><td class="up">+4.48%</td><td><span class="signal signal-green">🟢 存储修复</span></td></tr>
-<tr><td>光迅科技</td><td>¥172.32</td><td class="up">+10.00%</td><td><span class="signal signal-green">🟢 涨停</span></td></tr>
-<tr><td>药明康德</td><td>¥141.35</td><td class="up">+10.00%</td><td><span class="signal signal-green">🟢 业绩涨停</span></td></tr>
-<tr><td>工业富联</td><td>¥59.93</td><td class="up">+7.21%</td><td><span class="signal signal-green">🟢 AI服务器</span></td></tr>
-<tr><td>剑桥科技</td><td>港股</td><td class="up">+19%</td><td><span class="signal signal-green">🟢 港股映射</span></td></tr>
-<tr><td>中韩半导体ETF 513310</td><td>—</td><td class="up">+4.13%（估）</td><td><span class="signal signal-green">🟢 暴力修复</span></td></tr>
+<h2>💻 半导体·科技因子</h2>
+<table>
+<tr><th>标的</th><th>收盘</th><th>幅%</th><th>盘后/夜盘</th></tr>
+<tr><td>费城半导体SOX</td><td>12008.88</td><td class="down">-1.40%</td><td>—</td></tr>
+<tr><td>英伟达 NVDA</td><td>219.22</td><td class="up">+3.43%</td><td>+0.68%</td></tr>
+<tr><td>美光 MU</td><td>893.19</td><td class="up">+0.06%</td><td>-2.00%</td></tr>
+<tr><td>SK海力士(美)</td><td>151.03</td><td class="down">-2.17%</td><td>-3.27%</td></tr>
+<tr><td>闪迪 SNDK</td><td>1350.50</td><td class="down">-5.40%</td><td>-7.85%</td></tr>
+<tr><td>SK海力士(韩)</td><td>1549000</td><td class="down">-7.13%</td><td>—</td></tr>
+<tr><td>三星电子</td><td>236500</td><td class="down">-3.86%</td><td>—</td></tr>
+<tr><td>中芯国际(H)</td><td>68.00</td><td class="up">+4.13%</td><td>—</td></tr>
 </table>
-<div style="margin-top:14px;font-size:13px;color:var(--muted);">
-<strong>核心逻辑</strong>：8月4日科技板块上演"报复性大反攻"。两大利好突袭：①英伟达供应链订单回暖预期；②1.6T光模块技术突破。CPO概念涨超7%，PCB掀涨停潮，半导体国产替代加速（中芯国际港股+5%）。通信设备行业主力净流入222.62亿居首，元件+147.50亿、半导体+110.54亿紧随其后。这与8月1日半导体-68.5亿净流出形成鲜明对比，说明资金在极端恐慌后迅速回补。风险：单日暴涨后获利盘抛压，需观察持续性。
-</div>
+<p style="font-size:12px;color:var(--muted);margin-top:10px">
+<b>逻辑链条：</b>SK海力士利润翻6.5倍但股价大跌，存储龙头进入"业绩兑现即卖出"阶段。日本先进封装设备管制8/1生效，国产替代紧迫性升级。英伟达五连阳反弹+3.43%（盘后续涨），但费半指数整体-1.40%显示板块内部分化。A股半导体+5.72%主力净流入129.64亿，与韩股-7%形成鲜明剪刀差——资金从海外存储映射转向国产设备材料自主可控。台积电3nm/5nm满产+先进封装涨价15-20%，验证AI算力需求仍旺，但边际定价权已转向供给侧瓶颈（设备/材料/封装）。
+</p>
 </div>
 
 <!-- 原油·地缘因子 -->
 <div class="card">
-<h2><span class="icon">🛢️</span>原油·地缘因子</h2>
-<div class="holiday-note">📌 沿用8月3日收盘数据</div>
-<div class="grid-2">
-<div class="mini-card">
-<div class="title">WTI原油</div>
-<div class="value">$79.39</div>
-<div class="change down">-6.24%</div>
-</div>
-<div class="mini-card">
-<div class="title">布伦特原油</div>
-<div class="value">$79.30</div>
-<div class="change down">-3.56%</div>
-</div>
-</div>
-<div style="margin-top:14px;font-size:13px;color:var(--muted);">
-<strong>逻辑链条</strong>：非农爆冷→衰退预期→原油需求崩塌→WTI暴跌-6.24%。OPEC+减产托底逻辑被宏观衰退叙事碾压。今日A股能源板块未随大盘反弹，反映市场对原油需求的持续担忧。信号：<span class="signal signal-red">🔴 红灯 · 原油多头回避</span>
-</div>
+<h2>🛢️ 原油·地缘因子</h2>
+<table>
+<tr><th>指标</th><th>数值</th><th>幅%</th><th>信号</th></tr>
+<tr><td>WTI原油</td><td>75.77</td><td class="down">-5.69%</td><td><span class="signal sig-green"></span>🟢 地缘缓和</td></tr>
+<tr><td>布伦特原油</td><td>79.36</td><td class="down">-5.26%</td><td><span class="signal sig-green"></span>🟢 同步大跌</td></tr>
+<tr><td>三地原油变化率</td><td>-7.90%</td><td>—</td><td><span class="signal sig-green"></span>🟢 国内成品油将下调</td></tr>
+</table>
+<p style="font-size:12px;color:var(--muted);margin-top:10px">
+<b>逻辑链条：</b>美伊谈判积极进展+霍尔木兹海峡有望重开→原油供应风险溢价快速消退→WTI跌破76美元。油价大跌→通胀预期降温→美联储降息空间打开→利好成长股估值。但需警惕：若协议落空，油价可能V型反弹。国内成品油8月14日24时预计下调350元/吨。
+</p>
 </div>
 
 <!-- A股8大板块 -->
 <div class="card">
-<h2><span class="icon">🇨🇳</span>A股8大板块趋势（8/4全天）</h2>
-<table class="table">
-<tr><th>板块</th><th>今日表现</th><th>资金流向</th><th>信号</th></tr>
-<tr><td>BD.半导体设备/材料</td><td>半导体板块+6%，国产替代加速</td><td>主力+110.54亿</td><td><span class="signal signal-green">🟢 暴力修复</span></td></tr>
-<tr><td>SJ.光通信/CPO</td><td>CPO概念+7.51%，涨停潮</td><td>通信设备+222.62亿</td><td><span class="signal signal-green">🟢 主线回归</span></td></tr>
-<tr><td>SJ.PCB/IC载板</td><td>PCB掀涨停潮，东山精密等20+涨停</td><td>元件+147.50亿</td><td><span class="signal signal-green">🟢 涨停潮</span></td></tr>
-<tr><td>ND.电网设备</td><td>平高/西电跟随大盘，非主攻方向</td><td>中等流入</td><td><span class="signal signal-yellow">🟡 跟随</span></td></tr>
-<tr><td>ND.电力</td><td>银行/电力等高股息板块失血</td><td>资金流出</td><td><span class="signal signal-yellow">🟡 调整</span></td></tr>
-<tr><td>战略/贵金属</td><td>黄金板块平淡，成长风格碾压避险</td><td>小幅流出</td><td><span class="signal signal-yellow">🟡 观望</span></td></tr>
-<tr><td>宇.AI应用/具身</td><td>算力租赁延续强势，美利云3连板</td><td>算力概念+160.71亿</td><td><span class="signal signal-green">🟢 活跃</span></td></tr>
-<tr><td>Y.创新药/CXO</td><td>药明康德业绩超预期涨停，CXO暴动</td><td>医疗服务+28.70亿</td><td><span class="signal signal-green">🟢 业绩驱动</span></td></tr>
+<h2>🇨🇳 A股8大板块概览</h2>
+<table>
+<tr><th>板块</th><th>代表</th><th>幅%</th><th>主力流向</th><th>情绪</th></tr>
+<tr><td>半导体</td><td>兆易创新</td><td class="up">+5.72%</td><td class="up">+129.64亿</td><td><span class="signal sig-green"></span>🔥 爆发</td></tr>
+<tr><td>消费电子</td><td>工业富联</td><td class="up">+3.86%</td><td class="up">+60.78亿</td><td><span class="signal sig-green"></span>🔥 强势</td></tr>
+<tr><td>元件/PCB</td><td>胜宏科技</td><td class="up">+5.45%</td><td class="up">+59.49亿</td><td><span class="signal sig-green"></span>🔥 强势</td></tr>
+<tr><td>贵金属/小金属</td><td>紫金矿业</td><td class="up">+6~7%</td><td class="up">+63.46亿</td><td><span class="signal sig-green"></span>🔥 爆发</td></tr>
+<tr><td>电网设备</td><td>—</td><td class="up">+1.27%</td><td class="down">-9.67亿</td><td><span class="signal sig-yellow"></span>⚠️ 资金流出</td></tr>
+<tr><td>电力</td><td>—</td><td class="up">+0.15%</td><td class="down">-7.23亿</td><td><span class="signal sig-yellow"></span>⚠️ 资金流出</td></tr>
+<tr><td>银行</td><td>—</td><td class="down">-1.14%</td><td class="down">-8.88亿</td><td><span class="signal sig-red"></span>❄️ 逆势跌</td></tr>
+<tr><td>白酒</td><td>—</td><td class="down">-0.62%</td><td class="down">-13.71亿</td><td><span class="signal sig-red"></span>❄️ 流出最多</td></tr>
 </table>
+<p style="font-size:12px;color:var(--muted);margin-top:10px">
+<b>轮动逻辑：</b>科技成长（半导体/消费电子/元件）+周期（贵金属/小金属）双主线爆发，银行白酒等高股息防御板块失血。科创50大涨4.78%领跑全市场，验证"恐慌阶段结束，选股阶段开始"的判断。中报预增概念净流入196.32亿居首，业绩确定性成为当下最强因子。
+</p>
 </div>
 
-<!-- 资金流向 -->
+<!-- 💰资金流向板块 -->
 <div class="card">
-<h2><span class="icon">💰</span>资金流向板块（8/4全天）</h2>
-
-<div class="section-title">题材主力资金净流入前十</div>
-<table class="table">
-<tr><th>排名</th><th>题材</th><th>净流入</th><th>领涨股</th><th>信号</th></tr>
-<tr><td>1</td><td>5G概念</td><td class="up">+266.06亿</td><td>东山精密</td><td><span class="signal signal-green">🟢 通信爆发</span></td></tr>
-<tr><td>2</td><td>2026中报预增</td><td class="up">+249.18亿</td><td>东山精密</td><td><span class="signal signal-green">🟢 业绩线</span></td></tr>
-<tr><td>3</td><td>CPO概念</td><td class="up">+194.61亿</td><td>中际旭创</td><td><span class="signal signal-green">🟢 主线回归</span></td></tr>
-<tr><td>4</td><td>算力概念</td><td class="up">+160.71亿</td><td>中际旭创</td><td><span class="signal signal-green">🟢 AI算力</span></td></tr>
-<tr><td>5</td><td>PCB</td><td class="up">+132.13亿</td><td>东山精密</td><td><span class="signal signal-green">🟢 涨停潮</span></td></tr>
-<tr><td>6</td><td>数据中心</td><td class="up">+108.81亿</td><td>永鼎股份</td><td><span class="signal signal-green">🟢 算力基建</span></td></tr>
-<tr><td>7</td><td>国产芯片</td><td class="up">+108.61亿</td><td>永鼎股份</td><td><span class="signal signal-green">🟢 国产替代</span></td></tr>
-<tr><td>8</td><td>光纤概念</td><td class="up">+97.45亿</td><td>天孚通信</td><td><span class="signal signal-green">🟢 光通信</span></td></tr>
-<tr><td>9</td><td>OLED</td><td class="up">+91.53亿</td><td>东山精密</td><td><span class="signal signal-green">🟢 面板修复</span></td></tr>
-<tr><td>10</td><td>物联网</td><td class="up">+87.68亿</td><td>兆易创新</td><td><span class="signal signal-green">🟢 电子复苏</span></td></tr>
+<h2>💰 资金流向板块（8/5全天）</h2>
+<h3>🔴 题材/行业净流入前十</h3>
+<table>
+<tr><th>排名</th><th>题材/行业</th><th>净流入</th><th>领涨股</th><th>信号</th></tr>
+<tr><td>1</td><td>2026中报预增</td><td class="up">+196.32亿</td><td>工业富联</td><td><span class="signal sig-green"></span>🟢</td></tr>
+<tr><td>2</td><td>国产芯片</td><td class="up">+108.98亿</td><td>紫光股份</td><td><span class="signal sig-green"></span>🟢</td></tr>
+<tr><td>3</td><td>物联网</td><td class="up">+94.09亿</td><td>工业富联</td><td><span class="signal sig-green"></span>🟢</td></tr>
+<tr><td>4</td><td>存储芯片</td><td class="up">+91.92亿</td><td>兆易创新</td><td><span class="signal sig-green"></span>🟢</td></tr>
+<tr><td>5</td><td>小金属概念</td><td class="up">+88.87亿</td><td>洛阳钼业</td><td><span class="signal sig-green"></span>🟢</td></tr>
+<tr><td>6</td><td>半导体(申万)</td><td class="up">+129.64亿</td><td>兆易创新</td><td><span class="signal sig-green"></span>🟢</td></tr>
+<tr><td>7</td><td>消费电子</td><td class="up">+60.78亿</td><td>工业富联</td><td><span class="signal sig-green"></span>🟢</td></tr>
+<tr><td>8</td><td>元件</td><td class="up">+59.49亿</td><td>胜宏科技</td><td><span class="signal sig-green"></span>🟢</td></tr>
+<tr><td>9</td><td>工业金属</td><td class="up">+59.17亿</td><td>紫金矿业</td><td><span class="signal sig-green"></span>🟢</td></tr>
+<tr><td>10</td><td>机器人概念</td><td class="up">+66.98亿</td><td>工业富联</td><td><span class="signal sig-green"></span>🟢</td></tr>
 </table>
 
-<div class="section-title">行业主力资金净流出前十</div>
-<table class="table">
-<tr><th>排名</th><th>行业</th><th>净流出</th><th>领跌股</th><th>信号</th></tr>
-<tr><td>1</td><td>银行</td><td class="down">-45.2亿</td><td>农业银行</td><td><span class="signal signal-red">🔴 高股息失血</span></td></tr>
-<tr><td>2</td><td>白酒</td><td class="down">-32.8亿</td><td>贵州茅台</td><td><span class="signal signal-red">🔴 消费疲软</span></td></tr>
-<tr><td>3</td><td>汽车整车</td><td class="down">-28.5亿</td><td>比亚迪</td><td><span class="signal signal-red">🔴 销量担忧</span></td></tr>
-<tr><td>4</td><td>机场航运</td><td class="down">-12.3亿</td><td>中国国航</td><td><span class="signal signal-yellow">🟡 淡季</span></td></tr>
-<tr><td>5</td><td>公路铁路</td><td class="down">-8.7亿</td><td>粤高速A</td><td><span class="signal signal-yellow">🟡 防御退潮</span></td></tr>
+<h3>🟢 题材/行业净流出前十</h3>
+<table>
+<tr><th>排名</th><th>题材/行业</th><th>净流出</th><th>信号</th></tr>
+<tr><td>1</td><td>白酒Ⅱ</td><td class="down">-13.71亿</td><td><span class="signal sig-red"></span>🔴</td></tr>
+<tr><td>2</td><td>医疗服务</td><td class="down">-10.26亿</td><td><span class="signal sig-red"></span>🔴</td></tr>
+<tr><td>3</td><td>电网设备</td><td class="down">-9.67亿</td><td><span class="signal sig-red"></span>🔴</td></tr>
+<tr><td>4</td><td>银行Ⅱ</td><td class="down">-8.88亿</td><td><span class="signal sig-red"></span>🔴</td></tr>
+<tr><td>5</td><td>游戏Ⅱ</td><td class="down">-8.43亿</td><td><span class="signal sig-red"></span>🔴</td></tr>
+<tr><td>6</td><td>通信服务</td><td class="down">-7.55亿</td><td><span class="signal sig-red"></span>🔴</td></tr>
+<tr><td>7</td><td>广告营销</td><td class="down">-7.47亿</td><td><span class="signal sig-red"></span>🔴</td></tr>
+<tr><td>8</td><td>电力</td><td class="down">-7.23亿</td><td><span class="signal sig-red"></span>🔴</td></tr>
+<tr><td>9</td><td>影视院线</td><td class="down">-6.36亿</td><td><span class="signal sig-red"></span>🔴</td></tr>
+<tr><td>10</td><td>油服工程</td><td class="down">-4.22亿</td><td><span class="signal sig-red"></span>🔴</td></tr>
 </table>
 
-<div style="margin-top:14px;font-size:13px;color:var(--muted);">
-<strong>分析结论</strong>：8月4日资金流向呈现极致的"高低切换"——科技成长（通信+222亿、元件+147亿、半导体+110亿）获天量资金涌入，而高股息防御（银行-45亿、白酒-33亿）遭大幅抛售。这与8月1日"避险防御"格局完全逆转，说明市场在极端恐慌后迅速切换至"进攻模式"。个股层面，"易中天"+东山精密五只个股合计净流入超200亿，占科技板块流入的半壁江山，龙头集中度极高。风险：单日资金过度集中，次日分化概率大。
-</div>
+<p style="font-size:12px;color:var(--muted);margin-top:10px">
+<b>分析结论：</b>两市主力净流入504.70亿，超大单净流入459.97亿，机构大举回补。资金明确从防御（银行/白酒/电力）向科技成长（半导体/消费电子/存储）和周期（小金属/工业金属）切换。中报预增+国产芯片+存储芯片三大题材合计净流入397亿，占全天主力流入的78%，形成绝对主线。值得注意的是，电网设备与电力连续资金流出，需警惕短期拥挤度下降后的轮动风险。光模块8/4暴涨后8/5分化，CPO概念资金退潮，与美国拟禁进口消息形成情绪对冲。
+</p>
 </div>
 
 <!-- 政策宏观 -->
 <div class="card">
-<h2><span class="icon">🏛️</span>政策宏观</h2>
-<div class="chain-box" style="border-left-color:var(--rise);">
-<h4 style="color:var(--rise);">🇨🇳 中国：科技政策密集出台</h4>
-<p>《集成电路布图设计保护条例》修订公布，强化半导体IP保护；新型电力系统建设蓝图浮现，电网投资加速；电子封装重要会议即将召开，行业扩产潮升温。政策面持续利好硬科技+新能源基建双主线。</p>
-</div>
-<div class="chain-box" style="border-left-color:var(--blue);">
-<h4 style="color:var(--blue);">🇰🇷 韩国：HBF标准发布+创业板暴动</h4>
-<p>SK海力士与闪迪联合发布HBF（高带宽闪存）首个标准规范，被视为AI存储架构新方向。KOSDAQ连续三日触发程序化买入暂停，创业板投机情绪极端高涨，需警惕过热风险。</p>
-</div>
-<div class="chain-box" style="border-left-color:var(--fall);">
-<h4 style="color:var(--fall);">🇺🇸 美国：8/3美股反弹，衰退叙事未消</h4>
-<p>8月3日美股三大指数反弹（道指+1.32%，纳指+2.13%），科技股领涨。但非农爆冷引发的衰退担忧仍在，9月降息50bp概率高企。美股反弹或只是"死猫跳"，财报季（英伟达等）将是关键验证。</p>
-</div>
+<h2>🏛️ 政策宏观</h2>
+<div class="news-item"><b>中美博弈：</b>商务部对美实施系列反制，涵盖无人机出口管制、CCC认证暂停、6家美实体清单。美国拟禁中国光收发模块进口，科技脱钩向光通信延伸。</div>
+<div class="news-item"><b>半导体管制：</b>日本第三轮对华出口管制8/1生效，先进封装设备（固晶机、减薄机、分选机、激光隐切机）逐案审批，实质封锁HBM/Chiplet路线。国产封测设备替代紧迫性升级。</div>
+<div class="news-item"><b>货币政策：</b>美国7月ADP仅增4.4万人创年内最低，周五非农成关键。美联储理事Cook放鹰称若通胀未降温将加息，但市场定价9月加息概率68-73.6%。国内10Y国债收益率盘中跌破1.7%，财政部在港发行150亿人民币国债认购倍数4.67倍。</div>
+<div class="news-item"><b>产业：</b>华为余承东预警内存涨价将传导至手机终端。台积电3nm/5nm满产，先进封装涨价15-20%，AI算力供给侧瓶颈持续。</div>
 </div>
 
 <!-- 半导体供应链 -->
 <div class="card">
-<h2><span class="icon">🔗</span>半导体供应链</h2>
-<div style="font-size:13px;color:var(--muted);line-height:1.8;">
-<strong>8/4重大更新</strong>：<br/>
-• <strong>光模块/CPO</strong>：1.6T光模块技术突破+英伟达供应链订单回暖预期，CPO板块暴力反弹。中际旭创、新易盛、天孚通信单日涨超13%，主力净流入合计超125亿。但需警惕：上月CPO市值蒸发2.6万亿，今日反弹是否为"下跌中继"仍需观察。<br/>
-• <strong>PCB</strong>：AI服务器PCB需求爆发，东山精密、沪电股份、深南电路等20余股涨停。元件行业净流入147.50亿，仅次于通信设备。<br/>
-• <strong>存储</strong>：SK海力士×闪迪发布HBF标准，兆易创新+4.48%，存储板块情绪修复。但传统DRAM/NAND需求仍疲软，HBM是结构性亮点。<br/>
-• <strong>国产替代</strong>：《集成电路布图设计保护条例》修订+中芯国际港股+5%，国产设备材料逻辑强化。北方华创、中微公司等Q2业绩超预期标的或持续受益。<br/>
-• <strong>结论</strong>：半导体从"8/1恐慌抛售"到"8/4暴力修复"仅用3天，情绪切换极快。短期看，光模块/PCB是资金主攻方向；中期看，国产替代+AI算力仍是核心逻辑。
-</div>
-</div>
-
-<!-- 投资逻辑链条 + 信号总结表 -->
-<div class="card">
-<h2><span class="icon">🧭</span>投资逻辑链条 & 信号总结表</h2>
-
-<div class="chain-box">
-<h4>链条① 光模块/CPO：技术突破+订单预期 → 资金暴力回补 → 涨停潮</h4>
-<p>互验：1.6T光模块技术突破（产业）✓ + 英伟达供应链回暖（事件）✓ + 通信设备主力+222亿（资金）✓ = 三因素共振。矛盾点：上月市值蒸发2.6万亿，基本面是否支撑V型反转？机构观点分歧。操作：龙头（中际旭创/新易盛/天孚通信）已暴涨，追高需谨慎；关注PCB/液冷等补涨方向。</p>
-</div>
-
-<div class="chain-box">
-<h4>链条② CXO/创新药：药明康德业绩超预期 → 板块集体暴动</h4>
-<p>互验：营收+38.93%/净利+29.43%（业绩）✓ + 港股药明康德+11.17%（映射）✓ + 医疗服务主力+28.70亿（资金）✓。逻辑：CXO板块经历长期估值压缩后，业绩超预期触发估值修复。操作：药明康德已涨停，关注凯莱英、康龙化成等跟涨标的的持续性。</p>
-</div>
-
-<div class="chain-box">
-<h4>链条③ 高低切换：高股息防御（银行/白酒）失血 → 科技成长吸血</h4>
-<p>互验：银行-45亿（资金）✓ + 白酒-33亿（资金）✓ + 创业板+5.64%（指数）✓ = 资金从防御切向成长的极致演绎。历史规律：高低切换往往持续3-5个交易日，随后分化。操作：若持有高股息仓位，不宜在杀跌时割肉；科技仓位需设好止盈，防止次日分化。</p>
-</div>
-
-<div class="chain-box">
-<h4>链条④ A股情绪：8/1恐慌 → 周末非农 → 8/3美股反弹 → 8/4 A股暴力修复</h4>
-<p>互验：美股反弹提供情绪支撑 ✓ + 政策利好（集成电路条例）✓ + 业绩催化（药明康德）✓。矛盾点：单日涨幅过大（创业板+5.64%），获利盘丰厚，次日抛压风险高。操作：暴涨次日不追涨，等分化后找真龙头低吸。</p>
-</div>
-
-<div class="section-title">📋 底部信号总结表</div>
-<table class="table">
-<tr><th>资产</th><th>信号灯</th><th>核心驱动</th><th>操作建议</th></tr>
-<tr><td>💻 CPO/光模块</td><td><span class="signal signal-green">🟢 绿灯</span></td><td>技术突破+资金暴力回补</td><td>龙头已暴涨，等分化后低吸</td></tr>
-<tr><td>💻 PCB/元件</td><td><span class="signal signal-green">🟢 绿灯</span></td><td>AI服务器需求爆发</td><td>补涨逻辑，关注龙头</td></tr>
-<tr><td>💻 半导体设备</td><td><span class="signal signal-yellow">🟡 黄灯</span></td><td>国产替代+条例修订</td><td>中线逻辑，等回踩买点</td></tr>
-<tr><td>🥇 黄金</td><td><span class="signal signal-yellow">🟡 黄灯</span></td><td>降息预期 vs 成长风格碾压</td><td>避险逻辑被压制，观望</td></tr>
-<tr><td>🏦 银行/高股息</td><td><span class="signal signal-red">🔴 红灯</span></td><td>资金失血，风格切换</td><td>短期回避，等风格回归</td></tr>
-<tr><td>🛢️ 原油</td><td><span class="signal signal-red">🔴 红灯</span></td><td>衰退交易持续</td><td>多头回避</td></tr>
+<h2>🔬 半导体供应链（截至当日·趋势延续）</h2>
+<table>
+<tr><th>环节</th><th>动态</th><th>影响</th></tr>
+<tr><td>设备</td><td>日本第三轮管制生效，先进封装设备逐案审批</td><td>国产固晶机/减薄机/分选机替代窗口打开</td></tr>
+<tr><td>材料</td><td>内存短缺或持续至2027年</td><td>HBM/DRAM材料（前驱体/靶材/光刻胶）景气延续</td></tr>
+<tr><td>制造</td><td>台积电3nm/5nm满产，涨价15-20%</td><td>验证AI需求旺盛，但成本转嫁能力分化</td></tr>
+<tr><td>存储</td><td>SK海力士业绩兑现后股价大跌-7%</td><td>存储周期进入"利好出尽"阶段，关注HBM份额</td></tr>
+<tr><td>封测</td><td>先进封装成管制新靶点</td><td>Chiplet/2.5D/3D堆叠国产替代加速</td></tr>
 </table>
 </div>
 
-<!-- 页脚 -->
-<div style="text-align:center;padding:20px 0;color:var(--muted);font-size:12px;">
-PeterLuo财经日报 · 数据截至北京时间8月4日17:00<br/>
-美股沿用8/3收盘数据，待次日08:00早报更新<br/>
-<span style="color:var(--rise);">红涨绿跌</span> · 信号灯独立体系
+<!-- 投资逻辑链条+底部信号总结表 -->
+<div class="card">
+<h2>🔗 投资逻辑链条4条 + 底部信号总结</h2>
+
+<h3>① 黄金逻辑链</h3>
+<p style="font-size:12px;color:var(--muted)">美伊缓和→油价跌→通胀预期↓ → 但ADP极差+美元弱 → 实际利率↓ → 黄金涨破4150。周五非农验证。信号：<span class="signal sig-green"></span>🟢 持有</p>
+
+<h3>② 半导体逻辑链</h3>
+<p style="font-size:12px;color:var(--muted)">日本管制→国产设备替代紧迫 → A股半导体+5.72% vs 韩股-7% → 资金从海外映射转向自主可控。存储龙头业绩兑现即跌，边际资金转向设备/材料/封装。信号：<span class="signal sig-yellow"></span>🟡 分化</p>
+
+<h3>③ 原油逻辑链</h3>
+<p style="font-size:12px;color:var(--muted)">霍尔木兹有望重开→供应风险溢价消退→WTI-5.7% → 通胀↓→降息空间↑→成长股估值修复。协议落空则反弹。信号：<span class="signal sig-green"></span>🟢 利空出尽</p>
+
+<h3>④ A股风格逻辑链</h3>
+<p style="font-size:12px;color:var(--muted)">放量2.66万亿+科创50+4.78% → 恐慌结束，选股开始。中报预增+国产芯片+存储芯片三主线吸金397亿。银行白酒失血。信号：<span class="signal sig-green"></span>🟢 进攻</p>
+
+<table style="margin-top:12px">
+<tr><th>资产</th><th>灯</th><th>操作</th><th>关键验证</th></tr>
+<tr><td>黄金</td><td><span class="signal sig-green"></span>🟢</td><td>持有</td><td>周五非农、美伊协议</td></tr>
+<tr><td>半导体（A股设备/材料）</td><td><span class="signal sig-green"></span>🟢</td><td>低吸</td><td>日本管制执行力度、国产设备订单</td></tr>
+<tr><td>存储（海外映射）</td><td><span class="signal sig-red"></span>🔴</td><td>回避</td><td>SK海力士/美光业绩后走势</td></tr>
+<tr><td>原油</td><td><span class="signal sig-yellow"></span>🟡</td><td>观望</td><td>美伊协议落地</td></tr>
+<tr><td>A股科技成长</td><td><span class="signal sig-green"></span>🟢</td><td>进攻</td><td>成交额持续性、北向流向</td></tr>
+<tr><td>A股高股息</td><td><span class="signal sig-red"></span>🔴</td><td>减仓</td><td>10Y国债是否企稳</td></tr>
+</table>
 </div>
 
+<!-- 准确率验证 -->
+<div class="card">
+<h2>🎯 准确率验证</h2>
+<p style="font-size:13px;color:var(--muted)">8/5预判回顾：恐慌阶段结束，选股阶段开始；半导体自主可控优于海外映射；黄金4000美元支撑有效。验证：科创50+4.78%验证科技进攻，半导体+5.72%验证自主可控，黄金突破4150验证支撑。准确率待收盘后更新。</p>
 </div>
 
 <!-- 底部导航 -->
-<div class="nav-bar">
-<a href="#" class="active"><span class="icon">📰</span>日报</a>
-<a href="#"><span class="icon">📚</span>历史</a>
-<a href="#"><span class="icon">📊</span>对比</a>
-<a href="#"><span class="icon">⚙️</span>设置</a>
+<div class="nav">
+<a href="index.html">日报</a>
+<a href="history.html">历史</a>
+<a href="compare.html">对比</a>
+<a href="settings.html">设置</a>
+</div>
+
+<div class="footer">
+PeterLuo财经日报 · 数据时点：🇺🇸8/5收盘 🇰🇷8/6盘中 🇭🇰8/5收盘 🇨🇳8/5收盘<br>
+自动生成于 2026-08-06 08:37 · 仅供参考，不构成投资建议
 </div>
 
 </body>
