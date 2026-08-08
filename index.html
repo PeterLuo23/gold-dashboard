@@ -13,7 +13,7 @@ h1{font-size:20px;color:var(--blue);margin-bottom:4px}
 h2{font-size:16px;color:var(--blue);margin:12px 0 8px;border-left:4px solid var(--blue);padding-left:10px}
 h3{font-size:14px;color:var(--purple);margin:10px 0 6px}
 .badge{display:inline-block;padding:2px 8px;border-radius:12px;font-size:12px;font-weight:600;margin-right:6px}
-/* 灯号颜色反转：红=积极/绿灯行，绿=回避/红灯停，黄=谨慎 */
+/* 交通灯语义：红=停/回避，绿=行/积极，黄=等/谨慎 */
 .badge-red{background:rgba(255,123,114,.15);color:var(--red);border:1px solid rgba(255,123,114,.3)}
 .badge-green{background:rgba(63,185,80,.15);color:var(--green);border:1px solid rgba(63,185,80,.3)}
 .badge-yellow{background:rgba(210,153,34,.15);color:var(--yellow);border:1px solid rgba(210,153,34,.3)}
@@ -25,7 +25,7 @@ table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0}
 th,td{border:1px solid var(--border);padding:6px 8px;text-align:left}
 th{background:rgba(88,166,255,.08);color:var(--blue);font-weight:600}
 tr:nth-child(even){background:rgba(255,255,255,.02)}
-/* 涨跌颜色：红涨绿跌（A股惯例） */
+/* A股涨跌色：红涨绿跌 */
 .up{color:var(--red);font-weight:600}
 .down{color:var(--green);font-weight:600}
 .neutral{color:var(--muted)}
@@ -118,14 +118,14 @@ tr:nth-child(even){background:rgba(255,255,255,.02)}
 <h2>🥇 黄金敏感指标</h2>
 <table>
 <tr><th>指标</th><th>数值</th><th>变动</th><th>信号</th></tr>
-<tr><td>伦敦金现</td><td>4354.06 USD</td><td class="up">+2.68%</td><td><span class="badge badge-red">🟢 强多</span></td></tr>
-<tr><td>黄金/美元(截图)</td><td>4341.45</td><td class="up">+2.39%</td><td><span class="badge badge-red">🟢 强多</span></td></tr>
-<tr><td>白银期货</td><td>63.80 USD</td><td class="up">+3.56%</td><td><span class="badge badge-red">🟢 强多</span></td></tr>
-<tr><td>美元指数</td><td>99.604</td><td class="down">-0.34%</td><td><span class="badge badge-red">🟢 利多黄金</span></td></tr>
-<tr><td>10Y美债收益率</td><td>4.650%</td><td class="down">-7.3bp</td><td><span class="badge badge-red">🟢 利多黄金</span></td></tr>
-<tr><td>30Y美债收益率</td><td>5.203%</td><td class="down">-5.7bp</td><td><span class="badge badge-red">🟢 利多黄金</span></td></tr>
-<tr><td>费城金银指数.XAU</td><td>368.56</td><td class="up">+6.83%</td><td><span class="badge badge-red">🟢 强多</span></td></tr>
-<tr><td>VIX波动率</td><td>14.90</td><td class="down">-1.65%</td><td><span class="badge badge-yellow">🟡 低波</span></td></tr>
+<tr><td>伦敦金现</td><td>4354.06 USD</td><td class="up">+2.68%</td><td><span class="badge badge-green">🟢 绿灯·强多</span></td></tr>
+<tr><td>黄金/美元(截图)</td><td>4341.45</td><td class="up">+2.39%</td><td><span class="badge badge-green">🟢 绿灯·强多</span></td></tr>
+<tr><td>白银期货</td><td>63.80 USD</td><td class="up">+3.56%</td><td><span class="badge badge-green">🟢 绿灯·强多</span></td></tr>
+<tr><td>美元指数</td><td>99.604</td><td class="down">-0.34%</td><td><span class="badge badge-green">🟢 绿灯·利多黄金</span></td></tr>
+<tr><td>10Y美债收益率</td><td>4.650%</td><td class="down">-7.3bp</td><td><span class="badge badge-green">🟢 绿灯·利多黄金</span></td></tr>
+<tr><td>30Y美债收益率</td><td>5.203%</td><td class="down">-5.7bp</td><td><span class="badge badge-green">🟢 绿灯·利多黄金</span></td></tr>
+<tr><td>费城金银指数.XAU</td><td>368.56</td><td class="up">+6.83%</td><td><span class="badge badge-green">🟢 绿灯·强多</span></td></tr>
+<tr><td>VIX波动率</td><td>14.90</td><td class="down">-1.65%</td><td><span class="badge badge-yellow">🟡 黄灯·低波</span></td></tr>
 </table>
 <div style="font-size:13px;margin-top:8px">
 <p><b>非农拆解：</b>7月非农-2.3万（预期+8.3万），前值下修至2万；失业率4.1%但劳动参与率61.4%创5年新低（26.4万人退出劳动力市场）；薪资环比+0.1%同比+3.2%均低于预期。</p>
@@ -167,8 +167,8 @@ tr:nth-child(even){background:rgba(255,255,255,.02)}
 <h2>🛢️ 原油·地缘因子</h2>
 <table>
 <tr><th>指标</th><th>数值</th><th>涨跌</th><th>信号</th></tr>
-<tr><td>WTI原油</td><td>77.08</td><td class="down">-0.27%</td><td><span class="badge badge-yellow">🟡 震荡</span></td></tr>
-<tr><td>布伦特原油</td><td>78.72</td><td class="down">-0.09%</td><td><span class="badge badge-yellow">🟡 震荡</span></td></tr>
+<tr><td>WTI原油</td><td>77.08</td><td class="down">-0.27%</td><td><span class="badge badge-yellow">🟡 黄灯·震荡</span></td></tr>
+<tr><td>布伦特原油</td><td>78.72</td><td class="down">-0.09%</td><td><span class="badge badge-yellow">🟡 黄灯·震荡</span></td></tr>
 </table>
 <div style="font-size:13px;margin-top:8px">
 <p><b>地缘：</b>美伊冲突进入"以打促谈、边打边谈"阶段，双方无全面开战意愿。特朗普称霍尔木兹海峡协议"尚未正式达成"。<span class="highlight">地缘溢价边际回落</span>。</p>
@@ -182,14 +182,14 @@ tr:nth-child(even){background:rgba(255,255,255,.02)}
 <h2>🇨🇳 A股8大板块监测</h2>
 <table>
 <tr><th>板块</th><th>代表指数/个股</th><th>8/7表现</th><th>情绪</th><th>老六评级</th></tr>
-<tr><td>1.半导体硬科技</td><td>科创综指</td><td class="up">+3.35%</td><td>🔥🔥🔥</td><td><span class="badge badge-red">S3积极</span></td></tr>
-<tr><td>2.算力基础设施</td><td>PCB/光模块</td><td>元件+4.2%</td><td>🔥🔥🔥</td><td><span class="badge badge-yellow">S3偏谨慎</span></td></tr>
-<tr><td>3.创新药</td><td>CRO/博腾股份</td><td class="up">+10.63%</td><td>🔥🔥</td><td><span class="badge badge-red">S3积极</span></td></tr>
-<tr><td>4.大金融</td><td>多元金融</td><td class="down">-0.96%</td><td>❄️</td><td><span class="badge badge-green">S1观察</span></td></tr>
-<tr><td>5.能源电力链</td><td>电力/电网</td><td>平铺微涨</td><td>🌡️</td><td><span class="badge badge-yellow">S2试错</span></td></tr>
-<tr><td>6.前沿与周期</td><td>黄金/有色</td><td>贵金属+1.5%</td><td>🔥</td><td><span class="badge badge-red">S3积极</span></td></tr>
-<tr><td>7.具身智能/机器人</td><td>人形机器人</td><td>分化</td><td>🌡️</td><td><span class="badge badge-yellow">S2试错</span></td></tr>
-<tr><td>8.商业航天</td><td>卫星互联网</td><td>分化</td><td>🌡️</td><td><span class="badge badge-yellow">S2试错</span></td></tr>
+<tr><td>1.半导体硬科技</td><td>科创综指</td><td class="up">+3.35%</td><td>🔥🔥🔥</td><td><span class="badge badge-green">🟢 绿灯·S3积极</span></td></tr>
+<tr><td>2.算力基础设施</td><td>PCB/光模块</td><td>元件+4.2%</td><td>🔥🔥🔥</td><td><span class="badge badge-yellow">🟡 黄灯·S3偏谨慎</span></td></tr>
+<tr><td>3.创新药</td><td>CRO/博腾股份</td><td class="up">+10.63%</td><td>🔥🔥</td><td><span class="badge badge-green">🟢 绿灯·S3积极</span></td></tr>
+<tr><td>4.大金融</td><td>多元金融</td><td class="down">-0.96%</td><td>❄️</td><td><span class="badge badge-red">🔴 红灯·S1观察</span></td></tr>
+<tr><td>5.能源电力链</td><td>电力/电网</td><td>平铺微涨</td><td>🌡️</td><td><span class="badge badge-yellow">🟡 黄灯·S2试错</span></td></tr>
+<tr><td>6.前沿与周期</td><td>黄金/有色</td><td>贵金属+1.5%</td><td>🔥</td><td><span class="badge badge-green">🟢 绿灯·S3积极</span></td></tr>
+<tr><td>7.具身智能/机器人</td><td>人形机器人</td><td>分化</td><td>🌡️</td><td><span class="badge badge-yellow">🟡 黄灯·S2试错</span></td></tr>
+<tr><td>8.商业航天</td><td>卫星互联网</td><td>分化</td><td>🌡️</td><td><span class="badge badge-yellow">🟡 黄灯·S2试错</span></td></tr>
 </table>
 <div class="small">注：PCB/元件短期过热，获利5%减半纪律；存储细分受美股映射压制，设备材料优先。</div>
 </div>
@@ -200,30 +200,30 @@ tr:nth-child(even){background:rgba(255,255,255,.02)}
 <h3>🔴 主力资金净流入前十（行业/题材）</h3>
 <table>
 <tr><th>排名</th><th>行业/题材</th><th>净流入额</th><th>领涨股</th><th>信号</th></tr>
-<tr><td>1</td><td>元件（PCB）</td><td class="up">+124.31亿</td><td>胜宏科技、铜冠铜箔</td><td><span class="badge badge-red">🟢 强攻</span></td></tr>
-<tr><td>2</td><td>半导体</td><td class="up">+108.20亿</td><td>兆易创新、中微公司</td><td><span class="badge badge-red">🟢 强攻</span></td></tr>
-<tr><td>3</td><td>化学制药</td><td class="up">+40.96亿</td><td>博腾股份、CRO</td><td><span class="badge badge-red">🟢 强攻</span></td></tr>
-<tr><td>4</td><td>IT服务Ⅱ</td><td class="up">+~30亿</td><td>紫光股份</td><td><span class="badge badge-yellow">🟡 跟进</span></td></tr>
-<tr><td>5</td><td>通信设备</td><td class="up">+~20亿</td><td>光迅科技</td><td><span class="badge badge-yellow">🟡 跟进</span></td></tr>
-<tr><td>6</td><td>软件开发</td><td class="up">+~15亿</td><td>深信服</td><td><span class="badge badge-yellow">🟡 跟进</span></td></tr>
-<tr><td>7</td><td>贵金属</td><td class="up">+~10亿</td><td>赤峰黄金</td><td><span class="badge badge-red">🟢 强攻</span></td></tr>
-<tr><td>8</td><td>光伏设备</td><td class="up">+~8亿</td><td>阳光电源</td><td><span class="badge badge-yellow">🟡 跟进</span></td></tr>
-<tr><td>9</td><td>汽车整车</td><td class="up">+~5亿</td><td>比亚迪</td><td><span class="badge badge-yellow">🟡 跟进</span></td></tr>
-<tr><td>10</td><td>电网设备</td><td class="up">+~3亿</td><td>中国西电</td><td><span class="badge badge-yellow">🟡 跟进</span></td></tr>
+<tr><td>1</td><td>元件（PCB）</td><td class="up">+124.31亿</td><td>胜宏科技、铜冠铜箔</td><td><span class="badge badge-green">🟢 绿灯·强攻</span></td></tr>
+<tr><td>2</td><td>半导体</td><td class="up">+108.20亿</td><td>兆易创新、中微公司</td><td><span class="badge badge-green">🟢 绿灯·强攻</span></td></tr>
+<tr><td>3</td><td>化学制药</td><td class="up">+40.96亿</td><td>博腾股份、CRO</td><td><span class="badge badge-green">🟢 绿灯·强攻</span></td></tr>
+<tr><td>4</td><td>IT服务Ⅱ</td><td class="up">+~30亿</td><td>紫光股份</td><td><span class="badge badge-yellow">🟡 黄灯·跟进</span></td></tr>
+<tr><td>5</td><td>通信设备</td><td class="up">+~20亿</td><td>光迅科技</td><td><span class="badge badge-yellow">🟡 黄灯·跟进</span></td></tr>
+<tr><td>6</td><td>软件开发</td><td class="up">+~15亿</td><td>深信服</td><td><span class="badge badge-yellow">🟡 黄灯·跟进</span></td></tr>
+<tr><td>7</td><td>贵金属</td><td class="up">+~10亿</td><td>赤峰黄金</td><td><span class="badge badge-green">🟢 绿灯·强攻</span></td></tr>
+<tr><td>8</td><td>光伏设备</td><td class="up">+~8亿</td><td>阳光电源</td><td><span class="badge badge-yellow">🟡 黄灯·跟进</span></td></tr>
+<tr><td>9</td><td>汽车整车</td><td class="up">+~5亿</td><td>比亚迪</td><td><span class="badge badge-yellow">🟡 黄灯·跟进</span></td></tr>
+<tr><td>10</td><td>电网设备</td><td class="up">+~3亿</td><td>中国西电</td><td><span class="badge badge-yellow">🟡 黄灯·跟进</span></td></tr>
 </table>
 <h3>🟢 主力资金净流出前十</h3>
 <table>
 <tr><th>排名</th><th>行业/题材</th><th>净流出额</th><th>领跌股</th><th>信号</th></tr>
-<tr><td>1</td><td>银行</td><td class="down">-~25亿</td><td>招行、工行</td><td><span class="badge badge-green">🔴 撤退</span></td></tr>
-<tr><td>2</td><td>保险</td><td class="down">-~15亿</td><td>平安、太保</td><td><span class="badge badge-green">🔴 撤退</span></td></tr>
-<tr><td>3</td><td>多元金融</td><td class="down">-2.5亿</td><td>爱建集团</td><td><span class="badge badge-green">🔴 撤退</span></td></tr>
-<tr><td>4</td><td>消费电子</td><td class="down">-~20亿</td><td>蓝思科技</td><td><span class="badge badge-green">🔴 撤退</span></td></tr>
-<tr><td>5</td><td>白酒</td><td class="down">-~12亿</td><td>茅台、五粮液</td><td><span class="badge badge-green">🔴 撤退</span></td></tr>
-<tr><td>6</td><td>电池</td><td class="down">-~10亿</td><td>宁德时代</td><td><span class="badge badge-yellow">🟡 观望</span></td></tr>
-<tr><td>7</td><td>证券</td><td class="down">-~8亿</td><td>中信、东财</td><td><span class="badge badge-yellow">🟡 观望</span></td></tr>
-<tr><td>8</td><td>房地产</td><td class="down">-~6亿</td><td>保利、万科</td><td><span class="badge badge-green">🔴 撤退</span></td></tr>
-<tr><td>9</td><td>煤炭</td><td class="down">-~5亿</td><td>中国神华</td><td><span class="badge badge-yellow">🟡 观望</span></td></tr>
-<tr><td>10</td><td>钢铁</td><td class="down">-~4亿</td><td>宝钢</td><td><span class="badge badge-yellow">🟡 观望</span></td></tr>
+<tr><td>1</td><td>银行</td><td class="down">-~25亿</td><td>招行、工行</td><td><span class="badge badge-red">🔴 红灯·撤退</span></td></tr>
+<tr><td>2</td><td>保险</td><td class="down">-~15亿</td><td>平安、太保</td><td><span class="badge badge-red">🔴 红灯·撤退</span></td></tr>
+<tr><td>3</td><td>多元金融</td><td class="down">-2.5亿</td><td>爱建集团</td><td><span class="badge badge-red">🔴 红灯·撤退</span></td></tr>
+<tr><td>4</td><td>消费电子</td><td class="down">-~20亿</td><td>蓝思科技</td><td><span class="badge badge-red">🔴 红灯·撤退</span></td></tr>
+<tr><td>5</td><td>白酒</td><td class="down">-~12亿</td><td>茅台、五粮液</td><td><span class="badge badge-red">🔴 红灯·撤退</span></td></tr>
+<tr><td>6</td><td>电池</td><td class="down">-~10亿</td><td>宁德时代</td><td><span class="badge badge-yellow">🟡 黄灯·观望</span></td></tr>
+<tr><td>7</td><td>证券</td><td class="down">-~8亿</td><td>中信、东财</td><td><span class="badge badge-yellow">🟡 黄灯·观望</span></td></tr>
+<tr><td>8</td><td>房地产</td><td class="down">-~6亿</td><td>保利、万科</td><td><span class="badge badge-red">🔴 红灯·撤退</span></td></tr>
+<tr><td>9</td><td>煤炭</td><td class="down">-~5亿</td><td>中国神华</td><td><span class="badge badge-yellow">🟡 黄灯·观望</span></td></tr>
+<tr><td>10</td><td>钢铁</td><td class="down">-~4亿</td><td>宝钢</td><td><span class="badge badge-yellow">🟡 黄灯·观望</span></td></tr>
 </table>
 <div style="font-size:13px;margin-top:8px">
 <p><b>分析结论：</b>资金呈现"<span class="highlight">科技进攻+医药防御+高股息撤退</span>"的鲜明结构。元件/半导体/化学制药三大板块合计净流入273亿，占全天主力净流入绝对主力。银行/保险/消费电子成为资金流出重灾区，印证市场从"避险高股息"向"成长弹性"切换。但PCB 5日涨23.95%已显过热，龙虎榜游资集中涌入，老六纪律：获利5%减半，10%清仓，破20日线3日不回止损。</p>
@@ -258,25 +258,25 @@ tr:nth-child(even){background:rgba(255,255,255,.02)}
 <h3>链条1：黄金/贵金属</h3>
 <p style="font-size:13px">非农负增长(-2.3万) → 薪资走弱(同比+3.2%) → 9月加息概率54%→18% → 美元走弱(99.60) + 美债收益率下行(10Y-7.3bp) → 黄金暴涨至4354美元(+2.68%) → 央行购金Q2同比+62%托底 → <span class="highlight">短期阻力4364-4370，支撑4300</span>。A股映射：赤峰黄金、山东黄金、紫金矿业。</p>
 <div class="signal-box">
-<div class="signal-item"><div class="light">🟢</div><div>黄金</div><div style="font-size:12px;color:var(--red)">红灯·强攻</div></div>
-<div class="signal-item"><div class="light">🟢</div><div>白银</div><div style="font-size:12px;color:var(--red)">红灯·强攻</div></div>
+<div class="signal-item"><div class="light">🟢</div><div>黄金</div><div style="font-size:12px;color:var(--green)">绿灯·强攻</div></div>
+<div class="signal-item"><div class="light">🟢</div><div>白银</div><div style="font-size:12px;color:var(--green)">绿灯·强攻</div></div>
 <div class="signal-item"><div class="light">🟡</div><div>黄金股</div><div style="font-size:12px;color:var(--yellow)">黄灯·高开谨慎</div></div>
 </div>
 
 <h3>链条2：半导体/科技</h3>
 <p style="font-size:13px">AI算力需求↑ → 磷化铟缺货 → 封装涨价(星科金朋H2调价) → 材料涨价(硅片/特气) → 设备高景气(中微+34.89%) → A股科创+3.35% → <span class="highlight">但美股存储大跌(SK海力士-4.88%)形成硬背离</span> → A股设备/材料优先，存储细分降仓。</p>
 <div class="signal-box">
-<div class="signal-item"><div class="light">🟢</div><div>半导体设备</div><div style="font-size:12px;color:var(--red)">红灯·强攻</div></div>
-<div class="signal-item"><div class="light">🟢</div><div>半导体材料</div><div style="font-size:12px;color:var(--red)">红灯·强攻</div></div>
+<div class="signal-item"><div class="light">🟢</div><div>半导体设备</div><div style="font-size:12px;color:var(--green)">绿灯·强攻</div></div>
+<div class="signal-item"><div class="light">🟢</div><div>半导体材料</div><div style="font-size:12px;color:var(--green)">绿灯·强攻</div></div>
 <div class="signal-item"><div class="light">🟡</div><div>PCB/元件</div><div style="font-size:12px;color:var(--yellow)">黄灯·过热</div></div>
-<div class="signal-item"><div class="light">🔴</div><div>存储(HBM除外)</div><div style="font-size:12px;color:var(--green)">绿灯·回避</div></div>
+<div class="signal-item"><div class="light">🔴</div><div>存储(HBM除外)</div><div style="font-size:12px;color:var(--red)">红灯·回避</div></div>
 </div>
 
 <h3>链条3：原油/地缘</h3>
 <p style="font-size:13px">美伊以打促谈 → 霍尔木兹海峡协议未达成但边际缓和 → OPEC+连续5月增产 → 沙特下调亚洲官价11美元 → IEA预计2026需求萎缩110万桶/日 → <span class="highlight">供需宽松压制油价</span>，78-80阻力，75支撑。</p>
 <div class="signal-box">
-<div class="signal-item"><div class="light">🔴</div><div>原油</div><div style="font-size:12px;color:var(--green)">绿灯·回避</div></div>
-<div class="signal-item"><div class="light">🔴</div><div>油服</div><div style="font-size:12px;color:var(--green)">绿灯·回避</div></div>
+<div class="signal-item"><div class="light">🔴</div><div>原油</div><div style="font-size:12px;color:var(--red)">红灯·回避</div></div>
+<div class="signal-item"><div class="light">🔴</div><div>油服</div><div style="font-size:12px;color:var(--red)">红灯·回避</div></div>
 <div class="signal-item"><div class="light">🟡</div><div>能源金属</div><div style="font-size:12px;color:var(--yellow)">黄灯·观望</div></div>
 </div>
 
@@ -284,23 +284,23 @@ tr:nth-child(even){background:rgba(255,255,255,.02)}
 <p style="font-size:13px">上证四连阳(周涨3.42%) + 科创+3.35% + 创业板周涨7.89% → 反弹进入情绪发酵中后段 → 资金从银行/保险流出 → 涌入元件/半导体/化学制药 → CRO单日+10.63% → <span class="highlight">第一波贝塔已现，今日或分化缩容</span> → 关注辨识度核心（兆易创新、博腾股份）。</p>
 <div class="signal-box">
 <div class="signal-item"><div class="light">🟡</div><div>A股大势</div><div style="font-size:12px;color:var(--yellow)">黄灯·分化</div></div>
-<div class="signal-item"><div class="light">🟢</div><div>创新药/CRO</div><div style="font-size:12px;color:var(--red)">红灯·强攻</div></div>
-<div class="signal-item"><div class="light">🔴</div><div>银行/保险</div><div style="font-size:12px;color:var(--green)">绿灯·撤退</div></div>
+<div class="signal-item"><div class="light">🟢</div><div>创新药/CRO</div><div style="font-size:12px;color:var(--green)">绿灯·强攻</div></div>
+<div class="signal-item"><div class="light">🔴</div><div>银行/保险</div><div style="font-size:12px;color:var(--red)">红灯·撤退</div></div>
 </div>
 
 <div class="divider"></div>
 <h3>📋 底部信号总结表</h3>
 <table>
 <tr><th>资产</th><th>灯号</th><th>操作</th><th>关键位/备注</th></tr>
-<tr><td>黄金</td><td><span class="badge badge-red">🟢 红灯·强攻</span></td><td>持有/低吸</td><td>支撑4300，阻力4370</td></tr>
-<tr><td>白银</td><td><span class="badge badge-red">🟢 红灯·强攻</span></td><td>持有/低吸</td><td>弹性大于黄金</td></tr>
-<tr><td>半导体设备</td><td><span class="badge badge-red">🟢 红灯·强攻</span></td><td>持有</td><td>中微、北方华创为核心</td></tr>
-<tr><td>半导体材料</td><td><span class="badge badge-red">🟢 红灯·强攻</span></td><td>持有</td><td>磷化铟、光刻胶、靶材</td></tr>
+<tr><td>黄金</td><td><span class="badge badge-green">🟢 绿灯·强攻</span></td><td>持有/低吸</td><td>支撑4300，阻力4370</td></tr>
+<tr><td>白银</td><td><span class="badge badge-green">🟢 绿灯·强攻</span></td><td>持有/低吸</td><td>弹性大于黄金</td></tr>
+<tr><td>半导体设备</td><td><span class="badge badge-green">🟢 绿灯·强攻</span></td><td>持有</td><td>中微、北方华创为核心</td></tr>
+<tr><td>半导体材料</td><td><span class="badge badge-green">🟢 绿灯·强攻</span></td><td>持有</td><td>磷化铟、光刻胶、靶材</td></tr>
 <tr><td>PCB/元件</td><td><span class="badge badge-yellow">🟡 黄灯·过热</span></td><td>获利减半</td><td>5日涨23.95%，过热</td></tr>
-<tr><td>存储(非HBM)</td><td><span class="badge badge-green">🔴 绿灯·回避</span></td><td>回避/降仓</td><td>美股映射硬背离</td></tr>
-<tr><td>创新药/CRO</td><td><span class="badge badge-red">🟢 红灯·强攻</span></td><td>持有</td><td>反弹第一波贝塔</td></tr>
-<tr><td>原油</td><td><span class="badge badge-green">🔴 绿灯·回避</span></td><td>回避</td><td>供需宽松，75支撑</td></tr>
-<tr><td>银行/保险</td><td><span class="badge badge-green">🔴 绿灯·撤退</span></td><td>回避</td><td>资金流出，高股息退潮</td></tr>
+<tr><td>存储(非HBM)</td><td><span class="badge badge-red">🔴 红灯·回避</span></td><td>回避/降仓</td><td>美股映射硬背离</td></tr>
+<tr><td>创新药/CRO</td><td><span class="badge badge-green">🟢 绿灯·强攻</span></td><td>持有</td><td>反弹第一波贝塔</td></tr>
+<tr><td>原油</td><td><span class="badge badge-red">🔴 红灯·回避</span></td><td>回避</td><td>供需宽松，75支撑</td></tr>
+<tr><td>银行/保险</td><td><span class="badge badge-red">🔴 红灯·撤退</span></td><td>回避</td><td>资金流出，高股息退潮</td></tr>
 <tr><td>A股大势</td><td><span class="badge badge-yellow">🟡 黄灯·分化</span></td><td>控制仓位</td><td>反弹中后段，单股≤10%</td></tr>
 </table>
 </div>
